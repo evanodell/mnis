@@ -1,6 +1,6 @@
 #' mnis_base
 #'
-#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame
+#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
 #' @param request The request query being made to the MNIS URL
 #' @keywords mnis
 #' @export
