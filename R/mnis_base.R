@@ -1,6 +1,6 @@
 #' mnis_base
 #'
-#' Basic function for the MNIS
+#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame
 #' @param request The request query being made to the MNIS URL
 #' @keywords mnis
 #' @export
@@ -13,8 +13,12 @@ mnis_base <- function(request) {
 
   baseurl <-"http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
-  r <- httr::GET(paste0(baseurl,request),accept_json())
+  parsed <- jsonlite::fromJSON(paste0(baseurl,request),flatten = TRUE)
 
-  parsed <- jsonlite::fromJSON(content(r, "text"), simplifyVector = FALSE)
+  parsed$Members
+
+  x <- as.data.frame(parsed$Members)
 
 }
+
+
