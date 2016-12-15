@@ -9,6 +9,8 @@
 #'
 #' }
 
+#http://data.parliament.uk/membersdataplatform/memberquery.aspx
+
 mnis_base <- function(request) {
 
   baseurl <-"http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
