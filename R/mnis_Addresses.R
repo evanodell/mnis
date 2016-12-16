@@ -6,7 +6,7 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_Addresses('')
+#' x <- mnis_Addresses(172)
 #'
 #' }
 
@@ -18,13 +18,7 @@ mnis_Addresses <- function(ID=NULL) {
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/id="
 
-  query <- paste0(baseurl, ID, "/Addresses")
-
-  got <- httr::GET(query, httr::accept_json())
-
-  got <- httr::content(got, as = "text")
-
-  parsed <- jsonlite::fromJSON(got, flatten = TRUE)
+  parsed <- jsonlite::fromJSON(paste0(baseurl, ID, "/Addresses"), flatten = TRUE)
 
   x <- as.data.frame(parsed$Members)
 

@@ -13,21 +13,24 @@
 
 mnis_base <- function(request) {
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+  #baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
-    #request <-'House=Commons|IsEligible=true/'
+  #parsed <- jsonlite::fromJSON(paste0(baseurl,request),flatten = TRUE)
 
-    query <- paste0(baseurl, request)
+  #x <- as.data.frame(parsed$Members)
 
-    got <- httr::GET(query, accept_json())
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
-    got <- httr::content(got, as = "text", encoding = "UTF-8")
+  query <- paste0(baseurl, request)
 
-    parsed <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- httr::GET(query, httr::accept_json())
 
-    parsed$Members
+  if (http_type(got) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+  got <- httr::content(got)
 
-    x <- as.data.frame(parsed$Members)
+  x<-do.call(rbind, got$Members)
 
 }
 
