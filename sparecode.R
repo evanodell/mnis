@@ -1,0 +1,42 @@
+if(FullBiog == TRUE)
+  FullBiog <- "FullBiog"
+if(Addresses == TRUE)
+  Addresses <- "Addresses"
+if(BasicDetails == TRUE)
+  BasicDetails <- "BasicDetails"
+if(BiographyEntries == TRUE)
+  BiographyEntries <- "BiographyEntries"
+if(Committees == TRUE)
+  Committees <- "Committees"
+if(Constituencies == TRUE)
+  Constituencies <- "Constituencies"
+if(ElectionsContested == TRUE)
+  ElectionsContested <- "ElectionsContested"
+if(Experiences == TRUE)
+  Experiences <- "Experiences"
+if(GovernmentPosts == TRUE)
+  GovernmentPosts <- "GovernmentPosts"
+if(Honours == TRUE)
+  Honours <- "Honours"
+if(HouseMemberships == TRUE)
+  HouseMemberships <- "HouseMemberships"
+if(Interests == TRUE)
+  Interests <- "Interests"
+if(KnownAs == TRUE)
+  KnownAs <- "KnownAs"
+if(MaidenSpeeches == TRUE)
+  MaidenSpeeches <- "MaidenSpeeches"
+if(OppositionPosts == TRUE)
+  OppositionPosts <- "OppositionPosts"
+if(OtherParliaments == TRUE)
+  OtherParliaments <- "OtherParliaments"
+if(ParliamentaryPosts == TRUE)
+  ParliamentaryPosts <- "ParliamentaryPosts"
+if(Parties == TRUE)
+  Parties <- "Parties"
+if(PreferredNames == TRUE)
+  PreferredNames <- "PreferredNames"
+if(Staff == TRUE)
+  Staff <- "Staff"
+if(Statuses == TRUE)
+  Statuses <- "Statuses"

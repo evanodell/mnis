@@ -5,21 +5,29 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_base("House=Commons|IsEligible=true/")
+#' x <- mnis_base('House=Commons|IsEligible=true/')
 #'
 #' }
 
-#http://data.parliament.uk/membersdataplatform/memberquery.aspx
+# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_base <- function(request) {
 
-  baseurl <-"http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
-  parsed <- jsonlite::fromJSON(paste0(baseurl,request),flatten = TRUE)
+    #request <-'House=Commons|IsEligible=true/'
 
-  parsed$Members
+    query <- paste0(baseurl, request)
 
-  x <- as.data.frame(parsed$Members)
+    got <- httr::GET(query, accept_json())
+
+    got <- httr::content(got, as = "text", encoding = "UTF-8")
+
+    parsed <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    parsed$Members
+
+    x <- as.data.frame(parsed$Members)
 
 }
 
