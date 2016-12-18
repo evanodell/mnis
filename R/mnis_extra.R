@@ -4,7 +4,7 @@
 #' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
 #' @param ID The ID number of the member. Defaults to NULL.
 #' @param mem_id Request based on the default membership ID scheme. Defaults to TRUE.
-#' @param dods_id Request based on the DODS membership ID scheme. Defaults to FALSE.
+#' @param refDods Request based on the DODS membership ID scheme. Defaults to FALSE.
 #' @param pims_id  Request based on the PIMS membership ID scheme. Defaults to FALSE.
 #' @param FullBiog Returns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data.
 #' @param Addresses Member address information (e.g. website, twitter, consituency address etc...)
@@ -36,81 +36,64 @@
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
-mnis_extra <- function(ID, mem_id = TRUE, dods_id = FALSE, pims_id = FALSE, FullBiog = TRUE, Addresses = TRUE, BasicDetails = TRUE, 
-    BiographyEntries = TRUE, Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, 
-    GovernmentPosts = TRUE, Honours = TRUE, HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, 
-    OppositionPosts = TRUE, OtherParliaments = TRUE, ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, 
-    Staff = TRUE, Statuses = TRUE) {
-    # make all these true, call to other functions, combine into one DF
-    
-    
+mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, FullBiog = TRUE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
+    Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE,
+    HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, OtherParliaments = TRUE,
+    ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE) {
+
     ID <- as.character(ID)
-    
-    if (dods_id == TRUE) {
-        ID_Type <- "dodsid="
-    } else if (pims_id == TRUE) {
-        ID_Type <- "pimsid="
+
+    if (refDods == TRUE) {
+        ID_Type <- "refDods="
     } else {
         ID_Type <- "id="
     }
-    
+
     # Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also gets
     # around the call limit
-    
-    if (FullBiog == TRUE) 
+
+    if (FullBiog == TRUE)
         FullBiog_DF <- mnis_FullBiog(ID)
-    if (Addresses == TRUE) 
+    if (Addresses == TRUE)
         Addresses_DF <- mnis_Addresses(ID)
-    if (BasicDetails == TRUE) 
+    if (BasicDetails == TRUE)
         BasicDetails_DF <- mnis_BasicDetails(ID)
-    if (BiographyEntries == TRUE) 
+    if (BiographyEntries == TRUE)
         BiographyEntries_DF <- mnis_BiographyEntries(ID)
-    if (Committees == TRUE) 
+    if (Committees == TRUE)
         Committees_DF <- mnis_Committees(ID)
-    if (Constituencies == TRUE) 
+    if (Constituencies == TRUE)
         Constituencies_DF <- mnis_Constituencies(ID)
-    if (ElectionsContested == TRUE) 
+    if (ElectionsContested == TRUE)
         ElectionsContested_DF <- mnis_ElectionsContested(ID)
-    if (Experiences == TRUE) 
+    if (Experiences == TRUE)
         Experiences_DF <- mnis_Experiences(ID)
-    if (GovernmentPosts == TRUE) 
+    if (GovernmentPosts == TRUE)
         GovernmentPosts_DF <- mnis_GovernmentPosts(ID)
-    if (Honours == TRUE) 
+    if (Honours == TRUE)
         Honours_DF <- mnis_Honours(ID)
-    if (HouseMemberships == TRUE) 
+    if (HouseMemberships == TRUE)
         HouseMemberships_DF <- mnis_HouseMemberships(ID)
-    if (Interests == TRUE) 
+    if (Interests == TRUE)
         Interests_DF <- mnis_Interests(ID)
-    if (KnownAs == TRUE) 
+    if (KnownAs == TRUE)
         KnownAs_DF <- mnis_KnownAs(ID)
-    if (MaidenSpeeches == TRUE) 
+    if (MaidenSpeeches == TRUE)
         MaidenSpeeches_DF <- mnis_MaidenSpeeches(ID)
-    if (OppositionPosts == TRUE) 
+    if (OppositionPosts == TRUE)
         OppositionPosts_DF <- mnis_OppositionPosts(ID)
-    if (OtherParliaments == TRUE) 
+    if (OtherParliaments == TRUE)
         OtherParliaments_DF <- mnis_OtherParliaments(ID)
-    if (ParliamentaryPosts == TRUE) 
+    if (ParliamentaryPosts == TRUE)
         ParliamentaryPosts_DF <- mnis_ParliamentaryPosts(ID)
-    if (Parties == TRUE) 
+    if (Parties == TRUE)
         Parties_DF <- mnis_Parties(ID)
-    if (PreferredNames == TRUE) 
+    if (PreferredNames == TRUE)
         PreferredNames_DF <- mnis_PreferredNames(ID)
-    if (Staff == TRUE) 
+    if (Staff == TRUE)
         Staff_DF <- mnis_Staff(ID)
-    if (Statuses == TRUE) 
+    if (Statuses == TRUE)
         Statuses_DF <- mnis_Statuses(ID)
-    
-    request <- "House=Commons|IsEligible=true/"
-    
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-    
-    # got <- httr::GET(query, httr::accept_json())
-    
-    # got <- httr::content(got, as = 'text')
-    
-    parsed <- jsonlite::fromJSON(paste0(baseurl, request), flatten = TRUE)
-    
-    x <- as.data.frame(parsed$Members)
-    
-    
+
+
 }

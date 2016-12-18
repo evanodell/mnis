@@ -69,7 +69,7 @@ mnis_extra(ID, FullBiog = FALSE, Addresses = FALSE, BasicDetails = FALSE,
 
 \item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
 
-\item{dods_id}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
+\item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
 \item{pims_id}{Request based on the PIMS membership ID scheme. Defaults to FALSE.}
 
