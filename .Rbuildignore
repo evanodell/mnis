@@ -6,3 +6,4 @@
 ^README-.*\.png$
 ^\.travis\.yml$
 ^sparecode\.R$
+^mnis_extra_old\.R$

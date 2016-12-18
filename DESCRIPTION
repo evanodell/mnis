@@ -14,7 +14,8 @@ LazyData: TRUE
 Imports:
     httr,
     jsonlite,
-    utils
+    utils,
+    plyr
 RoxygenNote: 5.0.1
 Suggests: knitr,
     rmarkdown
