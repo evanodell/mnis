@@ -33,119 +33,155 @@
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
-mnis_extra <- function(ID, FullBiog = FALSE, Addresses = FALSE,
-  BasicDetails = FALSE, BiographyEntries = FALSE, Committees = FALSE,
-  Constituencies = FALSE, ElectionsContested = FALSE, Experiences = FALSE,
-  GovernmentPosts = FALSE, Honours = FALSE, HouseMemberships = FALSE,
-  Interests = FALSE, KnownAs = FALSE, MaidenSpeeches = FALSE,
-  OppositionPosts = FALSE, OtherParliaments = FALSE, ParliamentaryPosts = FALSE,
-  Parties = FALSE, PreferredNames = FALSE, Staff = FALSE, Statuses = FALSE) {
-
-  if(FullBiog == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
-  if(Addresses == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+mnis_extra <- function(ID, FullBiog = FALSE, Addresses = FALSE, BasicDetails = FALSE, BiographyEntries = FALSE, Committees = FALSE, 
+    Constituencies = FALSE, ElectionsContested = FALSE, Experiences = FALSE, GovernmentPosts = FALSE, Honours = FALSE, 
+    HouseMemberships = FALSE, Interests = FALSE, KnownAs = FALSE, MaidenSpeeches = FALSE, OppositionPosts = FALSE, OtherParliaments = FALSE, 
+    ParliamentaryPosts = FALSE, Parties = FALSE, PreferredNames = FALSE, Staff = FALSE, Statuses = FALSE) {
+    
+    if (FullBiog == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
+    if (Addresses == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Addresses <- "Addresses"
-  if(BasicDetails == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (BasicDetails == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     BasicDetails <- "BasicDetails"
-  if(BiographyEntries == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (BiographyEntries == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     BiographyEntries <- "BiographyEntries"
-  if(Committees == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Committees == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Committees <- "Committees"
-  if(Constituencies == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Constituencies == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Constituencies <- "Constituencies"
-  if(ElectionsContested == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (ElectionsContested == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     ElectionsContested <- "ElectionsContested"
-  if(Experiences == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Experiences == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Experiences <- "Experiences"
-  if(GovernmentPosts == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (GovernmentPosts == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     GovernmentPosts <- "GovernmentPosts"
-  if(Honours == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Honours == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Honours <- "Honours"
-  if(HouseMemberships == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (HouseMemberships == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     HouseMemberships <- "HouseMemberships"
-  if(Interests == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Interests == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Interests <- "Interests"
-  if(KnownAs == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (KnownAs == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     KnownAs <- "KnownAs"
-  if(MaidenSpeeches == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (MaidenSpeeches == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     MaidenSpeeches <- "MaidenSpeeches"
-  if(OppositionPosts == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (OppositionPosts == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     OppositionPosts <- "OppositionPosts"
-  if(OtherParliaments == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (OtherParliaments == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     OtherParliaments <- "OtherParliaments"
-  if(ParliamentaryPosts == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (ParliamentaryPosts == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     ParliamentaryPosts <- "ParliamentaryPosts"
-  if(Parties == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Parties == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Parties <- "Parties"
-  if(PreferredNames == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (PreferredNames == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     PreferredNames <- "PreferredNames"
-  if(Staff == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Staff == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Staff <- "Staff"
-  if(Statuses == TRUE){
-    FullBiog <- "FullBiog"
-  } else {FullBiog <- NULL}
+    if (Statuses == TRUE) {
+        FullBiog <- "FullBiog"
+    } else {
+        FullBiog <- NULL
+    }
     Statuses <- "Statuses"
-
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/id="
-
-  query <- paste0(baseurl, ID, "|",FullBiog,"|", Addresses,"|",
-                  BasicDetails,"|", BiographyEntries,"|", Committees,"|",
-                  Constituencies,"|", ElectionsContested,"|", Experiences,"|",
-                  GovernmentPosts,"|", Honours,"|", HouseMemberships,"|",
-                  Interests,"|", KnownAs,"|", MaidenSpeeches,"|",
-                  OppositionPosts,"|", OtherParliaments,"|", ParliamentaryPosts,"|",
-                  Parties,"|", PreferredNames,"|", Staff,"|", Statuses)
-  query <- gsub("[:|:][:|:]", "", query)
-  query <- gsub("[:|:]$", "", query)
-
-
-  got <- httr::GET(query, accept_json())
-
-  got <- httr::content(got, as = "text")
-
-  parsed <- jsonlite::fromJSON(got, flatten = TRUE)
-
-  x <- as.data.frame(parsed$Members)
-
+    
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/id="
+    
+    query <- paste0(baseurl, ID, "|", FullBiog, "|", Addresses, "|", BasicDetails, "|", BiographyEntries, "|", Committees, 
+        "|", Constituencies, "|", ElectionsContested, "|", Experiences, "|", GovernmentPosts, "|", Honours, "|", HouseMemberships, 
+        "|", Interests, "|", KnownAs, "|", MaidenSpeeches, "|", OppositionPosts, "|", OtherParliaments, "|", ParliamentaryPosts, 
+        "|", Parties, "|", PreferredNames, "|", Staff, "|", Statuses)
+    query <- gsub("[:|:][:|:]", "", query)
+    query <- gsub("[:|:]$", "", query)
+    
+    
+    got <- httr::GET(query, accept_json())
+    
+    got <- httr::content(got, as = "text")
+    
+    parsed <- jsonlite::fromJSON(got, flatten = TRUE)
+    
+    x <- as.data.frame(parsed$Members)
+    
 }
 

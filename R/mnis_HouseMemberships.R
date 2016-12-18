@@ -13,28 +13,28 @@
 #'
 #' }
 
-mnis_HouseMemberships  <- function(ID=NULL, mem_id = TRUE, dods_id=FALSE, pims_id=FALSE) {
-
-  ID <- as.character(ID)
-
-  if(dods_id == TRUE){
-    ID_Type <- "dodsid="
-  } else if ( pims_id== TRUE){
-    ID_Type <- "pimsid="
-  } else {
-    ID_Type <- "id="
-  }
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/id="
-
-  query <- paste0(baseurl, ID, "/HouseMemberships")
-
-  got <- httr::GET(query, httr::accept_json())
-
-  got <- httr::content(got, as = "text")
-
-  parsed <- jsonlite::fromJSON(got, flatten = TRUE)
-
-  x <- as.data.frame(parsed$Members)
-
+mnis_HouseMemberships <- function(ID = NULL, mem_id = TRUE, dods_id = FALSE, pims_id = FALSE) {
+    
+    ID <- as.character(ID)
+    
+    if (dods_id == TRUE) {
+        ID_Type <- "dodsid="
+    } else if (pims_id == TRUE) {
+        ID_Type <- "pimsid="
+    } else {
+        ID_Type <- "id="
+    }
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/id="
+    
+    query <- paste0(baseurl, ID, "/HouseMemberships")
+    
+    got <- httr::GET(query, httr::accept_json())
+    
+    got <- httr::content(got, as = "text")
+    
+    parsed <- jsonlite::fromJSON(got, flatten = TRUE)
+    
+    x <- as.data.frame(parsed$Members)
+    
 }

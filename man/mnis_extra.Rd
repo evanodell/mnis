@@ -23,7 +23,7 @@ mnis_extra(ID, FullBiog = FALSE, Addresses = FALSE, BasicDetails = FALSE,
   Staff = FALSE, Statuses = FALSE)
 }
 \arguments{
-\item{ID}{The ID number}
+\item{ID}{The ID number of the member. Defaults to NULL.}
 
 \item{FullBiog}{Returns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data.}
 
@@ -66,6 +66,12 @@ mnis_extra(ID, FullBiog = FALSE, Addresses = FALSE, BasicDetails = FALSE,
 \item{Staff}{Staff employed by a Member.}
 
 \item{Statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
+
+\item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
+
+\item{dods_id}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
+
+\item{pims_id}{Request based on the PIMS membership ID scheme. Defaults to FALSE.}
 
 \item{ID}{The ID number}
 

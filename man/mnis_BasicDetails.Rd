@@ -12,9 +12,9 @@ mnis_BasicDetails(ID = NULL, mem_id = TRUE, dods_id = FALSE,
 
 \item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
 
-\item{dods_id}{Request based on the DODS membership ID scheme. Defaults to TRUE.}
+\item{dods_id}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{pims_id}{Request based on the PIMS membership ID scheme. Defaults to TRUE.}
+\item{pims_id}{Request based on the PIMS membership ID scheme. Defaults to FALSE.}
 }
 \description{
 Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.

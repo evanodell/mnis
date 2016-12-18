@@ -40,3 +40,24 @@ if(Staff == TRUE)
   Staff <- "Staff"
 if(Statuses == TRUE)
   Statuses <- "Statuses"
+
+data(acme)
+acme$fieldsAll
+as.data.frame(gotNodes, row.names = NULL, optional = FALSE, gotNodes$fieldsAll)
+ToDataFrameTree(gotNodes,  gotNodes$fieldsAll)
+ToDataFrameNetwork(gotNodes, gotNodes$fieldsAll, direction = "climb")
+ToDataFrameTable(gotNodes, gotNodes$fieldsAll)
+dd<-ToDataFrameTypeCol(gotNodes)
+
+
+
+options(stringsAsFactors=FALSE)
+x <- data.frame(driver = c("Bowser", "Peach"), occupation = c("Koopa", "Princess"))
+x$vehicle <- data.frame(model = c("Piranha Prowler", "Royal Racer"))
+x$vehicle$stats <- data.frame(speed = c(55, 34), weight = c(67, 24), drift = c(35, 32))
+str(x)
+str(flatten(x))
+str(flatten(x, recursive = FALSE))
+
+
+
