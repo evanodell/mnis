@@ -47,46 +47,47 @@ mnis_extra <- function(ID, FullBiog = TRUE, Addresses = TRUE,
   #Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also gets around the call limit
 
   if(FullBiog == TRUE)
+    FullBiog_DF <- mnis_FullBiog(ID)
   if(Addresses == TRUE)
-    Addresses <- "Addresses"
+    Addresses_DF <- mnis_Addresses(ID)
   if(BasicDetails == TRUE)
-    BasicDetails <- "BasicDetails"
+    BasicDetails_DF <- mnis_BasicDetails(ID)
   if(BiographyEntries == TRUE)
-    BiographyEntries <- "BiographyEntries"
+    BiographyEntries_DF <- mnis_BiographyEntries(ID)
   if(Committees == TRUE)
-    Committees <- "Committees"
+    Committees_DF <- mnis_Committees(ID)
   if(Constituencies == TRUE)
-    Constituencies <- "Constituencies"
+    Constituencies_DF <- mnis_Constituencies(ID)
   if(ElectionsContested == TRUE)
-    ElectionsContested <- "ElectionsContested"
+    ElectionsContested_DF <- mnis_ElectionsContested(ID)
   if(Experiences == TRUE)
-    Experiences <- "Experiences"
+    Experiences_DF <- mnis_Experiences(ID)
   if(GovernmentPosts == TRUE)
-    GovernmentPosts <- "GovernmentPosts"
+    GovernmentPosts_DF <- mnis_GovernmentPosts(ID)
   if(Honours == TRUE)
-    Honours <- "Honours"
+    Honours_DF <- mnis_Honours(ID)
   if(HouseMemberships == TRUE)
-    HouseMemberships <- "HouseMemberships"
+    HouseMemberships_DF <- mnis_HouseMemberships(ID)
   if(Interests == TRUE)
-    Interests <- "Interests"
+    Interests_DF <- mnis_Interests(ID)
   if(KnownAs == TRUE)
-    KnownAs <- "KnownAs"
+    KnownAs_DF <- mnis_KnownAs(ID)
   if(MaidenSpeeches == TRUE)
-    MaidenSpeeches <- "MaidenSpeeches"
+    MaidenSpeeches_DF <- mnis_MaidenSpeeches(ID)
   if(OppositionPosts == TRUE)
-    OppositionPosts <- "OppositionPosts"
+    OppositionPosts_DF <- mnis_OppositionPosts(ID)
   if(OtherParliaments == TRUE)
-    OtherParliaments <- "OtherParliaments"
+    OtherParliaments_DF <- mnis_OtherParliaments(ID)
   if(ParliamentaryPosts == TRUE)
-    ParliamentaryPosts <- "ParliamentaryPosts"
+    ParliamentaryPosts_DF <- mnis_ParliamentaryPosts(ID)
   if(Parties == TRUE)
-    Parties <- "Parties"
+    Parties_DF <- mnis_Parties(ID)
   if(PreferredNames == TRUE)
-    PreferredNames <- "PreferredNames"
+    PreferredNames_DF <- mnis_PreferredNames(ID)
   if(Staff == TRUE)
-    Staff <- "Staff"
+    Staff_DF <- mnis_Staff(ID)
   if(Statuses == TRUE)
-    Statuses <- "Statuses"
+    Statuses_DF <- mnis_Statuses(ID)
 
   request<-'House=Commons|IsEligible=true/'
 

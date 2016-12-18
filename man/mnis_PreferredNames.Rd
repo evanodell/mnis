@@ -4,10 +4,17 @@
 \alias{mnis_PreferredNames}
 \title{mnis_PreferredNames}
 \usage{
-mnis_PreferredNames(ID = NULL)
+mnis_PreferredNames(ID = NULL, mem_id = TRUE, dods_id = FALSE,
+  pims_id = FALSE)
 }
 \arguments{
-\item{ID}{The ID number}
+\item{ID}{The ID number of the member. Defaults to NULL.}
+
+\item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
+
+\item{dods_id}{Request based on the DODS membership ID scheme. Defaults to TRUE.}
+
+\item{pims_id}{Request based on the PIMS membership ID scheme. Defaults to TRUE.}
 }
 \description{
 Lookup function for the MNIS API. The function requests data in JSON format and parses it to a data frame containing the prefered name of the selected member.

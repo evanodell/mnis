@@ -2,19 +2,26 @@
 % Please edit documentation in R/mnis_BiographyEntries.R
 \name{mnis_BiographyEntries}
 \alias{mnis_BiographyEntries}
-\title{mnis_Addresses}
+\title{mnis_BiographyEntries}
 \usage{
-mnis_BiographyEntries(ID = NULL)
+mnis_BiographyEntries(ID = NULL, mem_id = TRUE, dods_id = FALSE,
+  pims_id = FALSE)
 }
 \arguments{
-\item{ID}{The ID number}
+\item{ID}{The ID number of the member. Defaults to NULL.}
+
+\item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
+
+\item{dods_id}{Request based on the DODS membership ID scheme. Defaults to TRUE.}
+
+\item{pims_id}{Request based on the PIMS membership ID scheme. Defaults to TRUE.}
 }
 \description{
 Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
 }
 \examples{
 \dontrun{
-x <- mnis_BiographyEntries('')
+x <- mnis_BiographyEntries(172)
 
 }
 }

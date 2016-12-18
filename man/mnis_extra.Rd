@@ -69,47 +69,47 @@ mnis_extra(ID, FullBiog = FALSE, Addresses = FALSE, BasicDetails = FALSE,
 
 \item{ID}{The ID number}
 
-\item{FullBiog\tReturns}{all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data.}
+\item{FullBiog}{Returns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data.}
 
-\item{\tAddresses\tMember}{address information (e.g. website, twitter, consituency address etc...)}
+\item{Addresses}{Member address information (e.g. website, twitter, consituency address etc...)}
 
-\item{\tBasicDetails\tBasic}{information about the Member (e.g. given name, HoL membership type, oaths etc...).}
+\item{BasicDetails}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...).}
 
-\item{\tBiographyEntries\tMember}{biographical information (e.g. countries of interest, policy expertise etc...).}
+\item{BiographyEntries}{Member biographical information (e.g. countries of interest, policy expertise etc...).}
 
-\item{\tCommittees\tCommittees}{a Member sits or has sat on as well details on committee chairing.}
+\item{Committees}{Committees a Member sits or has sat on as well details on committee chairing.}
 
-\item{\tConstituencies\tConstituencies}{a Member has represented.}
+\item{Constituencies}{Constituencies a Member has represented.}
 
-\item{\tElectionsContested\tElections}{a Member has contested but not won.}
+\item{ElectionsContested}{Elections a Member has contested but not won.}
 
-\item{\tExperiences\tNon-parliamentary}{experience of a Member.}
+\item{Experiences}{Non-parliamentary experience of a Member.}
 
-\item{\tGovernmentPosts\tGovernment}{posts a Member has held.}
+\item{GovernmentPosts}{Government posts a Member has held.}
 
-\item{\tHonours\tHonours}{(e.g. MBE, OBE etc...) held by a Member.}
+\item{Honours}{Honours (e.g. MBE, OBE etc...) held by a Member.}
 
-\item{\tHouseMemberships\tHouse}{membership list of a Member.}
+\item{HouseMemberships}{House membership list of a Member.}
 
-\item{\tInterests\tRegistered}{interests (financial) of a Member.}
+\item{Interests}{Registered interests (financial) of a Member.}
 
-\item{\tKnownAs\tDetails}{of names a Member has chosen to be known as instead of their full title (HoL members only).}
+\item{KnownAs}{Details of names a Member has chosen to be known as instead of their full title (HoL members only).}
 
-\item{\tMaidenSpeeches\tMaiden}{speech dates for a Member.}
+\item{MaidenSpeeches}{Maiden speech dates for a Member.}
 
-\item{\tOppositionPosts\tOpposition}{posts a Member has held.}
+\item{OppositionPosts}{Opposition posts a Member has held.}
 
-\item{\tOtherParliaments\tOther}{Parliaments that a Member has held a membership of.}
+\item{OtherParliaments}{Other Parliaments that a Member has held a membership of.}
 
-\item{\tParliamentaryPosts\tParliamentary}{posts a Member has held.}
+\item{ParliamentaryPosts}{Parliamentary posts a Member has held.}
 
-\item{\tParties\tParty}{affiliations of a Member.}
+\item{Parties}{Party affiliations of a Member.}
 
-\item{\tPreferredNames\tFull}{set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...)}
+\item{PreferredNames}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...)}
 
-\item{\tStaff\tStaff}{employed by a Member.}
+\item{Staff}{Staff employed by a Member.}
 
-\item{\tStatuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
+\item{Statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
 }
 \description{
 Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.

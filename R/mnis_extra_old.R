@@ -3,27 +3,27 @@
 #'
 #' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
 #' @param ID The ID number
-#' @param FullBiog\tReturns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data.
-#' @param\tAddresses\tMember address information (e.g. website, twitter, consituency address etc...)
-#' @param\tBasicDetails\tBasic information about the Member (e.g. given name, HoL membership type, oaths etc...).
-#' @param\tBiographyEntries\tMember biographical information (e.g. countries of interest, policy expertise etc...).
-#' @param\tCommittees\tCommittees a Member sits or has sat on as well details on committee chairing.
-#' @param\tConstituencies\tConstituencies a Member has represented.
-#' @param\tElectionsContested\tElections a Member has contested but not won.
-#' @param\tExperiences\tNon-parliamentary experience of a Member.
-#' @param\tGovernmentPosts\tGovernment posts a Member has held.
-#' @param\tHonours\tHonours (e.g. MBE, OBE etc...) held by a Member.
-#' @param\tHouseMemberships\tHouse membership list of a Member.
-#' @param\tInterests\tRegistered interests (financial) of a Member.
-#' @param\tKnownAs\tDetails of names a Member has chosen to be known as instead of their full title (HoL members only).
-#' @param\tMaidenSpeeches\tMaiden speech dates for a Member.
-#' @param\tOppositionPosts\tOpposition posts a Member has held.
-#' @param\tOtherParliaments\tOther Parliaments that a Member has held a membership of.
-#' @param\tParliamentaryPosts\tParliamentary posts a Member has held.
-#' @param\tParties\tParty affiliations of a Member.
-#' @param\tPreferredNames\tFull set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...)
-#' @param\tStaff\tStaff employed by a Member.
-#' @param\tStatuses Status history (e.g. suspensions and disqualifications) for a Member.
+#' @param FullBiog Returns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data.
+#' @param Addresses Member address information (e.g. website, twitter, consituency address etc...)
+#' @param BasicDetails Basic information about the Member (e.g. given name, HoL membership type, oaths etc...).
+#' @param BiographyEntries Member biographical information (e.g. countries of interest, policy expertise etc...).
+#' @param Committees Committees a Member sits or has sat on as well details on committee chairing.
+#' @param Constituencies Constituencies a Member has represented.
+#' @param ElectionsContested Elections a Member has contested but not won.
+#' @param Experiences Non-parliamentary experience of a Member.
+#' @param GovernmentPosts Government posts a Member has held.
+#' @param Honours Honours (e.g. MBE, OBE etc...) held by a Member.
+#' @param HouseMemberships House membership list of a Member.
+#' @param Interests Registered interests (financial) of a Member.
+#' @param KnownAs Details of names a Member has chosen to be known as instead of their full title (HoL members only).
+#' @param MaidenSpeeches Maiden speech dates for a Member.
+#' @param OppositionPosts Opposition posts a Member has held.
+#' @param OtherParliaments Other Parliaments that a Member has held a membership of.
+#' @param ParliamentaryPosts Parliamentary posts a Member has held.
+#' @param Parties Party affiliations of a Member.
+#' @param PreferredNames Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...)
+#' @param Staff Staff employed by a Member.
+#' @param Statuses Status history (e.g. suspensions and disqualifications) for a Member.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -149,24 +149,3 @@ mnis_extra <- function(ID, FullBiog = FALSE, Addresses = FALSE,
 
 }
 
-FullBiog = NULL
-Addresses = NULL
-BasicDetails = NULL
-BiographyEntries = NULL
-Committees = NULL
-Constituencies = NULL
-ElectionsContested = NULL
-Experiences = NULL
-GovernmentPosts = NULL
-Honours = NULL
-HouseMemberships = NULL
-Interests = NULL
-KnownAs = NULL
-MaidenSpeeches = NULL
-OppositionPosts = NULL
-OtherParliaments = NULL
-ParliamentaryPosts = NULL
-Parties = NULL
-PreferredNames = NULL
-Staff = NULL
-Statuses = NULL
