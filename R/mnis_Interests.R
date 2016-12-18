@@ -75,6 +75,6 @@ mnis_Interests <- function(ID=NULL, mem_id = TRUE, dods_id=FALSE, pims_id=FALSE)
 
   #t<-plyr::cbind.fill.matrix(lapply(got$Members$Member, function(f) {
     #as.data.frame(Filter(Negate(is.null), f))
-  #}))###Neeed to get this shit sorted out. Still producing lists in some variables that I don't want and I'm just too tired to deal with right now
+  #}))###Need to get this shit sorted out. Still producing lists in some variables that I don't want and I'm just too tired to deal with right now
 
 }
