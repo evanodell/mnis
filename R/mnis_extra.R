@@ -5,7 +5,6 @@
 #' @param ID The ID number of the member. Defaults to NULL.
 #' @param mem_id Request based on the default membership ID scheme. Defaults to TRUE.
 #' @param refDods Request based on the DODS membership ID scheme. Defaults to FALSE.
-#' @param pims_id  Request based on the PIMS membership ID scheme. Defaults to FALSE.
 #' @param FullBiog Returns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data. Defaults to TRUE.
 #' @param Addresses Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE.
 #' @param BasicDetails Basic information about the Member (e.g. given name, HoL membership type, oaths etc...) Defaults to TRUE.
