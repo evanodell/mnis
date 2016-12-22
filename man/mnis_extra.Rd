@@ -4,63 +4,61 @@
 \alias{mnis_extra}
 \title{mnis_extra}
 \usage{
-mnis_extra(ID, mem_id = TRUE, refDods = FALSE, FullBiog = TRUE,
-  Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
-  Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE,
-  Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE,
-  HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE,
-  MaidenSpeeches = TRUE, OppositionPosts = TRUE, OtherParliaments = TRUE,
+mnis_extra(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE,
+  BasicDetails = TRUE, BiographyEntries = TRUE, Committees = TRUE,
+  Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE,
+  GovernmentPosts = TRUE, Honours = TRUE, HouseMemberships = TRUE,
+  Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE,
+  OppositionPosts = TRUE, OtherParliaments = TRUE,
   ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE,
   Staff = TRUE, Statuses = TRUE)
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL.}
 
-\item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
+\item{mem_id}{Request based on the default membership ID scheme.}
 
 \item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{FullBiog}{Returns all data held about a Member. This will only be permitted on queries that return five records or fewer. All other output types return subsets of this data. Defaults to TRUE.}
+\item{Addresses}{Member address information (e.g. website, twitter, consituency address etc...).}
 
-\item{Addresses}{Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE.}
+\item{BasicDetails}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...)}
 
-\item{BasicDetails}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...) Defaults to TRUE.}
+\item{BiographyEntries}{Member biographical information (e.g. countries of interest, policy expertise etc...)}
 
-\item{BiographyEntries}{Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to TRUE.}
+\item{Committees}{Committees a Member sits or has sat on as well details on committee chairing.}
 
-\item{Committees}{Committees a Member sits or has sat on as well details on committee chairing. Defaults to TRUE.}
+\item{Constituencies}{Constituencies a Member has represented.}
 
-\item{Constituencies}{Constituencies a Member has represented. Defaults to TRUE.}
+\item{ElectionsContested}{Elections a Member has contested but not won.}
 
-\item{ElectionsContested}{Elections a Member has contested but not won. Defaults to TRUE.}
+\item{Experiences}{Non-parliamentary experience of a Member.}
 
-\item{Experiences}{Non-parliamentary experience of a Member. Defaults to TRUE.}
+\item{GovernmentPosts}{Government posts a Member has held.}
 
-\item{GovernmentPosts}{Government posts a Member has held. Defaults to TRUE.}
+\item{Honours}{Honours (e.g. MBE, OBE etc...) held by a Member.}
 
-\item{Honours}{Honours (e.g. MBE, OBE etc...) held by a Member. Defaults to TRUE.}
+\item{HouseMemberships}{House membership list of a Member.}
 
-\item{HouseMemberships}{House membership list of a Member. Defaults to TRUE.}
+\item{Interests}{Registered interests (financial) of a Member.}
 
-\item{Interests}{Registered interests (financial) of a Member. Defaults to TRUE.}
+\item{KnownAs}{Details of names a Member has chosen to be known as instead of their full title (HoL members only).}
 
-\item{KnownAs}{Details of names a Member has chosen to be known as instead of their full title (HoL members only). Defaults to TRUE.}
+\item{MaidenSpeeches}{Maiden speech dates for a Member.}
 
-\item{MaidenSpeeches}{Maiden speech dates for a Member. Defaults to TRUE.}
+\item{OppositionPosts}{Opposition posts a Member has held.}
 
-\item{OppositionPosts}{Opposition posts a Member has held. Defaults to TRUE.}
+\item{OtherParliaments}{Other Parliaments that a Member has held a membership of.}
 
-\item{OtherParliaments}{Other Parliaments that a Member has held a membership of. Defaults to TRUE.}
+\item{ParliamentaryPosts}{Parliamentary posts a Member has held.}
 
-\item{ParliamentaryPosts}{Parliamentary posts a Member has held. Defaults to TRUE.}
+\item{Parties}{Party affiliations of a Member.}
 
-\item{Parties}{Party affiliations of a Member. Defaults to TRUE.}
+\item{PreferredNames}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
 
-\item{PreferredNames}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...). Defaults to TRUE.}
+\item{Staff}{Staff employed by a Member.}
 
-\item{Staff}{Staff employed by a Member. Defaults to TRUE.}
-
-\item{Statuses}{Status history (e.g. suspensions and disqualifications) for a Member. Defaults to TRUE.}
+\item{Statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
 }
 \description{
 Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
@@ -70,6 +68,9 @@ Basic function for the MNIS API lookup. The function requests data in JSON forma
 x <- mnis_extra(172)
 
 }
+}
+\seealso{
+\code{\link{mnis_FullBiog}} \code{\link{mnis_BasicDetails}}
 }
 \keyword{mnis}
 
