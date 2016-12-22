@@ -80,7 +80,7 @@ x <- mnis_BasicDetails(172)
 }
 }
 \seealso{
-\code{\link{mnis_FullBiog}} \code{\link{mnis_extra}}
+\code{\link{mnis_FullBiog}} \code{\link{mnis_Extra}}
 }
 \keyword{mnis}
 

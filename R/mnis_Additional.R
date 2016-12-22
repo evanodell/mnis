@@ -12,7 +12,7 @@
 #' }
 #' @export
 #' @rdname mnis_Additional
-#' @seealso \code{\link{mnis_FullBiog}} \code{\link{mnis_extra}}
+#' @seealso \code{\link{mnis_FullBiog}} \code{\link{mnis_Extra}}
 
 
 #' @rdname mnis_Additional

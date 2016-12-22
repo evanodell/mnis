@@ -24,8 +24,10 @@ mnis_GeneralElectionResults
 }
 \examples{
 \dontrun{
-x <- mnis_GeneralElectionResults(locationType = "Country", locationName = "England", startDate = "2010-01-01", endDate = "2016-01-01")
-
+x <- mnis_GeneralElectionResults(locationType = "Country",
+                                 locationName = "England",
+                                 startDate = "2010-01-01",
+                                 endDate = "2016-01-01")
 }
 
 }

@@ -37,7 +37,7 @@
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
-mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
+mnis_Extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
     Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE,
     HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, OtherParliaments = TRUE,
     ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE) {
@@ -58,55 +58,55 @@ mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, Bas
     mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
     if (BasicDetails == TRUE)
         BasicDetails_DF <- mnis_BasicDetails(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["BasicDetails_DF"]] <- BasicDetails_DF
     if (BiographyEntries == TRUE)
         BiographyEntries_DF <- mnis_BiographyEntries(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["BiographyEntries_DF"]] <- BiographyEntries_DF
     if (Committees == TRUE)
         Committees_DF <- mnis_Committees(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["Committees_DF"]] <- Committees_DF
     if (Constituencies == TRUE)
         Constituencies_DF <- mnis_Constituencies(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["Constituencies_DF"]] <- Constituencies_DF
     if (ElectionsContested == TRUE)
         ElectionsContested_DF <- mnis_ElectionsContested(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["ElectionsContested_DF"]] <- ElectionsContested_DF
     if (Experiences == TRUE)
         Experiences_DF <- mnis_Experiences(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["Experiences_DF"]] <- Experiences_DF
     if (GovernmentPosts == TRUE)
         GovernmentPosts_DF <- mnis_GovernmentPosts(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["GovernmentPosts_DF"]] <- GovernmentPosts_DF
     if (Honours == TRUE)
         Honours_DF <- mnis_Honours(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["Honours_DF"]] <- Honours_DF
     if (HouseMemberships == TRUE)
         HouseMemberships_DF <- mnis_HouseMemberships(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["HouseMemberships_DF"]] <- HouseMemberships_DF
     if (Interests == TRUE)
         Interests_DF <- mnis_Interests(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["Interests_DF"]] <- Interests_DF
     if (KnownAs == TRUE)
         KnownAs_DF <- mnis_KnownAs(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["KnownAs_DF"]] <- KnownAs_DF
     if (MaidenSpeeches == TRUE)
         MaidenSpeeches_DF <- mnis_MaidenSpeeches(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["MaidenSpeeches_DF"]] <- MaidenSpeeches_DF
     if (OppositionPosts == TRUE)
         OppositionPosts_DF <- mnis_OppositionPosts(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["OppositionPosts_DF"]] <- OppositionPosts_DF
     if (OtherParliaments == TRUE)
         OtherParliaments_DF <- mnis_OtherParliaments(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["OtherParliaments_DF"]] <- OtherParliaments_DF
     if (ParliamentaryPosts == TRUE)
         ParliamentaryPosts_DF <- mnis_ParliamentaryPosts(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["ParliamentaryPosts_DF"]] <- ParliamentaryPosts_DF
     if (Parties == TRUE)
         Parties_DF <- mnis_Parties(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["Parties_DF"]] <- Parties_DF
     if (PreferredNames == TRUE)
         PreferredNames_DF <- mnis_PreferredNames(ID)
-    mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
+    mnis_DF_list[["PreferredNames_DF"]] <- PreferredNames_DF
     if (Staff == TRUE)
         Staff_DF <- mnis_Staff(ID)
     mnis_DF_list[["Staff_DF"]] <- Staff_DF
