@@ -35,70 +35,68 @@
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
-mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, FullBiog = TRUE, Addresses = TRUE,
-  BasicDetails = TRUE, BiographyEntries = TRUE, Committees = TRUE, Constituencies = TRUE,
-  ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE,
-  HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE,
-  OppositionPosts = TRUE, OtherParliaments = TRUE, ParliamentaryPosts = TRUE, Parties = TRUE,
-  PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE) {
-
-  ID <- as.character(ID)
-
-  if (refDods == TRUE) {
-    ID_Type <- "refDods="
-  } else {
-    ID_Type <- "id="
-  }
-  # Replace all this with calls to the specific functions, then combine into one
-  # data frame. Much easier, also gets around the call limit
-  if (FullBiog == TRUE)
-    FullBiog_DF <- mnis_FullBiog(ID)
-  if (Addresses == TRUE)
-    Addresses_DF <- mnis_Addresses(ID)
-  if (BasicDetails == TRUE)
-    BasicDetails_DF <- mnis_BasicDetails(ID)
-  if (BiographyEntries == TRUE)
-    BiographyEntries_DF <- mnis_BiographyEntries(ID)
-  if (Committees == TRUE)
-    Committees_DF <- mnis_Committees(ID)
-  if (Constituencies == TRUE)
-    Constituencies_DF <- mnis_Constituencies(ID)
-  if (ElectionsContested == TRUE)
-    ElectionsContested_DF <- mnis_ElectionsContested(ID)
-  if (Experiences == TRUE)
-    Experiences_DF <- mnis_Experiences(ID)
-  if (GovernmentPosts == TRUE)
-    GovernmentPosts_DF <- mnis_GovernmentPosts(ID)
-  if (Honours == TRUE)
-    Honours_DF <- mnis_Honours(ID)
-  if (HouseMemberships == TRUE)
-    HouseMemberships_DF <- mnis_HouseMemberships(ID)
-  if (Interests == TRUE)
-    Interests_DF <- mnis_Interests(ID)
-  if (KnownAs == TRUE)
-    KnownAs_DF <- mnis_KnownAs(ID)
-  if (MaidenSpeeches == TRUE)
-    MaidenSpeeches_DF <- mnis_MaidenSpeeches(ID)
-  if (OppositionPosts == TRUE)
-    OppositionPosts_DF <- mnis_OppositionPosts(ID)
-  if (OtherParliaments == TRUE)
-    OtherParliaments_DF <- mnis_OtherParliaments(ID)
-  if (ParliamentaryPosts == TRUE)
-    ParliamentaryPosts_DF <- mnis_ParliamentaryPosts(ID)
-  if (Parties == TRUE)
-    Parties_DF <- mnis_Parties(ID)
-  if (PreferredNames == TRUE)
-    PreferredNames_DF <- mnis_PreferredNames(ID)
-  if (Staff == TRUE)
-    Staff_DF <- mnis_Staff(ID)
-  if (Statuses == TRUE)
-    Statuses_DF <- mnis_Statuses(ID)
-
-  mnis_DF_list <- list(FullBiog_DF, Addresses_DF, BasicDetails_DF, BiographyEntries_DF,
-    Committees_DF, Constituencies_DF, ElectionsContested_DF, Experiences_DF,
-    GovernmentPosts_DF, Honours_DF, HouseMemberships_DF, Interests_DF, KnownAs_DF,
-    MaidenSpeeches_DF, OppositionPosts_DF, OtherParliaments_DF, ParliamentaryPosts_DF,
-    Parties_DF, PreferredNames_DF, Staff_DF, Statuses_DF)
-
-  x <- plyr::join_all(mnis_DF_list, match = "first")
+mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, FullBiog = TRUE, Addresses = TRUE, BasicDetails = TRUE, 
+    BiographyEntries = TRUE, Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, 
+    GovernmentPosts = TRUE, Honours = TRUE, HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, 
+    OppositionPosts = TRUE, OtherParliaments = TRUE, ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, 
+    Staff = TRUE, Statuses = TRUE) {
+    
+    ID <- as.character(ID)
+    
+    if (refDods == TRUE) {
+        ID_Type <- "refDods="
+    } else {
+        ID_Type <- "id="
+    }
+    # Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also
+    # gets around the call limit
+    if (FullBiog == TRUE) 
+        FullBiog_DF <- mnis_FullBiog(ID)
+    if (Addresses == TRUE) 
+        Addresses_DF <- mnis_Addresses(ID)
+    if (BasicDetails == TRUE) 
+        BasicDetails_DF <- mnis_BasicDetails(ID)
+    if (BiographyEntries == TRUE) 
+        BiographyEntries_DF <- mnis_BiographyEntries(ID)
+    if (Committees == TRUE) 
+        Committees_DF <- mnis_Committees(ID)
+    if (Constituencies == TRUE) 
+        Constituencies_DF <- mnis_Constituencies(ID)
+    if (ElectionsContested == TRUE) 
+        ElectionsContested_DF <- mnis_ElectionsContested(ID)
+    if (Experiences == TRUE) 
+        Experiences_DF <- mnis_Experiences(ID)
+    if (GovernmentPosts == TRUE) 
+        GovernmentPosts_DF <- mnis_GovernmentPosts(ID)
+    if (Honours == TRUE) 
+        Honours_DF <- mnis_Honours(ID)
+    if (HouseMemberships == TRUE) 
+        HouseMemberships_DF <- mnis_HouseMemberships(ID)
+    if (Interests == TRUE) 
+        Interests_DF <- mnis_Interests(ID)
+    if (KnownAs == TRUE) 
+        KnownAs_DF <- mnis_KnownAs(ID)
+    if (MaidenSpeeches == TRUE) 
+        MaidenSpeeches_DF <- mnis_MaidenSpeeches(ID)
+    if (OppositionPosts == TRUE) 
+        OppositionPosts_DF <- mnis_OppositionPosts(ID)
+    if (OtherParliaments == TRUE) 
+        OtherParliaments_DF <- mnis_OtherParliaments(ID)
+    if (ParliamentaryPosts == TRUE) 
+        ParliamentaryPosts_DF <- mnis_ParliamentaryPosts(ID)
+    if (Parties == TRUE) 
+        Parties_DF <- mnis_Parties(ID)
+    if (PreferredNames == TRUE) 
+        PreferredNames_DF <- mnis_PreferredNames(ID)
+    if (Staff == TRUE) 
+        Staff_DF <- mnis_Staff(ID)
+    if (Statuses == TRUE) 
+        Statuses_DF <- mnis_Statuses(ID)
+    
+    mnis_DF_list <- list(FullBiog_DF, Addresses_DF, BasicDetails_DF, BiographyEntries_DF, Committees_DF, Constituencies_DF, 
+        ElectionsContested_DF, Experiences_DF, GovernmentPosts_DF, Honours_DF, HouseMemberships_DF, Interests_DF, 
+        KnownAs_DF, MaidenSpeeches_DF, OppositionPosts_DF, OtherParliaments_DF, ParliamentaryPosts_DF, Parties_DF, 
+        PreferredNames_DF, Staff_DF, Statuses_DF)
+    
+    x <- plyr::join_all(mnis_DF_list, match = "first")
 }

@@ -42,6 +42,15 @@ mnis_Interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
     
     x <- as.data.frame(x)
     
-    x[rownames(x) != "ID", ]
+    x <- x[rownames(x) != "ID", ]
+    
+    names(x) <- gsub("@", "", names(x))
+    
+    names(x) <- gsub("#", "", names(x))
+    
+    names(x) <- gsub("Members.Member.", "", names(x))
+    
+    
+    x
     
 }
