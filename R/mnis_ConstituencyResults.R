@@ -12,6 +12,9 @@
 #'
 
 
+### http://data.parliament.uk/membersdataplatform/fixedscope.aspx
+#NEED TO FINISH THE FIX SCOPE APIS
+
 mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = NULL) {
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
