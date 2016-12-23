@@ -12,23 +12,23 @@
 
 
 mnis_LordsType <- function(Date = NULL) {
-
-  if(is.null(Date)==TRUE) {
-    Date <- Sys.Date()
+    
+    if (is.null(Date) == TRUE) {
+        Date <- Sys.Date()
     }
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
-
-  query <- paste0(baseurl, Date, "/")
-
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
-  x <- as.data.frame(got$LordsByType)
-
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
+    
+    query <- paste0(baseurl, Date, "/")
+    
+    got <- httr::GET(query, httr::accept_json())
+    
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+    
+    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    
+    x <- as.data.frame(got$LordsByType)
+    
 }

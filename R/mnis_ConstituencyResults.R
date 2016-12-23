@@ -12,23 +12,22 @@
 #'
 
 
-### http://data.parliament.uk/membersdataplatform/fixedscope.aspx
-#NEED TO FINISH THE FIX SCOPE APIS
+### http://data.parliament.uk/membersdataplatform/fixedscope.aspx NEED TO FINISH THE FIX SCOPE APIS
 
 mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = NULL) {
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
-
-  query <- paste0(baseurl, constituencyId, "/", electionId, "/")
-
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  x <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
-  x
-
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
+    
+    query <- paste0(baseurl, constituencyId, "/", electionId, "/")
+    
+    got <- httr::GET(query, httr::accept_json())
+    
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+    
+    x <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    
+    x
+    
 }

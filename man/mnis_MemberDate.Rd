@@ -7,7 +7,7 @@
 mnis_MemberDate(ID = NULL, Date = NULL)
 }
 \arguments{
-\item{ID}{The house of parliament. Defaults to "Commons".}
+\item{ID}{The house of parliament. Defaults to 'Commons'.}
 
 \item{Date}{A date in yyyy-mm-dd format}
 }

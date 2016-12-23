@@ -1,5 +1,5 @@
 
-#' mnis_FullBiog
+#' mp_FullBiog
 #'
 #' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
 #' @param ID The ID number of the member. Defaults to NULL.
@@ -8,12 +8,12 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_FullBiog(172)
+#' x <- mp_FullBiog(172)
 #'
 #' }
 
 
-mnis_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mp_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
     
     ID <- as.character(ID)
     

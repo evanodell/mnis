@@ -7,7 +7,7 @@
 mnis_PartyState(House = "Commons", Date = NULL)
 }
 \arguments{
-\item{House}{The house of parliament. Defaults to "Commons".}
+\item{House}{The house of parliament. Defaults to 'Commons'.}
 
 \item{Date}{A date in yyyy-mm-dd format}
 }
@@ -19,7 +19,7 @@ mnis_PartyState
 }
 \examples{
 \dontrun{
-x <- mnis_PartyState("2012-01-12")
+x <- mnis_PartyState('2012-01-12')
 
 }
 
