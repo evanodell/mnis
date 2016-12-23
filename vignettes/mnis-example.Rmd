@@ -1,0 +1,35 @@
+---
+title: "mnis Example"
+author: "Evan Odell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mnis Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`mnis` is an R package to pull data from the Members Names Information Service through the <http://data.parliament.uk/membersdataplatform/> API.
+
+
+
+##Installing mnis
+
+###From CRAN
+
+install.packages("mnis")
+
+###From GitHub (Development Version)
+
+install.packages("devtools")
+devtools::install_github("EvanOdell/mnis")
+
+###Load mnis
+
+library(mnis)
+
+
+##Using mnis
+
+
+
