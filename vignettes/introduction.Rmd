@@ -1,0 +1,180 @@
+---
+title: "Introduction to mnis"
+author: "Evan Odell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mnis Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`mnis` is an R package to pull data from the UK parliament through the Members' Name Information Service API. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. 
+
+All functions return data in JSON format, which is parsed to a list or data frame, depending on the data that is returned.
+
+Functions are divided into three main types:
+
+* Reference Functions
+
+* Additional Information Functions
+
+* Fixed Scope Functions
+
+##Installing mnis
+
+###From CRAN
+
+install.packages("mnis")
+
+###From GitHub (Development Version)
+
+install.packages("devtools")
+devtools::install_github("EvanOdell/mnis")
+
+###Load mnis
+
+library(mnis)
+
+
+##Using mnis
+
+### Reference Functions
+
+A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments. 
+
+`ref_AddressTypes()`
+
+`ref_AnsweringBodies()`
+
+`ref_Areas()`
+
+`ref_AreaTypes()`
+
+`ref_BiographyCategories()`
+
+`ref_Cabinets()`
+
+`ref_Committees()`
+
+`ref_CommitteeTypes()`
+
+`ref_Constituencies()`
+
+`ref_ConstituencyAreas()`
+
+`ref_ConstituencyTypes()`
+
+`ref_Countries()`
+
+`ref_Departments()`
+
+`ref_DisqualificationTypes()`
+
+`ref_Elections()`
+
+`ref_ElectionTypes()`
+
+`ref_EndReasons()`
+
+`ref_ExperienceTypes()`
+
+`ref_GovernmentPostDepartments()`
+
+`ref_GovernmentPosts()`
+
+`ref_GovernmentRanks()`
+
+`ref_HonouraryPrefixes()`
+
+`ref_HonourLists()`
+
+`ref_Honours()`
+
+`ref_InterestCategories()`
+
+`ref_LordsMembershipTypes()`
+
+`ref_LordsRanks()`
+
+`ref_OppositionPostDepartments()`
+
+`ref_OppositionPosts()`
+
+`ref_OppositionRanks()`
+
+`ref_OtherParliaments()`
+
+`ref_ParliamentaryPosts()`
+
+`ref_ParliamentaryRanks()`
+
+`ref_ParliamentTypes()`
+
+`ref_Parties()`
+
+`ref_PartySubTypes()`
+
+`ref_PhotoOutputs()`
+
+`ref_Statuses()`
+
+`ref_Titles()`
+
+###Additional Information Functions
+
+`mnis_BasicDetails()`
+
+`mnis_BiographyEntries()`
+
+`mnis_Committees()`
+
+`mnis_Addresses()`
+
+`mnis_Constituencies()`
+
+`mnis_ElectionsContested()`
+
+`mnis_Experiences()`
+
+`mnis_GovernmentPosts()`
+
+`mnis_Honours()`
+
+`mnis_HouseMemberships()`
+
+`mnis_Statuses()`
+
+`mnis_Staff()`
+
+`mnis_Interests()`
+
+`mnis_KnownAs()`
+
+`mnis_MaidenSpeeches()`
+
+`mnis_OppositionPosts()`
+
+`mnis_OtherParliaments()`
+
+`mnis_ParliamentaryPosts()`
+
+`mnis_Parties()`
+
+`mnis_PreferredNames()`
+
+###Fixed Scope Functions
+
+`mnis_PartyState()`
+
+`mnis_ConstituencyResults()`
+
+`mnis_Department()`
+
+`mnis_GeneralElectionResults()`
+
+`mnis_LordsType()`
+
+`mnis_MemberDate()`
+
+`mnis_PartyState()`

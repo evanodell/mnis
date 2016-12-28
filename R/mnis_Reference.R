@@ -5,16 +5,215 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- ref_AddressTypes()
+#' ref_AddressTypes()
+#' # The types of addresses available in member's contact details.
+#' # Includes websites and social media, as well as physical addresses.
 #'
-#' x <- ref_AnsweringBodies()
+#' ref_AnsweringBodies()
+#' # The bodies that members' can address questions to.
 #'
+#' ref_Areas()
+#' # Geographic areas.
+#'
+#' ref_AreaTypes()
+#' # Identifiers for grouping areas (e.g. borough constituencies).
+#'
+#' ref_BiographyCategories()
+#' # Member biography categories.
+#'
+#' ref_Cabinets()
+#' # Connections that a member has to the cabinet or shadow cabinet.
+#'
+#' ref_Committees()
+#' # Identifier for parliamentary committees.
+#'
+#' ref_CommitteeTypes()
+#' # Types of parliamentary committees.
+#'
+#' ref_Constituencies()
+#' # All constituencies.
+#'
+#' ref_ConstituencyAreas()
+#' # The links between constituencies and constituency areas.
+#'
+#' ref_ConstituencyTypes()
+#' # Constituency categories.
+#'
+#' ref_Countries()
+#' # List of countries that could be listed as members' birthplace.
+#'
+#' ref_Departments()
+#' # Government and opposition departments.
+#'
+#' ref_DisqualificationTypes()
+#' # Types of ways members can be disqualified from sitting in the House.
+#'
+#' ref_Elections()
+#' # Codes of general and by-elections.
+#'
+#' ref_ElectionTypes()
+#' # Election categories.
+#'
+#' ref_EndReasons()
+#' # Reasons a member may leave the House of Lords or the House of Commons.
+#'
+#' ref_ExperienceTypes()
+#' # Types of non-parliamentary experience members can list.
+#'
+#' ref_GovernmentPostDepartments()
+#' # All deparments that can contain government posts.
+#'
+#' ref_GovernmentPosts()
+#' # All government posts.
+#'
+#' ref_GovernmentRanks()
+#' # All government post ranks.
+#'
+#' ref_HonouraryPrefixes()
+#' # The types of honourary prefixes for members.
+#'
+#' ref_HonourLists()
+#' # The types of honour lists that a member may be honoured in.
+#'
+#' ref_Honours()
+#' # The different honours available to members.
+#'
+#' ref_InterestCategories()
+#' # The categories available for reporting financial interests.
+#'
+#' ref_LordsMembershipTypes()
+#' # Different types of membership of the House of Lords.
+#'
+#' ref_LordsRanks()
+#' # Ranks that peers may hold.
+#'
+#' ref_OppositionPostDepartments()
+#' # The link between opposition posts and the government department they shadow.
+#'
+#' ref_OppositionPosts()
+#' # Opposition posts.
+#'
+#' ref_OppositionRanks()
+#' # How opposition posts are ranked.
+#'
+#' ref_OtherParliaments()
+#' # Other parliaments that a member may have sat in.
+#'
+#' ref_ParliamentaryPosts()
+#' # The different parliamentary posts available.
+#'
+#' ref_ParliamentaryRanks()
+#' # How those parliamentary posts are ranked.
+#'
+#' ref_ParliamentTypes()
+#' # Types of parliaments that parliamentary data may link to.
+#'
+#' ref_Parties()
+#' # All parties that members can be affiliated with.
+#'
+#' ref_PartySubTypes()
+#' # Sub-types of parties.
+#'
+#' ref_PhotoOutputs()
+#' # Outputs that a photo of a member may be linked to.
+#'
+#' ref_Statuses()
+#' # A member's possible current status in the House.
+#'
+#' ref_titles()
+#' # Salutory titles.
+#'
+#' mnis_Reference()
+#' # Returns a list of all possible reference functions.
 #' }
 #'
 #' @export
+#' @export
 #' @rdname mnis_Reference
+mnis_Reference <- function() {
 
+  x <- c("ref_AddressTypes()",
 
+  "ref_AnsweringBodies()",
+
+  "ref_Areas()",
+
+  "ref_AreaTypes()",
+
+  "ref_BiographyCategories()",
+
+  "ref_Cabinets()",
+
+  "ref_Committees()",
+
+  "ref_CommitteeTypes()",
+
+  "ref_Constituencies()",
+
+  "ref_ConstituencyAreas()",
+
+  "ref_ConstituencyTypes()",
+
+  "ref_Countries()",
+
+  "ref_Departments()",
+
+  "ref_DisqualificationTypes()",
+
+  "ref_Elections()",
+
+  "ref_ElectionTypes()",
+
+  "ref_EndReasons()",
+
+  "ref_ExperienceTypes()",
+
+  "ref_GovernmentPostDepartments()",
+
+  "ref_GovernmentPosts()",
+
+  "ref_GovernmentRanks()",
+
+  "ref_HonouraryPrefixes()",
+
+  "ref_HonourLists()",
+
+  "ref_Honours()",
+
+  "ref_InterestCategories()",
+
+  "ref_LordsMembershipTypes()",
+
+  "ref_LordsRanks()",
+
+  "ref_OppositionPostDepartments()",
+
+  "ref_OppositionPosts()",
+
+  "ref_OppositionRanks()",
+
+  "ref_OtherParliaments()",
+
+  "ref_ParliamentaryPosts()",
+
+  "ref_ParliamentaryRanks()",
+
+  "ref_ParliamentTypes()",
+
+  "ref_Parties()",
+
+  "ref_PartySubTypes()",
+
+  "ref_PhotoOutputs()",
+
+  "ref_Statuses()",
+
+  "ref_Titles()")
+
+  x
+}
+
+#' @export
 #' @rdname mnis_Reference
 ref_AddressTypes <- function() {
 
@@ -30,8 +229,13 @@ ref_AddressTypes <- function() {
 
     x <- as.data.frame(got$AddressTypes)
 
+    names(x) <- gsub("AddressTypes.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_AnsweringBodies <- function() {
 
@@ -47,8 +251,13 @@ ref_AnsweringBodies <- function() {
 
     x <- as.data.frame(got$AnsweringBodies)
 
+    names(x) <- gsub("AnsweringBodies.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Areas <- function() {
 
@@ -64,8 +273,13 @@ ref_Areas <- function() {
 
     x <- as.data.frame(got$Areas)
 
+    names(x) <- gsub("Areas.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_AreaTypes <- function() {
 
@@ -81,8 +295,13 @@ ref_AreaTypes <- function() {
 
     x <- as.data.frame(got$AreaTypes)
 
+    names(x) <- gsub("AreaTypes.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_BiographyCategories <- function() {
 
@@ -98,8 +317,13 @@ ref_BiographyCategories <- function() {
 
     x <- as.data.frame(got$BiographyCategories)
 
+    names(x) <- gsub("BiographyCategories.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Cabinets <- function() {
 
@@ -115,8 +339,13 @@ ref_Cabinets <- function() {
 
     x <- as.data.frame(got$Cabinets)
 
+    names(x) <- gsub("Cabinets.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Committees <- function() {
 
@@ -132,8 +361,13 @@ ref_Committees <- function() {
 
     x <- as.data.frame(got$Committees)
 
+    names(x) <- gsub("Committees.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_CommitteeTypes <- function() {
 
@@ -149,8 +383,13 @@ ref_CommitteeTypes <- function() {
 
     x <- as.data.frame(got$CommitteeTypes)
 
+    names(x) <- gsub("CommitteeTypes.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Constituencies <- function() {
 
@@ -166,8 +405,13 @@ ref_Constituencies <- function() {
 
     x <- as.data.frame(got$Constituencies)
 
+    names(x) <- gsub("Constituencies.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_ConstituencyAreas <- function() {
 
@@ -183,8 +427,13 @@ ref_ConstituencyAreas <- function() {
 
     x <- as.data.frame(got$ConstituencyAreas)
 
+    names(x) <- gsub("ConstituencyAreas.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_ConstituencyTypes <- function() {
 
@@ -200,8 +449,13 @@ ref_ConstituencyTypes <- function() {
 
     x <- as.data.frame(got$ConstituencyTypes)
 
+    names(x) <- gsub("ConstituencyTypes.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Countries <- function() {
 
@@ -217,8 +471,13 @@ ref_Countries <- function() {
 
     x <- as.data.frame(got$Countries)
 
+    names(x) <- gsub("Countries.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Departments <- function() {
 
@@ -234,8 +493,13 @@ ref_Departments <- function() {
 
     x <- as.data.frame(got$Departments)
 
+    names(x) <- gsub("Departments.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_DisqualificationTypes <- function() {
 
@@ -251,8 +515,13 @@ ref_DisqualificationTypes <- function() {
 
     x <- as.data.frame(got$DisqualificationTypes)
 
+    names(x) <- gsub("DisqualificationTypes.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_Elections <- function() {
 
@@ -268,8 +537,13 @@ ref_Elections <- function() {
 
     x <- as.data.frame(got$Elections)
 
+    names(x) <- gsub("Elections.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_ElectionTypes <- function() {
 
@@ -285,8 +559,13 @@ ref_ElectionTypes <- function() {
 
     x <- as.data.frame(got$ElectionTypes)
 
+    names(x) <- gsub("ElectionTypes.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_EndReasons <- function() {
 
@@ -302,8 +581,13 @@ ref_EndReasons <- function() {
 
     x <- as.data.frame(got$EndReasons)
 
+    names(x) <- gsub("EndReasons.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
 ref_ExperienceTypes <- function() {
 
@@ -319,7 +603,12 @@ ref_ExperienceTypes <- function() {
 
     x <- as.data.frame(got$ExperienceTypes)
 
+    names(x) <- gsub("ExperienceTypes.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_GovernmentPostDepartments <- function() {
 
@@ -335,7 +624,12 @@ ref_GovernmentPostDepartments <- function() {
 
     x <- as.data.frame(got$GovernmentPostDepartments)
 
+    names(x) <- gsub("GovernmentPostDepartments.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_GovernmentPosts <- function() {
 
@@ -351,7 +645,12 @@ ref_GovernmentPosts <- function() {
 
     x <- as.data.frame(got$GovernmentPosts)
 
+    names(x) <- gsub("GovernmentPosts.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_GovernmentRanks <- function() {
 
@@ -367,7 +666,12 @@ ref_GovernmentRanks <- function() {
 
     x <- as.data.frame(got$GovernmentRanks)
 
+    names(x) <- gsub("GovernmentRanks.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_HonouraryPrefixes <- function() {
 
@@ -383,7 +687,12 @@ ref_HonouraryPrefixes <- function() {
 
     x <- as.data.frame(got$HonouraryPrefixes)
 
+    names(x) <- gsub("HonouraryPrefixes.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_HonourLists <- function() {
 
@@ -399,7 +708,12 @@ ref_HonourLists <- function() {
 
     x <- as.data.frame(got$HonourLists)
 
+    names(x) <- gsub("HonourLists.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_Honours <- function() {
 
@@ -415,7 +729,12 @@ ref_Honours <- function() {
 
     x <- as.data.frame(got$Honours)
 
+    names(x) <- gsub("Honours.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_InterestCategories <- function() {
 
@@ -431,7 +750,12 @@ ref_InterestCategories <- function() {
 
     x <- as.data.frame(got$InterestCategories)
 
+    names(x) <- gsub("InterestCategories.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_LordsMembershipTypes <- function() {
 
@@ -447,7 +771,12 @@ ref_LordsMembershipTypes <- function() {
 
     x <- as.data.frame(got$LordsMembershipTypes)
 
+    names(x) <- gsub("LordsMembershipTypes.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_LordsRanks <- function() {
 
@@ -463,7 +792,12 @@ ref_LordsRanks <- function() {
 
     x <- as.data.frame(got$LordsRanks)
 
+    names(x) <- gsub("LordsRanks.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_OppositionPostDepartments <- function() {
 
@@ -479,7 +813,12 @@ ref_OppositionPostDepartments <- function() {
 
     x <- as.data.frame(got$OppositionPostDepartments)
 
+    names(x) <- gsub("OppositionPostDepartments.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_OppositionPosts <- function() {
 
@@ -495,7 +834,12 @@ ref_OppositionPosts <- function() {
 
     x <- as.data.frame(got$OppositionPosts)
 
+    names(x) <- gsub("OppositionPosts.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_OppositionRanks <- function() {
 
@@ -511,7 +855,12 @@ ref_OppositionRanks <- function() {
 
     x <- as.data.frame(got$OppositionRanks)
 
+    names(x) <- gsub("OppositionRanks.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_OtherParliaments <- function() {
 
@@ -527,7 +876,12 @@ ref_OtherParliaments <- function() {
 
     x <- as.data.frame(got$OtherParliaments)
 
+    names(x) <- gsub("OtherParliaments.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_ParliamentaryPosts <- function() {
 
@@ -543,7 +897,12 @@ ref_ParliamentaryPosts <- function() {
 
     x <- as.data.frame(got$ParliamentaryPosts)
 
+    names(x) <- gsub("ParliamentaryPosts.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_ParliamentaryRanks <- function() {
 
@@ -559,7 +918,12 @@ ref_ParliamentaryRanks <- function() {
 
     x <- as.data.frame(got$ParliamentaryRanks)
 
+    names(x) <- gsub("ParliamentRanks.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_ParliamentTypes <- function() {
 
@@ -575,7 +939,12 @@ ref_ParliamentTypes <- function() {
 
     x <- as.data.frame(got$ParliamentTypes)
 
+    names(x) <- gsub("ParliamentTypes.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_Parties <- function() {
 
@@ -591,7 +960,12 @@ ref_Parties <- function() {
 
     x <- as.data.frame(got$Parties)
 
+    names(x) <- gsub("Parties.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_PartySubTypes <- function() {
 
@@ -607,7 +981,12 @@ ref_PartySubTypes <- function() {
 
     x <- as.data.frame(got$PartySubTypes)
 
+    names(x) <- gsub("PartySubTypes.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_PhotoOutputs <- function() {
 
@@ -623,7 +1002,12 @@ ref_PhotoOutputs <- function() {
 
     x <- as.data.frame(got$PhotoOutputs)
 
+    names(x) <- gsub("PhotoOutputs.", "", names(x))
+
+    x
+
 }
+#' @export
 #' @rdname mnis_Reference
 ref_Statuses <- function() {
 
@@ -639,10 +1023,15 @@ ref_Statuses <- function() {
 
     x <- as.data.frame(got$Statuses)
 
+    names(x) <- gsub("Statuses.", "", names(x))
+
+    x
+
 }
 
+#' @export
 #' @rdname mnis_Reference
-ref_titles <- function() {
+ref_Titles <- function() {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/"
 
@@ -655,5 +1044,9 @@ ref_titles <- function() {
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
     x <- as.data.frame(got$Titles)
+
+    names(x) <- gsub("Titles.", "", names(x))
+
+    x
 
 }
