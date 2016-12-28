@@ -8,7 +8,8 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_GeneralElectionResults(locationType = "Country", locationName = "England", startDate = "2010-01-01", endDate = "2016-01-01")
+#' x <- mnis_GeneralElectionResults(locationType = "Country", locationName = "England",
+#'                                  startDate = "2010-01-01", endDate = "2016-01-01")
 #'
 #' }
 #'
@@ -16,9 +17,9 @@
 
 mnis_GeneralElectionResults <- function(locationType = NULL, locationName = NULL, startDate = NULL, endDate = NULL) {
 
-  locationType <- URLencode(locationType)
+  locationType <-  utils::URLencode(locationType)
 
-  locationName <- URLencode(locationName)
+  locationName <-  utils::URLencode(locationName)
 
   if(is.null(endDate)==TRUE) {
     endDate <- Sys.Date()

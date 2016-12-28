@@ -21,7 +21,7 @@ mnis_Department <- function(departmentId = 0, bench = "Government", former=TRUE)
     former <- "current"
   }
 
-  bench <- URLencode(bench)
+  bench <-  utils::URLencode(bench)
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
 

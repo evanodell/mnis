@@ -42,89 +42,86 @@
 \alias{ref_titles}
 \title{mnis_Reference}
 \usage{
-ref_AddressTypes(x)
+ref_AddressTypes()
 
-ref_AnsweringBodies(x)
+ref_AnsweringBodies()
 
-ref_Areas(x)
+ref_Areas()
 
-ref_AreaTypes(x)
+ref_AreaTypes()
 
-ref_BiographyCategories(x)
+ref_BiographyCategories()
 
-ref_Cabinets(x)
+ref_Cabinets()
 
-ref_Committees(x)
+ref_Committees()
 
-ref_CommitteeTypes(x)
+ref_CommitteeTypes()
 
-ref_Constituencies(x)
+ref_Constituencies()
 
-ref_ConstituencyAreas(x)
+ref_ConstituencyAreas()
 
-ref_ConstituencyTypes(x)
+ref_ConstituencyTypes()
 
-ref_Countries(x)
+ref_Countries()
 
-ref_Departments(x)
+ref_Departments()
 
-ref_DisqualificationTypes(x)
+ref_DisqualificationTypes()
 
-ref_Elections(x)
+ref_Elections()
 
-ref_ElectionTypes(x)
+ref_ElectionTypes()
 
-ref_EndReasons(x)
+ref_EndReasons()
 
-ref_ExperienceTypes(x)
+ref_ExperienceTypes()
 
-ref_GovernmentPostDepartments(x)
+ref_GovernmentPostDepartments()
 
-ref_GovernmentPosts(x)
+ref_GovernmentPosts()
 
-ref_GovernmentRanks(x)
+ref_GovernmentRanks()
 
-ref_HonouraryPrefixes(x)
+ref_HonouraryPrefixes()
 
-ref_HonourLists(x)
+ref_HonourLists()
 
-ref_Honours(x)
+ref_Honours()
 
-ref_InterestCategories(x)
+ref_InterestCategories()
 
-ref_LordsMembershipTypes(x)
+ref_LordsMembershipTypes()
 
-ref_LordsRanks(x)
+ref_LordsRanks()
 
-ref_OppositionPostDepartments(x)
+ref_OppositionPostDepartments()
 
-ref_OppositionPosts(x)
+ref_OppositionPosts()
 
-ref_OppositionRanks(x)
+ref_OppositionRanks()
 
-ref_OtherParliaments(x)
+ref_OtherParliaments()
 
-ref_ParliamentaryPosts(x)
+ref_ParliamentaryPosts()
 
-ref_ParliamentaryRanks(x)
+ref_ParliamentaryRanks()
 
-ref_ParliamentTypes(x)
+ref_ParliamentTypes()
 
-ref_Parties(x)
+ref_Parties()
 
-ref_PartySubTypes(x)
+ref_PartySubTypes()
 
-ref_PhotoOutputs(x)
+ref_PhotoOutputs()
 
-ref_Statuses(x)
+ref_Statuses()
 
-ref_titles(x)
-}
-\arguments{
-\item{x}{Basic argument to function call}
+ref_titles()
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
+A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments.
 }
 \examples{
 \dontrun{
