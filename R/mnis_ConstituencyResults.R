@@ -1,18 +1,25 @@
 #' mnis_ConstituencyResults
 #'
+#' Returns a list with details of the constituency and a data frame with election results.
 #' @param constituencyId The ID of the constituency to return the data for.
-#' @param electionId The ID of the election to return the data for. Call 0 to see the latest result.
-#' @return A list with information on the outcome of the most recent election in a constituency
+#' @param electionId The ID of the election to return the data for. Defaults to 0, which calls the latest result.
+#' @return A list with details of the constituency and a data frame with election results.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_ConstituencyResults(3701, 19)
+#' x <- mnis_ConstituencyResults(constituencyId = 3709, electionId = 0)
 #'
 #' }
-#'
 
+mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = 0) {
 
-mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = NULL) {
+  if(is.null(constituencyId)==TRUE) {
+    stop("constituencyId cannot be empty", call. = FALSE)
+  }
+
+  constituencyId <- as.character(constituencyId)
+
+  electionId <- as.character(electionId)
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
 
@@ -24,8 +31,22 @@ mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = NULL) {
     stop("API did not return json", call. = FALSE)
   }
 
-  x <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+  got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
-  x
+  details <- got$Constituency$Details
+
+  results <- got$Constituency$Results
+
+  results <- as.data.frame(results)
+
+  names(results) <- sub("Election.", "Election_", names(results))
+
+  names(results) <- sub("Candidates.Candidate.", "", names(results))
+
+  y <- list()
+
+  y <- c(list("results"=results), list("details"=details))
+
+  y
 
 }

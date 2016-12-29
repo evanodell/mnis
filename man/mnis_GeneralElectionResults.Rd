@@ -8,27 +8,25 @@ mnis_GeneralElectionResults(locationType = NULL, locationName = NULL,
   startDate = NULL, endDate = NULL)
 }
 \arguments{
-\item{locationType}{The ID of the constituency to return the data for.}
+\item{locationType}{The type of area to return information for. Accepts "Country", "Region", "County", and "Constituency". Defaults to "Country".}
 
-\item{locationName}{The ID of the election to return the data for. Call 0 to see the latest result.}
+\item{locationName}{The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to "Great Britain".}
 
-\item{startDate}{Start date of search. In yyyy-mm-dd format.}
+\item{startDate}{Start date of search. In yyyy-mm-dd format. Defaults to "1900-01-01" if no date is selected.}
 
 \item{endDate}{End date of search. In yyyy-mm-dd format. Defaults to current date if no date is selected.}
 }
 \value{
-A list with information on the outcome of the most recent election in a constituency
+Returns a list with details of the search parameter and a data frame with election results.
 }
 \description{
-mnis_GeneralElectionResults
+Returns a list with details of the search parameter and a data frame with election results.
 }
 \examples{
 \dontrun{
 x <- mnis_GeneralElectionResults(locationType = "Country", locationName = "England",
                                  startDate = "2010-01-01", endDate = "2016-01-01")
-
 }
-
 }
 \keyword{mnis}
 

@@ -1,7 +1,11 @@
 
-#' mnis_extra
+#' mnis_Extra
 #'
-#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
+#'
+#' A wrapper for the \code{\link{mnis_Additional}} functions.
+#' Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>
+#'
+#'
 #' @param ID The ID number of the member. Defaults to NULL.
 #' @param mem_id Request based on the default membership ID scheme.
 #' @param refDods Request based on the DODS membership ID scheme. Defaults to FALSE.
@@ -27,17 +31,17 @@
 #' @param Statuses Status history (e.g. suspensions and disqualifications) for a Member.
 #' @keywords mnis
 #' @examples \dontrun{
-#' x <- mnis_extra(172)
+#' x <- mnis_Extra(172)
 #'
 #' }
 #' @export
 #' @rdname mnis_Extra
-#' @seealso \code{\link{mnis_FullBiog}} \code{\link{mnis_BasicDetails}}
+#' @seealso \code{\link{mnis_FullBiog}} \code{\link{mnis_BasicDetails}} \code{\link{mnis_Additional}}
 
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
-mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
+mnis_Extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
     Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE,
     HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, OtherParliaments = TRUE,
     ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE) {

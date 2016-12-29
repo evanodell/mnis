@@ -7,20 +7,19 @@
 mnis_LordsType(Date = NULL)
 }
 \arguments{
-\item{Date}{A date in yyyy-mm-dd format}
+\item{Date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
 }
 \value{
-A data frame with information on the numbers of different types of Lords
+A data frame with information on the numbers of different types of Lords on a given date.
 }
 \description{
-mnis_LordsType
+Calls the API to return a data frame with details on the number of Lords and their affiliations.
 }
 \examples{
 \dontrun{
 x <- mnis_LordsType()
 
 }
-
 }
 \keyword{mnis}
 

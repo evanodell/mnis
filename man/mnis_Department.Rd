@@ -21,7 +21,7 @@ mnis_Department
 }
 \examples{
 \dontrun{
-x <- mnis_Department()
+x <- mnis_Department(departmentId = 0, bench = "Government", former=TRUE)
 
 }
 

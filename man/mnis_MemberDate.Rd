@@ -7,22 +7,21 @@
 mnis_MemberDate(ID = NULL, Date = NULL)
 }
 \arguments{
-\item{ID}{The house of parliament. Defaults to "Commons".}
+\item{ID}{The ID of the member.}
 
-\item{Date}{A date in yyyy-mm-dd format}
+\item{Date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
 }
 \value{
-This will return a data frame for the specified member id on the date given - useful for knowing how a member should have been addressed in historical applications.
+Returns a data frame with the given member's status on the given date.
 }
 \description{
-mnis_MemberDate
+Returns a data frame with a members status on a given date.
 }
 \examples{
 \dontrun{
-x <- mnis_MemberDate()
+x <- mnis_MemberDate(172)
 
 }
-
 }
 \keyword{mnis}
 

@@ -4,25 +4,24 @@
 \alias{mnis_ConstituencyResults}
 \title{mnis_ConstituencyResults}
 \usage{
-mnis_ConstituencyResults(constituencyId = NULL, electionId = NULL)
+mnis_ConstituencyResults(constituencyId = NULL, electionId = 0)
 }
 \arguments{
 \item{constituencyId}{The ID of the constituency to return the data for.}
 
-\item{electionId}{The ID of the election to return the data for. Call 0 to see the latest result.}
+\item{electionId}{The ID of the election to return the data for. Defaults to 0, which calls the latest result.}
 }
 \value{
-A list with information on the outcome of the most recent election in a constituency
+A list with details of the constituency and a data frame with election results.
 }
 \description{
-mnis_ConstituencyResults
+Returns a list with details of the constituency and a data frame with election results.
 }
 \examples{
 \dontrun{
-x <- mnis_ConstituencyResults(3701, 19)
+x <- mnis_ConstituencyResults(constituencyId = 3709, electionId = 0)
 
 }
-
 }
 \keyword{mnis}
 

@@ -1,15 +1,14 @@
 #' mnis_LordsType
 #'
-#' @param Date A date in yyyy-mm-dd format
-#' @return A data frame with information on the numbers of different types of Lords
+#' Calls the API to return a data frame with details on the number of Lords and their affiliations.
+#' @param Date A date in yyyy-mm-dd format. Defaults to the current system date.
+#' @return A data frame with information on the numbers of different types of Lords on a given date.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
 #' x <- mnis_LordsType()
 #'
 #' }
-#'
-
 
 mnis_LordsType <- function(Date = NULL) {
 
@@ -30,5 +29,11 @@ mnis_LordsType <- function(Date = NULL) {
   got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
   x <- as.data.frame(got$LordsByType)
+
+  names(x) <- sub("Party.", "", names(x))
+
+  names(x) <- sub(".Id", "Id", names(x))
+
+  x
 
 }

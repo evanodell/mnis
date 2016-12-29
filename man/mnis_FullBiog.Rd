@@ -14,7 +14,7 @@ mnis_FullBiog(ID = NULL, mem_id = TRUE, refDods = FALSE)
 \item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
+Requests all available biographical information for a given member.
 }
 \examples{
 \dontrun{

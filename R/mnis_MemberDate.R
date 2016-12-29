@@ -1,20 +1,17 @@
 #' mnis_MemberDate
 #'
-#' @param ID The house of parliament. Defaults to "Commons".
-#' @param Date A date in yyyy-mm-dd format
-#' @return This will return a data frame for the specified member id on the date given - useful for knowing how a member should have been addressed in historical applications.
+#' Returns a data frame with a members status on a given date.
+#' @param ID The ID of the member.
+#' @param Date A date in yyyy-mm-dd format. Defaults to the current system date.
+#' @return Returns a data frame with the given member's status on the given date.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_MemberDate()
+#' x <- mnis_MemberDate(172)
 #'
 #' }
-#'
-
 
 mnis_MemberDate <- function(ID = NULL, Date = NULL) {
-
-  ID <- as.character(ID)
 
   if(is.null(ID)==TRUE) {
     stop("ID cannot be empty", call. = FALSE)
@@ -23,6 +20,8 @@ mnis_MemberDate <- function(ID = NULL, Date = NULL) {
   if(is.null(Date)==TRUE) {
     Date <- Sys.Date()
     }
+
+  ID <- as.character(ID)
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
 
@@ -36,6 +35,6 @@ mnis_MemberDate <- function(ID = NULL, Date = NULL) {
 
   got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
-  x <- as.data.frame(got$Member)
+  x <- as.list(got$Member)
 
 }

@@ -7,7 +7,7 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_Department()
+#' x <- mnis_Department(departmentId = 0, bench = "Government", former=TRUE)
 #'
 #' }
 #'
@@ -40,6 +40,18 @@ mnis_Department <- function(departmentId = 0, bench = "Government", former=TRUE)
   x <- as.data.frame(x)
 
   names(x) <- gsub("Post.PostHolders.", "", names(x))
+
+  names(x) <- sub("PostHolder.Member.", "", names(x))
+
+  names(x) <- sub("..xsi.nil", "", names(x))
+
+  names(x) <- sub("..xmlns.xsi", "", names(x))
+
+  names(x) <- sub('".Member_Id"', "Member_Id", names(x))
+
+  names(x) <- sub('".Dods_Id"', "Dods_Id", names(x))
+
+  names(x) <- sub('".Pims_Id"', "Pims_Id", names(x))
 
   x
 

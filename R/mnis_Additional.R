@@ -12,9 +12,39 @@
 #' }
 #' @export
 #' @rdname mnis_Additional
-#' @seealso \code{\link{mnis_FullBiog}} \code{\link{mnis_extra}}
+#' @seealso \code{\link{mnis_FullBiog}} \code{\link{mnis_Extra}}
 
+#' @export
+#' @rdname mnis_Additional
+mnis_Additional <- function() {
 
+  x <- c("mnis_FullBiog()",
+         "mnis_BasicDetails()",
+         "mnis_BiographyEntries()",
+         "mnis_Committees()",
+         "mnis_Addresses()",
+         "mnis_Constituencies()",
+         "mnis_ElectionsContested()",
+         "mnis_Experiences()",
+         "mnis_GovernmentPosts()",
+         "mnis_Honours()",
+         "mnis_HouseMemberships()",
+         "mnis_Statuses()",
+         "mnis_Staff()",
+         "mnis_Interests()",
+         "mnis_KnownAs()",
+         "mnis_MaidenSpeeches()",
+         "mnis_OppositionPosts()",
+         "mnis_OtherParliaments()",
+         "mnis_ParliamentaryPosts()",
+         "mnis_Parties()",
+         "mnis_PreferredNames()")
+  message("All Available Additional Information Functions:")
+
+  x
+}
+
+#' @export
 #' @rdname mnis_Additional
 
 mnis_BasicDetails <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -58,7 +88,7 @@ mnis_BasicDetails <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
   x
 
 }
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_BiographyEntries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -101,10 +131,8 @@ mnis_BiographyEntries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_Committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
@@ -146,7 +174,7 @@ mnis_Committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_Addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -189,10 +217,8 @@ mnis_Addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_Constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
@@ -234,10 +260,8 @@ mnis_Constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_ElectionsContested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
@@ -279,7 +303,7 @@ mnis_ElectionsContested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_Experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -322,7 +346,7 @@ mnis_Experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_GovernmentPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -365,7 +389,7 @@ mnis_GovernmentPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_Honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -408,7 +432,7 @@ mnis_Honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_HouseMemberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -451,7 +475,7 @@ mnis_HouseMemberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_Statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -494,6 +518,7 @@ mnis_Statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
+#' @export
 #' @rdname mnis_Additional
 
 mnis_Staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -536,7 +561,7 @@ mnis_Staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
@@ -577,15 +602,12 @@ mnis_Interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
   names(x) <- gsub("Members.Member.", "", names(x))
 
-
   x
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_KnownAs <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
@@ -627,7 +649,7 @@ mnis_KnownAs <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
@@ -672,11 +694,8 @@ mnis_MaidenSpeeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_OppositionPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
@@ -718,10 +737,8 @@ mnis_OppositionPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_OtherParliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
@@ -763,7 +780,7 @@ mnis_OtherParliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_ParliamentaryPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -806,7 +823,7 @@ mnis_ParliamentaryPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
 
 mnis_Parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
@@ -849,10 +866,8 @@ mnis_Parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
 }
 
-
+#' @export
 #' @rdname mnis_Additional
-
-# http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 mnis_PreferredNames <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 

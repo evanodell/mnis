@@ -12,17 +12,16 @@ mnis_PartyState(House = "Commons", Date = NULL)
 \item{Date}{A date in yyyy-mm-dd format}
 }
 \value{
-A data frame with information on the numbers and gender of MPs, by party
+A data frame with information on the numbers and gender of MPs, by party, by party, for the given date.
 }
 \description{
-mnis_PartyState
+A data frame with information on the numbers and gender of MPs, by party, for the given date.
 }
 \examples{
 \dontrun{
 x <- mnis_PartyState("2012-01-12")
 
 }
-
 }
 \keyword{mnis}
 

@@ -1,16 +1,15 @@
 #' mnis_PartyState
 #'
+#' A data frame with information on the numbers and gender of MPs, by party, for the given date.
 #' @param House The house of parliament. Defaults to "Commons".
 #' @param Date A date in yyyy-mm-dd format
-#' @return A data frame with information on the numbers and gender of MPs, by party
+#' @return A data frame with information on the numbers and gender of MPs, by party, by party, for the given date.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
 #' x <- mnis_PartyState("2012-01-12")
 #'
 #' }
-#'
-
 
 mnis_PartyState <- function(House = "Commons", Date = NULL) {
 
@@ -33,5 +32,13 @@ mnis_PartyState <- function(House = "Commons", Date = NULL) {
   got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
   x <- as.data.frame(got$HouseOverview)
+
+  names(x) <- sub("Party.", "", names(x))
+
+  names(x) <- sub("X.House", "House", names(x))
+
+  names(x) <- sub(".Id", "Id", names(x))
+
+  x
 
 }

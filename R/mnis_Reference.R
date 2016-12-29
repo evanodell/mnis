@@ -210,6 +210,8 @@ mnis_Reference <- function() {
 
   "ref_Titles()")
 
+  message("All Available Reference Functions:")
+
   x
 }
 
@@ -229,7 +231,7 @@ ref_AddressTypes <- function() {
 
     x <- as.data.frame(got$AddressTypes)
 
-    names(x) <- gsub("AddressTypes.", "", names(x))
+    names(x) <- sub("AddressType.", "", names(x))
 
     x
 
@@ -251,7 +253,7 @@ ref_AnsweringBodies <- function() {
 
     x <- as.data.frame(got$AnsweringBodies)
 
-    names(x) <- gsub("AnsweringBodies.", "", names(x))
+    names(x) <- sub("AnsweringBody.", "", names(x))
 
     x
 
@@ -273,7 +275,7 @@ ref_Areas <- function() {
 
     x <- as.data.frame(got$Areas)
 
-    names(x) <- gsub("Areas.", "", names(x))
+    names(x) <- sub("Area.", "", names(x))
 
     x
 
@@ -295,7 +297,7 @@ ref_AreaTypes <- function() {
 
     x <- as.data.frame(got$AreaTypes)
 
-    names(x) <- gsub("AreaTypes.", "", names(x))
+    names(x) <- sub("AreaType.", "", names(x))
 
     x
 
@@ -317,7 +319,7 @@ ref_BiographyCategories <- function() {
 
     x <- as.data.frame(got$BiographyCategories)
 
-    names(x) <- gsub("BiographyCategories.", "", names(x))
+    names(x) <- sub("BiographyCategory.", "", names(x))
 
     x
 
@@ -339,7 +341,7 @@ ref_Cabinets <- function() {
 
     x <- as.data.frame(got$Cabinets)
 
-    names(x) <- gsub("Cabinets.", "", names(x))
+    names(x) <- sub("Cabinet.", "", names(x))
 
     x
 
@@ -361,7 +363,7 @@ ref_Committees <- function() {
 
     x <- as.data.frame(got$Committees)
 
-    names(x) <- gsub("Committees.", "", names(x))
+    names(x) <- sub("Committee.", "", names(x))
 
     x
 
@@ -383,7 +385,7 @@ ref_CommitteeTypes <- function() {
 
     x <- as.data.frame(got$CommitteeTypes)
 
-    names(x) <- gsub("CommitteeTypes.", "", names(x))
+    names(x) <- sub("CommitteeType.", "", names(x))
 
     x
 
@@ -405,7 +407,7 @@ ref_Constituencies <- function() {
 
     x <- as.data.frame(got$Constituencies)
 
-    names(x) <- gsub("Constituencies.", "", names(x))
+    names(x) <- sub("Constituency.", "", names(x))
 
     x
 
@@ -427,7 +429,7 @@ ref_ConstituencyAreas <- function() {
 
     x <- as.data.frame(got$ConstituencyAreas)
 
-    names(x) <- gsub("ConstituencyAreas.", "", names(x))
+    names(x) <- sub("ConstituencyArea.", "", names(x))
 
     x
 
@@ -449,7 +451,7 @@ ref_ConstituencyTypes <- function() {
 
     x <- as.data.frame(got$ConstituencyTypes)
 
-    names(x) <- gsub("ConstituencyTypes.", "", names(x))
+    names(x) <- sub("ConstituencyType.", "", names(x))
 
     x
 
@@ -471,7 +473,7 @@ ref_Countries <- function() {
 
     x <- as.data.frame(got$Countries)
 
-    names(x) <- gsub("Countries.", "", names(x))
+    names(x) <- sub("Country.", "", names(x))
 
     x
 
@@ -493,7 +495,7 @@ ref_Departments <- function() {
 
     x <- as.data.frame(got$Departments)
 
-    names(x) <- gsub("Departments.", "", names(x))
+    names(x) <- sub("Department.", "", names(x))
 
     x
 
@@ -515,7 +517,7 @@ ref_DisqualificationTypes <- function() {
 
     x <- as.data.frame(got$DisqualificationTypes)
 
-    names(x) <- gsub("DisqualificationTypes.", "", names(x))
+    names(x) <- sub("DisqualificationType.", "", names(x))
 
     x
 
@@ -537,7 +539,7 @@ ref_Elections <- function() {
 
     x <- as.data.frame(got$Elections)
 
-    names(x) <- gsub("Elections.", "", names(x))
+    names(x) <- sub("Election.", "", names(x))
 
     x
 
@@ -559,7 +561,7 @@ ref_ElectionTypes <- function() {
 
     x <- as.data.frame(got$ElectionTypes)
 
-    names(x) <- gsub("ElectionTypes.", "", names(x))
+    names(x) <- sub("ElectionType.", "", names(x))
 
     x
 
@@ -581,7 +583,7 @@ ref_EndReasons <- function() {
 
     x <- as.data.frame(got$EndReasons)
 
-    names(x) <- gsub("EndReasons.", "", names(x))
+    names(x) <- sub("EndReason.", "", names(x))
 
     x
 
@@ -603,7 +605,7 @@ ref_ExperienceTypes <- function() {
 
     x <- as.data.frame(got$ExperienceTypes)
 
-    names(x) <- gsub("ExperienceTypes.", "", names(x))
+    names(x) <- sub("ExperienceType.", "", names(x))
 
     x
 
@@ -624,7 +626,7 @@ ref_GovernmentPostDepartments <- function() {
 
     x <- as.data.frame(got$GovernmentPostDepartments)
 
-    names(x) <- gsub("GovernmentPostDepartments.", "", names(x))
+    names(x) <- sub("GovernmentPostDepartment.", "", names(x))
 
     x
 
@@ -645,7 +647,7 @@ ref_GovernmentPosts <- function() {
 
     x <- as.data.frame(got$GovernmentPosts)
 
-    names(x) <- gsub("GovernmentPosts.", "", names(x))
+    names(x) <- sub("GovernmentPost.", "", names(x))
 
     x
 
@@ -666,7 +668,7 @@ ref_GovernmentRanks <- function() {
 
     x <- as.data.frame(got$GovernmentRanks)
 
-    names(x) <- gsub("GovernmentRanks.", "", names(x))
+    names(x) <- sub("GovernmentRank.", "", names(x))
 
     x
 
@@ -687,7 +689,7 @@ ref_HonouraryPrefixes <- function() {
 
     x <- as.data.frame(got$HonouraryPrefixes)
 
-    names(x) <- gsub("HonouraryPrefixes.", "", names(x))
+    names(x) <- sub("HonouraryPrefix.", "", names(x))
 
     x
 
@@ -708,7 +710,7 @@ ref_HonourLists <- function() {
 
     x <- as.data.frame(got$HonourLists)
 
-    names(x) <- gsub("HonourLists.", "", names(x))
+    names(x) <- sub("HonourList.", "", names(x))
 
     x
 
@@ -729,7 +731,7 @@ ref_Honours <- function() {
 
     x <- as.data.frame(got$Honours)
 
-    names(x) <- gsub("Honours.", "", names(x))
+    names(x) <- sub("Honour.", "", names(x))
 
     x
 
@@ -750,7 +752,7 @@ ref_InterestCategories <- function() {
 
     x <- as.data.frame(got$InterestCategories)
 
-    names(x) <- gsub("InterestCategories.", "", names(x))
+    names(x) <- sub("InterestCategory.", "", names(x))
 
     x
 
@@ -771,7 +773,7 @@ ref_LordsMembershipTypes <- function() {
 
     x <- as.data.frame(got$LordsMembershipTypes)
 
-    names(x) <- gsub("LordsMembershipTypes.", "", names(x))
+    names(x) <- sub("LordsMembershipType.", "", names(x))
 
     x
 
@@ -792,7 +794,7 @@ ref_LordsRanks <- function() {
 
     x <- as.data.frame(got$LordsRanks)
 
-    names(x) <- gsub("LordsRanks.", "", names(x))
+    names(x) <- sub("LordsRank.", "", names(x))
 
     x
 
@@ -813,7 +815,7 @@ ref_OppositionPostDepartments <- function() {
 
     x <- as.data.frame(got$OppositionPostDepartments)
 
-    names(x) <- gsub("OppositionPostDepartments.", "", names(x))
+    names(x) <- sub("OppositionPostDepartment.", "", names(x))
 
     x
 
@@ -834,7 +836,7 @@ ref_OppositionPosts <- function() {
 
     x <- as.data.frame(got$OppositionPosts)
 
-    names(x) <- gsub("OppositionPosts.", "", names(x))
+    names(x) <- sub("OppositionPost.", "", names(x))
 
     x
 
@@ -855,7 +857,7 @@ ref_OppositionRanks <- function() {
 
     x <- as.data.frame(got$OppositionRanks)
 
-    names(x) <- gsub("OppositionRanks.", "", names(x))
+    names(x) <- sub("OppositionRank.", "", names(x))
 
     x
 
@@ -876,7 +878,7 @@ ref_OtherParliaments <- function() {
 
     x <- as.data.frame(got$OtherParliaments)
 
-    names(x) <- gsub("OtherParliaments.", "", names(x))
+    names(x) <- sub("OtherParliament.", "", names(x))
 
     x
 
@@ -897,7 +899,7 @@ ref_ParliamentaryPosts <- function() {
 
     x <- as.data.frame(got$ParliamentaryPosts)
 
-    names(x) <- gsub("ParliamentaryPosts.", "", names(x))
+    names(x) <- sub("ParliamentaryPost.", "", names(x))
 
     x
 
@@ -918,7 +920,7 @@ ref_ParliamentaryRanks <- function() {
 
     x <- as.data.frame(got$ParliamentaryRanks)
 
-    names(x) <- gsub("ParliamentRanks.", "", names(x))
+    names(x) <- sub("ParliamentRanks.", "", names(x))
 
     x
 
@@ -939,7 +941,7 @@ ref_ParliamentTypes <- function() {
 
     x <- as.data.frame(got$ParliamentTypes)
 
-    names(x) <- gsub("ParliamentTypes.", "", names(x))
+    names(x) <- sub("ParliamentType.", "", names(x))
 
     x
 
@@ -960,7 +962,7 @@ ref_Parties <- function() {
 
     x <- as.data.frame(got$Parties)
 
-    names(x) <- gsub("Parties.", "", names(x))
+    names(x) <- sub("Party.", "", names(x))
 
     x
 
@@ -979,9 +981,7 @@ ref_PartySubTypes <- function() {
 
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
-    x <- as.data.frame(got$PartySubTypes)
-
-    names(x) <- gsub("PartySubTypes.", "", names(x))
+    x <- as.list(got$PartySubTypes$PartySubType)
 
     x
 
@@ -1002,7 +1002,7 @@ ref_PhotoOutputs <- function() {
 
     x <- as.data.frame(got$PhotoOutputs)
 
-    names(x) <- gsub("PhotoOutputs.", "", names(x))
+    names(x) <- sub("PhotoOutput.", "", names(x))
 
     x
 
@@ -1023,7 +1023,7 @@ ref_Statuses <- function() {
 
     x <- as.data.frame(got$Statuses)
 
-    names(x) <- gsub("Statuses.", "", names(x))
+    names(x) <- sub("Status.", "", names(x))
 
     x
 
@@ -1045,7 +1045,7 @@ ref_Titles <- function() {
 
     x <- as.data.frame(got$Titles)
 
-    names(x) <- gsub("Titles.", "", names(x))
+    names(x) <- sub("Title.", "", names(x))
 
     x
 
