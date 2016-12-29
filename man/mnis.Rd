@@ -6,7 +6,7 @@
 \alias{mnis-package}
 \title{mnis: Easy Downloading Capabilities for the Member Name Information Service}
 \description{
-An API package for the Members' Name Information Service operated by the UK parliament. The package is intended to simplify pulling data from an API for users unfamiliar with APIs.
+An API package for the Members' Name Information Service operated by the UK parliament. The package is intended to simplify pulling data from an API for users unfamiliar with APIs. Documentation for the API itself can be found here: http://data.parliament.uk/membersdataplatform/default.aspx.
 }
 \details{
 Note that on Unix-like systems there may be a warning message stating 'JSON string contains (illegal) UTF8 byte-order-mark!'. This does not appear to have any impact on the data itself, but is due to the encoding used by the API.

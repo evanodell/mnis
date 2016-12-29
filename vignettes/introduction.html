@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Evan Odell" />
+
+<meta name="date" content="2016-12-29" />
+
+<title>Introduction to mnis</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction to mnis</h1>
+<h4 class="author"><em>Evan Odell</em></h4>
+<h4 class="date"><em>2016-12-29</em></h4>
+
+
+
+<p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data.</p>
+<p>All functions return data in JSON format, which is parsed to a list or data frame, depending on the data that is returned.</p>
+<p>Functions are divided into three main types:</p>
+<ul>
+<li><p>Reference Functions</p></li>
+<li><p>Additional Information Functions</p></li>
+<li><p>Fixed Scope Functions</p></li>
+</ul>
+<p>There is also the <code>mnis_base</code> function that allows for increased flexibility in all API requests.</p>
+<div id="installing-mnis" class="section level2">
+<h2>Installing mnis</h2>
+<div id="from-cran" class="section level3">
+<h3>From CRAN</h3>
+<p>install.packages(“mnis”)</p>
+</div>
+<div id="from-github-development-version" class="section level3">
+<h3>From GitHub (Development Version)</h3>
+<p>install.packages(“devtools”) devtools::install_github(“EvanOdell/mnis”)</p>
+</div>
+<div id="load-mnis" class="section level3">
+<h3>Load mnis</h3>
+<p>library(mnis)</p>
+</div>
+</div>
+<div id="using-mnis" class="section level2">
+<h2>Using mnis</h2>
+<div id="mnis_base-function" class="section level3">
+<h3>mnis_Base function</h3>
+<p>The <code>mnis_Base()</code> function accepts requests to the mnis API. The full list of request options is available on the mnis website: <a href="http://data.parliament.uk/membersdataplatform/memberquery.aspx" class="uri">http://data.parliament.uk/membersdataplatform/memberquery.aspx</a></p>
+</div>
+<div id="reference-functions" class="section level3">
+<h3>Reference Functions</h3>
+<p>A series of functions to return reference data. This data is useful for providing parameters for other function calls. These functions do not accept any arguments.</p>
+<p><code>ref_AddressTypes()</code></p>
+<p><code>ref_AnsweringBodies()</code></p>
+<p><code>ref_Areas()</code></p>
+<p><code>ref_AreaTypes()</code></p>
+<p><code>ref_BiographyCategories()</code></p>
+<p><code>ref_Cabinets()</code></p>
+<p><code>ref_Committees()</code></p>
+<p><code>ref_CommitteeTypes()</code></p>
+<p><code>ref_Constituencies()</code></p>
+<p><code>ref_ConstituencyAreas()</code></p>
+<p><code>ref_ConstituencyTypes()</code></p>
+<p><code>ref_Countries()</code></p>
+<p><code>ref_Departments()</code></p>
+<p><code>ref_DisqualificationTypes()</code></p>
+<p><code>ref_Elections()</code></p>
+<p><code>ref_ElectionTypes()</code></p>
+<p><code>ref_EndReasons()</code></p>
+<p><code>ref_ExperienceTypes()</code></p>
+<p><code>ref_GovernmentPostDepartments()</code></p>
+<p><code>ref_GovernmentPosts()</code></p>
+<p><code>ref_GovernmentRanks()</code></p>
+<p><code>ref_HonouraryPrefixes()</code></p>
+<p><code>ref_HonourLists()</code></p>
+<p><code>ref_Honours()</code></p>
+<p><code>ref_InterestCategories()</code></p>
+<p><code>ref_LordsMembershipTypes()</code></p>
+<p><code>ref_LordsRanks()</code></p>
+<p><code>ref_OppositionPostDepartments()</code></p>
+<p><code>ref_OppositionPosts()</code></p>
+<p><code>ref_OppositionRanks()</code></p>
+<p><code>ref_OtherParliaments()</code></p>
+<p><code>ref_ParliamentaryPosts()</code></p>
+<p><code>ref_ParliamentaryRanks()</code></p>
+<p><code>ref_ParliamentTypes()</code></p>
+<p><code>ref_Parties()</code></p>
+<p><code>ref_PartySubTypes()</code></p>
+<p><code>ref_PhotoOutputs()</code></p>
+<p><code>ref_Statuses()</code></p>
+<p><code>ref_Titles()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
+x &lt;-<span class="st"> </span><span class="kw">ref_Titles</span>()
+x
+
+<span class="co">#   Title_Id         Name</span>
+<span class="co">#1        22        Canon</span>
+<span class="co">#2         1         Dame</span>
+<span class="co">#4         3          Hon</span>
+<span class="co">#3         2           Dr</span>
+<span class="co">#6         5         Lord</span>
+<span class="co">#5         4         Lady</span>
+<span class="co">#7         6       Lt Col</span>
+<span class="co">#8        21       Lt Gen</span>
+<span class="co">#9         7         Miss</span>
+<span class="co">#10        8           Mr</span>
+<span class="co">#11        9          Mrs</span>
+<span class="co">#12       10           Ms</span>
+<span class="co">#13       11         Prof</span>
+<span class="co">#14       19    Professor</span>
+<span class="co">#15       12          Rev</span>
+<span class="co">#16       13       Rev Dr</span>
+<span class="co">#17       18         Revd</span>
+<span class="co">#18       20      Revd Dr</span>
+<span class="co">#20       15          Sir</span>
+<span class="co">#19       14     Reverend</span>
+<span class="co">#21       16      The Rev</span>
+<span class="co">#22       17 The Reverend</span></code></pre></div>
+</div>
+<div id="additional-information-functions" class="section level3">
+<h3>Additional Information Functions</h3>
+<p><code>mnis_FullBiog()</code></p>
+<p><code>mnis_BasicDetails()</code></p>
+<p><code>mnis_BiographyEntries()</code></p>
+<p><code>mnis_Committees()</code></p>
+<p><code>mnis_Addresses()</code></p>
+<p><code>mnis_Constituencies()</code></p>
+<p><code>mnis_ElectionsContested()</code></p>
+<p><code>mnis_Experiences()</code></p>
+<p><code>mnis_GovernmentPosts()</code></p>
+<p><code>mnis_Honours()</code></p>
+<p><code>mnis_HouseMemberships()</code></p>
+<p><code>mnis_Statuses()</code></p>
+<p><code>mnis_Staff()</code></p>
+<p><code>mnis_Interests()</code></p>
+<p><code>mnis_KnownAs()</code></p>
+<p><code>mnis_MaidenSpeeches()</code></p>
+<p><code>mnis_OppositionPosts()</code></p>
+<p><code>mnis_OtherParliaments()</code></p>
+<p><code>mnis_ParliamentaryPosts()</code></p>
+<p><code>mnis_Parties()</code></p>
+<p><code>mnis_PreferredNames()</code></p>
+<div id="mnis_extra" class="section level4">
+<h4>mnis_Extra()</h4>
+<p>The <code>mnis_Extra()</code> function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to <code>mnis_FullBiog()</code>.</p>
+</div>
+</div>
+<div id="fixed-scope-functions" class="section level3">
+<h3>Fixed Scope Functions</h3>
+<p>There are seven fixed scope functions that return ready-made datasets. They are:</p>
+<p><code>mnis_PartyState()</code></p>
+<p><code>mnis_ConstituencyResults()</code></p>
+<p><code>mnis_Department()</code></p>
+<p><code>mnis_GeneralElectionResults()</code></p>
+<p><code>mnis_LordsType()</code></p>
+<p><code>mnis_MemberDate()</code></p>
+<p><code>mnis_PartyState()</code></p>
+<div id="fixed-scope-example" class="section level4">
+<h4>Fixed Scope Example</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
+x &lt;-<span class="st"> </span><span class="kw">mnis_PartyState</span>()
+x
+
+<span class="co">#    House Id                             Name MaleCount FemaleCount TotalCount</span>
+<span class="co">#  Commons  4                     Conservative       260          69        329</span>
+<span class="co">#  Commons 15                           Labour       130         101        231</span>
+<span class="co">#  Commons 29          Scottish National Party        36          18         54</span>
+<span class="co">#  Commons 17                 Liberal Democrat         8           1          9</span>
+<span class="co">#  Commons  7        Democratic Unionist Party         8           0          8</span>
+<span class="co">#  Commons  8                      Independent         1           3          4</span>
+<span class="co">#  Commons 30                        Sinn Fein         4           0          4</span>
+<span class="co">#  Commons 22                      Plaid Cymru         2           1          3</span>
+<span class="co">#  Commons 31 Social Democratic &amp; Labour Party         2           1          3</span>
+<span class="co">#  Commons 38            Ulster Unionist Party         2           0          2</span>
+<span class="co">#  Commons 44                      Green Party         0           1          1</span>
+<span class="co">#  Commons 47                          Speaker         1           0          1</span>
+<span class="co">#  Commons 35            UK Independence Party         1           0          1</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
