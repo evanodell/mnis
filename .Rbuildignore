@@ -8,5 +8,4 @@
 ^sparecode\.R$
 ^mnis_extra_old\.R$
 ^cran-comments\.Rmd$
-^NEWS\.md$
 ^cran-comments\.md$
