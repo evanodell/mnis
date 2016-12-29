@@ -12,29 +12,29 @@
 #' }
 
 mnis_MemberDate <- function(ID = NULL, Date = NULL) {
-
-  if(is.null(ID)==TRUE) {
-    stop("ID cannot be empty", call. = FALSE)
+    
+    if (is.null(ID) == TRUE) {
+        stop("ID cannot be empty", call. = FALSE)
     }
-
-  if(is.null(Date)==TRUE) {
-    Date <- Sys.Date()
+    
+    if (is.null(Date) == TRUE) {
+        Date <- Sys.Date()
     }
-
-  ID <- as.character(ID)
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
-
-  query <- paste0(baseurl, ID, "/", Date, "/")
-
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
-  x <- as.list(got$Member)
-
+    
+    ID <- as.character(ID)
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
+    
+    query <- paste0(baseurl, ID, "/", Date, "/")
+    
+    got <- httr::GET(query, httr::accept_json())
+    
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+    
+    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    
+    x <- as.list(got$Member)
+    
 }

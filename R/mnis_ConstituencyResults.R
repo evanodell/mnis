@@ -12,41 +12,41 @@
 #' }
 
 mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = 0) {
-
-  if(is.null(constituencyId)==TRUE) {
-    stop("constituencyId cannot be empty", call. = FALSE)
-  }
-
-  constituencyId <- as.character(constituencyId)
-
-  electionId <- as.character(electionId)
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
-
-  query <- paste0(baseurl, constituencyId, "/", electionId, "/")
-
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
-  details <- got$Constituency$Details
-
-  results <- got$Constituency$Results
-
-  results <- as.data.frame(results)
-
-  names(results) <- sub("Election.", "Election_", names(results))
-
-  names(results) <- sub("Candidates.Candidate.", "", names(results))
-
-  y <- list()
-
-  y <- c(list("results"=results), list("details"=details))
-
-  y
-
+    
+    if (is.null(constituencyId) == TRUE) {
+        stop("constituencyId cannot be empty", call. = FALSE)
+    }
+    
+    constituencyId <- as.character(constituencyId)
+    
+    electionId <- as.character(electionId)
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
+    
+    query <- paste0(baseurl, constituencyId, "/", electionId, "/")
+    
+    got <- httr::GET(query, httr::accept_json())
+    
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+    
+    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    
+    details <- got$Constituency$Details
+    
+    results <- got$Constituency$Results
+    
+    results <- as.data.frame(results)
+    
+    names(results) <- sub("Election.", "Election_", names(results))
+    
+    names(results) <- sub("Candidates.Candidate.", "", names(results))
+    
+    y <- list()
+    
+    y <- c(list(results = results), list(details = details))
+    
+    y
+    
 }
