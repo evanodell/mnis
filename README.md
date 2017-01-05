@@ -2,6 +2,8 @@
 mnis
 ====
 
+[![](http://cranlogs.r-pkg.org/badges/mnis)](https://dgrtwo.shinyapps.io/cranview/)
+
 `mnis` is a package for downloading data from the Members' Names Information Service API. For information on the API is available here: <http://data.parliament.uk/membersdataplatform/default.aspx>.
 
 The development version (0.1.0) can be installed by running:
