@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 # mnis
-[![](http://cranlogs.r-pkg.org/badges/mnis)](https://dgrtwo.shinyapps.io/cranview/)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/)
 [![Build Status](https://travis-ci.org/EvanOdell/hansard.png?branch=mnis)](https://travis-ci.org/EvanOdell/mnis 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
 
