@@ -2,7 +2,7 @@
 mnis
 ====
 
-[![](http://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/) \[![Build Status](https://travis-ci.org/EvanOdell/hansard.png?branch=mnis)\](<https://travis-ci.org/EvanOdell/mnis> [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/) [![Build Status](https://travis-ci.org/EvanOdell/hansard.png?branch=mnis)](https://travis-ci.org/EvanOdell/mnis) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
 
 `mnis` is a package for downloading data from the Members' Names Information Service API. For information on the API is available here: <http://data.parliament.uk/membersdataplatform/default.aspx>.
 
