@@ -7,27 +7,27 @@
 #'
 #' @section mnis functions:
 #'
-#' \code{\link{mnis_Additional}}
+#' \code{\link{mnis_additional}}
 #'
-#' \code{\link{mnis_Base}}
+#' \code{\link{mnis_base}}
 #'
-#' \code{\link{mnis_ConstituencyResults}}
+#' \code{\link{mnis_constituency_results}}
 #'
-#' \code{\link{mnis_Department}}
+#' \code{\link{mnis_department}}
 #'
-#' \code{\link{mnis_Extra}}
+#' \code{\link{mnis_extra}}
 #'
-#' \code{\link{mnis_FullBiog}}
+#' \code{\link{mnis_full_biog}}
 #'
-#' \code{\link{mnis_GeneralElectionResults}}
+#' \code{\link{mnis_general_election_results}}
 #'
-#' \code{\link{mnis_LordsType}}
+#' \code{\link{mnis_lords_type}}
 #'
-#' \code{\link{mnis_MemberDate}}
+#' \code{\link{mnis_member_date}}
 #'
-#' \code{\link{mnis_PartyState}}
+#' \code{\link{mnis_party_state}}
 #'
-#' \code{\link{mnis_Reference}}
+#' \code{\link{mnis_reference}}
 #'
 #' @docType package
 #' @name mnis

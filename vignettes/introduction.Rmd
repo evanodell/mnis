@@ -48,87 +48,88 @@ The `mnis_Base()` function accepts requests to the mnis API. The full list of re
 
 A series of functions to return reference data. This data is useful for providing parameters for other function calls. These functions do not accept any arguments. 
 
-`ref_AddressTypes()`
+`ref_address_types()` 
 
-`ref_AnsweringBodies()`
+`ref_answering_bodies()` 
 
-`ref_Areas()`
+`ref_areas()`
 
-`ref_AreaTypes()`
+`ref_area_types()`
 
-`ref_BiographyCategories()`
+`ref_biography_categories()`
 
-`ref_Cabinets()`
+`ref_cabinets()`
 
-`ref_Committees()`
+`ref_committees()`
 
-`ref_CommitteeTypes()`
+`ref_committee_types()`
 
-`ref_Constituencies()`
+`ref_constituencies()`
 
-`ref_ConstituencyAreas()`
+`ref_constituency_areas()`
 
-`ref_ConstituencyTypes()`
+`ref_constituency_types()`
 
-`ref_Countries()`
+`ref_countries()`
 
-`ref_Departments()`
+`ref_departments()`
 
-`ref_DisqualificationTypes()`
+`ref_disqualification_types()`
 
-`ref_Elections()`
+`ref_elections()`
 
-`ref_ElectionTypes()`
+`ref_election_types()`
 
-`ref_EndReasons()`
+`ref_end_reasons()`
 
-`ref_ExperienceTypes()`
+`ref_experience_types()`
 
-`ref_GovernmentPostDepartments()`
+`ref_government_post_departments()`
+ 
+`ref_government_posts()`
+ 
+`ref_government_ranks()`
+ 
+`ref_honourary_prefixes()`
 
-`ref_GovernmentPosts()`
+`ref_honour_lists()`
+ 
+`ref_honours()`
+ 
+`ref_interest_categories()`
+ 
+`ref_lords_membership_types()`
+ 
+`ref_lords_ranks()`
+ 
+`ref_opposition_post_departments()`
 
-`ref_GovernmentRanks()`
+`ref_opposition_posts()`
+ 
+`ref_opposition_ranks()`
+ 
+`ref_other_parliaments()`
+ 
+`ref_parliamentary_posts()`
+ 
+`ref_parliamentary_ranks()`
 
-`ref_HonouraryPrefixes()`
+`ref_parliament_types()`
+ 
+`ref_parties()`
+ 
+`ref_party_sub_types()`
+ 
+`ref_photo_outputs()`
+ 
+`ref_statuses()`
+ 
+`ref_titles()`
 
-`ref_HonourLists()`
-
-`ref_Honours()`
-
-`ref_InterestCategories()`
-
-`ref_LordsMembershipTypes()`
-
-`ref_LordsRanks()`
-
-`ref_OppositionPostDepartments()`
-
-`ref_OppositionPosts()`
-
-`ref_OppositionRanks()`
-
-`ref_OtherParliaments()`
-
-`ref_ParliamentaryPosts()`
-
-`ref_ParliamentaryRanks()`
-
-`ref_ParliamentTypes()`
-
-`ref_Parties()`
-
-`ref_PartySubTypes()`
-
-`ref_PhotoOutputs()`
-
-`ref_Statuses()`
-
-`ref_Titles()`
 
 ```{r eval=FALSE}
 library(mnis)
-x <- ref_Titles()
+x <- ref_titles()
 x
 
 #   Title_Id         Name
@@ -161,75 +162,75 @@ x
 
 ###Additional Information Functions
 
-`mnis_FullBiog()`
+`mnis_additional()`
 
-`mnis_BasicDetails()`
+`mnis_addresses()`
 
-`mnis_BiographyEntries()`
+`mnis_basic_details()`
 
-`mnis_Committees()`
+`mnis_biography_entries()`
 
-`mnis_Addresses()`
+`mnis_committees()`
 
-`mnis_Constituencies()`
+`mnis_constituencies()`
 
-`mnis_ElectionsContested()`
+`mnis_elections_contested`
 
-`mnis_Experiences()`
+`mnis_experiences()`
 
-`mnis_GovernmentPosts()`
+`mnis_government_posts()`
 
-`mnis_Honours()`
+`mnis_honours()`
 
-`mnis_HouseMemberships()`
+`mnis_house_memberships()`
 
-`mnis_Statuses()`
+`mnis_interests()`
 
-`mnis_Staff()`
+`mnis_known_as()`
 
-`mnis_Interests()`
+`mnis_maiden_speeches()`
 
-`mnis_KnownAs()`
+`mnis_opposition_posts()`
 
-`mnis_MaidenSpeeches()`
+`mnis_other_parliaments()`
 
-`mnis_OppositionPosts()`
+`mnis_parliamentary_posts()`
 
-`mnis_OtherParliaments()`
+`mnis_parties()`
 
-`mnis_ParliamentaryPosts()`
+`mnis_preferred_names()`
 
-`mnis_Parties()`
+`mnis_staff()`
 
-`mnis_PreferredNames()`
+`mnis_statuses()`
 
-#### mnis_Extra()
+#### mnis_extra()
 
-The `mnis_Extra()` function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to `mnis_FullBiog()`.
+The `mnis_extra()` function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to `mnis_FullBiog()`.
 
 ###Fixed Scope Functions
 
 There are seven fixed scope functions that return ready-made datasets. They are: 
 
-`mnis_PartyState()`
+`mnis_party_state()`
 
-`mnis_ConstituencyResults()`
+`mnis_constituency_results()`
 
-`mnis_Department()`
+`mnis_department()`
 
-`mnis_GeneralElectionResults()`
+`mnis_general_election_results()`
 
-`mnis_LordsType()`
+`mnis_lords_type()`
 
-`mnis_MemberDate()`
+`mnis_member_date()`
 
-`mnis_PartyState()`
+`mnis_party_state()`
 
 #### Fixed Scope Example
 
 ```{r eval=FALSE}
 library(mnis)
-x <- mnis_PartyState()
+x <- mnis_party_state()
 x
 
 #    House Id                             Name MaleCount FemaleCount TotalCount

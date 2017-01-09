@@ -1,4 +1,15 @@
 
+# mnis 0.2.0
+
+## Introducing New Naming Conventions, mnis_eligible and fixNames
+
+The old function names were awkward. The new ones are all lower case and use underscores to seperate individual words. All old function names have been deprecated, but can still be called.
+
+`mnis_eligible` returns a data frame with information on all members eligible or previously eligible to sit in the House of Lords, the House of Commons, or both.
+
+The Members' Names Information Service returns variables names with extra text, including periods, @ signs and superfluous text stuck on the end of names. The fixNames parameter gives an option to remove this extra text.
+
+
 # mnis 0.1.1
 
 ## Introducing mnis_JoinedBetween

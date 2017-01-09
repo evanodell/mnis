@@ -1,8 +1,8 @@
 Package: mnis
 Type: Package
 Title: Easy Downloading Capabilities for the Members' Name Information Service
-Version: 0.1.0
-Date: 2016-12-29
+Version: 0.2.0
+Date: 2017-01-09
 Authors@R: person("Evan Odell", email="evanodell91@gmail.com", role=c("aut", "cre"))
 Author: Evan Odell [aut, cre]
 Maintainer: Evan Odell <evanodell91@gmail.com>

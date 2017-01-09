@@ -1,4 +1,4 @@
-#' mnis_PartyState
+#' mnis_party_state
 #'
 #' A data frame with information on the numbers and gender of MPs, by party, for the given date.
 #' @param House The house of parliament. Defaults to 'Commons'.
@@ -7,11 +7,11 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_PartyState('2012-01-12')
+#' x <- mnis_party_state('2012-01-12')
 #'
 #' }
 
-mnis_PartyState <- function(House = "Commons", Date = Sys.Date()) {
+mnis_party_state <- function(House = "Commons", Date = Sys.Date()) {
     
     Date <- as.character(Date)
     
@@ -37,4 +37,10 @@ mnis_PartyState <- function(House = "Commons", Date = Sys.Date()) {
     
     x
     
+}
+
+
+mnis_PartyState <- function(House = "Commons", Date = Sys.Date()) {
+    .Deprecated("mnis_PartyState")
+    mnis_party_state(House = House, Date = Date)
 }

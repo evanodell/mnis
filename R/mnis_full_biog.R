@@ -12,7 +12,7 @@
 #'
 #' }
 
-mnis_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_full_biog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
     
     ID <- as.character(ID)
     
@@ -50,4 +50,9 @@ mnis_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
     
     x
     
+}
+
+mnis_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+    .Deprecated("mnis_FullBiog")
+    mnis_full_biog(ID = ID, mem_id = mem_id, refDods = refDods)
 }

@@ -1,17 +1,18 @@
-#' mnis_ConstituencyResults
+#' mnis_constituency_results
 #'
 #' Returns a list with details of the constituency and a data frame with election results.
 #' @param constituencyId The ID of the constituency to return the data for.
 #' @param electionId The ID of the election to return the data for. Defaults to 0, which calls the latest result.
-#' @return A list with details of the constituency and a data frame with election results.
+#' @param fixNames Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.
+#' @return A list with details of the constituency, labelled 'details' and a data frame with election results, labelled 'results'. The list and data frame are stored in a single object.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_ConstituencyResults(constituencyId = 3709, electionId = 0)
+#' x <- mnis_constituency_results(constituencyId = 3709, electionId = 0)
 #'
 #' }
 
-mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = 0) {
+mnis_constituency_results <- function(constituencyId = NULL, electionId = 0, fixNames = FALSE) {
     
     if (is.null(constituencyId) == TRUE) {
         stop("constituencyId cannot be empty", call. = FALSE)
@@ -39,9 +40,15 @@ mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = 0) {
     
     results <- as.data.frame(results)
     
-    names(results) <- sub("Election.", "Election_", names(results))
-    
-    names(results) <- sub("Candidates.Candidate.", "", names(results))
+    if (fixNames == TRUE) {
+        
+        names(results) <- gsub("Election.", "Election_", names(results))
+        
+        names(results) <- gsub("Candidates.Candidate.", "", names(results))
+        
+        names(results) <- sub("Election_.Id", "Election_Id", names(results))
+        
+    }
     
     y <- list()
     
@@ -49,4 +56,13 @@ mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = 0) {
     
     y
     
+}
+
+
+#' @export
+#' @rdname mnis_constituency_results
+#' @usage NULL
+mnis_ConstituencyResults <- function(constituencyId = NULL, electionId = 0) {
+    .Deprecated("mnis_ConstituencyResults")
+    mnis_constituency_results(constituencyId = constituencyId, electionId = electionId)
 }

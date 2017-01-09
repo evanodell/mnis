@@ -9,7 +9,7 @@
 #'
 #' }
 
-mnis_Base <- function(request) {
+mnis_base <- function(request) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
     
@@ -24,4 +24,10 @@ mnis_Base <- function(request) {
     
     x <- do.call(rbind, got$Members$Member)
     
+}
+
+
+mnis_Base <- function(request) {
+    .Deprecated("mnis_Base")
+    mnis_base(request = request)
 }

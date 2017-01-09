@@ -1,4 +1,4 @@
-#' mnis_Department
+#' mnis_department
 #'
 #' @param departmentId The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/
 #' @param bench Flag to return either Government or Opposition information. Defaults to Government.
@@ -7,54 +7,59 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_Department(departmentId = 0, bench = 'Government', former=TRUE)
+#' x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
 #'
 #' }
 #'
 
 
-mnis_Department <- function(departmentId = 0, bench = "Government", former = TRUE) {
-
+mnis_department <- function(departmentId = 0, bench = "Government", former = TRUE) {
+    
     if (former == TRUE) {
         former <- "former"
     } else {
         former <- "current"
     }
-
+    
     departmentId <- as.character(departmentId)
-
+    
     bench <- utils::URLencode(bench)
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
-
+    
     query <- paste0(baseurl, departmentId, "/", bench, "/", former, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- got$Department$Posts
-
+    
     x <- as.data.frame(x)
-
+    
     names(x) <- gsub("Post.PostHolders.", "", names(x))
-
+    
     names(x) <- sub("PostHolder.Member.", "", names(x))
-
+    
     names(x) <- sub("..xsi.nil", "", names(x))
-
+    
     names(x) <- sub("..xmlns.xsi", "", names(x))
-
+    
     names(x) <- sub("\".Member_Id\"", "Member_Id", names(x))
-
+    
     names(x) <- sub("\".Dods_Id\"", "Dods_Id", names(x))
-
+    
     names(x) <- sub("\".Pims_Id\"", "Pims_Id", names(x))
-
+    
     x
+    
+}
 
+mnis_Department <- function(departmentId = 0, bench = "Government", former = TRUE) {
+    .Deprecated("mnis_Department")
+    mnis_department(departmentId = departmentId, bench = bench, former = former)
 }
