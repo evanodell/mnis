@@ -4,8 +4,9 @@
 \alias{mnis_GeneralElectionResults}
 \title{mnis_GeneralElectionResults}
 \usage{
-mnis_GeneralElectionResults(locationType = NULL, locationName = NULL,
-  startDate = NULL, endDate = NULL)
+mnis_GeneralElectionResults(locationType = "Country",
+  locationName = "Great Britain", startDate = "1900-01-01",
+  endDate = Sys.Date())
 }
 \arguments{
 \item{locationType}{The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}

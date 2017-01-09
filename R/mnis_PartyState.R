@@ -2,7 +2,7 @@
 #'
 #' A data frame with information on the numbers and gender of MPs, by party, for the given date.
 #' @param House The house of parliament. Defaults to 'Commons'.
-#' @param Date A date in yyyy-mm-dd format
+#' @param Date A date in yyyy-mm-dd format. Defaults to the current date.
 #' @return A data frame with information on the numbers and gender of MPs, by party, by party, for the given date.
 #' @keywords mnis
 #' @export
@@ -11,11 +11,7 @@
 #'
 #' }
 
-mnis_PartyState <- function(House = "Commons", Date = NULL) {
-    
-    if (is.null(Date) == TRUE) {
-        Date <- Sys.Date()
-    }
+mnis_PartyState <- function(House = "Commons", Date = Sys.Date()) {
     
     Date <- as.character(Date)
     

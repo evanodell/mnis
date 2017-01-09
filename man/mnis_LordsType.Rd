@@ -4,7 +4,7 @@
 \alias{mnis_LordsType}
 \title{mnis_LordsType}
 \usage{
-mnis_LordsType(Date = NULL)
+mnis_LordsType(Date = Sys.Date())
 }
 \arguments{
 \item{Date}{A date in yyyy-mm-dd format. Defaults to the current system date.}

@@ -41,10 +41,10 @@
 
 # http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
-mnis_Extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE, 
-    Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, 
-    Honours = TRUE, HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, 
-    OtherParliaments = TRUE, ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE) {
+mnis_Extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE, Committees = TRUE, 
+    Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE, HouseMemberships = TRUE, 
+    Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, OtherParliaments = TRUE, ParliamentaryPosts = TRUE, 
+    Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE) {
     
     ID <- as.character(ID)
     
@@ -53,8 +53,8 @@ mnis_Extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, Bas
     } else {
         ID_Type <- "id="
     }
-    # Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also gets
-    # around the call limit
+    # Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also gets around the
+    # call limit
     mnis_DF_list <- list()
     
     if (Addresses == TRUE) 

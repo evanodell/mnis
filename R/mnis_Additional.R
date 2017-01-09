@@ -18,10 +18,10 @@
 #' @rdname mnis_Additional
 mnis_Additional <- function() {
     
-    x <- c("mnis_FullBiog()", "mnis_BasicDetails()", "mnis_BiographyEntries()", "mnis_Committees()", "mnis_Addresses()", 
-        "mnis_Constituencies()", "mnis_ElectionsContested()", "mnis_Experiences()", "mnis_GovernmentPosts()", "mnis_Honours()", 
-        "mnis_HouseMemberships()", "mnis_Statuses()", "mnis_Staff()", "mnis_Interests()", "mnis_KnownAs()", "mnis_MaidenSpeeches()", 
-        "mnis_OppositionPosts()", "mnis_OtherParliaments()", "mnis_ParliamentaryPosts()", "mnis_Parties()", "mnis_PreferredNames()")
+    x <- c("mnis_FullBiog()", "mnis_BasicDetails()", "mnis_BiographyEntries()", "mnis_Committees()", "mnis_Addresses()", "mnis_Constituencies()", 
+        "mnis_ElectionsContested()", "mnis_Experiences()", "mnis_GovernmentPosts()", "mnis_Honours()", "mnis_HouseMemberships()", 
+        "mnis_Statuses()", "mnis_Staff()", "mnis_Interests()", "mnis_KnownAs()", "mnis_MaidenSpeeches()", "mnis_OppositionPosts()", 
+        "mnis_OtherParliaments()", "mnis_ParliamentaryPosts()", "mnis_Parties()", "mnis_PreferredNames()")
     message("All Available Additional Information Functions:")
     
     x

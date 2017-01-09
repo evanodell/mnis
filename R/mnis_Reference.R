@@ -132,15 +132,13 @@
 #' @rdname mnis_Reference
 mnis_Reference <- function() {
     
-    x <- c("ref_AddressTypes()", "ref_AnsweringBodies()", "ref_Areas()", "ref_AreaTypes()", "ref_BiographyCategories()", 
-        "ref_Cabinets()", "ref_Committees()", "ref_CommitteeTypes()", "ref_Constituencies()", "ref_ConstituencyAreas()", 
-        "ref_ConstituencyTypes()", "ref_Countries()", "ref_Departments()", "ref_DisqualificationTypes()", "ref_Elections()", 
-        "ref_ElectionTypes()", "ref_EndReasons()", "ref_ExperienceTypes()", "ref_GovernmentPostDepartments()", "ref_GovernmentPosts()", 
-        "ref_GovernmentRanks()", "ref_HonouraryPrefixes()", "ref_HonourLists()", "ref_Honours()", "ref_InterestCategories()", 
-        "ref_LordsMembershipTypes()", "ref_LordsRanks()", "ref_OppositionPostDepartments()", "ref_OppositionPosts()", 
-        "ref_OppositionRanks()", "ref_OtherParliaments()", "ref_ParliamentaryPosts()", "ref_ParliamentaryRanks()", 
-        "ref_ParliamentTypes()", "ref_Parties()", "ref_PartySubTypes()", "ref_PhotoOutputs()", "ref_Statuses()", 
-        "ref_Titles()")
+    x <- c("ref_AddressTypes()", "ref_AnsweringBodies()", "ref_Areas()", "ref_AreaTypes()", "ref_BiographyCategories()", "ref_Cabinets()", 
+        "ref_Committees()", "ref_CommitteeTypes()", "ref_Constituencies()", "ref_ConstituencyAreas()", "ref_ConstituencyTypes()", 
+        "ref_Countries()", "ref_Departments()", "ref_DisqualificationTypes()", "ref_Elections()", "ref_ElectionTypes()", "ref_EndReasons()", 
+        "ref_ExperienceTypes()", "ref_GovernmentPostDepartments()", "ref_GovernmentPosts()", "ref_GovernmentRanks()", "ref_HonouraryPrefixes()", 
+        "ref_HonourLists()", "ref_Honours()", "ref_InterestCategories()", "ref_LordsMembershipTypes()", "ref_LordsRanks()", "ref_OppositionPostDepartments()", 
+        "ref_OppositionPosts()", "ref_OppositionRanks()", "ref_OtherParliaments()", "ref_ParliamentaryPosts()", "ref_ParliamentaryRanks()", 
+        "ref_ParliamentTypes()", "ref_Parties()", "ref_PartySubTypes()", "ref_PhotoOutputs()", "ref_Statuses()", "ref_Titles()")
     
     message("All Available Reference Functions:")
     

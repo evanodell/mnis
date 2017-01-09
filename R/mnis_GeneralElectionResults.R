@@ -13,48 +13,32 @@
 #'                                  startDate = '2010-01-01', endDate = '2016-01-01')
 #' }
 
-mnis_GeneralElectionResults <- function(locationType = NULL, locationName = NULL, startDate = NULL, endDate = NULL) {
-    
-    if (is.null(locationType) == TRUE) {
-        locationType <- "Country"
-    }
-    
-    if (is.null(locationName) == TRUE) {
-        locationName <- "Great Britain"
-    }
-    
-    if (is.null(startDate) == TRUE) {
-        startDate <- "1900-01-01"
-    }
-    
-    if (is.null(endDate) == TRUE) {
-        endDate <- Sys.Date()
-    }
-    
+mnis_GeneralElectionResults <- function(locationType = "Country", locationName = "Great Britain", startDate = "1900-01-01", endDate = Sys.Date()) {
+
     locationType <- utils::URLencode(locationType)
-    
+
     locationName <- utils::URLencode(locationName)
-    
+
     startDate <- as.character(startDate)
-    
+
     endDate <- as.character(endDate)
-    
+
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/GeneralElectionResults/"
-    
+
     query <- paste0(baseurl, locationType, "/", locationName, "/", startDate, "/", endDate, "/")
-    
+
     got <- httr::GET(query, httr::accept_json())
-    
+
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    
+
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-    
+
     x <- got$ElectionResults
-    
+
     names(x$ElectionResult) <- sub("Information.", "", names(x$ElectionResult))
-    
+
     x
-    
+
 }

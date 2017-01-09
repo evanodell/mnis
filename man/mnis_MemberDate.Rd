@@ -4,7 +4,7 @@
 \alias{mnis_MemberDate}
 \title{mnis_MemberDate}
 \usage{
-mnis_MemberDate(ID = NULL, Date = NULL)
+mnis_MemberDate(ID = NULL, Date = Sys.Date())
 }
 \arguments{
 \item{ID}{The ID of the member.}

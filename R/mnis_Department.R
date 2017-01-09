@@ -14,45 +14,47 @@
 
 
 mnis_Department <- function(departmentId = 0, bench = "Government", former = TRUE) {
-    
+
     if (former == TRUE) {
         former <- "former"
     } else {
         former <- "current"
     }
-    
+
+    departmentId <- as.character(departmentId)
+
     bench <- utils::URLencode(bench)
-    
+
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
-    
+
     query <- paste0(baseurl, departmentId, "/", bench, "/", former, "/")
-    
+
     got <- httr::GET(query, httr::accept_json())
-    
+
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    
+
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-    
+
     x <- got$Department$Posts
-    
+
     x <- as.data.frame(x)
-    
+
     names(x) <- gsub("Post.PostHolders.", "", names(x))
-    
+
     names(x) <- sub("PostHolder.Member.", "", names(x))
-    
+
     names(x) <- sub("..xsi.nil", "", names(x))
-    
+
     names(x) <- sub("..xmlns.xsi", "", names(x))
-    
+
     names(x) <- sub("\".Member_Id\"", "Member_Id", names(x))
-    
+
     names(x) <- sub("\".Dods_Id\"", "Dods_Id", names(x))
-    
+
     names(x) <- sub("\".Pims_Id\"", "Pims_Id", names(x))
-    
+
     x
-    
+
 }

@@ -10,30 +10,26 @@
 #'
 #' }
 
-mnis_LordsType <- function(Date = NULL) {
-    
-    if (is.null(Date) == TRUE) {
-        Date <- Sys.Date()
-    }
-    
+mnis_LordsType <- function(Date = Sys.Date()) {
+
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
-    
+
     query <- paste0(baseurl, Date, "/")
-    
+
     got <- httr::GET(query, httr::accept_json())
-    
+
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    
+
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-    
+
     x <- as.data.frame(got$LordsByType)
-    
+
     names(x) <- sub("Party.", "", names(x))
-    
+
     names(x) <- sub(".Id", "Id", names(x))
-    
+
     x
-    
+
 }

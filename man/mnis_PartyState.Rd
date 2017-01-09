@@ -4,12 +4,12 @@
 \alias{mnis_PartyState}
 \title{mnis_PartyState}
 \usage{
-mnis_PartyState(House = "Commons", Date = NULL)
+mnis_PartyState(House = "Commons", Date = Sys.Date())
 }
 \arguments{
 \item{House}{The house of parliament. Defaults to 'Commons'.}
 
-\item{Date}{A date in yyyy-mm-dd format}
+\item{Date}{A date in yyyy-mm-dd format. Defaults to the current date.}
 }
 \value{
 A data frame with information on the numbers and gender of MPs, by party, by party, for the given date.

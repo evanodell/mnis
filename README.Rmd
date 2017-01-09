@@ -21,7 +21,15 @@ knitr::opts_chunk$set(
 
 `mnis` is a package for downloading data from the Members' Names Information Service API. For information on the API is available here: http://data.parliament.uk/membersdataplatform/default.aspx.
 
-The development version (0.1.0) can be installed by running:
+The package is available on CRAN. To install from CRAN run:
+
+```{r eval = FALSE}
+install.packages("mnis")
+
+```
+
+
+The development version (0.1.1) can be installed by running:
 
 ```{r eval = FALSE}
 install.packages("devtools")
@@ -30,5 +38,7 @@ devtools::install_github("EvanOdell/mnis")
 ```
 
 For an introduction to `mnis`, the vignette `vignette("introduction", package = "mnis")` is the best place to start. If you are unfamiliar with APIs https://zapier.com/learn/apis/ is a helpful introduction.
+
+As the Members' Names Information Service has dozens of different search parameters and hundreds of possible combinations of searches, it is not reasonable to build functions for every possible query to the API. However, I will be rolling out functions for potentially common queries as and when I can. If you have any particular queries you would like functions for please let me know and I'll create it.
 
 
