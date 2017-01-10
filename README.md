@@ -6,13 +6,13 @@ mnis
 
 `mnis` is a package for downloading data from the Members' Names Information Service API. For information on the API is available here: <http://data.parliament.uk/membersdataplatform/default.aspx>.
 
-The package is available on CRAN. To install from CRAN run:
+The package is available on CRAN (version 0.1.0). To install from CRAN run:
 
 ``` r
 install.packages("mnis")
 ```
 
-The development version (0.2.0) can be installed by running:
+The most recent version (0.2.0) can be installed by running:
 
 ``` r
 install.packages("devtools")
