@@ -10,7 +10,7 @@ mnis_base(request)
 \item{request}{The request query being made to the MNIS URL}
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
+Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. All URLs, paths and parameters are user-defined.
 }
 \examples{
 \dontrun{

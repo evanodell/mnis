@@ -31,7 +31,6 @@ mnis_additional <- function() {
 
 #' @export
 #' @rdname mnis_additional
-
 mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
@@ -80,9 +79,13 @@ mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean 
 
     names(x) <- gsub("BasicDetails.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -92,7 +95,7 @@ mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean 
 #' @usage NULL
 mnis_BasicDetails <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_basic_details")
-    mnis_basic_details(ID = ID, mem_id = mem_id, refDods = refDods)
+    mnis_basic_details(ID = ID, mem_id = mem_id, refDods = refDods, clean = clean)
 }
 
 
@@ -147,9 +150,13 @@ mnis_biography_entries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
 
     names(x) <- gsub("BiographyEntries.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -211,9 +218,13 @@ mnis_committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = T
 
     names(x) <- gsub("Committees.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -276,9 +287,13 @@ mnis_addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
 
     names(x) <- gsub("Addresses.", "", names(x))
 
-    }
-
     x
+
+    } else {
+
+      x
+
+    }
 
 }
 
@@ -341,9 +356,13 @@ mnis_constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean
 
     names(x) <- gsub("Constituencies.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 #' @export
@@ -402,9 +421,13 @@ mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, 
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -465,9 +488,13 @@ mnis_experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = 
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -527,9 +554,13 @@ mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -589,9 +620,13 @@ mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -653,9 +688,13 @@ mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
 
     names(x) <- gsub("HouseMemberships.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -719,9 +758,13 @@ mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRU
 
     names(x) <- gsub("Statuses.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -782,9 +825,13 @@ mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) 
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -844,9 +891,13 @@ mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -907,9 +958,13 @@ mnis_known_as <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRU
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -972,9 +1027,13 @@ mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clea
 
     names(x) <- gsub("MaidenSpeeches.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -1038,9 +1097,13 @@ mnis_opposition_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
 
     names(x) <- gsub("OppositionPosts.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -1102,9 +1165,13 @@ mnis_other_parliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -1165,9 +1232,13 @@ mnis_parliamentary_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, 
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -1230,9 +1301,13 @@ mnis_parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE
 
     names(x) <- gsub("Parties.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
@@ -1299,9 +1374,13 @@ mnis_preferred_names <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clea
 
     names(x) <- gsub("PreferredNames.", "", names(x))
 
-    }
+    x
+
+    } else {
 
     x
+
+    }
 
 }
 
