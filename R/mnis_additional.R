@@ -66,7 +66,7 @@ mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean 
 
     x <- x[rownames(x) != "ID", ]
 
-    x
+    if(clean==TRUE){
 
     names(x) <- gsub("@", "", names(x))
 
@@ -79,6 +79,8 @@ mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("BasicDetails.", "", names(x))
+
+    }
 
     x
 
@@ -131,6 +133,8 @@ mnis_biography_entries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -142,6 +146,8 @@ mnis_biography_entries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("BiographyEntries.", "", names(x))
+
+    }
 
     x
 
@@ -191,6 +197,8 @@ mnis_committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = T
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -202,6 +210,8 @@ mnis_committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = T
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("Committees.", "", names(x))
+
+    }
 
     x
 
@@ -252,6 +262,8 @@ mnis_addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
 
     x <- x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -263,6 +275,8 @@ mnis_addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("Addresses.", "", names(x))
+
+    }
 
     x
 
@@ -313,6 +327,8 @@ mnis_constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -324,6 +340,8 @@ mnis_constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("Constituencies.", "", names(x))
+
+    }
 
     x
 
@@ -343,7 +361,6 @@ mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
     }
-
 
     ID <- as.character(ID)
 
@@ -373,6 +390,8 @@ mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, 
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -382,6 +401,8 @@ mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, 
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -432,6 +453,8 @@ mnis_experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = 
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -441,6 +464,8 @@ mnis_experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = 
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -461,7 +486,6 @@ mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
     }
-
 
     ID <- as.character(ID)
 
@@ -491,6 +515,8 @@ mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -500,6 +526,8 @@ mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -520,7 +548,6 @@ mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
     }
-
 
     ID <- as.character(ID)
 
@@ -550,6 +577,8 @@ mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -559,6 +588,8 @@ mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -579,7 +610,6 @@ mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
     }
-
 
     ID <- as.character(ID)
 
@@ -609,6 +639,8 @@ mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -620,6 +652,8 @@ mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cl
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("HouseMemberships.", "", names(x))
+
+    }
 
     x
 
@@ -671,6 +705,8 @@ mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRU
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -680,6 +716,10 @@ mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRU
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("Statuses.", "", names(x))
+
+    }
 
     x
 
@@ -701,7 +741,6 @@ mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
     }
-
 
     ID <- as.character(ID)
 
@@ -731,6 +770,8 @@ mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) 
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -740,6 +781,8 @@ mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) 
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -760,7 +803,6 @@ mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
     }
-
 
     ID <- as.character(ID)
 
@@ -790,6 +832,8 @@ mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -799,6 +843,8 @@ mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -849,6 +895,8 @@ mnis_known_as <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRU
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -858,6 +906,8 @@ mnis_known_as <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRU
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -908,6 +958,8 @@ mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clea
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -917,6 +969,10 @@ mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clea
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("MaidenSpeeches.", "", names(x))
+
+    }
 
     x
 
@@ -968,6 +1024,8 @@ mnis_opposition_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
@@ -979,6 +1037,8 @@ mnis_opposition_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, cle
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
     names(x) <- gsub("OppositionPosts.", "", names(x))
+
+    }
 
     x
 
@@ -1168,6 +1228,8 @@ mnis_parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
 
+    names(x) <- gsub("Parties.", "", names(x))
+
     }
 
     x
@@ -1234,6 +1296,8 @@ mnis_preferred_names <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clea
     names(x) <- gsub(".xsi:nil", "", names(x))
 
     names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("PreferredNames.", "", names(x))
 
     }
 
