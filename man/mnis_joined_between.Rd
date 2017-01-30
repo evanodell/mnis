@@ -5,7 +5,7 @@
 \title{mnis_joined_between}
 \usage{
 mnis_joined_between(startDate = "1900-01-01", endDate = Sys.Date(),
-  house = "all", party = NULL, eligible = "all", fixNames = FALSE)
+  house = "all", party = NULL, eligible = "all", clean = TRUE)
 }
 \arguments{
 \item{startDate}{The start date of the search, in yyyy-mm-dd format. Defaults to '1900-01-01'.}
@@ -18,7 +18,7 @@ mnis_joined_between(startDate = "1900-01-01", endDate = Sys.Date(),
 
 \item{eligible}{If the member is currently eligible to sit. Accepts one of 'all', 'current', 'former', defaults to 'all'.}
 
-\item{fixNames}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
+\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
 }
 \description{
 Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a data frame. The

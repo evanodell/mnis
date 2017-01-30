@@ -6,14 +6,14 @@
 \title{mnis_constituency_results}
 \usage{
 mnis_constituency_results(constituencyId = NULL, electionId = 0,
-  fixNames = FALSE)
+  clean = TRUE)
 }
 \arguments{
 \item{constituencyId}{The ID of the constituency to return the data for.}
 
 \item{electionId}{The ID of the election to return the data for. Defaults to 0, which calls the latest result.}
 
-\item{fixNames}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
+\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
 }
 \value{
 A list with details of the constituency, labelled 'details' and a data frame with election results, labelled 'results'. The list and data frame are stored in a single object.

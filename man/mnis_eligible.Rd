@@ -5,7 +5,7 @@
 \title{mnis_eligible}
 \usage{
 mnis_eligible(eligible = TRUE, house = "all", party = NULL,
-  fixNames = FALSE)
+  clean = TRUE)
 }
 \arguments{
 \item{eligible}{If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.}
@@ -14,7 +14,7 @@ mnis_eligible(eligible = TRUE, house = "all", party = NULL,
 
 \item{party}{The party to which a member belongs. Defaults to NULL.}
 
-\item{fixNames}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
+\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
 }
 \description{
 Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a data frame.

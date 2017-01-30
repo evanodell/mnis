@@ -1,10 +1,11 @@
 
 #' mnis_additional
 #'
-#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
+#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website. The API provides lengthy and complicated variable names, and the functions make some attempts to clean up those names. To disable this feature, include clean = TRUE in the function.
 #' @param ID The ID number of the member. Defaults to NULL.
 #' @param mem_id Request based on the default membership ID scheme.
 #' @param refDods Request based on the DODS membership ID scheme. Defaults to FALSE.
+#' @param clean Fixes the variable names. Defaults to TRUE.
 #' @keywords mnis
 #' @examples \dontrun{
 #' x <- mnis_basic_details(172)
@@ -31,7 +32,7 @@ mnis_additional <- function() {
 #' @export
 #' @rdname mnis_additional
 
-mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -73,6 +74,12 @@ mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("BasicDetails.", "", names(x))
+
     x
 
 }
@@ -81,7 +88,7 @@ mnis_basic_details <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_BasicDetails <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_BasicDetails <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_basic_details")
     mnis_basic_details(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -90,7 +97,7 @@ mnis_BasicDetails <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_biography_entries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_biography_entries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -130,20 +137,27 @@ mnis_biography_entries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("BiographyEntries.", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_BiographyEntries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_BiographyEntries <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_biography_entries")
     mnis_biography_entries(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -183,20 +197,27 @@ mnis_committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("Committees.", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Committees <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_committees")
     mnis_committees(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -237,20 +258,27 @@ mnis_addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("Addresses.", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Addresses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_addresses")
     mnis_addresses(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -291,20 +319,26 @@ mnis_constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("Constituencies.", "", names(x))
+
     x
 
 }
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Constituencies <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_constituencies")
     mnis_constituencies(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -345,20 +379,25 @@ mnis_elections_contested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) 
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_ElectionsContested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_ElectionsContested <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_elections_contested")
     mnis_elections_contested(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -399,20 +438,25 @@ mnis_experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Experiences <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_experiences")
     mnis_experiences(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -453,20 +497,25 @@ mnis_government_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_GovernmentPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_GovernmentPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_government_posts")
     mnis_government_posts(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -507,20 +556,25 @@ mnis_honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Honours <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_honours")
     mnis_honours(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -561,13 +615,20 @@ mnis_house_memberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("HouseMemberships.", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_HouseMemberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_HouseMemberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_house_memberships")
     mnis_house_memberships(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -575,7 +636,7 @@ mnis_HouseMemberships <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -616,6 +677,10 @@ mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
@@ -623,7 +688,7 @@ mnis_statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_statuses")
     mnis_statuses(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -631,7 +696,7 @@ mnis_Statuses <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -672,20 +737,25 @@ mnis_staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Staff <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_staff")
     mnis_staff(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -726,20 +796,25 @@ mnis_interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Interests <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_interests")
     mnis_interests(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_known_as <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_known_as <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -780,20 +855,25 @@ mnis_known_as <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_KnownAs <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_KnownAs <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_known_as")
     mnis_known_as(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -834,6 +914,10 @@ mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
     x
 
 }
@@ -841,7 +925,7 @@ mnis_maiden_speeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_MaidenSpeeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_MaidenSpeeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_maiden_speeches")
     mnis_maiden_speeches(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -849,7 +933,7 @@ mnis_MaidenSpeeches <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_opposition_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_opposition_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -890,13 +974,20 @@ mnis_opposition_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     names(x) <- gsub("Members.Member.", "", names(x))
 
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    names(x) <- gsub("OppositionPosts.", "", names(x))
+
     x
 
 }
+
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_OppositionPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_OppositionPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_opposition_posts")
     mnis_opposition_posts(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -904,7 +995,7 @@ mnis_OppositionPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_other_parliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_other_parliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -939,11 +1030,19 @@ mnis_other_parliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
 
     names(x) <- gsub("Members.Member.", "", names(x))
+
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -952,14 +1051,14 @@ mnis_other_parliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_OtherParliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_OtherParliaments <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_other_parliaments")
     mnis_other_parliaments(ID = ID, mem_id = mem_id, refDods = refDods)
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_parliamentary_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_parliamentary_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -994,11 +1093,19 @@ mnis_parliamentary_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) 
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
 
     names(x) <- gsub("Members.Member.", "", names(x))
+
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -1007,7 +1114,7 @@ mnis_parliamentary_posts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) 
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_ParliamentaryPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_ParliamentaryPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_parliamentary_posts")
     mnis_parliamentary_posts(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -1015,7 +1122,7 @@ mnis_ParliamentaryPosts <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -1049,11 +1156,19 @@ mnis_parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
 
     names(x) <- gsub("Members.Member.", "", names(x))
+
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -1062,7 +1177,7 @@ mnis_parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_Parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_Parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_parties")
     mnis_parties(ID = ID, mem_id = mem_id, refDods = refDods)
 }
@@ -1070,7 +1185,7 @@ mnis_Parties <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_preferred_names <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_preferred_names <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
 
     if (is.null(ID) == TRUE) {
         stop("ID cannot be empty", call. = FALSE)
@@ -1108,11 +1223,19 @@ mnis_preferred_names <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 
     x <- x[rownames(x) != "ID", ]
 
+    if(clean==TRUE){
+
     names(x) <- gsub("@", "", names(x))
 
     names(x) <- gsub("#", "", names(x))
 
     names(x) <- gsub("Members.Member.", "", names(x))
+
+    names(x) <- gsub(".xsi:nil", "", names(x))
+
+    names(x) <- gsub(".xmlns:xsi", "", names(x))
+
+    }
 
     x
 
@@ -1121,7 +1244,7 @@ mnis_preferred_names <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
 #' @export
 #' @rdname mnis_additional
 #' @usage NULL
-mnis_PreferredNames <- function(ID = NULL, mem_id = TRUE, refDods = FALSE) {
+mnis_PreferredNames <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
     .Deprecated("mnis_preferred_names")
     mnis_preferred_names(ID = ID, mem_id = mem_id, refDods = refDods)
 }
