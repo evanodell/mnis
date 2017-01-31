@@ -34,7 +34,7 @@ install.packages("mnis")
 ```
 
 
-The most recent version (0.2.0) can be installed by running:
+The most recent version (0.2.1) can be installed by running:
 
 ```{r eval = FALSE}
 install.packages("devtools")

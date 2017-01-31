@@ -2,6 +2,7 @@
 #' mnis_reference
 #'
 #' A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments.
+#' @param clean Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -131,1159 +132,1389 @@
 #' @export
 #' @rdname mnis_reference
 mnis_reference <- function() {
-
-    x <- c("ref_address_types()", "ref_answering_bodies()", "ref_areas()", "ref_area_types()", "ref_biography_categories()",
-        "ref_cabinets()", "ref_committees()", "ref_committee_types()", "ref_constituencies()", "ref_constituency_areas()",
-        "ref_constituency_types()", "ref_countries()", "ref_departments()", "ref_disqualification_types()", "ref_elections()",
-        "ref_election_types()", "ref_end_reasons()", "ref_experience_types()", "ref_government_post_departments()",
-        "ref_government_posts()", "ref_government_ranks()", "ref_honourary_prefixes()", "ref_honour_lists()", "ref_honours()",
-        "ref_interest_categories()", "ref_lords_membership_types()", "ref_lords_ranks()", "ref_opposition_post_departments()",
-        "ref_opposition_posts()", "ref_opposition_ranks()", "ref_other_parliaments()", "ref_parliamentary_posts()",
-        "ref_parliamentary_ranks()", "ref_parliament_types()", "ref_parties()", "ref_party_sub_types()", "ref_photo_outputs()",
-        "ref_statuses()", "ref_titles()")
-
+    
+    x <- c("ref_address_types()", "ref_answering_bodies()", "ref_areas()", "ref_area_types()", "ref_biography_categories()", 
+        "ref_cabinets()", "ref_committees()", "ref_committee_types()", "ref_constituencies()", "ref_constituency_areas()", 
+        "ref_constituency_types()", "ref_countries()", "ref_departments()", "ref_disqualification_types()", "ref_elections()", 
+        "ref_election_types()", "ref_end_reasons()", "ref_experience_types()", "ref_government_post_departments()", "ref_government_posts()", 
+        "ref_government_ranks()", "ref_honourary_prefixes()", "ref_honour_lists()", "ref_honours()", "ref_interest_categories()", 
+        "ref_lords_membership_types()", "ref_lords_ranks()", "ref_opposition_post_departments()", "ref_opposition_posts()", 
+        "ref_opposition_ranks()", "ref_other_parliaments()", "ref_parliamentary_posts()", "ref_parliamentary_ranks()", 
+        "ref_parliament_types()", "ref_parties()", "ref_party_sub_types()", "ref_photo_outputs()", "ref_statuses()", "ref_titles()")
+    
     message("All Available Reference Functions:")
-
+    
     x
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-mnis_Reference <- function() {
+mnis_Reference <- function(clean = TRUE) {
     .Deprecated("mnis_reference")
     mnis_reference()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_address_types <- function() {
-
+ref_address_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AddressTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$AddressTypes)
-
-    names(x) <- sub("AddressType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_AddressTypes <- function() {
+ref_AddressTypes <- function(clean = TRUE) {
     .Deprecated("ref_address_types")
     ref_address_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_answering_bodies <- function() {
-
+ref_answering_bodies <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AnsweringBodies/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$AnsweringBodies)
-
-    names(x) <- sub("AnsweringBody.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_AnsweringBodies <- function() {
+ref_AnsweringBodies <- function(clean = TRUE) {
     .Deprecated("ref_answering_bodies")
     ref_answering_bodies()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_areas <- function() {
-
+ref_areas <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Areas/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Areas)
-
-    names(x) <- sub("Area.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Areas <- function() {
+ref_Areas <- function(clean = TRUE) {
     .Deprecated("ref_areas")
-    ref_areas()
+    ref_areas(clean = clean)
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_area_types <- function() {
-
+ref_area_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AreaTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$AreaTypes)
-
-    names(x) <- sub("AreaType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_AreaTypes <- function() {
+ref_AreaTypes <- function(clean = TRUE) {
     .Deprecated("ref_area_types")
     ref_area_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_biography_categories <- function() {
-
+ref_biography_categories <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/BiographyCategories/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$BiographyCategories)
-
-    names(x) <- sub("BiographyCategory.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_BiographyCategories <- function() {
+ref_BiographyCategories <- function(clean = TRUE) {
     .Deprecated("ref_biography_categories")
     ref_biography_categories()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_cabinets <- function() {
-
+ref_cabinets <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Cabinets/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Cabinets)
-
-    names(x) <- sub("Cabinet.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Cabinets <- function() {
+ref_Cabinets <- function(clean = TRUE) {
     .Deprecated("ref_cabinets")
     ref_cabinets()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_committees <- function() {
-
+ref_committees <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Committees/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Committees)
-
-    names(x) <- sub("Committee.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Committees <- function() {
+ref_Committees <- function(clean = TRUE) {
     .Deprecated("ref_committees")
     ref_committees()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_committee_types <- function() {
-
+ref_committee_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/CommitteeTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$CommitteeTypes)
-
-    names(x) <- sub("CommitteeType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_CommitteeTypes <- function() {
+ref_CommitteeTypes <- function(clean = TRUE) {
     .Deprecated("ref_committee_types")
     ref_committee_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_constituencies <- function() {
-
+ref_constituencies <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Constituencies/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Constituencies)
-
-    names(x) <- sub("Constituency.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Constituencies <- function() {
+ref_Constituencies <- function(clean = TRUE) {
     .Deprecated("ref_constituencies")
     ref_constituencies()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_areas <- function() {
-
+ref_constituency_areas <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyAreas/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ConstituencyAreas)
-
-    names(x) <- sub("ConstituencyArea.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ConstituencyAreas <- function() {
+ref_ConstituencyAreas <- function(clean = TRUE) {
     .Deprecated("ref_constituency_areas")
     ref_constituency_areas()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_types <- function() {
-
+ref_constituency_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ConstituencyTypes)
-
-    names(x) <- sub("ConstituencyType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ConstituencyTypes <- function() {
+ref_ConstituencyTypes <- function(clean = TRUE) {
     .Deprecated("ref_constituency_types")
     ref_constituency_types()
 }
 #' @export
 #' @rdname mnis_reference
-ref_countries <- function() {
-
+ref_countries <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Countries/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Countries)
-
-    names(x) <- sub("Country.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Countries <- function() {
+ref_Countries <- function(clean = TRUE) {
     .Deprecated("ref_countries")
     ref_countries()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_departments <- function() {
-
+ref_departments <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Departments/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Departments)
-
-    names(x) <- sub("Department.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Departments <- function() {
+ref_Departments <- function(clean = TRUE) {
     .Deprecated("ref_departments")
     ref_departments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_disqualification_types <- function() {
-
+ref_disqualification_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/DisqualificationTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$DisqualificationTypes)
-
-    names(x) <- sub("DisqualificationType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_DisqualificationTypes <- function() {
+ref_DisqualificationTypes <- function(clean = TRUE) {
     .Deprecated("ref_disqualification_types")
     ref_disqualification_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_elections <- function() {
-
+ref_elections <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Elections/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Elections)
-
-    names(x) <- sub("Election.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Elections <- function() {
+ref_Elections <- function(clean = TRUE) {
     .Deprecated("ref_elections")
     ref_elections()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_election_types <- function() {
-
+ref_election_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ElectionTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ElectionTypes)
-
-    names(x) <- sub("ElectionType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ElectionTypes <- function() {
+ref_ElectionTypes <- function(clean = TRUE) {
     .Deprecated("ref_election_types")
     ref_election_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_end_reasons <- function() {
-
+ref_end_reasons <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/EndReasons/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$EndReasons)
-
-    names(x) <- sub("EndReason.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_EndReasons <- function() {
+ref_EndReasons <- function(clean = TRUE) {
     .Deprecated("ref_end_reasons")
     ref_end_reasons()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_experience_types <- function() {
-
+ref_experience_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ExperienceTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ExperienceTypes)
-
-    names(x) <- sub("ExperienceType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ExperienceTypes <- function() {
+ref_ExperienceTypes <- function(clean = TRUE) {
     .Deprecated("ref_experience_types")
     ref_experience_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_government_post_departments <- function() {
-
+ref_government_post_departments <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPostDepartments/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$GovernmentPostDepartments)
-
-    names(x) <- sub("GovernmentPostDepartment.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_GovernmentPostDepartments <- function() {
+ref_GovernmentPostDepartments <- function(clean = TRUE) {
     .Deprecated("ref_government_post_departments")
     ref_government_post_departments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_government_posts <- function() {
-
+ref_government_posts <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPosts/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$GovernmentPosts)
-
-    names(x) <- sub("GovernmentPost.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_GovernmentPosts <- function() {
+ref_GovernmentPosts <- function(clean = TRUE) {
     .Deprecated("ref_government_posts")
     ref_government_posts()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_government_ranks <- function() {
-
+ref_government_ranks <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentRanks/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$GovernmentRanks)
-
-    names(x) <- sub("GovernmentRank.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_GovernmentRanks <- function() {
+ref_GovernmentRanks <- function(clean = TRUE) {
     .Deprecated("ref_government_ranks")
     ref_government_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_honourary_prefixes <- function() {
-
+ref_honourary_prefixes <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonouraryPrefixes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$HonouraryPrefixes)
-
-    names(x) <- sub("HonouraryPrefix.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_HonouraryPrefixes <- function() {
+ref_HonouraryPrefixes <- function(clean = TRUE) {
     .Deprecated("ref_honourary_prefixes")
     ref_honourary_prefixes()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_honour_lists <- function() {
-
+ref_honour_lists <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonourLists/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$HonourLists)
-
-    names(x) <- sub("HonourList.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_HonourLists <- function() {
+ref_HonourLists <- function(clean = TRUE) {
     .Deprecated("ref_honour_lists")
     ref_honour_lists()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_honours <- function() {
-
+ref_honours <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Honours/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Honours)
-
-    names(x) <- sub("Honour.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Honours <- function() {
+ref_Honours <- function(clean = TRUE) {
     .Deprecated("ref_honours")
     ref_honours()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_interest_categories <- function() {
-
+ref_interest_categories <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/InterestCategories/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$InterestCategories)
-
-    names(x) <- sub("InterestCategory.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_InterestCategories <- function() {
+ref_InterestCategories <- function(clean = TRUE) {
     .Deprecated("ref_interest_categories")
     ref_interest_categories()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_membership_types <- function() {
-
+ref_lords_membership_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsMembershipTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$LordsMembershipTypes)
-
-    names(x) <- sub("LordsMembershipType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_LordsMembershipTypes <- function() {
+ref_LordsMembershipTypes <- function(clean = TRUE) {
     .Deprecated("ref_lords_membership_types")
     ref_lords_membership_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_ranks <- function() {
-
+ref_lords_ranks <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsRanks/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$LordsRanks)
-
-    names(x) <- sub("LordsRank.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_LordsRanks <- function() {
+ref_LordsRanks <- function(clean = TRUE) {
     .Deprecated("ref_lords_ranks")
     ref_lords_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_post_departments <- function() {
-
+ref_opposition_post_departments <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPostDepartments/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$OppositionPostDepartments)
-
-    names(x) <- sub("OppositionPostDepartment.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OppositionPostDepartments <- function() {
+ref_OppositionPostDepartments <- function(clean = TRUE) {
     .Deprecated("ref_opposition_post_departments")
     ref_opposition_post_departments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_posts <- function() {
-
+ref_opposition_posts <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPosts/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$OppositionPosts)
-
-    names(x) <- sub("OppositionPost.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OppositionPosts <- function() {
+ref_OppositionPosts <- function(clean = TRUE) {
     .Deprecated("ref_opposition_posts")
     ref_opposition_posts()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_ranks <- function() {
-
+ref_opposition_ranks <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionRanks/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$OppositionRanks)
-
-    names(x) <- sub("OppositionRank.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OppositionRanks <- function() {
+ref_OppositionRanks <- function(clean = TRUE) {
     .Deprecated("ref_opposition_ranks")
     ref_opposition_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_other_parliaments <- function() {
-
+ref_other_parliaments <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OtherParliaments/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$OtherParliaments)
-
-    names(x) <- sub("OtherParliament.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OtherParliaments <- function() {
+ref_OtherParliaments <- function(clean = TRUE) {
     .Deprecated("ref_other_parliaments")
     ref_other_parliaments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_posts <- function() {
-
+ref_parliamentary_posts <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryPosts/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ParliamentaryPosts)
-
-    names(x) <- sub("ParliamentaryPost.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ParliamentaryPosts <- function() {
+ref_ParliamentaryPosts <- function(clean = TRUE) {
     .Deprecated("ref_parliamentary_posts")
     ref_parliamentary_posts()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_ranks <- function() {
-
+ref_parliamentary_ranks <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryRanks/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ParliamentaryRanks)
-
-    names(x) <- sub("ParliamentRanks.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ParliamentaryRanks <- function() {
+ref_ParliamentaryRanks <- function(clean = TRUE) {
     .Deprecated("ref_parliamentary_ranks")
     ref_parliamentary_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parliament_types <- function() {
-
+ref_parliament_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$ParliamentTypes)
-
-    names(x) <- sub("ParliamentType.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ParliamentTypes <- function() {
+ref_ParliamentTypes <- function(clean = TRUE) {
     .Deprecated("ref_parliament_types")
     ref_parliament_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parties <- function() {
-
+ref_parties <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Parties/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Parties)
-
-    names(x) <- sub("Party.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Parties <- function() {
+ref_Parties <- function(clean = TRUE) {
     .Deprecated("ref_parties")
     ref_parties()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_party_sub_types <- function() {
-
+ref_party_sub_types <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PartySubTypes/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.list(got$PartySubTypes$PartySubType)
-
-    x
-
+    
+    x <- unlist(x)
+    
+    x <- t(x)
+    
+    x <- as.data.frame(x)
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_PartySubTypes <- function() {
+ref_PartySubTypes <- function(clean = TRUE) {
     .Deprecated("ref_party_sub_types")
     ref_party_sub_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_photo_outputs <- function() {
-
+ref_photo_outputs <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PhotoOutputs/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$PhotoOutputs)
-
-    names(x) <- sub("PhotoOutput.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_PhotoOutputs <- function() {
+ref_PhotoOutputs <- function(clean = TRUE) {
     .Deprecated("ref_photo_outputs")
     ref_photo_outputs()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_statuses <- function() {
-
+ref_statuses <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Statuses/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Statuses)
-
-    names(x) <- sub("Status.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
+    
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Statuses <- function() {
+ref_Statuses <- function(clean = TRUE) {
     .Deprecated("ref_statuses")
     ref_statuses()
 }
@@ -1291,30 +1522,35 @@ ref_Statuses <- function() {
 
 #' @export
 #' @rdname mnis_reference
-ref_titles <- function() {
-
+ref_titles <- function(clean = TRUE) {
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/"
-
+    
     got <- httr::GET(baseurl, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$Titles)
-
-    names(x) <- sub("Title.", "", names(x))
-
-    x
-
+    
+    if (clean == TRUE) {
+        
+        x <- ref_clean(x)
+        
+    } else {
+        
+        x
+        
+    }
 }
 
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Titles <- function() {
+ref_Titles <- function(clean = TRUE) {
     .Deprecated("ref_titles")
     ref_titles()
 }

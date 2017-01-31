@@ -5,12 +5,14 @@
 \alias{mnis_member_date}
 \title{mnis_member_date}
 \usage{
-mnis_member_date(ID = NULL, Date = Sys.Date())
+mnis_member_date(ID = NULL, Date = Sys.Date(), clean = TRUE)
 }
 \arguments{
 \item{ID}{The ID of the member.}
 
 \item{Date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
+
+\item{clean}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \value{
 Returns a data frame with the given member's status on the given date.

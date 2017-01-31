@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evan Odell" />
 
-<meta name="date" content="2016-12-29" />
+<meta name="date" content="2017-01-31" />
 
 <title>Introduction to mnis</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to mnis</h1>
 <h4 class="author"><em>Evan Odell</em></h4>
-<h4 class="date"><em>2016-12-29</em></h4>
+<h4 class="date"><em>2017-01-31</em></h4>
 
 
 
@@ -107,47 +107,47 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="reference-functions" class="section level3">
 <h3>Reference Functions</h3>
 <p>A series of functions to return reference data. This data is useful for providing parameters for other function calls. These functions do not accept any arguments.</p>
-<p><code>ref_AddressTypes()</code></p>
-<p><code>ref_AnsweringBodies()</code></p>
-<p><code>ref_Areas()</code></p>
-<p><code>ref_AreaTypes()</code></p>
-<p><code>ref_BiographyCategories()</code></p>
-<p><code>ref_Cabinets()</code></p>
-<p><code>ref_Committees()</code></p>
-<p><code>ref_CommitteeTypes()</code></p>
-<p><code>ref_Constituencies()</code></p>
-<p><code>ref_ConstituencyAreas()</code></p>
-<p><code>ref_ConstituencyTypes()</code></p>
-<p><code>ref_Countries()</code></p>
-<p><code>ref_Departments()</code></p>
-<p><code>ref_DisqualificationTypes()</code></p>
-<p><code>ref_Elections()</code></p>
-<p><code>ref_ElectionTypes()</code></p>
-<p><code>ref_EndReasons()</code></p>
-<p><code>ref_ExperienceTypes()</code></p>
-<p><code>ref_GovernmentPostDepartments()</code></p>
-<p><code>ref_GovernmentPosts()</code></p>
-<p><code>ref_GovernmentRanks()</code></p>
-<p><code>ref_HonouraryPrefixes()</code></p>
-<p><code>ref_HonourLists()</code></p>
-<p><code>ref_Honours()</code></p>
-<p><code>ref_InterestCategories()</code></p>
-<p><code>ref_LordsMembershipTypes()</code></p>
-<p><code>ref_LordsRanks()</code></p>
-<p><code>ref_OppositionPostDepartments()</code></p>
-<p><code>ref_OppositionPosts()</code></p>
-<p><code>ref_OppositionRanks()</code></p>
-<p><code>ref_OtherParliaments()</code></p>
-<p><code>ref_ParliamentaryPosts()</code></p>
-<p><code>ref_ParliamentaryRanks()</code></p>
-<p><code>ref_ParliamentTypes()</code></p>
-<p><code>ref_Parties()</code></p>
-<p><code>ref_PartySubTypes()</code></p>
-<p><code>ref_PhotoOutputs()</code></p>
-<p><code>ref_Statuses()</code></p>
-<p><code>ref_Titles()</code></p>
+<p><code>ref_address_types()</code></p>
+<p><code>ref_answering_bodies()</code></p>
+<p><code>ref_areas()</code></p>
+<p><code>ref_area_types()</code></p>
+<p><code>ref_biography_categories()</code></p>
+<p><code>ref_cabinets()</code></p>
+<p><code>ref_committees()</code></p>
+<p><code>ref_committee_types()</code></p>
+<p><code>ref_constituencies()</code></p>
+<p><code>ref_constituency_areas()</code></p>
+<p><code>ref_constituency_types()</code></p>
+<p><code>ref_countries()</code></p>
+<p><code>ref_departments()</code></p>
+<p><code>ref_disqualification_types()</code></p>
+<p><code>ref_elections()</code></p>
+<p><code>ref_election_types()</code></p>
+<p><code>ref_end_reasons()</code></p>
+<p><code>ref_experience_types()</code></p>
+<p><code>ref_government_post_departments()</code></p>
+<p><code>ref_government_posts()</code></p>
+<p><code>ref_government_ranks()</code></p>
+<p><code>ref_honourary_prefixes()</code></p>
+<p><code>ref_honour_lists()</code></p>
+<p><code>ref_honours()</code></p>
+<p><code>ref_interest_categories()</code></p>
+<p><code>ref_lords_membership_types()</code></p>
+<p><code>ref_lords_ranks()</code></p>
+<p><code>ref_opposition_post_departments()</code></p>
+<p><code>ref_opposition_posts()</code></p>
+<p><code>ref_opposition_ranks()</code></p>
+<p><code>ref_other_parliaments()</code></p>
+<p><code>ref_parliamentary_posts()</code></p>
+<p><code>ref_parliamentary_ranks()</code></p>
+<p><code>ref_parliament_types()</code></p>
+<p><code>ref_parties()</code></p>
+<p><code>ref_party_sub_types()</code></p>
+<p><code>ref_photo_outputs()</code></p>
+<p><code>ref_statuses()</code></p>
+<p><code>ref_titles()</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
-x &lt;-<span class="st"> </span><span class="kw">ref_Titles</span>()
+x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>()
 x
 
 <span class="co">#   Title_Id         Name</span>
@@ -176,46 +176,46 @@ x
 </div>
 <div id="additional-information-functions" class="section level3">
 <h3>Additional Information Functions</h3>
-<p><code>mnis_FullBiog()</code></p>
-<p><code>mnis_BasicDetails()</code></p>
-<p><code>mnis_BiographyEntries()</code></p>
-<p><code>mnis_Committees()</code></p>
-<p><code>mnis_Addresses()</code></p>
-<p><code>mnis_Constituencies()</code></p>
-<p><code>mnis_ElectionsContested()</code></p>
-<p><code>mnis_Experiences()</code></p>
-<p><code>mnis_GovernmentPosts()</code></p>
-<p><code>mnis_Honours()</code></p>
-<p><code>mnis_HouseMemberships()</code></p>
-<p><code>mnis_Statuses()</code></p>
-<p><code>mnis_Staff()</code></p>
-<p><code>mnis_Interests()</code></p>
-<p><code>mnis_KnownAs()</code></p>
-<p><code>mnis_MaidenSpeeches()</code></p>
-<p><code>mnis_OppositionPosts()</code></p>
-<p><code>mnis_OtherParliaments()</code></p>
-<p><code>mnis_ParliamentaryPosts()</code></p>
-<p><code>mnis_Parties()</code></p>
-<p><code>mnis_PreferredNames()</code></p>
+<p><code>mnis_additional()</code></p>
+<p><code>mnis_addresses()</code></p>
+<p><code>mnis_basic_details()</code></p>
+<p><code>mnis_biography_entries()</code></p>
+<p><code>mnis_committees()</code></p>
+<p><code>mnis_constituencies()</code></p>
+<p><code>mnis_elections_contested</code></p>
+<p><code>mnis_experiences()</code></p>
+<p><code>mnis_government_posts()</code></p>
+<p><code>mnis_honours()</code></p>
+<p><code>mnis_house_memberships()</code></p>
+<p><code>mnis_interests()</code></p>
+<p><code>mnis_known_as()</code></p>
+<p><code>mnis_maiden_speeches()</code></p>
+<p><code>mnis_opposition_posts()</code></p>
+<p><code>mnis_other_parliaments()</code></p>
+<p><code>mnis_parliamentary_posts()</code></p>
+<p><code>mnis_parties()</code></p>
+<p><code>mnis_preferred_names()</code></p>
+<p><code>mnis_staff()</code></p>
+<p><code>mnis_statuses()</code></p>
 <div id="mnis_extra" class="section level4">
-<h4>mnis_Extra()</h4>
-<p>The <code>mnis_Extra()</code> function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to <code>mnis_FullBiog()</code>.</p>
+<h4>mnis_extra()</h4>
+<p>The <code>mnis_extra()</code> function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to <code>mnis_FullBiog()</code>.</p>
 </div>
 </div>
 <div id="fixed-scope-functions" class="section level3">
 <h3>Fixed Scope Functions</h3>
 <p>There are seven fixed scope functions that return ready-made datasets. They are:</p>
-<p><code>mnis_PartyState()</code></p>
-<p><code>mnis_ConstituencyResults()</code></p>
-<p><code>mnis_Department()</code></p>
-<p><code>mnis_GeneralElectionResults()</code></p>
-<p><code>mnis_LordsType()</code></p>
-<p><code>mnis_MemberDate()</code></p>
-<p><code>mnis_PartyState()</code></p>
+<p><code>mnis_party_state()</code></p>
+<p><code>mnis_constituency_results()</code></p>
+<p><code>mnis_department()</code></p>
+<p><code>mnis_general_election_results()</code></p>
+<p><code>mnis_lords_type()</code></p>
+<p><code>mnis_member_date()</code></p>
+<p><code>mnis_party_state()</code></p>
 <div id="fixed-scope-example" class="section level4">
 <h4>Fixed Scope Example</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
-x &lt;-<span class="st"> </span><span class="kw">mnis_PartyState</span>()
+x &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>()
 x
 
 <span class="co">#    House Id                             Name MaleCount FemaleCount TotalCount</span>

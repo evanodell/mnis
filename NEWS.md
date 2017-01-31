@@ -1,4 +1,15 @@
 
+# mnis 0.2.1
+
+## Bug fixes, further rollout of clean function
+
+Expansion of `clean` function to all other package functions and improved speed and quality. 
+
+Fixed errors in `mnis_extra` that prevented it from functioning properly.
+
+Improved handling of 
+
+
 # mnis 0.2.0
 
 ## Introducing New Naming Conventions, mnis_eligible and clean

@@ -4,7 +4,7 @@
 \alias{mnis_full_biog}
 \title{mnis_FullBiog}
 \usage{
-mnis_full_biog(ID = NULL, mem_id = TRUE, refDods = FALSE)
+mnis_full_biog(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL.}
@@ -12,6 +12,8 @@ mnis_full_biog(ID = NULL, mem_id = TRUE, refDods = FALSE)
 \item{mem_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
 
 \item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
+
+\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
 Requests all available biographical information for a given member.

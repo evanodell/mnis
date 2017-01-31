@@ -1,6 +1,6 @@
 ## ----eval=FALSE----------------------------------------------------------
 #  library(mnis)
-#  x <- ref_Titles()
+#  x <- ref_titles()
 #  x
 #  
 #  #   Title_Id         Name
@@ -31,7 +31,7 @@
 
 ## ----eval=FALSE----------------------------------------------------------
 #  library(mnis)
-#  x <- mnis_PartyState()
+#  x <- mnis_party_state()
 #  x
 #  
 #  #    House Id                             Name MaleCount FemaleCount TotalCount

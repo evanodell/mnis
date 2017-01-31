@@ -105,7 +105,7 @@ mnis_preferred_names(ID = NULL, mem_id = TRUE, refDods = FALSE,
 
 \item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{clean}{Fixes the variable names. Defaults to TRUE.}
+\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
 Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website. The API provides lengthy and complicated variable names, and the functions make some attempts to clean up those names. To disable this feature, include clean = TRUE in the function.

@@ -3,7 +3,7 @@
 #' Returns a list with details of the constituency and a data frame with election results.
 #' @param constituencyId The ID of the constituency to return the data for.
 #' @param electionId The ID of the election to return the data for. Defaults to 0, which calls the latest result.
-#' @param clean Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.
+#' @param clean Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @return A list with details of the constituency, labelled 'details' and a data frame with election results, labelled 'results'. The list and data frame are stored in a single object.
 #' @keywords mnis
 #' @export
@@ -28,6 +28,10 @@ mnis_constituency_results <- function(constituencyId = NULL, electionId = 0, cle
 
     got <- httr::GET(query, httr::accept_json())
 
+    if (httr::http_status(got) != "200"){
+      stop(print(httr::http_status(got)))
+    }
+
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
@@ -40,21 +44,19 @@ mnis_constituency_results <- function(constituencyId = NULL, electionId = 0, cle
 
     results <- as.data.frame(results)
 
-    if (clean == TRUE) {
-
-        names(results) <- gsub("Election.", "Election_", names(results))
-
-        names(results) <- gsub("Candidates.Candidate.", "", names(results))
-
-        names(results) <- sub("Election_.Id", "Election_Id", names(results))
-
-    }
-
     y <- list()
 
-    y <- c(list(results = results), list(details = details))
+    if (clean == TRUE) {
 
-    y
+        y <- constituency_results_clean(results, details)
+
+    } else {
+
+        y <- c(list(results = results), list(details = details))
+
+        y
+
+    }
 
 }
 

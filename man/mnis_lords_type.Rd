@@ -4,10 +4,12 @@
 \alias{mnis_lords_type}
 \title{mnis_lords_type}
 \usage{
-mnis_lords_type(Date = Sys.Date())
+mnis_lords_type(date = Sys.Date(), clean = TRUE)
 }
 \arguments{
-\item{Date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
+\item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
+
+\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \value{
 A data frame with information on the numbers of different types of Lords on a given date.

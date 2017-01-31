@@ -50,8 +50,7 @@ mnis_general_election_results <- function(locationType = "Country", locationName
 mnis_GeneralElectionResults <- function(locationType = "Country", locationName = "Great Britain", startDate = "1900-01-01", 
     endDate = Sys.Date()) {
     .Deprecated("mnis_general_election_results")
-    mnis_general_election_results(locationType = locationType, locationName = locationName, startDate = startDate, 
-        endDate = endDate)
+    mnis_general_election_results(locationType = locationType, locationName = locationName, startDate = startDate, endDate = endDate)
 }
 
 

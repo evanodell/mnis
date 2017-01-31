@@ -12,7 +12,7 @@ The package is available on CRAN (version 0.1.0). To install from CRAN run:
 install.packages("mnis")
 ```
 
-The most recent version (0.2.0) can be installed by running:
+The most recent version (0.2.1) can be installed by running:
 
 ``` r
 install.packages("devtools")

@@ -2,7 +2,8 @@
 #'
 #' A data frame with information on the numbers and gender of MPs, by party, for the given date.
 #' @param House The house of parliament. Defaults to 'Commons'.
-#' @param Date A date in yyyy-mm-dd format. Defaults to the current date.
+#' @param Date A date in yyyy-mm-dd format. Defaults to the current system date.
+#' @param clean Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @return A data frame with information on the numbers and gender of MPs, by party, by party, for the given date.
 #' @keywords mnis
 #' @export
@@ -11,7 +12,7 @@
 #'
 #' }
 
-mnis_party_state <- function(House = "Commons", Date = Sys.Date()) {
+mnis_party_state <- function(House = "Commons", Date = Sys.Date(), clean = TRUE) {
     
     Date <- as.character(Date)
     
@@ -29,13 +30,29 @@ mnis_party_state <- function(House = "Commons", Date = Sys.Date()) {
     
     x <- as.data.frame(got$HouseOverview)
     
-    names(x) <- sub("Party.", "", names(x))
-    
-    names(x) <- sub("X.House", "House", names(x))
-    
-    names(x) <- sub(".Id", "Id", names(x))
-    
-    x
+    if (clean == TRUE) {
+        
+        names(x) <- sub("Party.", "", names(x))
+        
+        names(x) <- sub("X.House", "house", names(x))
+        
+        names(x) <- sub(".Id", "party_id", names(x))
+        
+        names(x) <- sub("MaleCount", "male_count", names(x))
+        
+        names(x) <- sub("FemaleCount", "female_count", names(x))
+        
+        names(x) <- sub("TotalCount", "total_count", names(x))
+        
+        names(x) <- tolower(names(x))
+        
+        x
+        
+    } else {
+        
+        x
+        
+    }
     
 }
 

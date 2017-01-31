@@ -14,7 +14,7 @@ mnis_eligible(eligible = TRUE, house = "all", party = NULL,
 
 \item{party}{The party to which a member belongs. Defaults to NULL.}
 
-\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.}
+\item{clean}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE. @keywords mnis}
 }
 \description{
 Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a data frame.
@@ -25,5 +25,4 @@ x <- mnis_eligible(eligible='all', house='all', party='labour')
 
 }
 }
-\keyword{mnis}
 
