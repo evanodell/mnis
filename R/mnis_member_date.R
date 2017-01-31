@@ -3,7 +3,7 @@
 #' Returns a data frame with a members status on a given date.
 #' @param ID The ID of the member.
 #' @param Date A date in yyyy-mm-dd format. Defaults to the current system date.
-#' @param clean Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @param tidy Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @return Returns a data frame with the given member's status on the given date.
 #' @keywords mnis
 #' @export
@@ -12,7 +12,7 @@
 #'
 #' }
 
-mnis_member_date <- function(ID = NULL, Date = Sys.Date(), clean = TRUE) {
+mnis_member_date <- function(ID = NULL, Date = Sys.Date(), tidy = TRUE) {
     
     ID <- as.character(ID)
     
@@ -36,9 +36,9 @@ mnis_member_date <- function(ID = NULL, Date = Sys.Date(), clean = TRUE) {
     
     x <- as.data.frame(x)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- mnis_clean(x)
+        x <- mnis_tidy(x)
         
     } else {
         

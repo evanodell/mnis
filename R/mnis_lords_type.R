@@ -2,7 +2,7 @@
 #'
 #' Calls the API to return a data frame with details on the number of Lords and their affiliations.
 #' @param date A date in yyyy-mm-dd format. Defaults to the current system date.
-#' @param clean Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
+#' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @return A data frame with information on the numbers of different types of Lords on a given date.
 #' @keywords mnis
 #' @export
@@ -11,7 +11,7 @@
 #'
 #' }
 
-mnis_lords_type <- function(date = Sys.Date(), clean = TRUE) {
+mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
 
@@ -27,9 +27,9 @@ mnis_lords_type <- function(date = Sys.Date(), clean = TRUE) {
 
     x <- as.data.frame(got$LordsByType)
 
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
 
-        x <- mnis_clean(x)
+        x <- mnis_tidy(x)
 
     } else {
 
@@ -39,7 +39,7 @@ mnis_lords_type <- function(date = Sys.Date(), clean = TRUE) {
 
 }
 
-mnis_LordsType <- function(date = Sys.Date(), clean = TRUE) {
+mnis_LordsType <- function(date = Sys.Date(), tidy = TRUE) {
     .Deprecated("mnis_LordsType")
-    mnis_lords_type(date = date, clean = clean)
+    mnis_lords_type(date = date, tidy = tidy)
 }

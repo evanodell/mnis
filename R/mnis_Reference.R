@@ -2,7 +2,7 @@
 #' mnis_reference
 #'
 #' A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments.
-#' @param clean Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @param tidy Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -150,14 +150,14 @@ mnis_reference <- function() {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-mnis_Reference <- function(clean = TRUE) {
+mnis_Reference <- function(tidy = TRUE) {
     .Deprecated("mnis_reference")
     mnis_reference()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_address_types <- function(clean = TRUE) {
+ref_address_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AddressTypes/"
     
@@ -171,9 +171,9 @@ ref_address_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$AddressTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -186,14 +186,14 @@ ref_address_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_AddressTypes <- function(clean = TRUE) {
+ref_AddressTypes <- function(tidy = TRUE) {
     .Deprecated("ref_address_types")
     ref_address_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_answering_bodies <- function(clean = TRUE) {
+ref_answering_bodies <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AnsweringBodies/"
     
@@ -207,9 +207,9 @@ ref_answering_bodies <- function(clean = TRUE) {
     
     x <- as.data.frame(got$AnsweringBodies)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -221,14 +221,14 @@ ref_answering_bodies <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_AnsweringBodies <- function(clean = TRUE) {
+ref_AnsweringBodies <- function(tidy = TRUE) {
     .Deprecated("ref_answering_bodies")
     ref_answering_bodies()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_areas <- function(clean = TRUE) {
+ref_areas <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Areas/"
     
@@ -242,9 +242,9 @@ ref_areas <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Areas)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -256,14 +256,14 @@ ref_areas <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Areas <- function(clean = TRUE) {
+ref_Areas <- function(tidy = TRUE) {
     .Deprecated("ref_areas")
-    ref_areas(clean = clean)
+    ref_areas(tidy = tidy)
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_area_types <- function(clean = TRUE) {
+ref_area_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AreaTypes/"
     
@@ -277,9 +277,9 @@ ref_area_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$AreaTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -291,14 +291,14 @@ ref_area_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_AreaTypes <- function(clean = TRUE) {
+ref_AreaTypes <- function(tidy = TRUE) {
     .Deprecated("ref_area_types")
     ref_area_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_biography_categories <- function(clean = TRUE) {
+ref_biography_categories <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/BiographyCategories/"
     
@@ -312,9 +312,9 @@ ref_biography_categories <- function(clean = TRUE) {
     
     x <- as.data.frame(got$BiographyCategories)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -327,14 +327,14 @@ ref_biography_categories <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_BiographyCategories <- function(clean = TRUE) {
+ref_BiographyCategories <- function(tidy = TRUE) {
     .Deprecated("ref_biography_categories")
     ref_biography_categories()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_cabinets <- function(clean = TRUE) {
+ref_cabinets <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Cabinets/"
     
@@ -348,9 +348,9 @@ ref_cabinets <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Cabinets)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -362,14 +362,14 @@ ref_cabinets <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Cabinets <- function(clean = TRUE) {
+ref_Cabinets <- function(tidy = TRUE) {
     .Deprecated("ref_cabinets")
     ref_cabinets()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_committees <- function(clean = TRUE) {
+ref_committees <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Committees/"
     
@@ -383,9 +383,9 @@ ref_committees <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Committees)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -398,14 +398,14 @@ ref_committees <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Committees <- function(clean = TRUE) {
+ref_Committees <- function(tidy = TRUE) {
     .Deprecated("ref_committees")
     ref_committees()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_committee_types <- function(clean = TRUE) {
+ref_committee_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/CommitteeTypes/"
     
@@ -419,9 +419,9 @@ ref_committee_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$CommitteeTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -434,14 +434,14 @@ ref_committee_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_CommitteeTypes <- function(clean = TRUE) {
+ref_CommitteeTypes <- function(tidy = TRUE) {
     .Deprecated("ref_committee_types")
     ref_committee_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_constituencies <- function(clean = TRUE) {
+ref_constituencies <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Constituencies/"
     
@@ -455,9 +455,9 @@ ref_constituencies <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Constituencies)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -470,14 +470,14 @@ ref_constituencies <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Constituencies <- function(clean = TRUE) {
+ref_Constituencies <- function(tidy = TRUE) {
     .Deprecated("ref_constituencies")
     ref_constituencies()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_areas <- function(clean = TRUE) {
+ref_constituency_areas <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyAreas/"
     
@@ -491,9 +491,9 @@ ref_constituency_areas <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ConstituencyAreas)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -505,14 +505,14 @@ ref_constituency_areas <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ConstituencyAreas <- function(clean = TRUE) {
+ref_ConstituencyAreas <- function(tidy = TRUE) {
     .Deprecated("ref_constituency_areas")
     ref_constituency_areas()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_types <- function(clean = TRUE) {
+ref_constituency_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyTypes/"
     
@@ -526,9 +526,9 @@ ref_constituency_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ConstituencyTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -541,13 +541,13 @@ ref_constituency_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ConstituencyTypes <- function(clean = TRUE) {
+ref_ConstituencyTypes <- function(tidy = TRUE) {
     .Deprecated("ref_constituency_types")
     ref_constituency_types()
 }
 #' @export
 #' @rdname mnis_reference
-ref_countries <- function(clean = TRUE) {
+ref_countries <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Countries/"
     
@@ -561,9 +561,9 @@ ref_countries <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Countries)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -576,14 +576,14 @@ ref_countries <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Countries <- function(clean = TRUE) {
+ref_Countries <- function(tidy = TRUE) {
     .Deprecated("ref_countries")
     ref_countries()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_departments <- function(clean = TRUE) {
+ref_departments <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Departments/"
     
@@ -597,9 +597,9 @@ ref_departments <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Departments)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -612,14 +612,14 @@ ref_departments <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Departments <- function(clean = TRUE) {
+ref_Departments <- function(tidy = TRUE) {
     .Deprecated("ref_departments")
     ref_departments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_disqualification_types <- function(clean = TRUE) {
+ref_disqualification_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/DisqualificationTypes/"
     
@@ -633,9 +633,9 @@ ref_disqualification_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$DisqualificationTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -648,14 +648,14 @@ ref_disqualification_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_DisqualificationTypes <- function(clean = TRUE) {
+ref_DisqualificationTypes <- function(tidy = TRUE) {
     .Deprecated("ref_disqualification_types")
     ref_disqualification_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_elections <- function(clean = TRUE) {
+ref_elections <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Elections/"
     
@@ -669,9 +669,9 @@ ref_elections <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Elections)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -684,14 +684,14 @@ ref_elections <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Elections <- function(clean = TRUE) {
+ref_Elections <- function(tidy = TRUE) {
     .Deprecated("ref_elections")
     ref_elections()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_election_types <- function(clean = TRUE) {
+ref_election_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ElectionTypes/"
     
@@ -705,9 +705,9 @@ ref_election_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ElectionTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -720,14 +720,14 @@ ref_election_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ElectionTypes <- function(clean = TRUE) {
+ref_ElectionTypes <- function(tidy = TRUE) {
     .Deprecated("ref_election_types")
     ref_election_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_end_reasons <- function(clean = TRUE) {
+ref_end_reasons <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/EndReasons/"
     
@@ -741,9 +741,9 @@ ref_end_reasons <- function(clean = TRUE) {
     
     x <- as.data.frame(got$EndReasons)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -756,14 +756,14 @@ ref_end_reasons <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_EndReasons <- function(clean = TRUE) {
+ref_EndReasons <- function(tidy = TRUE) {
     .Deprecated("ref_end_reasons")
     ref_end_reasons()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_experience_types <- function(clean = TRUE) {
+ref_experience_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ExperienceTypes/"
     
@@ -777,9 +777,9 @@ ref_experience_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ExperienceTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -792,14 +792,14 @@ ref_experience_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ExperienceTypes <- function(clean = TRUE) {
+ref_ExperienceTypes <- function(tidy = TRUE) {
     .Deprecated("ref_experience_types")
     ref_experience_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_government_post_departments <- function(clean = TRUE) {
+ref_government_post_departments <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPostDepartments/"
     
@@ -813,9 +813,9 @@ ref_government_post_departments <- function(clean = TRUE) {
     
     x <- as.data.frame(got$GovernmentPostDepartments)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -828,14 +828,14 @@ ref_government_post_departments <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_GovernmentPostDepartments <- function(clean = TRUE) {
+ref_GovernmentPostDepartments <- function(tidy = TRUE) {
     .Deprecated("ref_government_post_departments")
     ref_government_post_departments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_government_posts <- function(clean = TRUE) {
+ref_government_posts <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPosts/"
     
@@ -849,9 +849,9 @@ ref_government_posts <- function(clean = TRUE) {
     
     x <- as.data.frame(got$GovernmentPosts)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -864,14 +864,14 @@ ref_government_posts <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_GovernmentPosts <- function(clean = TRUE) {
+ref_GovernmentPosts <- function(tidy = TRUE) {
     .Deprecated("ref_government_posts")
     ref_government_posts()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_government_ranks <- function(clean = TRUE) {
+ref_government_ranks <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentRanks/"
     
@@ -885,9 +885,9 @@ ref_government_ranks <- function(clean = TRUE) {
     
     x <- as.data.frame(got$GovernmentRanks)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -900,14 +900,14 @@ ref_government_ranks <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_GovernmentRanks <- function(clean = TRUE) {
+ref_GovernmentRanks <- function(tidy = TRUE) {
     .Deprecated("ref_government_ranks")
     ref_government_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_honourary_prefixes <- function(clean = TRUE) {
+ref_honourary_prefixes <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonouraryPrefixes/"
     
@@ -921,9 +921,9 @@ ref_honourary_prefixes <- function(clean = TRUE) {
     
     x <- as.data.frame(got$HonouraryPrefixes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -935,14 +935,14 @@ ref_honourary_prefixes <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_HonouraryPrefixes <- function(clean = TRUE) {
+ref_HonouraryPrefixes <- function(tidy = TRUE) {
     .Deprecated("ref_honourary_prefixes")
     ref_honourary_prefixes()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_honour_lists <- function(clean = TRUE) {
+ref_honour_lists <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonourLists/"
     
@@ -956,9 +956,9 @@ ref_honour_lists <- function(clean = TRUE) {
     
     x <- as.data.frame(got$HonourLists)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -971,14 +971,14 @@ ref_honour_lists <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_HonourLists <- function(clean = TRUE) {
+ref_HonourLists <- function(tidy = TRUE) {
     .Deprecated("ref_honour_lists")
     ref_honour_lists()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_honours <- function(clean = TRUE) {
+ref_honours <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Honours/"
     
@@ -992,9 +992,9 @@ ref_honours <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Honours)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1007,14 +1007,14 @@ ref_honours <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Honours <- function(clean = TRUE) {
+ref_Honours <- function(tidy = TRUE) {
     .Deprecated("ref_honours")
     ref_honours()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_interest_categories <- function(clean = TRUE) {
+ref_interest_categories <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/InterestCategories/"
     
@@ -1028,9 +1028,9 @@ ref_interest_categories <- function(clean = TRUE) {
     
     x <- as.data.frame(got$InterestCategories)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1043,14 +1043,14 @@ ref_interest_categories <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_InterestCategories <- function(clean = TRUE) {
+ref_InterestCategories <- function(tidy = TRUE) {
     .Deprecated("ref_interest_categories")
     ref_interest_categories()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_membership_types <- function(clean = TRUE) {
+ref_lords_membership_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsMembershipTypes/"
     
@@ -1064,9 +1064,9 @@ ref_lords_membership_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$LordsMembershipTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1079,14 +1079,14 @@ ref_lords_membership_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_LordsMembershipTypes <- function(clean = TRUE) {
+ref_LordsMembershipTypes <- function(tidy = TRUE) {
     .Deprecated("ref_lords_membership_types")
     ref_lords_membership_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_ranks <- function(clean = TRUE) {
+ref_lords_ranks <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsRanks/"
     
@@ -1100,9 +1100,9 @@ ref_lords_ranks <- function(clean = TRUE) {
     
     x <- as.data.frame(got$LordsRanks)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1115,14 +1115,14 @@ ref_lords_ranks <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_LordsRanks <- function(clean = TRUE) {
+ref_LordsRanks <- function(tidy = TRUE) {
     .Deprecated("ref_lords_ranks")
     ref_lords_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_post_departments <- function(clean = TRUE) {
+ref_opposition_post_departments <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPostDepartments/"
     
@@ -1136,9 +1136,9 @@ ref_opposition_post_departments <- function(clean = TRUE) {
     
     x <- as.data.frame(got$OppositionPostDepartments)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1151,14 +1151,14 @@ ref_opposition_post_departments <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OppositionPostDepartments <- function(clean = TRUE) {
+ref_OppositionPostDepartments <- function(tidy = TRUE) {
     .Deprecated("ref_opposition_post_departments")
     ref_opposition_post_departments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_posts <- function(clean = TRUE) {
+ref_opposition_posts <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPosts/"
     
@@ -1172,9 +1172,9 @@ ref_opposition_posts <- function(clean = TRUE) {
     
     x <- as.data.frame(got$OppositionPosts)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1187,14 +1187,14 @@ ref_opposition_posts <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OppositionPosts <- function(clean = TRUE) {
+ref_OppositionPosts <- function(tidy = TRUE) {
     .Deprecated("ref_opposition_posts")
     ref_opposition_posts()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_ranks <- function(clean = TRUE) {
+ref_opposition_ranks <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionRanks/"
     
@@ -1208,9 +1208,9 @@ ref_opposition_ranks <- function(clean = TRUE) {
     
     x <- as.data.frame(got$OppositionRanks)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1223,14 +1223,14 @@ ref_opposition_ranks <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OppositionRanks <- function(clean = TRUE) {
+ref_OppositionRanks <- function(tidy = TRUE) {
     .Deprecated("ref_opposition_ranks")
     ref_opposition_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_other_parliaments <- function(clean = TRUE) {
+ref_other_parliaments <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OtherParliaments/"
     
@@ -1244,9 +1244,9 @@ ref_other_parliaments <- function(clean = TRUE) {
     
     x <- as.data.frame(got$OtherParliaments)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1259,14 +1259,14 @@ ref_other_parliaments <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_OtherParliaments <- function(clean = TRUE) {
+ref_OtherParliaments <- function(tidy = TRUE) {
     .Deprecated("ref_other_parliaments")
     ref_other_parliaments()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_posts <- function(clean = TRUE) {
+ref_parliamentary_posts <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryPosts/"
     
@@ -1280,9 +1280,9 @@ ref_parliamentary_posts <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ParliamentaryPosts)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1294,14 +1294,14 @@ ref_parliamentary_posts <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ParliamentaryPosts <- function(clean = TRUE) {
+ref_ParliamentaryPosts <- function(tidy = TRUE) {
     .Deprecated("ref_parliamentary_posts")
     ref_parliamentary_posts()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_ranks <- function(clean = TRUE) {
+ref_parliamentary_ranks <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryRanks/"
     
@@ -1315,9 +1315,9 @@ ref_parliamentary_ranks <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ParliamentaryRanks)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1329,14 +1329,14 @@ ref_parliamentary_ranks <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ParliamentaryRanks <- function(clean = TRUE) {
+ref_ParliamentaryRanks <- function(tidy = TRUE) {
     .Deprecated("ref_parliamentary_ranks")
     ref_parliamentary_ranks()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parliament_types <- function(clean = TRUE) {
+ref_parliament_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentTypes/"
     
@@ -1350,9 +1350,9 @@ ref_parliament_types <- function(clean = TRUE) {
     
     x <- as.data.frame(got$ParliamentTypes)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1365,14 +1365,14 @@ ref_parliament_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_ParliamentTypes <- function(clean = TRUE) {
+ref_ParliamentTypes <- function(tidy = TRUE) {
     .Deprecated("ref_parliament_types")
     ref_parliament_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_parties <- function(clean = TRUE) {
+ref_parties <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Parties/"
     
@@ -1386,9 +1386,9 @@ ref_parties <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Parties)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1400,14 +1400,14 @@ ref_parties <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Parties <- function(clean = TRUE) {
+ref_Parties <- function(tidy = TRUE) {
     .Deprecated("ref_parties")
     ref_parties()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_party_sub_types <- function(clean = TRUE) {
+ref_party_sub_types <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PartySubTypes/"
     
@@ -1427,9 +1427,9 @@ ref_party_sub_types <- function(clean = TRUE) {
     
     x <- as.data.frame(x)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1442,14 +1442,14 @@ ref_party_sub_types <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_PartySubTypes <- function(clean = TRUE) {
+ref_PartySubTypes <- function(tidy = TRUE) {
     .Deprecated("ref_party_sub_types")
     ref_party_sub_types()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_photo_outputs <- function(clean = TRUE) {
+ref_photo_outputs <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PhotoOutputs/"
     
@@ -1463,9 +1463,9 @@ ref_photo_outputs <- function(clean = TRUE) {
     
     x <- as.data.frame(got$PhotoOutputs)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1478,14 +1478,14 @@ ref_photo_outputs <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_PhotoOutputs <- function(clean = TRUE) {
+ref_PhotoOutputs <- function(tidy = TRUE) {
     .Deprecated("ref_photo_outputs")
     ref_photo_outputs()
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_statuses <- function(clean = TRUE) {
+ref_statuses <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Statuses/"
     
@@ -1499,9 +1499,9 @@ ref_statuses <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Statuses)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1514,7 +1514,7 @@ ref_statuses <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Statuses <- function(clean = TRUE) {
+ref_Statuses <- function(tidy = TRUE) {
     .Deprecated("ref_statuses")
     ref_statuses()
 }
@@ -1522,7 +1522,7 @@ ref_Statuses <- function(clean = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_titles <- function(clean = TRUE) {
+ref_titles <- function(tidy = TRUE) {
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/"
     
@@ -1536,9 +1536,9 @@ ref_titles <- function(clean = TRUE) {
     
     x <- as.data.frame(got$Titles)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- ref_clean(x)
+        x <- ref_tidy(x)
         
     } else {
         
@@ -1550,7 +1550,7 @@ ref_titles <- function(clean = TRUE) {
 #' @export
 #' @rdname mnis_reference
 #' @usage NULL
-ref_Titles <- function(clean = TRUE) {
+ref_Titles <- function(tidy = TRUE) {
     .Deprecated("ref_titles")
     ref_titles()
 }

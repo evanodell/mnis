@@ -3,7 +3,7 @@
 #' @param departmentId The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/
 #' @param bench Flag to return either Government or Opposition information. Defaults to Government.
 #' @param former Flag to include both current and former ministers/shadow ministers. Defaults to TRUE.
-#' @param clean Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
+#' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @return A list with information on the outcome of the most recent election in a constituency
 #' @keywords mnis
 #' @export
@@ -14,7 +14,7 @@
 #'
 
 
-mnis_department <- function(departmentId = 0, bench = "Government", former = TRUE, clean = TRUE) {
+mnis_department <- function(departmentId = 0, bench = "Government", former = TRUE, tidy = TRUE) {
 
     if (former == TRUE) {
 
@@ -49,7 +49,7 @@ mnis_department <- function(departmentId = 0, bench = "Government", former = TRU
 
     x <- as.data.frame(x)
 
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
 
         # names(x) <- gsub('Post.PostHolders.', '', names(x))
 
@@ -65,7 +65,7 @@ mnis_department <- function(departmentId = 0, bench = "Government", former = TRU
 
         # names(x) <- sub('\'.Pims_Id\'', 'Pims_Id', names(x))
 
-        x <- mnis_clean(x)
+        x <- mnis_tidy(x)
 
         x
 

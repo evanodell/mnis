@@ -5,7 +5,7 @@
 \title{mnis_department}
 \usage{
 mnis_department(departmentId = 0, bench = "Government", former = TRUE,
-  clean = TRUE)
+  tidy = TRUE)
 }
 \arguments{
 \item{departmentId}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/}
@@ -14,7 +14,7 @@ mnis_department(departmentId = 0, bench = "Government", former = TRUE,
 
 \item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE.}
 
-\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \value{
 A list with information on the outcome of the most recent election in a constituency

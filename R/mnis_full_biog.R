@@ -5,7 +5,7 @@
 #' @param ID The ID number of the member. Defaults to NULL.
 #' @param mem_id Request based on the default membership ID scheme. Defaults to TRUE.
 #' @param refDods Request based on the DODS membership ID scheme. Defaults to FALSE.
-#' @param clean Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
+#' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -13,7 +13,7 @@
 #'
 #' }
 
-mnis_full_biog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE) {
+mnis_full_biog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE) {
 
     ID <- as.character(ID)
 
@@ -43,9 +43,9 @@ mnis_full_biog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
 
     x <- x[rownames(x) != "ID", ]
 
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
 
-        x <- mnis_clean(x)
+        x <- mnis_tidy(x)
 
     } else {
 
@@ -55,7 +55,7 @@ mnis_full_biog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TR
 
 }
 
-mnis_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, clean=TRUE) {
+mnis_FullBiog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy=TRUE) {
     .Deprecated("mnis_FullBiog")
-    mnis_full_biog(ID = ID, mem_id = mem_id, refDods = refDods, clean = clean)
+    mnis_full_biog(ID = ID, mem_id = mem_id, refDods = refDods, tidy = tidy)
 }

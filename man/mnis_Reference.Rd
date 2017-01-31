@@ -85,86 +85,86 @@
 \usage{
 mnis_reference()
 
-ref_address_types(clean = TRUE)
+ref_address_types(tidy = TRUE)
 
-ref_answering_bodies(clean = TRUE)
+ref_answering_bodies(tidy = TRUE)
 
-ref_areas(clean = TRUE)
+ref_areas(tidy = TRUE)
 
-ref_area_types(clean = TRUE)
+ref_area_types(tidy = TRUE)
 
-ref_biography_categories(clean = TRUE)
+ref_biography_categories(tidy = TRUE)
 
-ref_cabinets(clean = TRUE)
+ref_cabinets(tidy = TRUE)
 
-ref_committees(clean = TRUE)
+ref_committees(tidy = TRUE)
 
-ref_committee_types(clean = TRUE)
+ref_committee_types(tidy = TRUE)
 
-ref_constituencies(clean = TRUE)
+ref_constituencies(tidy = TRUE)
 
-ref_constituency_areas(clean = TRUE)
+ref_constituency_areas(tidy = TRUE)
 
-ref_constituency_types(clean = TRUE)
+ref_constituency_types(tidy = TRUE)
 
-ref_countries(clean = TRUE)
+ref_countries(tidy = TRUE)
 
-ref_departments(clean = TRUE)
+ref_departments(tidy = TRUE)
 
-ref_disqualification_types(clean = TRUE)
+ref_disqualification_types(tidy = TRUE)
 
-ref_elections(clean = TRUE)
+ref_elections(tidy = TRUE)
 
-ref_election_types(clean = TRUE)
+ref_election_types(tidy = TRUE)
 
-ref_end_reasons(clean = TRUE)
+ref_end_reasons(tidy = TRUE)
 
-ref_experience_types(clean = TRUE)
+ref_experience_types(tidy = TRUE)
 
-ref_government_post_departments(clean = TRUE)
+ref_government_post_departments(tidy = TRUE)
 
-ref_government_posts(clean = TRUE)
+ref_government_posts(tidy = TRUE)
 
-ref_government_ranks(clean = TRUE)
+ref_government_ranks(tidy = TRUE)
 
-ref_honourary_prefixes(clean = TRUE)
+ref_honourary_prefixes(tidy = TRUE)
 
-ref_honour_lists(clean = TRUE)
+ref_honour_lists(tidy = TRUE)
 
-ref_honours(clean = TRUE)
+ref_honours(tidy = TRUE)
 
-ref_interest_categories(clean = TRUE)
+ref_interest_categories(tidy = TRUE)
 
-ref_lords_membership_types(clean = TRUE)
+ref_lords_membership_types(tidy = TRUE)
 
-ref_lords_ranks(clean = TRUE)
+ref_lords_ranks(tidy = TRUE)
 
-ref_opposition_post_departments(clean = TRUE)
+ref_opposition_post_departments(tidy = TRUE)
 
-ref_opposition_posts(clean = TRUE)
+ref_opposition_posts(tidy = TRUE)
 
-ref_opposition_ranks(clean = TRUE)
+ref_opposition_ranks(tidy = TRUE)
 
-ref_other_parliaments(clean = TRUE)
+ref_other_parliaments(tidy = TRUE)
 
-ref_parliamentary_posts(clean = TRUE)
+ref_parliamentary_posts(tidy = TRUE)
 
-ref_parliamentary_ranks(clean = TRUE)
+ref_parliamentary_ranks(tidy = TRUE)
 
-ref_parliament_types(clean = TRUE)
+ref_parliament_types(tidy = TRUE)
 
-ref_parties(clean = TRUE)
+ref_parties(tidy = TRUE)
 
-ref_party_sub_types(clean = TRUE)
+ref_party_sub_types(tidy = TRUE)
 
-ref_photo_outputs(clean = TRUE)
+ref_photo_outputs(tidy = TRUE)
 
-ref_statuses(clean = TRUE)
+ref_statuses(tidy = TRUE)
 
-ref_titles(clean = TRUE)
+ref_titles(tidy = TRUE)
 }
 \arguments{
-\item{clean}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \description{
 A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments.

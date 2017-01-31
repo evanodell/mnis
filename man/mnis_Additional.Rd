@@ -47,56 +47,55 @@
 mnis_additional()
 
 mnis_basic_details(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
 mnis_biography_entries(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
-mnis_committees(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_committees(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
-mnis_addresses(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_addresses(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
 mnis_constituencies(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
 mnis_elections_contested(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
-mnis_experiences(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+mnis_experiences(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
 mnis_government_posts(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
-mnis_honours(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_honours(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
 mnis_house_memberships(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
-mnis_statuses(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_statuses(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
-mnis_staff(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_staff(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
-mnis_interests(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_interests(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
-mnis_known_as(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_known_as(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
 mnis_maiden_speeches(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
 mnis_opposition_posts(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
 mnis_other_parliaments(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
 mnis_parliamentary_posts(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 
-mnis_parties(ID = NULL, mem_id = TRUE, refDods = FALSE, clean = TRUE)
+mnis_parties(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRUE)
 
 mnis_preferred_names(ID = NULL, mem_id = TRUE, refDods = FALSE,
-  clean = TRUE)
+  tidy = TRUE)
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL.}
@@ -105,10 +104,10 @@ mnis_preferred_names(ID = NULL, mem_id = TRUE, refDods = FALSE,
 
 \item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{clean}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website. The API provides lengthy and complicated variable names, and the functions make some attempts to clean up those names. To disable this feature, include clean = TRUE in the function.
+Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website. The API provides lengthy and complicated variable names, and the functions make some attempts to tidy up those names. To disable this feature, include tidy = TRUE in the function.
 }
 \examples{
 \dontrun{

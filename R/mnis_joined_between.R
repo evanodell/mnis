@@ -6,7 +6,7 @@
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.
 #' @param party The party to which a member belongs. Defaults to NULL.
 #' @param eligible If the member is currently eligible to sit. Accepts one of 'all', 'current', 'former', defaults to 'all'.
-#' @param clean Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.
+#' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to FALSE.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -17,7 +17,7 @@
 
 
 mnis_joined_between <- function(startDate = "1900-01-01", endDate = Sys.Date(), house = "all", party = NULL, eligible = "all", 
-    clean = TRUE) {
+    tidy = TRUE) {
     
     if (is.na(pmatch(house, c("all", "lords", "commons")))) 
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
@@ -78,9 +78,9 @@ mnis_joined_between <- function(startDate = "1900-01-01", endDate = Sys.Date(), 
     
     x <- as.data.frame(got)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
-        x <- mnis_clean(x)
+        x <- mnis_tidy(x)
         
     }
     
@@ -89,8 +89,8 @@ mnis_joined_between <- function(startDate = "1900-01-01", endDate = Sys.Date(), 
 }
 
 mnis_JoinedBetween <- function(startDate = "1900-01-01", endDate = Sys.Date(), house = "all", party = NULL, eligible = "all", 
-    clean = TRUE) {
+    tidy = TRUE) {
     .Deprecated("mnis_JoinedBetween")  #include a package argument, too
-    mnis_joined_between(startDate = startDate, endDate = endDate, house = house, party = party, eligible = eligible, clean = clean)
+    mnis_joined_between(startDate = startDate, endDate = endDate, house = house, party = party, eligible = eligible, tidy = tidy)
 }
 

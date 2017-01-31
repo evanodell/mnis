@@ -3,7 +3,7 @@
 #' A data frame with information on the numbers and gender of MPs, by party, for the given date.
 #' @param House The house of parliament. Defaults to 'Commons'.
 #' @param Date A date in yyyy-mm-dd format. Defaults to the current system date.
-#' @param clean Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @param tidy Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @return A data frame with information on the numbers and gender of MPs, by party, by party, for the given date.
 #' @keywords mnis
 #' @export
@@ -12,7 +12,7 @@
 #'
 #' }
 
-mnis_party_state <- function(House = "Commons", Date = Sys.Date(), clean = TRUE) {
+mnis_party_state <- function(House = "Commons", Date = Sys.Date(), tidy = TRUE) {
     
     Date <- as.character(Date)
     
@@ -30,7 +30,7 @@ mnis_party_state <- function(House = "Commons", Date = Sys.Date(), clean = TRUE)
     
     x <- as.data.frame(got$HouseOverview)
     
-    if (clean == TRUE) {
+    if (tidy == TRUE) {
         
         names(x) <- sub("Party.", "", names(x))
         

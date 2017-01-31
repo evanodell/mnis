@@ -1,11 +1,12 @@
-#' mnis_clean
+#' mnis_tidy
 #'
-#' Internal cleaning function
-#' @param x The dataframe to clean
+#' Internal tidying function
+#' @param x The dataframe to tidy
 #'
 #'
-#'
-mnis_clean <- function(x) {
+#' @export
+#' @rdname mnis_tidy
+mnis_tidy <- function(x) {
 
     names(x) <- gsub("@", "", names(x))
 
@@ -61,8 +62,6 @@ mnis_clean <- function(x) {
 
     names(x) <- gsub("^Post\\.PostHolders\\.", "", names(x))
 
-    # names(x) <- gsub('^(.+?)\\.', '', names(x))
-
     names(x) <- gsub("xsi:nil", "nil", names(x))
 
     names(x) <- gsub("xmlns:xsi", "label", names(x))
@@ -81,9 +80,12 @@ mnis_clean <- function(x) {
 
 }
 
+
+#' @param x The data frame to tidy
 #' @export
-#' @rdname mnis_clean
-ref_clean <- function(x) {
+#' @rdname mnis_tidy
+#' @usage NULL
+ref_tidy <- function(x) {
 
     names(x) <- gsub(".*\\.", "", names(x))
 
@@ -95,7 +97,12 @@ ref_clean <- function(x) {
 
 }
 
-constituency_results_clean <- function(results, details) {
+#' @param results The data frame to tidy
+#' @param details The list to tidy
+#' @export
+#' @rdname mnis_tidy
+#' @usage NULL
+constituency_results_tidy <- function(results, details) {
 
     names(results) <- gsub("Candidates\\.Candidate\\.", "", names(results))
 
