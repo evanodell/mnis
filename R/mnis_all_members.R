@@ -8,7 +8,9 @@
 #' @return A data frame with all members of both houses
 #' @export
 #'
-#' @examples
+#' @examples \dontrun{
+#' x <- mnis_all_members(house = "all", party = NULL, joined_since = NULL, tidy = TRUE)
+#' }
 #'
 
 mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, tidy = TRUE) {

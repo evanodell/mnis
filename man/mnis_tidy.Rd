@@ -7,6 +7,10 @@
 \title{mnis_tidy}
 \usage{
 mnis_tidy(x)
+
+ref_tidy(x)
+
+constituency_results_tidy(results, details)
 }
 \arguments{
 \item{x}{The dataframe to tidy}
@@ -14,8 +18,6 @@ mnis_tidy(x)
 \item{results}{The data frame to tidy}
 
 \item{details}{The list to tidy}
-
-\item{x}{The data frame to tidy}
 }
 \description{
 Internal tidying function

@@ -23,6 +23,9 @@ A data frame with all members of both houses
 mnis_all_members
 }
 \examples{
+\dontrun{
+x <- mnis_all_members(house = "all", party = NULL, joined_since = NULL, tidy = TRUE)
+}
 
 }
 \keyword{mnis}

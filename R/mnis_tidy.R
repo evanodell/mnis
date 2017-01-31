@@ -82,7 +82,6 @@ mnis_tidy <- function(x) {
 
 #' @export
 #' @rdname mnis_tidy
-#' @usage NULL
 ref_tidy <- function(x) {
 
     names(x) <- gsub(".*\\.", "", names(x))
@@ -99,7 +98,6 @@ ref_tidy <- function(x) {
 #' @param details The list to tidy
 #' @export
 #' @rdname mnis_tidy
-#' @usage NULL
 constituency_results_tidy <- function(results, details) {
 
     names(results) <- gsub("Candidates\\.Candidate\\.", "", names(results))
