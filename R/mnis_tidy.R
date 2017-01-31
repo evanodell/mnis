@@ -80,8 +80,6 @@ mnis_tidy <- function(x) {
 
 }
 
-
-#' @param x The data frame to tidy
 #' @export
 #' @rdname mnis_tidy
 #' @usage NULL
