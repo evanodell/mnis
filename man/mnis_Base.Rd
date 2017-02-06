@@ -4,10 +4,12 @@
 \alias{mnis_base}
 \title{mnis_Base}
 \usage{
-mnis_base(request)
+mnis_base(request, tidy = TRUE)
 }
 \arguments{
 \item{request}{The request query being made to the MNIS URL}
+
+\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \description{
 Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. All URLs, paths and parameters are user-defined.
@@ -19,4 +21,3 @@ x <- mnis_Base('House=Commons|IsEligible=true/')
 }
 }
 \keyword{mnis}
-

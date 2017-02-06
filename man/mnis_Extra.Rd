@@ -11,7 +11,7 @@ mnis_extra(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE,
   Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE,
   OppositionPosts = TRUE, OtherParliaments = TRUE,
   ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE,
-  Staff = TRUE, Statuses = TRUE)
+  Staff = TRUE, Statuses = TRUE, tidy = TRUE)
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL.}
@@ -59,6 +59,8 @@ mnis_extra(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE,
 \item{Staff}{Staff employed by a Member.}
 
 \item{Statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
+
+\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \description{
 A wrapper for \code{\link{mnis_additional}} functions. It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}.
@@ -74,4 +76,3 @@ x <- mnis_extra(172)
 \code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 }
 \keyword{mnis}
-

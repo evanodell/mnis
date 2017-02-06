@@ -25,4 +25,3 @@ x <- mnis_FullBiog(172)
 }
 }
 \keyword{mnis}
-

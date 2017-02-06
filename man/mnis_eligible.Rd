@@ -25,4 +25,3 @@ x <- mnis_eligible(eligible='all', house='all', party='labour')
 }
 }
 \keyword{mnis}
-

@@ -26,4 +26,3 @@ x <- mnis_party_state('2012-01-12')
 }
 }
 \keyword{mnis}
-

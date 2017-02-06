@@ -30,4 +30,3 @@ x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
 
 }
 \keyword{mnis}
-

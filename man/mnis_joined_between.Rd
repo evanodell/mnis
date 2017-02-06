@@ -31,4 +31,3 @@ x <- mnis_joined_between(startDate = '2015-01-01', endDate ='2017-01-01',
 }
 }
 \keyword{mnis}
-

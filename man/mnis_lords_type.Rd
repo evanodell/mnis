@@ -24,4 +24,3 @@ x <- mnis_lords_type()
 }
 }
 \keyword{mnis}
-

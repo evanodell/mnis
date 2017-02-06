@@ -7,7 +7,9 @@ Expansion of `tidy` function to all other package functions and improved speed a
 
 Fixed errors in `mnis_extra` that prevented it from functioning properly.
 
-Improved handling of
+Improved handling of deprecated functions.
+
+New `mnis_all_members` function that returns all members from both houses, with various options accepted as function parameters.
 
 
 # mnis 0.2.0
