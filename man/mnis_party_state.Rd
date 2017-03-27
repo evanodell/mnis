@@ -4,7 +4,7 @@
 \alias{mnis_party_state}
 \title{mnis_party_state}
 \usage{
-mnis_party_state(house = "Commons", date = Sys.date(), tidy = TRUE)
+mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE)
 }
 \arguments{
 \item{house}{The house of parliament. Defaults to 'Commons'.}

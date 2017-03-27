@@ -12,7 +12,7 @@
 #'
 #' }
 
-mnis_party_state <- function(house = "Commons", date = Sys.date(), tidy = TRUE) {
+mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE) {
     
     date <- as.character(date)
     
@@ -45,7 +45,7 @@ mnis_party_state <- function(house = "Commons", date = Sys.date(), tidy = TRUE) 
 }
 
 
-mnis_PartyState <- function(house = "Commons", date = Sys.date()) {
+mnis_PartyState <- function(house = "Commons", date = Sys.Date()) {
     .Deprecated("mnis_PartyState")
     mnis_party_state(house = house, date = date)
 }
