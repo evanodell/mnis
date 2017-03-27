@@ -4,11 +4,11 @@
 \alias{mnis_department}
 \title{mnis_department}
 \usage{
-mnis_department(departmentId = 0, bench = "Government", former = TRUE,
+mnis_department(department_id = 0, bench = "Government", former = TRUE,
   tidy = TRUE)
 }
 \arguments{
-\item{departmentId}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/}
+\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/}
 
 \item{bench}{Flag to return either Government or Opposition information. Defaults to Government.}
 

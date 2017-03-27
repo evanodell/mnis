@@ -24,7 +24,7 @@ mnis_general_election_results(location_type = "Country",
 Returns a list with details of the search parameter and a data frame with election results.
 }
 \description{
-Returns a list with details of the search parameter and a data frame with election results.
+Returns a list with details of the search parameter and a data frame with election results. Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.
 }
 \examples{
 \dontrun{

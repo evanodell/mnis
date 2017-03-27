@@ -2,7 +2,7 @@
 #'
 #' Returns a data frame with a members status on a given date.
 #' @param ID The ID of the member.
-#' @param Date A date in yyyy-mm-dd format. Defaults to the current system date.
+#' @param date A date in yyyy-mm-dd format. Defaults to the current system date.
 #' @param tidy Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @return Returns a data frame with the given member's status on the given date.
 #' @keywords mnis
@@ -12,13 +12,13 @@
 #'
 #' }
 
-mnis_member_date <- function(ID = NULL, Date = Sys.Date(), tidy = TRUE) {
+mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE) {
     
     ID <- as.character(ID)
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
     
-    query <- paste0(baseurl, ID, "/", Date, "/")
+    query <- paste0(baseurl, ID, "/", date, "/")
     
     got <- httr::GET(query, httr::accept_json())
     
@@ -39,8 +39,6 @@ mnis_member_date <- function(ID = NULL, Date = Sys.Date(), tidy = TRUE) {
     if (tidy == TRUE) {
         
         x <- mnis_tidy(x)
-        
-        x
         
         x
         

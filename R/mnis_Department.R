@@ -1,6 +1,6 @@
 #' mnis_department
 #'
-#' @param departmentId The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/
+#' @param department_id The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/
 #' @param bench Flag to return either Government or Opposition information. Defaults to Government.
 #' @param former Flag to include both current and former ministers/shadow ministers. Defaults to TRUE.
 #' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
@@ -14,7 +14,7 @@
 #'
 
 
-mnis_department <- function(departmentId = 0, bench = "Government", former = TRUE, tidy = TRUE) {
+mnis_department <- function(department_id = 0, bench = "Government", former = TRUE, tidy = TRUE) {
     
     if (former == TRUE) {
         
@@ -25,13 +25,13 @@ mnis_department <- function(departmentId = 0, bench = "Government", former = TRU
         former <- "current"
     }
     
-    departmentId <- as.character(departmentId)
+    department_id <- as.character(department_id)
     
     bench <- utils::URLencode(bench)
     
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
     
-    query <- paste0(baseurl, departmentId, "/", bench, "/", former, "/")
+    query <- paste0(baseurl, department_id, "/", bench, "/", former, "/")
     
     got <- httr::GET(query, httr::accept_json())
     

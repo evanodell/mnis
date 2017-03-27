@@ -4,61 +4,61 @@
 \alias{mnis_extra}
 \title{mnis_extra}
 \usage{
-mnis_extra(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE,
-  BasicDetails = TRUE, BiographyEntries = TRUE, Committees = TRUE,
-  Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE,
-  GovernmentPosts = TRUE, Honours = TRUE, HouseMemberships = TRUE,
-  Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE,
-  OppositionPosts = TRUE, OtherParliaments = TRUE,
-  ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE,
-  Staff = TRUE, Statuses = TRUE, tidy = TRUE)
+mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
+  basic_details = TRUE, biography_entries = TRUE, committees = TRUE,
+  constituencies = TRUE, elections_contested = TRUE, experiences = TRUE,
+  government_posts = TRUE, honours = TRUE, house_memberships = TRUE,
+  interests = TRUE, known_as = TRUE, maiden_speeches = TRUE,
+  opposition_posts = TRUE, other_parliaments = TRUE,
+  parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE,
+  staff = TRUE, statuses = TRUE, tidy = TRUE)
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL.}
 
-\item{mem_id}{Request based on the default membership ID scheme.}
+\item{mnis_id}{Request based on the default membership ID scheme.}
 
-\item{refDods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
+\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{Addresses}{Member address information (e.g. website, twitter, consituency address etc...).}
+\item{addresses}{Member address information (e.g. website, twitter, consituency address etc...).}
 
-\item{BasicDetails}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...)}
+\item{basic_details}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...)}
 
-\item{BiographyEntries}{Member biographical information (e.g. countries of interest, policy expertise etc...)}
+\item{biography_entries}{Member biographical information (e.g. countries of interest, policy expertise etc...)}
 
-\item{Committees}{Committees a Member sits or has sat on as well details on committee chairing.}
+\item{committees}{Committees a Member sits or has sat on as well details on committee chairing.}
 
-\item{Constituencies}{Constituencies a Member has represented.}
+\item{constituencies}{constituencies a Member has represented.}
 
-\item{ElectionsContested}{Elections a Member has contested but not won.}
+\item{elections_contested}{Elections a Member has contested but not won.}
 
-\item{Experiences}{Non-parliamentary experience of a Member.}
+\item{experiences}{Non-parliamentary experience of a Member.}
 
-\item{GovernmentPosts}{Government posts a Member currently holds.}
+\item{government_posts}{Government posts a Member currently holds.}
 
-\item{Honours}{Honours (e.g. MBE, OBE etc...) held by a Member.}
+\item{honours}{Honours (e.g. MBE, OBE etc...) held by a Member.}
 
-\item{HouseMemberships}{House membership list of a Member.}
+\item{house_memberships}{House membership list of a Member.}
 
-\item{Interests}{Registered interests (financial) of a Member.}
+\item{interests}{Registered interests (financial) of a Member.}
 
-\item{KnownAs}{Details of names a Member has chosen to be known as instead of their full title (HoL members only).}
+\item{known_as}{Details of names a Member has chosen to be known as instead of their full title (House of Lords members only).}
 
-\item{MaidenSpeeches}{Maiden speech dates for a Member.}
+\item{maiden_speeches}{Maiden speech dates for a Member.}
 
-\item{OppositionPosts}{Opposition posts a Member has held.}
+\item{opposition_posts}{Opposition posts a Member has held.}
 
-\item{OtherParliaments}{Other Parliaments that a Member has held a membership of.}
+\item{other_parliaments}{Other Parliaments that a Member has held a membership of.}
 
-\item{ParliamentaryPosts}{Parliamentary posts a Member has held.}
+\item{parliamentary_posts}{Parliamentary posts a Member has held.}
 
-\item{Parties}{Party affiliations of a Member.}
+\item{parties}{Party affiliations of a Member.}
 
-\item{PreferredNames}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
+\item{preferred_names}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
 
-\item{Staff}{Staff employed by a Member.}
+\item{staff}{staff employed by a Member.}
 
-\item{Statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
+\item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
 
 \item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
@@ -68,6 +68,7 @@ Variable descriptions are taken from the mnis website: <http://data.parliament.u
 }
 \examples{
 \dontrun{
+
 x <- mnis_extra(172)
 
 }
