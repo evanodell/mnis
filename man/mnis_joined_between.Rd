@@ -4,13 +4,13 @@
 \alias{mnis_joined_between}
 \title{mnis_joined_between}
 \usage{
-mnis_joined_between(startDate = "1900-01-01", endDate = Sys.Date(),
+mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
   house = "all", party = NULL, eligible = "all", tidy = TRUE)
 }
 \arguments{
-\item{startDate}{The start date of the search, in yyyy-mm-dd format. Defaults to '1900-01-01'.}
+\item{start_date}{The start date of the search, in yyyy-mm-dd format. Defaults to '1900-01-01'.}
 
-\item{endDate}{The end date of the search, in yyyy-mm-dd format. Defaults to the current date.}
+\item{end_date}{The end date of the search, in yyyy-mm-dd format. Defaults to the current date.}
 
 \item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.}
 
@@ -25,7 +25,7 @@ Function returns all members who took their seats in the house between two given
 }
 \examples{
 \dontrun{
-x <- mnis_joined_between(startDate = '2015-01-01', endDate ='2017-01-01',
+x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01',
                          house='all', party='labour', eligible='all')
 
 }

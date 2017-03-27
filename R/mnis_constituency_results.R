@@ -50,6 +50,8 @@ mnis_constituency_results <- function(constituencyId = NULL, electionId = 0, tid
 
         y <- constituency_results_tidy(results, details)
 
+        y
+
     } else {
 
         y <- c(list(results = results), list(details = details))

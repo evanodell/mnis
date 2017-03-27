@@ -38,5 +38,5 @@
 #' @import utils
 #' @import httr
 #' @import jsonlite
-#' @import plyr
+#' @import dplyr
 NULL

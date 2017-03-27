@@ -174,6 +174,7 @@ ref_address_types <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+x
 
     } else {
 
@@ -211,6 +212,8 @@ ref_answering_bodies <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -245,6 +248,8 @@ ref_areas <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -281,6 +286,8 @@ ref_area_types <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -315,6 +322,8 @@ ref_biography_categories <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -352,6 +361,8 @@ ref_cabinets <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -386,6 +397,8 @@ ref_committees <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -423,6 +436,8 @@ ref_committee_types <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -458,6 +473,8 @@ ref_constituencies <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -495,6 +512,8 @@ ref_constituency_areas <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -530,6 +549,8 @@ ref_constituency_types <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -564,6 +585,8 @@ ref_countries <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -601,6 +624,8 @@ ref_departments <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -636,6 +661,8 @@ ref_disqualification_types <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -673,6 +700,8 @@ ref_elections <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -708,6 +737,8 @@ ref_election_types <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -745,6 +776,8 @@ ref_end_reasons <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -780,6 +813,8 @@ ref_experience_types <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -817,6 +852,8 @@ ref_government_post_departments <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -852,6 +889,8 @@ ref_government_posts <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -889,6 +928,8 @@ ref_government_ranks <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -925,6 +966,8 @@ ref_honourary_prefixes <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -959,6 +1002,8 @@ ref_honour_lists <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -996,6 +1041,8 @@ ref_honours <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1031,6 +1078,8 @@ ref_interest_categories <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1068,6 +1117,8 @@ ref_lords_membership_types <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1103,6 +1154,8 @@ ref_lords_ranks <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1140,6 +1193,8 @@ ref_opposition_post_departments <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1175,6 +1230,8 @@ ref_opposition_posts <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1212,6 +1269,8 @@ ref_opposition_ranks <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1247,6 +1306,8 @@ ref_other_parliaments <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1284,6 +1345,8 @@ ref_parliamentary_posts <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1318,6 +1381,8 @@ ref_parliamentary_ranks <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1354,6 +1419,8 @@ ref_parliament_types <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1389,6 +1456,8 @@ ref_parties <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1431,6 +1500,8 @@ ref_party_sub_types <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1466,6 +1537,8 @@ ref_photo_outputs <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 
@@ -1503,6 +1576,8 @@ ref_statuses <- function(tidy = TRUE) {
 
         x <- ref_tidy(x)
 
+x
+
     } else {
 
         x
@@ -1539,6 +1614,8 @@ ref_titles <- function(tidy = TRUE) {
     if (tidy == TRUE) {
 
         x <- ref_tidy(x)
+
+x
 
     } else {
 

@@ -29,6 +29,8 @@ mnis_base <- function(request, tidy = TRUE) {
 
       x <- mnis_tidy(x)
 
+x
+
     } else {
 
       x

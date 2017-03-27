@@ -5,18 +5,20 @@
 \alias{mnis_GeneralElectionResults}
 \title{mnis_general_election_results}
 \usage{
-mnis_general_election_results(locationType = "Country",
-  locationName = "Great Britain", startDate = "1900-01-01",
-  endDate = Sys.Date())
+mnis_general_election_results(location_type = "Country",
+  location_name = "Great Britain", start_date = "1900-01-01",
+  end_date = Sys.Date(), tidy = TRUE)
 }
 \arguments{
-\item{locationType}{The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}
+\item{location_type}{The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}
 
-\item{locationName}{The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.}
+\item{location_name}{The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.}
 
-\item{startDate}{Start date of search. In yyyy-mm-dd format. Defaults to '1900-01-01' if no date is selected.}
+\item{start_date}{Start date of search. In yyyy-mm-dd format. Defaults to '1900-01-01' if no date is selected.}
 
-\item{endDate}{End date of search. In yyyy-mm-dd format. Defaults to current date if no date is selected.}
+\item{end_date}{End date of search. In yyyy-mm-dd format. Defaults to current date if no date is selected.}
+
+\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \value{
 Returns a list with details of the search parameter and a data frame with election results.
@@ -26,8 +28,8 @@ Returns a list with details of the search parameter and a data frame with electi
 }
 \examples{
 \dontrun{
-x <- mnis_general_election_results(locationType = 'Country', locationName = 'England',
-                                 startDate = '2010-01-01', endDate = '2016-01-01')
+x <- mnis_general_election_results(location_type = 'Country', location_name = 'England',
+                                 start_date = '2010-01-01', end_date = '2016-01-01')
 }
 }
 \keyword{mnis}

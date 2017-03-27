@@ -53,6 +53,8 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
         x <- mnis_tidy(x)
 
+x
+
     } else {
 
         x

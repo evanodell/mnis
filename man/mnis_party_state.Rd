@@ -4,12 +4,12 @@
 \alias{mnis_party_state}
 \title{mnis_party_state}
 \usage{
-mnis_party_state(House = "Commons", Date = Sys.Date(), tidy = TRUE)
+mnis_party_state(house = "Commons", date = Sys.date(), tidy = TRUE)
 }
 \arguments{
-\item{House}{The house of parliament. Defaults to 'Commons'.}
+\item{house}{The house of parliament. Defaults to 'Commons'.}
 
-\item{Date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
+\item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
 
 \item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }

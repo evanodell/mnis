@@ -98,7 +98,7 @@ mnis_preferred_names(ID = NULL, mem_id = TRUE, refDods = FALSE,
   tidy = TRUE)
 }
 \arguments{
-\item{ID}{The ID number of the member. Defaults to NULL.}
+\item{ID}{The ID number of the member. Defaults to NULL. If NULL, does not return any data.}
 
 \item{mem_id}{Request based on the default membership ID scheme.}
 

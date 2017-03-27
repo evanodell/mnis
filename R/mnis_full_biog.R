@@ -47,6 +47,8 @@ mnis_full_biog <- function(ID = NULL, mem_id = TRUE, refDods = FALSE, tidy = TRU
 
         x <- mnis_tidy(x)
 
+        x
+
     } else {
 
         x

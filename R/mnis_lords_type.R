@@ -31,6 +31,10 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
 
         x <- mnis_tidy(x)
 
+x
+
+x
+
     } else {
 
         x

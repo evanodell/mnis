@@ -135,11 +135,13 @@ mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, Bas
         Statuses_DF <- mnis_statuses(ID)
     mnis_DF_list[["Statuses_DF"]] <- Statuses_DF
 
-    x <- plyr::join_all(mnis_DF_list, match = "first")
+    x <- dplyr::bind_cols(mnis_DF_list)
 
     if (tidy == TRUE) {
 
       x <- mnis_tidy(x)
+
+      x
 
     } else {
 

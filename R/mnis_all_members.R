@@ -15,7 +15,6 @@
 
 mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, tidy = TRUE) {
 
-
   if (is.na(pmatch(house, c("all", "lords", "commons"))))
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
 
@@ -57,6 +56,10 @@ mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, t
   if (tidy == TRUE) {
 
     x <- mnis_tidy(x)
+
+x
+
+x
 
   } else {
 

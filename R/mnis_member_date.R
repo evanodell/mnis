@@ -39,6 +39,10 @@ mnis_member_date <- function(ID = NULL, Date = Sys.Date(), tidy = TRUE) {
     if (tidy == TRUE) {
         
         x <- mnis_tidy(x)
+
+x
+
+x
         
     } else {
         
