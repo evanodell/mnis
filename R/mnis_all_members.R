@@ -41,7 +41,7 @@ mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, t
 
   message("Connecting to API")
 
-  query <- paste0(baseurl, house, party, joined_since)
+  query <- paste0(baseurl, house, party, joined_since, "/HouseMemberships/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -51,7 +51,13 @@ mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, t
 
   got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
 
-  x <- as.data.frame(got)
+  x <- as.list(got$Members$Member)
+
+  x <- unlist(x)
+
+  x <- t(x)
+
+  x <- as.data.frame(x)
 
   if (tidy == TRUE) {
 
