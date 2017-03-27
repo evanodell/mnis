@@ -15,52 +15,52 @@
 
 
 mnis_department <- function(departmentId = 0, bench = "Government", former = TRUE, tidy = TRUE) {
-
+    
     if (former == TRUE) {
-
+        
         former <- "former"
-
+        
     } else {
-
+        
         former <- "current"
     }
-
+    
     departmentId <- as.character(departmentId)
-
+    
     bench <- utils::URLencode(bench)
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
-
+    
     query <- paste0(baseurl, departmentId, "/", bench, "/", former, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_status(got) != "200"){
-      stop(print(httr::http_status(got)), call. = FALSE)
+    
+    if (httr::http_status(got) != "200") {
+        stop(print(httr::http_status(got)), call. = FALSE)
     }
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- got$Department$Posts
-
+    
     x <- as.data.frame(x)
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
+        
         x
-
+        
     } else {
-
+        
         x
-
+        
     }
-
+    
 }
 
 mnis_Department <- function(departmentId = 0, bench = "Government", former = TRUE) {

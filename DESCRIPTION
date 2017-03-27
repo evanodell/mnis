@@ -15,7 +15,7 @@ Imports:
     httr,
     jsonlite,
     utils,
-    plyr
+    dplyr
 RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,

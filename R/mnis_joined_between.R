@@ -81,10 +81,10 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     if (tidy == TRUE) {
         
         x <- mnis_tidy(x)
-
-x
-
-x
+        
+        x
+        
+        x
         
     }
     
@@ -95,6 +95,7 @@ x
 mnis_JoinedBetween <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", 
     tidy = TRUE) {
     .Deprecated("mnis_JoinedBetween")  #include a package argument, too
-    mnis_joined_between(start_date = start_date, end_date = end_date, house = house, party = party, eligible = eligible, tidy = tidy)
+    mnis_joined_between(start_date = start_date, end_date = end_date, house = house, party = party, eligible = eligible, 
+        tidy = tidy)
 }
 

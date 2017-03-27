@@ -14,49 +14,51 @@
 #'                                  start_date = '2010-01-01', end_date = '2016-01-01')
 #' }
 
-mnis_general_election_results <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01", end_date = Sys.Date(), tidy=TRUE) {
-
+mnis_general_election_results <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01", 
+    end_date = Sys.Date(), tidy = TRUE) {
+    
     location_type <- utils::URLencode(location_type)
-
+    
     location_name <- utils::URLencode(location_name)
-
+    
     start_date <- as.character(start_date)
-
+    
     end_date <- as.character(end_date)
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/GeneralElectionResults/"
-
+    
     query <- paste0(baseurl, location_type, "/", location_name, "/", start_date, "/", end_date, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- got$ElectionResults
-
-    if(tidy==TRUE){
-
-      x$ElectionResult <- mnis_tidy(x$ElectionResult)
-
-      x
-
+    
+    if (tidy == TRUE) {
+        
+        x$ElectionResult <- mnis_tidy(x$ElectionResult)
+        
+        x
+        
     } else {
-
-      x
-
+        
+        x
+        
     }
-
+    
 }
 
 #' @export
 #' @rdname mnis_general_election_results
 #' @usage NULL
-mnis_GeneralElectionResults <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01",
+mnis_GeneralElectionResults <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01", 
     end_date = Sys.Date()) {
     .Deprecated("mnis_general_election_results")
-    mnis_general_election_results(location_type = location_type, location_name = location_name, start_date = start_date, end_date = end_date)
+    mnis_general_election_results(location_type = location_type, location_name = location_name, start_date = start_date, 
+        end_date = end_date)
 }

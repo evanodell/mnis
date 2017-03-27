@@ -39,114 +39,115 @@
 #' @rdname mnis_extra
 #' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 
-mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE,
-    Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, Honours = TRUE,
-    HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, OtherParliaments = TRUE,
-    ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE, tidy = TRUE) {
-
+mnis_extra <- function(ID, mem_id = TRUE, refDods = FALSE, Addresses = TRUE, BasicDetails = TRUE, BiographyEntries = TRUE, 
+    Committees = TRUE, Constituencies = TRUE, ElectionsContested = TRUE, Experiences = TRUE, GovernmentPosts = TRUE, 
+    Honours = TRUE, HouseMemberships = TRUE, Interests = TRUE, KnownAs = TRUE, MaidenSpeeches = TRUE, OppositionPosts = TRUE, 
+    OtherParliaments = TRUE, ParliamentaryPosts = TRUE, Parties = TRUE, PreferredNames = TRUE, Staff = TRUE, Statuses = TRUE, 
+    tidy = TRUE) {
+    
     ID <- as.character(ID)
-
+    
     if (refDods == TRUE) {
         ID_Type <- "refDods="
     } else {
         ID_Type <- "id="
     }
-    # Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also gets
-    # around the call limit
+    # Replace all this with calls to the specific functions, then combine into one data frame. Much easier, also
+    # gets around the call limit
     mnis_DF_list <- list()
-
-    if (Addresses == TRUE)
+    
+    if (Addresses == TRUE) 
         Addresses_DF <- mnis_addresses(ID)
     mnis_DF_list[["Addresses_DF"]] <- Addresses_DF
-
-    if (BasicDetails == TRUE)
+    
+    if (BasicDetails == TRUE) 
         BasicDetails_DF <- mnis_basic_details(ID)
     mnis_DF_list[["BasicDetails_DF"]] <- BasicDetails_DF
-
-    if (BiographyEntries == TRUE)
+    
+    if (BiographyEntries == TRUE) 
         BiographyEntries_DF <- mnis_biography_entries(ID)
     mnis_DF_list[["BiographyEntries_DF"]] <- BiographyEntries_DF
-
-    if (Committees == TRUE)
+    
+    if (Committees == TRUE) 
         Committees_DF <- mnis_committees(ID)
     mnis_DF_list[["Committees_DF"]] <- Committees_DF
-
-    if (Constituencies == TRUE)
+    
+    if (Constituencies == TRUE) 
         Constituencies_DF <- mnis_constituencies(ID)
     mnis_DF_list[["Constituencies_DF"]] <- Constituencies_DF
-
-    if (ElectionsContested == TRUE)
+    
+    if (ElectionsContested == TRUE) 
         ElectionsContested_DF <- mnis_elections_contested(ID)
     mnis_DF_list[["ElectionsContested_DF"]] <- ElectionsContested_DF
-
-    if (Experiences == TRUE)
+    
+    if (Experiences == TRUE) 
         Experiences_DF <- mnis_experiences(ID)
     mnis_DF_list[["Experiences_DF"]] <- Experiences_DF
-
-    if (GovernmentPosts == TRUE)
+    
+    if (GovernmentPosts == TRUE) 
         GovernmentPosts_DF <- mnis_government_posts(ID)
     mnis_DF_list[["GovernmentPosts_DF"]] <- GovernmentPosts_DF
-
-    if (Honours == TRUE)
+    
+    if (Honours == TRUE) 
         Honours_DF <- mnis_honours(ID)
     mnis_DF_list[["Honours_DF"]] <- Honours_DF
-
-    if (HouseMemberships == TRUE)
+    
+    if (HouseMemberships == TRUE) 
         HouseMemberships_DF <- mnis_house_memberships(ID)
     mnis_DF_list[["HouseMemberships_DF"]] <- HouseMemberships_DF
-
-    if (Interests == TRUE)
+    
+    if (Interests == TRUE) 
         Interests_DF <- mnis_interests(ID)
     mnis_DF_list[["Interests_DF"]] <- Interests_DF
-
-    if (KnownAs == TRUE)
+    
+    if (KnownAs == TRUE) 
         KnownAs_DF <- mnis_known_as(ID)
     mnis_DF_list[["KnownAs_DF"]] <- KnownAs_DF
-
-    if (MaidenSpeeches == TRUE)
+    
+    if (MaidenSpeeches == TRUE) 
         MaidenSpeeches_DF <- mnis_maiden_speeches(ID)
     mnis_DF_list[["MaidenSpeeches_DF"]] <- MaidenSpeeches_DF
-
-    if (OppositionPosts == TRUE)
+    
+    if (OppositionPosts == TRUE) 
         OppositionPosts_DF <- mnis_opposition_posts(ID)
     mnis_DF_list[["OppositionPosts_DF"]] <- OppositionPosts_DF
-
-    if (OtherParliaments == TRUE)
+    
+    if (OtherParliaments == TRUE) 
         OtherParliaments_DF <- mnis_other_parliaments(ID)
     mnis_DF_list[["OtherParliaments_DF"]] <- OtherParliaments_DF
-
-    if (ParliamentaryPosts == TRUE)
+    
+    if (ParliamentaryPosts == TRUE) 
         ParliamentaryPosts_DF <- mnis_parliamentary_posts(ID)
     mnis_DF_list[["ParliamentaryPosts_DF"]] <- ParliamentaryPosts_DF
-
-    if (Parties == TRUE)
+    
+    if (Parties == TRUE) 
         Parties_DF <- mnis_parties(ID)
     mnis_DF_list[["Parties_DF"]] <- Parties_DF
-
-    if (PreferredNames == TRUE)
+    
+    if (PreferredNames == TRUE) 
         PreferredNames_DF <- mnis_preferred_names(ID)
     mnis_DF_list[["PreferredNames_DF"]] <- PreferredNames_DF
-
-    if (Staff == TRUE)
+    
+    if (Staff == TRUE) 
         Staff_DF <- mnis_staff(ID)
     mnis_DF_list[["Staff_DF"]] <- Staff_DF
-
-    if (Statuses == TRUE)
+    
+    if (Statuses == TRUE) 
         Statuses_DF <- mnis_statuses(ID)
     mnis_DF_list[["Statuses_DF"]] <- Statuses_DF
-
+    
     x <- dplyr::bind_cols(mnis_DF_list)
-
+    
     if (tidy == TRUE) {
-
-      x <- mnis_tidy(x)
-
-      x
-
+        
+        x <- mnis_tidy(x)
+        
+        x
+        
     } else {
-
-      x
-
+        
+        x
+        
     }
-
+    
 }

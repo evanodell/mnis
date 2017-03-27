@@ -24,7 +24,7 @@ mnis_all_members
 }
 \examples{
 \dontrun{
-x <- mnis_all_members(house = "all", party = NULL, joined_since = NULL, tidy = TRUE)
+x <- mnis_all_members(house = 'all', party = NULL, joined_since = NULL, tidy = TRUE)
 }
 
 }

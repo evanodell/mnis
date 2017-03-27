@@ -12,35 +12,35 @@
 #' }
 
 mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
-
+    
     query <- paste0(baseurl, date, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     x <- as.data.frame(got$LordsByType)
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
-x
-
-x
-
-    } else {
-
+        
         x
-
+        
+        x
+        
+    } else {
+        
+        x
+        
     }
-
+    
 }
 
 mnis_LordsType <- function(date = Sys.Date(), tidy = TRUE) {

@@ -13,53 +13,53 @@
 #' }
 
 mnis_constituency_results <- function(constituencyId = NULL, electionId = 0, tidy = TRUE) {
-
+    
     if (is.null(constituencyId) == TRUE) {
         stop("constituencyId cannot be empty", call. = FALSE)
     }
-
+    
     constituencyId <- as.character(constituencyId)
-
+    
     electionId <- as.character(electionId)
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
-
+    
     query <- paste0(baseurl, constituencyId, "/", electionId, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_status(got) != "200"){
-      stop(print(httr::http_status(got)))
+    
+    if (httr::http_status(got) != "200") {
+        stop(print(httr::http_status(got)))
     }
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
     details <- got$Constituency$Details
-
+    
     results <- got$Constituency$Results
-
+    
     results <- as.data.frame(results)
-
+    
     y <- list()
-
+    
     if (tidy == TRUE) {
-
+        
         y <- constituency_results_tidy(results, details)
-
+        
         y
-
+        
     } else {
-
+        
         y <- c(list(results = results), list(details = details))
-
+        
         y
-
+        
     }
-
+    
 }
 
 

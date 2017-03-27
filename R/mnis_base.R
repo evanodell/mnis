@@ -11,32 +11,32 @@
 #' }
 
 mnis_base <- function(request, tidy = TRUE) {
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
+    
     query <- paste0(baseurl, request)
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
     got <- httr::content(got)
-
+    
     x <- do.call(rbind, got$Members$Member)
-
+    
     if (tidy == TRUE) {
-
-      x <- mnis_tidy(x)
-
-x
-
+        
+        x <- mnis_tidy(x)
+        
+        x
+        
     } else {
-
-      x
-
+        
+        x
+        
     }
-
+    
 }
 
 
