@@ -19,6 +19,7 @@ Calls the API to return a data frame with details on the number of Lords and the
 }
 \examples{
 \dontrun{
+
 x <- mnis_lords_type()
 
 }

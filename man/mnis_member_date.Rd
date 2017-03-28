@@ -2,7 +2,6 @@
 % Please edit documentation in R/mnis_member_date.R
 \name{mnis_member_date}
 \alias{mnis_member_date}
-\alias{mnis_MemberDate}
 \title{mnis_member_date}
 \usage{
 mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE)

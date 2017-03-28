@@ -26,7 +26,7 @@ Note that on some systems there may be a warning message stating 'JSON string co
 
 \code{\link{mnis_extra}}
 
-\code{\link{mnis_full_biog}}
+\code{\link{full_biog}}
 
 \code{\link{mnis_general_election_results}}
 

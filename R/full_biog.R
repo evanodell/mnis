@@ -63,11 +63,11 @@ full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) 
 
 mnis_FullBiog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
     .Deprecated("mnis_FullBiog")
-    mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = refDods, tidy = tidy)
+    mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
 }
 
 
 mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
   .Deprecated("mnis_full_biog")
- full_biog(ID = ID, mnis_id = mnis_id, ref_dods = refDods, tidy = tidy)
+ full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
 }

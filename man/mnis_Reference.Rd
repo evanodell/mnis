@@ -164,10 +164,10 @@ ref_statuses(tidy = TRUE)
 ref_titles(tidy = TRUE)
 }
 \arguments{
-\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }
 \description{
-A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments.
+A series of functions to return reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.
 }
 \examples{
 \dontrun{
