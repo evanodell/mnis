@@ -19,7 +19,7 @@
 #'
 #' \code{\link{mnis_extra}}
 #'
-#' \code{\link{full_biog}}
+#' \code{\link{mnis_full_biog}}
 #'
 #' \code{\link{mnis_general_election_results}}
 #'
@@ -39,4 +39,5 @@
 #' @import httr
 #' @import jsonlite
 #' @import dplyr
+#' @import hansard
 NULL

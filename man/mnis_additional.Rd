@@ -80,24 +80,25 @@ mnis_preferred_names(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
   tidy = TRUE)
 }
 \arguments{
-\item{ID}{The ID number of the member. Defaults to NULL. If NULL, does not return any data.}
+\item{ID}{The member ID value.}
 
-\item{mnis_id}{Request based on the default membership ID scheme.}
+\item{mnis_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
 
 \item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
 \item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website. The API provides lengthy and complicated variable names, and the functions make some attempts to tidy up those names. To disable this feature, include tidy = TRUE in the function.
+Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
 }
 \examples{
 \dontrun{
+
 x <- mnis_basic_details(172)
 
 }
 }
 \seealso{
-\code{\link{full_biog}} \code{\link{mnis_extra}}
+\code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
 }
 \keyword{mnis}

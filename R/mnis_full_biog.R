@@ -1,5 +1,5 @@
 
-#' full_biog
+#' mnis_full_biog
 #'
 #' Requests all available biographical information for a given member.
 #' @param ID The ID number of the member. If left empty, returns an error.
@@ -9,11 +9,11 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_full_biog(172)
+#' x <- mnis_mnis_full_biog(172)
 #'
 #' }
 
-full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
 
   if(is.null(ID)==TRUE){
     stop("ID cannot be blank", call. = FALSE)
@@ -63,11 +63,11 @@ full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) 
 
 mnis_FullBiog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
     .Deprecated("mnis_FullBiog")
-    mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
+    mnis_mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
 }
 
 
-mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-  .Deprecated("mnis_full_biog")
- full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
+mnis_mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+  .Deprecated("mnis_mnis_full_biog")
+ mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
 }

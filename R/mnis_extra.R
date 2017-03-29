@@ -2,7 +2,7 @@
 #' mnis_extra
 #'
 #'
-#' A wrapper for \code{\link{mnis_additional}} functions. It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{full_biog}}.
+#' A wrapper for \code{\link{mnis_additional}} functions. It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}.
 #' Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>
 #'
 #'
@@ -38,7 +38,7 @@
 #' }
 #' @export
 #' @rdname mnis_extra
-#' @seealso \code{\link{full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+#' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 
 mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE, biography_entries = TRUE,
     committees = TRUE, constituencies = TRUE, elections_contested = TRUE, experiences = TRUE, government_posts = TRUE,

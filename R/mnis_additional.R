@@ -1,81 +1,98 @@
 
 #' mnis_additional
 #'
-#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website. The API provides lengthy and complicated variable names, and the functions make some attempts to tidy up those names. To disable this feature, include tidy = TRUE in the function.
-#' @param ID The ID number of the member. Defaults to NULL. If NULL, does not return any data.
-#' @param mnis_id Request based on the default membership ID scheme.
+#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
+#' @param ID The member ID value.
+#' @param mnis_id Request based on the default membership ID scheme. Defaults to TRUE.
 #' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE.
 #' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @keywords mnis
 #' @examples \dontrun{
+#'
 #' x <- mnis_basic_details(172)
 #'
 #' }
 #' @export
 #' @rdname mnis_additional
-#' @seealso \code{\link{full_biog}} \code{\link{mnis_extra}}
+#' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
 #'
 
 
 #' @export
 #' @rdname mnis_additional
+#' Returns a character vector with a list of all possible functions
 mnis_additional <- function() {
 
-    x <- c("mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()", "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()", "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_knownas()", "mnis_maiden_speeches()", "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()","mnis_parties()", "mnis_preferred_names()")
+    x <- c("mnis_mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()", "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()", "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_knownas()", "mnis_maiden_speeches()", "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()", "mnis_parties()", "mnis_preferred_names()")
     message("All Available Additional Information Functions:")
 
-    x
+    print(x)
+
+
 }
+
+###BASIC DETAILS NOW STRIPS OUT BOM
 
 #' @export
 #' @rdname mnis_additional
 mnis_basic_details <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
 
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
+  if (is.null(ID) == TRUE) {
+    x <- mnis_all_members()
+  } else {
 
-    ID <- as.character(ID)
+  ID <- as.character(ID)
 
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
+  if (ref_dods == TRUE) {
+    ID_Type <- "refDods="
+  } else {
+    ID_Type <- "id="
+  }
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
-    query <- paste0(baseurl, ID_Type, ID, "/BasicDetails")
+  query <- paste0(baseurl, ID_Type, ID, "/BasicDetails")
 
-    got <- httr::GET(query, httr::accept_json())
+  got <-  httr::GET(query, httr::accept_json())
 
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
+  if (httr::http_type(got) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
 
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+  got <-  sans_bom(got)
 
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+  got <- jsonlite::fromJSON(got)
 
-    x <- t(dl)
 
-    x <- as.data.frame(x)
 
-    x <- x[rownames(x) != "ID", ]
+  #got <- jsonlite::fromJSON(httr::content(got, "text", encoding = "bytes"), flatten = TRUE)
 
-    if (tidy == TRUE) {
+  dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-        x <- mnis_tidy(x)
+  x <- t(dl)
 
-        x
+  x <- as.data.frame(x)
 
-    } else {
+  x <- x[rownames(x) != "ID", ]
 
-        x
+  }
 
-    }
+  if (tidy == TRUE) {
+
+    x <- mnis_tidy(x)
+
+    x
+
+  } else {
+
+    x
+
+  }
 
 }
+
+
+
 
 
 #' @export
