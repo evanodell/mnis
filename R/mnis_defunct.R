@@ -33,7 +33,7 @@ mnis_BiographyEntries <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, t
 #' @usage NULL
 mnis_ConstituencyResults <- function(constituencyId = NULL, election_id = 0) {
   .Deprecated("mnis_ConstituencyResults")
-  mnis_constituency_results(constituencyId = constituencyId, election_id = election_id)
+  mnis_constituency_results(constituency_id = constituencyId, election_id = election_id)
 }
 
 
@@ -56,9 +56,9 @@ mnis_Constituencies <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tid
     mnis_constituencies(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods)
 }
 
-mnis_Base <- function(request, tidy = TRUE) {
+mnis_Base <- function(request) {
   .Deprecated("mnis_Base")
-  mnis_base(request = request, tidy = tidy)
+  mnis_base(request = request)
 }
 
 #' @rdname mnis_defunct

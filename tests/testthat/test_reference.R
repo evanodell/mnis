@@ -22,7 +22,7 @@ test_that("mnis_reference returns expected format", {
   expect_is(refc, "data.frame")
 
   refd <- ref_area_types()
-  expect_length(refd, 5)
+  expect_length(refd, 2)
   expect_type(refd, "list")
   expect_is(refd, "data.frame")
 
@@ -107,9 +107,9 @@ test_that("mnis_reference returns expected format", {
   expect_is(reft, "data.frame")
 
   refu <- ref_government_ranks()
-  expect_length(refa, 6)
-  expect_type(refa, "list")
-  expect_is(refa, "data.frame")
+  expect_length(refu, 6)
+  expect_type(refu, "list")
+  expect_is(refu, "data.frame")
 
   refv <- ref_honourary_prefixes()
   expect_length(refv, 8)

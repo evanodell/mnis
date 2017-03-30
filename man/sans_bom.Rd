@@ -2,7 +2,7 @@
 % Please edit documentation in R/bom.R
 \name{sans_bom}
 \alias{sans_bom}
-\title{Remove byte order mark (BOM) from \code{httr::response} object or character vector}
+\title{Tests whether a raw httr response or character vector has a byte order mark (BOM)}
 \usage{
 sans_bom(resp)
 }
@@ -13,16 +13,7 @@ sans_bom(resp)
 Converted content
 }
 \description{
-Performs the equivalent of \code{content(resp, type='text')} but removes the
-BOM before doing so. If a BOM is not detected, the function will return an error.
-}
-\details{
-\href{https://en.wikipedia.org/wiki/Byte_order_mark}{What is a byte order mark?}
-}
-\examples{
-library(httr)
-foo <- GET('http://www.claritin.com/webservice/allergyforecast.php?zip=33956')
-sans_bom(foo)
+Tests whether a raw httr response or character vector has a byte order mark (BOM)
 }
 \references{
 \href{http://www.unicode.org/faq/utf_bom.html}{UTF-8, UTF-16, UTF-32 & BOM}
