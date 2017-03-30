@@ -15,6 +15,8 @@
 
 mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, tidy = TRUE) {
 
+  house <- tolower(house)
+
     if (is.na(pmatch(house, c("all", "lords", "commons"))))
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
 
@@ -49,11 +51,13 @@ mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, t
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    got <- sans_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
     x <- got$Members$Member
 
-    #x <- as.data.frame(x)
+    # x <- as.data.frame(x)
 
     if (tidy == TRUE) {
 

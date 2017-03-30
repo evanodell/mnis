@@ -8,44 +8,46 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
+#'
 #' x <- mnis_party_state('2012-01-12')
 #'
 #' }
 
 mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE) {
-    
+
     date <- as.character(date)
-    
+
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/"
-    
+
     query <- paste0(baseurl, house, "/", date, "/")
-    
+
     got <- httr::GET(query, httr::accept_json())
-    
+
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-    
-    x <- as.data.frame(got$houseOverview)
-    
+
+    got <- sans_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- as.data.frame(got$HouseOverview)
+
     if (tidy == TRUE) {
-        
+
         x <- mnis_tidy(x)
-        
+
+        names(x)[names(x)=="x_house"] <- "house"
+
         x
-        
+
     } else {
-        
+
         x
-        
+
     }
-    
+
 }
 
 
-mnis_PartyState <- function(house = "Commons", date = Sys.Date()) {
-    .Deprecated("mnis_PartyState")
-    mnis_party_state(house = house, date = date)
-}
+

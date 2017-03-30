@@ -13,41 +13,41 @@
 #' }
 
 mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE) {
-
+    
     ID <- as.character(ID)
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
-
+    
     query <- paste0(baseurl, ID, "/", date, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
+    got <- sans_bom(got)
+    
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+    
     x <- as.list(got$Member)
-
+    
     x <- unlist(x)
-
+    
     x <- t(x)
-
+    
     x <- as.data.frame(x)
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
+        
         x
-
+        
     } else {
-
+        
         x
-
+        
     }
-
+    
 }
-
-

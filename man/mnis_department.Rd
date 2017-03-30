@@ -12,7 +12,7 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
 
 \item{bench}{Flag to return either Government or Opposition information. Defaults to Government.}
 
-\item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE.}
+\item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.}
 
 \item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }

@@ -18,6 +18,12 @@
 
 mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", tidy = TRUE) {
 
+
+  ##Making sure house works
+  house <- as.character(house)
+
+  house <- tolower(house)
+
     if (is.na(pmatch(house, c("all", "lords", "commons"))))
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
 
@@ -27,19 +33,9 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/joinedbetween="
 
-    if (is.null(start_date) == TRUE) {
-        start_date <- "1900-01-01"
-    }
-
-    if (is.null(end_date) == TRUE) {
-        end_date <- Sys.Date()
-    }
-
     start_date <- as.character(start_date)
 
     end_date <- as.character(end_date)
-
-    house <- as.character(house)
 
     if (is.null(party) == FALSE)
         party <- utils::URLencode(party)
@@ -73,7 +69,9 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    got <- sans_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
     x <- as.data.frame(got)
 
@@ -85,16 +83,10 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     } else {
 
-      x
+        x
 
     }
 
 }
 
-mnis_JoinedBetween <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all",
-    tidy = TRUE) {
-    .Deprecated("mnis_JoinedBetween")  #include a package argument, too
-    mnis_joined_between(start_date = start_date, end_date = end_date, house = house, party = party, eligible = eligible,
-        tidy = tidy)
-}
 

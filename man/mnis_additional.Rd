@@ -97,6 +97,12 @@ Basic function for the MNIS API lookup. The function requests data in JSON forma
 x <- mnis_basic_details(172)
 
 }
+\dontrun{
+
+mnis_additional()
+
+}
+Returns a character vector with a list of all possible functions
 }
 \seealso{
 \code{\link{mnis_full_biog}} \code{\link{mnis_extra}}

@@ -11,16 +11,18 @@ mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE)
 
 \item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.}
 
-\item{party}{The party to which a member belongs. Defaults to NULL.}
+\item{party}{The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. "green party"), the API does not accept searches on this parameter.}
 
 \item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \description{
-Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a data frame.
+Function returns all members who are eligible to sit in either house. The function requests data in JSON format and parses it to a data frame.
 }
 \examples{
 \dontrun{
-x <- mnis_eligible(eligible='all', house='all', party='labour')
+x <- mnis_eligible(eligible=FALSE, house='all', party='labour')
+
+x <- mnis_eligible(eligible=TRUE, house='all', party='green party')
 
 }
 }

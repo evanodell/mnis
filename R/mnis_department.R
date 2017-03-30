@@ -2,7 +2,7 @@
 #'
 #' @param department_id The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/
 #' @param bench Flag to return either Government or Opposition information. Defaults to Government.
-#' @param former Flag to include both current and former ministers/shadow ministers. Defaults to TRUE.
+#' @param former Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.
 #' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @return A list with information on the outcome of the most recent election in a constituency
 #' @keywords mnis
@@ -16,50 +16,48 @@
 
 mnis_department <- function(department_id = 0, bench = "Government", former = TRUE, tidy = TRUE) {
 
-  if (former == TRUE) {
+    if (former == TRUE) {
 
-    former <- "former"
+        former <- "former"
 
-  } else {
+    } else {
 
-    former <- "current"
-  }
+        former <- "current"
+    }
 
-  department_id <- as.character(department_id)
+    department_id <- as.character(department_id)
 
-  bench <- utils::URLencode(bench)
+    bench <- utils::URLencode(bench)
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
 
-  query <- paste0(baseurl, department_id, "/", bench, "/", former, "/")
+    query <- paste0(baseurl, department_id, "/", bench, "/", former, "/")
 
-  got <- httr::GET(query, httr::accept_json())
+    got <- httr::GET(query, httr::accept_json())
 
-  if (httr::http_status(got) != "200") {
-    stop(print(httr::http_status(got)), call. = FALSE)
-  }
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
 
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
+    got <- sans_bom(got)
 
-  got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- got$Department$Posts
+    x <- got$Department$Posts
 
-  x <- as.data.frame(x)
+    x <- as.data.frame(x)
 
-  if (tidy == TRUE) {
+    if (tidy == TRUE) {
 
-    x <- mnis_tidy(x)
+        x <- mnis_tidy(x)
 
-    x
+        x
 
-  } else {
+    } else {
 
-    x
+        x
 
-  }
+    }
 
 }
 

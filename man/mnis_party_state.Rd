@@ -21,6 +21,7 @@ A data frame with information on the numbers and gender of MPs, by party, for th
 }
 \examples{
 \dontrun{
+
 x <- mnis_party_state('2012-01-12')
 
 }

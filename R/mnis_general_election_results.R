@@ -34,7 +34,9 @@ mnis_general_election_results <- function(location_type = "Country", location_na
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
+    got <- sans_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
     x <- got$ElectionResults
 
@@ -53,11 +55,3 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 }
 
 
-#' @rdname mnis_general_election_results
-#' @usage NULL
-mnis_GeneralElectionResults <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01",
-    end_date = Sys.Date()) {
-    .Deprecated("mnis_general_election_results")
-    mnis_general_election_results(location_type = location_type, location_name = location_name, start_date = start_date,
-        end_date = end_date)
-}

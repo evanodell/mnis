@@ -2,16 +2,15 @@
 % Please edit documentation in R/mnis_constituency_results.R
 \name{mnis_constituency_results}
 \alias{mnis_constituency_results}
-\alias{mnis_ConstituencyResults}
 \title{mnis_constituency_results}
 \usage{
-mnis_constituency_results(constituencyId = NULL, electionId = 0,
+mnis_constituency_results(constituency_id = NULL, election_id = 0,
   tidy = TRUE)
 }
 \arguments{
-\item{constituencyId}{The ID of the constituency to return the data for.}
+\item{constituency_id}{The ID of the constituency to return the data for. Defaults to NULL}
 
-\item{electionId}{The ID of the election to return the data for. Defaults to 0, which calls the latest result.}
+\item{election_id}{The ID of the election to return the data for. Defaults to 0, which calls the latest result.}
 
 \item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
@@ -23,7 +22,7 @@ Returns a list with details of the constituency and a data frame with election r
 }
 \examples{
 \dontrun{
-x <- mnis_constituency_results(constituencyId = 3709, electionId = 0)
+x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
 
 }
 }

@@ -14,60 +14,54 @@
 #' }
 
 mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-
-  if(is.null(ID)==TRUE){
-    stop("ID cannot be blank", call. = FALSE)
-  }
-
+    
+    if (is.null(ID) == TRUE) {
+        stop("ID cannot be blank", call. = FALSE)
+    }
+    
     ID <- as.character(ID)
-
+    
     if (ref_dods == TRUE) {
         ID_Type <- "refDods="
     } else {
         ID_Type <- "id="
     }
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
+    
     query <- paste0(baseurl, ID_Type, ID, "/FullBiog")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
-    got <- jsonlite::fromJSON(httr::content(got, "text"), flatten = TRUE)
-
+    
+    got <- sans_bom(got)
+    
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+    
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
+    
     x <- t(dl)
-
+    
     x <- as.data.frame(x)
-
+    
     x <- x[rownames(x) != "ID", ]
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
+        
         x
-
+        
     } else {
-
+        
         x
-
+        
     }
-
-}
-
-mnis_FullBiog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-    .Deprecated("mnis_FullBiog")
-    mnis_mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
+    
 }
 
 
-mnis_mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-  .Deprecated("mnis_mnis_full_biog")
- mnis_full_biog(ID = ID, mnis_id = mnis_id, ref_dods = ref_dods, tidy = tidy)
-}
+

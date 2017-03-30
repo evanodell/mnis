@@ -2,7 +2,6 @@
 % Please edit documentation in R/mnis_general_election_results.R
 \name{mnis_general_election_results}
 \alias{mnis_general_election_results}
-\alias{mnis_GeneralElectionResults}
 \title{mnis_general_election_results}
 \usage{
 mnis_general_election_results(location_type = "Country",
