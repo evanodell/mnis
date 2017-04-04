@@ -118,14 +118,19 @@ constituency_results_tidy <- function(results, details) {
 
 }
 
-
-
-#' @param x The GET returned from call to API
+#' tidy_bom
+#' Strips BOM out of JSON data
+#'
+#' @param y The GET returned from call to API.
 #' @export
 #' @rdname mnis_tidy
-tidy_bom <- function(x) {
+tidy_bom <- function(y) {
 
-  iconv(readBin(x$content[4:length(x$content)], character()), from = "UTF-8", to = "UTF-8")
+  got <- as.character(y)
+
+  got <- mnis_bom(got)
+
+  got
 
 }
 

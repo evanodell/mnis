@@ -40,6 +40,11 @@ devtools::install_github("EvanOdell/mnis")
 
 ```
 
+Note that 
+
+
+
+
 For an introduction to `mnis`, the vignette `vignette("introduction", package = "mnis")` is the best place to start. If you are unfamiliar with APIs https://zapier.com/learn/apis/ is a helpful introduction.
 
 ## Future Functions

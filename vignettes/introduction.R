@@ -31,7 +31,7 @@
 
 ## ----eval=FALSE----------------------------------------------------------
 #  library(mnis)
-#  x <- mnis_party_state()
+#  x <- mnis_party_state(tidy=FALSE)
 #  x
 #  
 #  #    House Id                             Name MaleCount FemaleCount TotalCount

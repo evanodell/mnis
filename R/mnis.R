@@ -39,4 +39,6 @@
 #' @import httr
 #' @import jsonlite
 #' @import dplyr
+#' @useDynLib mnis
+#' @importFrom Rcpp sourceCpp
 NULL

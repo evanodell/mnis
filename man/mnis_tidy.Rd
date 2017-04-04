@@ -13,7 +13,7 @@ ref_tidy(x)
 
 constituency_results_tidy(results, details)
 
-tidy_bom(x)
+tidy_bom(y)
 }
 \arguments{
 \item{x}{The dataframe to tidy}
@@ -22,8 +22,11 @@ tidy_bom(x)
 
 \item{details}{The list to tidy}
 
-\item{x}{The GET returned from call to API}
+\item{y}{The GET returned from call to API.}
 }
 \description{
 Internal tidying functions
+
+tidy_bom
+Strips BOM out of JSON data
 }

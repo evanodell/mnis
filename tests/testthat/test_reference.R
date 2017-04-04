@@ -12,7 +12,7 @@ test_that("mnis_reference returns expected format", {
   expect_is(refa, "data.frame")
 
   refb <- ref_answering_bodies()
-  expect_length(refb, 15)
+  expect_length(refb, 17)
   expect_type(refb, "list")
   expect_is(refb, "data.frame")
 
