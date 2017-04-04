@@ -7,7 +7,7 @@
 mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE)
 }
 \arguments{
-\item{ID}{The ID of the member.}
+\item{ID}{The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty,}
 
 \item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
 

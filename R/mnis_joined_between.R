@@ -16,32 +16,33 @@
 #' }
 
 
-mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", tidy = TRUE) {
-
-
-  ##Making sure house works
-  house <- as.character(house)
-
-  house <- tolower(house)
-
-    if (is.na(pmatch(house, c("all", "lords", "commons"))))
+mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", 
+    tidy = TRUE) {
+    
+    
+    ## Making sure house works
+    house <- as.character(house)
+    
+    house <- tolower(house)
+    
+    if (is.na(pmatch(house, c("all", "lords", "commons")))) 
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
-
-    if (is.na(pmatch(eligible, c("all", "current", "former"))))
+    
+    if (is.na(pmatch(eligible, c("all", "current", "former")))) 
         stop("Please select one of 'all', 'current' or 'former' for the parameter 'eligible'")
-
-
+    
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/joinedbetween="
-
+    
     start_date <- as.character(start_date)
-
+    
     end_date <- as.character(end_date)
-
-    if (is.null(party) == FALSE)
+    
+    if (is.null(party) == FALSE) 
         party <- utils::URLencode(party)
-
+    
     eligible <- as.character(eligible)
-
+    
     if (house == "lords") {
         house <- "|house=lords"
     } else if (house == "commons") {
@@ -49,11 +50,11 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     } else if (house == "all") {
         house <- "|house=all"
     }
-
+    
     if (is.null(party) == FALSE) {
         party <- paste0("|party*", party)
     }
-
+    
     if (eligible == "all") {
         eligible <- NULL
     } else if (eligible == "current") {
@@ -61,30 +62,30 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     } else if (eligible == "former") {
         eligible <- "|iseligible=FALSE"
     }
-
+    
     query <- paste0(baseurl, start_date, "and", end_date, house, party, eligible)
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
     got <- tidy_bom(got)
-
+    
     got <- jsonlite::fromJSON(got, flatten = TRUE)
-
+    
     x <- as.data.frame(got)
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
+        
         x
-
+        
     } else {
-
+        
         x
-
+        
     }
-
+    
 }

@@ -1,10 +1,9 @@
 
 #' mnis_additional
 #'
-#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
-#' @param ID The member ID value.
-#' @param mnis_id Request based on the default membership ID scheme. Defaults to TRUE.
-#' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE.
+#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
+#' @param ID The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.
+#' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.
 #' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @keywords mnis
 #' @examples \dontrun{
@@ -28,7 +27,10 @@
 
 mnis_additional <- function() {
 
-    x <- c("mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()", "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()", "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_knownas()", "mnis_maiden_speeches()", "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()", "mnis_parties()", "mnis_preferred_names()")
+    x <- c("mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()",
+        "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()",
+        "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_knownas()", "mnis_maiden_speeches()",
+        "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()", "mnis_parties()", "mnis_preferred_names()")
     message("All Available Additional Information Functions:")
 
     print(x)
@@ -39,7 +41,7 @@ mnis_additional <- function() {
 
 #' @export
 #' @rdname mnis_additional
-mnis_basic_details <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_basic_details <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
         x <- mnis_all_members()
@@ -100,43 +102,45 @@ mnis_basic_details <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy
 #' @export
 #' @rdname mnis_additional
 
-mnis_biography_entries <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_biography_entries <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/BiographyEntries")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/BiographyEntries")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -156,43 +160,45 @@ mnis_biography_entries <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, 
 
 #' @export
 #' @rdname mnis_additional
-mnis_committees <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_committees <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Committees")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Committees")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -212,44 +218,46 @@ mnis_committees <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = 
 
 #' @export
 #' @rdname mnis_additional
-mnis_addresses <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_addresses <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Addresses")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Addresses")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -268,44 +276,45 @@ mnis_addresses <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = T
 
 #' @export
 #' @rdname mnis_additional
-mnis_constituencies <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_constituencies <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Constituencies")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Constituencies")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -324,100 +333,45 @@ mnis_constituencies <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tid
 
 #' @export
 #' @rdname mnis_additional
-mnis_elections_contested <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_elections_contested <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/ElectionsContested")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
-
-    if (tidy == TRUE) {
-
-        x <- mnis_tidy(x)
-
-        x
-
+        x <- mnis_all_members()
     } else {
 
-        x
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/ElectionsContested")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
 
     }
-
-}
-
-
-
-#' @export
-#' @rdname mnis_additional
-mnis_experiences <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Experiences")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -437,43 +391,45 @@ mnis_experiences <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy =
 
 #' @export
 #' @rdname mnis_additional
-mnis_government_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_experiences <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Experiences")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/GovernmentPosts")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -493,43 +449,45 @@ mnis_government_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, t
 
 #' @export
 #' @rdname mnis_additional
-mnis_honours <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_government_posts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/GovernmentPosts")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Honours")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -549,100 +507,45 @@ mnis_honours <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRU
 
 #' @export
 #' @rdname mnis_additional
-mnis_house_memberships <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_honours <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/HouseMemberships")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
-
-    if (tidy == TRUE) {
-
-        x <- mnis_tidy(x)
-
-        x
-
+        x <- mnis_all_members()
     } else {
 
-        x
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Honours")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
 
     }
-
-}
-
-
-#' @export
-#' @rdname mnis_additional
-
-mnis_statuses <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Statuses")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -662,102 +565,45 @@ mnis_statuses <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TR
 
 #' @export
 #' @rdname mnis_additional
-
-mnis_staff <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Staff")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
-
-    if (tidy == TRUE) {
-
-        x <- mnis_tidy(x)
-
-        x
-
-    } else {
-
-        x
-
-    }
-
-}
-
-
-
-#' @export
-#' @rdname mnis_additional
-mnis_interests <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_house_memberships <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/HouseMemberships")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Interests")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- as.list(got$Members$Member)
-
-    x <- unlist(x)
-
-    x <- t(x)
-
-    x <- as.data.frame(x)
 
     if (tidy == TRUE) {
 
@@ -776,99 +622,46 @@ mnis_interests <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = T
 
 #' @export
 #' @rdname mnis_additional
-mnis_known_as <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+
+mnis_statuses <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/KnownAs")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
-
-    if (tidy == TRUE) {
-
-        x <- mnis_tidy(x)
-
-        x
-
+        x <- mnis_all_members()
     } else {
 
-        x
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Statuses")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
 
     }
-
-}
-
-#' @export
-#' @rdname mnis_additional
-mnis_maiden_speeches <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/MaidenSpeeches")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -889,43 +682,218 @@ mnis_maiden_speeches <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, ti
 #' @export
 #' @rdname mnis_additional
 
-mnis_opposition_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_staff <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Staff")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+    if (tidy == TRUE) {
 
-    query <- paste0(baseurl, ID_Type, ID, "/OppositionPosts")
+        x <- mnis_tidy(x)
 
-    got <- httr::GET(query, httr::accept_json())
+        x
 
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
+    } else {
+
+        x
+
     }
 
-    got <- tidy_bom(got)
+}
 
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
 
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+#' @export
+#' @rdname mnis_additional
+mnis_interests <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
-    x <- t(dl)
+    if (is.null(ID) == TRUE) {
+        x <- mnis_all_members()
+    } else {
 
-    x <- as.data.frame(x)
+        ID <- as.character(ID)
 
-    x <- x[rownames(x) != "ID", ]
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Interests")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- as.list(got$Members$Member)
+
+        x <- unlist(x)
+
+        x <- t(x)
+
+        x <- as.data.frame(x)
+
+    }
+
+    if (tidy == TRUE) {
+
+        x <- mnis_tidy(x)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
+}
+
+
+#' @export
+#' @rdname mnis_additional
+mnis_known_as <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+
+    if (is.null(ID) == TRUE) {
+        x <- mnis_all_members()
+    } else {
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/KnownAs")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
+    }
+
+    if (tidy == TRUE) {
+
+        x <- mnis_tidy(x)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
+}
+
+#' @export
+#' @rdname mnis_additional
+mnis_maiden_speeches <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+
+    if (is.null(ID) == TRUE) {
+        x <- mnis_all_members()
+    } else {
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/MaidenSpeeches")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
+    }
 
     if (tidy == TRUE) {
 
@@ -946,100 +914,45 @@ mnis_opposition_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, t
 #' @export
 #' @rdname mnis_additional
 
-mnis_other_parliaments <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_opposition_posts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/OtherParliaments")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
-
-    if (tidy == TRUE) {
-
-        x <- mnis_tidy(x)
-
-        x
-
+        x <- mnis_all_members()
     } else {
 
-        x
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/OppositionPosts")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
 
     }
-
-}
-
-
-#' @export
-#' @rdname mnis_additional
-mnis_parliamentary_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
-
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/ParliamentaryPosts")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 
@@ -1060,43 +973,161 @@ mnis_parliamentary_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE
 #' @export
 #' @rdname mnis_additional
 
-mnis_parties <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_other_parliaments <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/OtherParliaments")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+    if (tidy == TRUE) {
 
-    query <- paste0(baseurl, ID_Type, ID, "/Parties")
+        x <- mnis_tidy(x)
 
-    got <- httr::GET(query, httr::accept_json())
+        x
 
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
+    } else {
+
+        x
+
     }
 
-    got <- tidy_bom(got)
+}
 
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+#' @export
+#' @rdname mnis_additional
+mnis_parliamentary_posts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+    if (is.null(ID) == TRUE) {
+        x <- mnis_all_members()
+    } else {
 
-    x <- t(dl)
+        ID <- as.character(ID)
 
-    x <- as.data.frame(x)
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
 
-    x <- x[rownames(x) != "ID", ]
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/ParliamentaryPosts")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
+    }
+
+    if (tidy == TRUE) {
+
+        x <- mnis_tidy(x)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
+}
+
+
+
+#' @export
+#' @rdname mnis_additional
+
+mnis_parties <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+
+    if (is.null(ID) == TRUE) {
+        x <- mnis_all_members()
+    } else {
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/Parties")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
+    }
 
     if (tidy == TRUE) {
 
@@ -1116,47 +1147,45 @@ mnis_parties <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRU
 #' @export
 #' @rdname mnis_additional
 
-mnis_preferred_names <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_preferred_names <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
     if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be empty", call. = FALSE)
-    }
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
+        x <- mnis_all_members()
     } else {
-        ID_Type <- "id="
+
+        ID <- as.character(ID)
+
+        if (ref_dods == TRUE) {
+            ID_Type <- "refDods="
+        } else {
+            ID_Type <- "id="
+        }
+
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+        query <- paste0(baseurl, ID_Type, ID, "/PreferredNames")
+
+        got <- httr::GET(query, httr::accept_json())
+
+        if (httr::http_type(got) != "application/json") {
+            stop("API did not return json", call. = FALSE)
+        }
+
+        got <- tidy_bom(got)
+
+        got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+        # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
+
+        dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
+
+        x <- t(dl)
+
+        x <- as.data.frame(x)
+
+        x <- x[rownames(x) != "ID", ]
+
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/PreferredNames")
-
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
-    dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
-
-    x <- t(dl)
-
-    x <- as.data.frame(x)
-
-    x <- x[rownames(x) != "ID", ]
 
     if (tidy == TRUE) {
 

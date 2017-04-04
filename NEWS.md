@@ -1,4 +1,15 @@
 
+# mnis 0.2.2
+
+## Removing BOM, changing behaviour for empty mnis_additional function calls
+
+All functions now remove byte order marks from the API response.
+
+All empty `mnis_additional` functions now default to returning `mnis_all_members` instead of an error.
+
+The `mnis_all_members` without any parameters now returns an error message that tells the user to include data for the ID parameter, rather than a generic API error.
+
+
 # mnis 0.2.1
 
 ## Bug fixes, further rollout of tidy function

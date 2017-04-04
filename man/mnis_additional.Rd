@@ -26,70 +26,55 @@
 \usage{
 mnis_additional()
 
-mnis_basic_details(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_basic_details(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_biography_entries(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_biography_entries(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_committees(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_committees(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_addresses(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_addresses(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_constituencies(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_constituencies(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_elections_contested(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_elections_contested(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_experiences(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_experiences(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_government_posts(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_government_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_honours(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_honours(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_house_memberships(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_house_memberships(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_statuses(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_statuses(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_staff(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_staff(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_interests(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_interests(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_known_as(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_known_as(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_maiden_speeches(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_maiden_speeches(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_opposition_posts(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_opposition_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_other_parliaments(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_other_parliaments(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_parliamentary_posts(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_parliamentary_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_parties(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_parties(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
-mnis_preferred_names(ID = NULL, mnis_id = TRUE, ref_dods = FALSE,
-  tidy = TRUE)
+mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 }
 \arguments{
-\item{ID}{The member ID value.}
+\item{ID}{The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.}
 
-\item{mnis_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
-
-\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
+\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.}
 
 \item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame. Variable descriptions are taken from the mnis website.
+Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
 }
 \examples{
 \dontrun{

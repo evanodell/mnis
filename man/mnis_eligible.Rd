@@ -11,7 +11,7 @@ mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE)
 
 \item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.}
 
-\item{party}{The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. "green party"), the API does not accept searches on this parameter.}
+\item{party}{The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. 'green party'), the API does not accept searches on this parameter.}
 
 \item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }

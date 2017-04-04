@@ -14,37 +14,37 @@
 #' }
 
 mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE) {
-
+    
     date <- as.character(date)
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/"
-
+    
     query <- paste0(baseurl, house, "/", date, "/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- tidy_bom(got)
-
+    
     got <- jsonlite::fromJSON(got, flatten = TRUE)
-
+    
     x <- as.data.frame(got$HouseOverview)
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
-        names(x)[names(x)=="x_house"] <- "house"
-
+        
+        names(x)[names(x) == "x_house"] <- "house"
+        
         x
-
+        
     } else {
-
+        
         x
-
+        
     }
-
+    
 }
