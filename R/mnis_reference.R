@@ -154,7 +154,7 @@ ref_address_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -188,7 +188,7 @@ ref_answering_bodies <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -221,7 +221,7 @@ ref_areas <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -254,7 +254,7 @@ ref_area_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -287,7 +287,7 @@ ref_biography_categories <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -321,7 +321,7 @@ ref_cabinets <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -354,7 +354,7 @@ ref_committees <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -388,7 +388,7 @@ ref_committee_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -422,7 +422,7 @@ ref_constituencies <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -456,7 +456,7 @@ ref_constituency_areas <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -489,7 +489,7 @@ ref_constituency_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -522,7 +522,7 @@ ref_countries <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -556,7 +556,7 @@ ref_departments <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -590,7 +590,7 @@ ref_disqualification_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -623,7 +623,7 @@ ref_elections <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -657,7 +657,7 @@ ref_election_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -691,7 +691,7 @@ ref_end_reasons <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -725,7 +725,7 @@ ref_experience_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -759,7 +759,7 @@ ref_government_post_departments <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -793,7 +793,7 @@ ref_government_posts <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -827,7 +827,7 @@ ref_government_ranks <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -861,7 +861,7 @@ ref_honourary_prefixes <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -894,7 +894,7 @@ ref_honour_lists <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -928,7 +928,7 @@ ref_honours <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -962,7 +962,7 @@ ref_interest_categories <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -996,7 +996,7 @@ ref_lords_membership_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1029,7 +1029,7 @@ ref_lords_ranks <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1063,7 +1063,7 @@ ref_opposition_post_departments <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1097,7 +1097,7 @@ ref_opposition_posts <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1130,7 +1130,7 @@ ref_opposition_ranks <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1164,7 +1164,7 @@ ref_other_parliaments <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1197,7 +1197,7 @@ ref_parliamentary_posts <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1229,7 +1229,7 @@ ref_parliamentary_ranks <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1262,7 +1262,7 @@ ref_parliament_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1296,7 +1296,7 @@ ref_parties <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1329,7 +1329,7 @@ ref_party_sub_types <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1368,7 +1368,7 @@ ref_photo_outputs <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1401,7 +1401,7 @@ ref_statuses <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1436,7 +1436,7 @@ ref_titles <- function(tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1454,5 +1454,3 @@ ref_titles <- function(tidy = TRUE) {
 
     }
 }
-
-

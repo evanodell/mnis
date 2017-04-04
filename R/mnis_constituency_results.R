@@ -32,7 +32,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 

@@ -26,7 +26,7 @@ mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE) {
         stop("API did not return json", call. = FALSE)
     }
     
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
     
     got <- jsonlite::fromJSON(got, flatten = TRUE)
     

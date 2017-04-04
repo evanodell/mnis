@@ -69,7 +69,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -88,5 +88,3 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     }
 
 }
-
-

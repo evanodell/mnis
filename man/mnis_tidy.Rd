@@ -4,6 +4,7 @@
 \alias{mnis_tidy}
 \alias{ref_tidy}
 \alias{constituency_results_tidy}
+\alias{tidy_bom}
 \title{mnis_tidy}
 \usage{
 mnis_tidy(x)
@@ -11,6 +12,8 @@ mnis_tidy(x)
 ref_tidy(x)
 
 constituency_results_tidy(results, details)
+
+tidy_bom(x)
 }
 \arguments{
 \item{x}{The dataframe to tidy}
@@ -18,7 +21,9 @@ constituency_results_tidy(results, details)
 \item{results}{The data frame to tidy}
 
 \item{details}{The list to tidy}
+
+\item{x}{The GET returned from call to API}
 }
 \description{
-Internal tidying function
+Internal tidying functions
 }

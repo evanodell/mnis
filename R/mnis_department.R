@@ -39,7 +39,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -60,5 +60,3 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
     }
 
 }
-
-

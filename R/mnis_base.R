@@ -22,7 +22,7 @@ mnis_base <- function(request) {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 

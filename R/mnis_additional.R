@@ -63,7 +63,7 @@ mnis_basic_details <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- sans_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -124,7 +124,7 @@ mnis_biography_entries <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, 
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -180,7 +180,7 @@ mnis_committees <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = 
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -237,7 +237,7 @@ mnis_addresses <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = T
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -293,7 +293,7 @@ mnis_constituencies <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tid
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -348,7 +348,7 @@ mnis_elections_contested <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -405,7 +405,7 @@ mnis_experiences <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy =
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -461,7 +461,7 @@ mnis_government_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, t
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -517,7 +517,7 @@ mnis_honours <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRU
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -573,7 +573,7 @@ mnis_house_memberships <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, 
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -630,7 +630,7 @@ mnis_statuses <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TR
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -687,7 +687,7 @@ mnis_staff <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -743,7 +743,7 @@ mnis_interests <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = T
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -801,7 +801,7 @@ mnis_known_as <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TR
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -856,7 +856,7 @@ mnis_maiden_speeches <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, ti
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -913,7 +913,7 @@ mnis_opposition_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, t
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -971,7 +971,7 @@ mnis_other_parliaments <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, 
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1027,7 +1027,7 @@ mnis_parliamentary_posts <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1084,7 +1084,7 @@ mnis_parties <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRU
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1144,7 +1144,7 @@ mnis_preferred_names <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, ti
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 

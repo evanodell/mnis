@@ -34,7 +34,7 @@ mnis_general_election_results <- function(location_type = "Country", location_na
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- sans_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -53,5 +53,3 @@ mnis_general_election_results <- function(location_type = "Country", location_na
     }
 
 }
-
-
