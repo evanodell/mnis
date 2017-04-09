@@ -11,13 +11,13 @@ mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE)
 
 \item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \value{
-Returns a data frame with the given member's status on the given date.
+Returns a tibble with the given member's status on the given date.
 }
 \description{
-Returns a data frame with a members status on a given date.
+Returns a tibble with a members status on a given date.
 }
 \examples{
 \dontrun{

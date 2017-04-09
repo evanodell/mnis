@@ -1,10 +1,10 @@
 #' mnis_member_date
 #'
-#' Returns a data frame with a members status on a given date.
+#' Returns a tibble with a members status on a given date.
 #' @param ID The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty,
 #' @param date A date in yyyy-mm-dd format. Defaults to the current system date.
-#' @param tidy Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
-#' @return Returns a data frame with the given member's status on the given date.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @return Returns a tibble with the given member's status on the given date.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -40,7 +40,7 @@ mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE) {
 
     x <- t(x)
 
-    x <- as.data.frame(x)
+    x <- tibble::as_tibble(x)
 
     if (tidy == TRUE) {
 

@@ -1,10 +1,10 @@
 #' mnis_constituency_results
 #'
-#' Returns a list with details of the constituency and a data frame with election results.
+#' Returns a list with details of the constituency and a tibble with election results.
 #' @param constituency_id The ID of the constituency to return the data for. Defaults to NULL
 #' @param election_id The ID of the election to return the data for. Defaults to 0, which calls the latest result.
-#' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
-#' @return A list with details of the constituency, labelled 'details' and a data frame with election results, labelled 'results'. The list and data frame are stored in a single object.
+#' @param tidy Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.
+#' @return A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -40,7 +40,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
     
     results <- got$Constituency$Results
     
-    results <- as.data.frame(results)
+    results <- tibble::as_tibble(results)
     
     y <- list()
     

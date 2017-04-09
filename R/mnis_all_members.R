@@ -3,9 +3,9 @@
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.
 #' @param party The party to which a member belongs. Defaults to NULL.
 #' @param joined_since All members who joined after a given date, in yyyy-mm-dd format.
-#' @param tidy Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @keywords mnis
-#' @return A data frame with all members of both houses
+#' @return A tibble with all members of both houses
 #' @export
 #'
 #' @examples \dontrun{
@@ -57,7 +57,7 @@ mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, t
     
     x <- got$Members$Member
     
-    # x <- as.data.frame(x)
+    # x <- tibble::as_tibble(x)
     
     if (tidy == TRUE) {
         

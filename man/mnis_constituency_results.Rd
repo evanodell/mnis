@@ -12,13 +12,13 @@ mnis_constituency_results(constituency_id = NULL, election_id = 0,
 
 \item{election_id}{The ID of the election to return the data for. Defaults to 0, which calls the latest result.}
 
-\item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \value{
-A list with details of the constituency, labelled 'details' and a data frame with election results, labelled 'results'. The list and data frame are stored in a single object.
+A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
 }
 \description{
-Returns a list with details of the constituency and a data frame with election results.
+Returns a list with details of the constituency and a tibble with election results.
 }
 \examples{
 \dontrun{

@@ -9,13 +9,13 @@ mnis_lords_type(date = Sys.Date(), tidy = TRUE)
 \arguments{
 \item{date}{A date in yyyy-mm-dd format. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \value{
-A data frame with information on the numbers of different types of Lords on a given date.
+A tibble with information on the numbers of different types of Lords on a given date.
 }
 \description{
-Calls the API to return a data frame with details on the number of Lords and their affiliations.
+Calls the API to return a tibble with details on the number of Lords and their affiliations.
 }
 \examples{
 \dontrun{

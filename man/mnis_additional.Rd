@@ -71,10 +71,10 @@ mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
 \item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.}
 
-\item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a data frame.
+Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a tibble.
 }
 \examples{
 \dontrun{

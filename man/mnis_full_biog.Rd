@@ -13,7 +13,7 @@ mnis_full_biog(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
 
 \item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{tidy}{Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \description{
 Requests all available biographical information for a given member.

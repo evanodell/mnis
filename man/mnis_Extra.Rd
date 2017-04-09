@@ -60,7 +60,7 @@ mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
 
 \item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
 
-\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \description{
 A wrapper for \code{\link{mnis_additional}} functions. It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}.

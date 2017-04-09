@@ -94,7 +94,7 @@ ref_tidy <- function(x) {
     
 }
 
-#' @param results The data frame to tidy
+#' @param results The tibble to tidy
 #' @param details The list to tidy
 #' @export
 #' @rdname mnis_tidy

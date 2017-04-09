@@ -14,10 +14,10 @@ mnis_all_members(house = "all", party = NULL, joined_since = NULL,
 
 \item{joined_since}{All members who joined after a given date, in yyyy-mm-dd format.}
 
-\item{tidy}{Fix the variable names in the data frame to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
 \value{
-A data frame with all members of both houses
+A tibble with all members of both houses
 }
 \description{
 mnis_all_members

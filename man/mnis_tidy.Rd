@@ -18,7 +18,7 @@ tidy_bom(y)
 \arguments{
 \item{x}{The dataframe to tidy}
 
-\item{results}{The data frame to tidy}
+\item{results}{The tibble to tidy}
 
 \item{details}{The list to tidy}
 

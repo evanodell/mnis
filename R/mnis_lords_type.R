@@ -1,9 +1,9 @@
 #' mnis_lords_type
 #'
-#' Calls the API to return a data frame with details on the number of Lords and their affiliations.
+#' Calls the API to return a tibble with details on the number of Lords and their affiliations.
 #' @param date A date in yyyy-mm-dd format. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.
-#' @param tidy Fix the variable names in the data frame to remove '@' characters and superfluous text. Defaults to TRUE.
-#' @return A data frame with information on the numbers of different types of Lords on a given date.
+#' @param tidy Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.
+#' @return A tibble with information on the numbers of different types of Lords on a given date.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -28,7 +28,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    x <- as.data.frame(got$LordsByType)
+    x <- tibble::as_tibble(got$LordsByType)
 
     if (tidy == TRUE) {
 
