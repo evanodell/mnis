@@ -2,8 +2,6 @@
 #'
 #' An API package for the Members' Name Information Service operated by the UK parliament. The package is intended to simplify pulling data from an API for users unfamiliar with APIs. Documentation for the API itself can be found here: http://data.parliament.uk/membersdataplatform/default.aspx.
 #'
-#'
-#'
 #' @section mnis functions:
 #'
 #' \code{\link{mnis_additional}}
@@ -38,6 +36,7 @@
 #' @import httr
 #' @import jsonlite
 #' @import dplyr
+#' @import tibble
 #' @useDynLib mnis
 #' @importFrom Rcpp sourceCpp
 NULL

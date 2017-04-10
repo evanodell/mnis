@@ -27,7 +27,7 @@
 #' @param parliamentary_posts Parliamentary posts a Member has held.
 #' @param parties Party affiliations of a Member.
 #' @param preferred_names Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).
-#' @param staff staff employed by a Member.
+#' @param staff The staff employed by a Member.
 #' @param statuses Status history (e.g. suspensions and disqualifications) for a Member.
 #' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
 #' @keywords mnis
@@ -135,7 +135,7 @@ mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, b
     if (statuses == TRUE)
         statuses_DF <- mnis_statuses(ID)
     mnis_DF_list[["statuses_DF"]] <- statuses_DF
-    
+
     x <- dplyr::bind_cols(mnis_DF_list)
 
     if (tidy == TRUE) {

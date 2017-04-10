@@ -17,6 +17,7 @@ Imports:
     jsonlite,
     utils,
     dplyr,
+    tibble,
     Rcpp (>= 0.12.10)
 RoxygenNote: 6.0.1
 Suggests: knitr,

@@ -56,7 +56,7 @@ mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
 
 \item{preferred_names}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
 
-\item{staff}{staff employed by a Member.}
+\item{staff}{The staff employed by a Member.}
 
 \item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
 
