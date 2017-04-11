@@ -62,6 +62,9 @@ mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
 }
+\value{
+A tibble with data on a given MP.
+}
 \description{
 A wrapper for \code{\link{mnis_additional}} functions. It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}.
 Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>

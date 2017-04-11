@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evan Odell" />
 
-<meta name="date" content="2017-04-04" />
+<meta name="date" content="2017-04-11" />
 
 <title>Introduction to mnis</title>
 
@@ -70,12 +70,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to mnis</h1>
 <h4 class="author"><em>Evan Odell</em></h4>
-<h4 class="date"><em>2017-04-04</em></h4>
+<h4 class="date"><em>2017-04-11</em></h4>
 
 
 
 <p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data.</p>
-<p>All functions return data in JSON format, which is parsed to a list or data frame, depending on the data that is returned.</p>
+<p>All functions requests data in JSON format and parse it to a tibble, except for <code>mnis_constituency_results</code> which returns a list (with constituency details) and a tibble (with constituency election results).</p>
 <p>Functions are divided into three main types:</p>
 <ul>
 <li><p>Reference Functions</p></li>

@@ -1,11 +1,12 @@
 
 #' mnis_additional
 #'
-#' Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a tibble.
+#' A series of basic function for the API lookup.
 #' @param ID The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.
 #' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.
 #' @param tidy Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.
 #' @keywords mnis
+#' @return A tibble with the data corresponding to the particular function called.
 #' @examples \dontrun{
 #'
 #' x <- mnis_basic_details(172)

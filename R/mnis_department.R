@@ -1,10 +1,10 @@
 #' mnis_department
 #'
-#' @param department_id The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/
-#' @param bench Flag to return either Government or Opposition information. Defaults to Government.
+#' @param department_id The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.
+#' @param bench Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.
 #' @param former Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.
 #' @param tidy Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.
-#' @return A list with information on the outcome of the most recent election in a constituency
+#' @return A tibble with information on departments and ministers/shadow ministers.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{

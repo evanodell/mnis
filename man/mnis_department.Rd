@@ -8,16 +8,16 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
   tidy = TRUE)
 }
 \arguments{
-\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers/}
+\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.}
 
-\item{bench}{Flag to return either Government or Opposition information. Defaults to Government.}
+\item{bench}{Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.}
 
 \item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.}
 
 \item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
 \value{
-A list with information on the outcome of the most recent election in a constituency
+A tibble with information on departments and ministers/shadow ministers.
 }
 \description{
 mnis_department

@@ -11,7 +11,7 @@ vignette: >
 
 `mnis` is an R package to pull data from the UK parliament through the Members' Name Information Service API. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. 
 
-All functions return data in JSON format, which is parsed to a list or data frame, depending on the data that is returned.
+All functions requests data in JSON format and parse it to a tibble, except for `mnis_constituency_results` which returns a list (with constituency details) and a tibble (with constituency election results).
 
 Functions are divided into three main types:
 

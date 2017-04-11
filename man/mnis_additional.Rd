@@ -73,8 +73,11 @@ mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 
 \item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
 }
+\value{
+A tibble with the data corresponding to the particular function called.
+}
 \description{
-Basic function for the MNIS API lookup. The function requests data in JSON format and parses it to a tibble.
+A series of basic function for the API lookup.
 }
 \examples{
 \dontrun{
