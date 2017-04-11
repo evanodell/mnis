@@ -9,7 +9,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-`mnis` is an R package to pull data from the UK parliament through the Members' Name Information Service API. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. 
+`mnis` is an R package to pull data from the UK parliament through the Members' Name Information Service API, with the ability to tidy that data into object classes that are easy to work with in R. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. The Members' Name Information Service API does not require registration or a token, and is very generous with the number of requests allowed (it is unclear what limits are applied to the API, but I have yet to hit the limit, aside from custom requests using `mnis_base`.)
+
+`mnis` is for researchers, journalists and developers who follow the UK parliament for work, pleasure or some combination thereof. It has a sister package called [`hansard`](https://cran.r-project.org/package=hansard) that retrieves data from a different API, and while there is some overlap in function between the two packages, `mnis` is focused on retrieving data on individual MPs and Peers, government departments, cabinet and shadow cabinet positions, other parliamentary and political roles, and parliamentary reference data.
 
 All functions requests data in JSON format and parse it to a tibble, except for `mnis_constituency_results` which returns a list (with constituency details) and a tibble (with constituency election results).
 
@@ -21,28 +23,34 @@ Functions are divided into three main types:
 
 * Fixed Scope Functions
 
-There is also the `mnis_base` function that allows for increased flexibility in all API requests.
+There is also the `mnis_base` function that allows for fully flexibility in all API requests, by allowing you to fully specify the URL you want to call data from.
 
 ##Installing mnis
 
 ###From CRAN
 
+```
 install.packages("mnis")
+```
 
 ###From GitHub (Development Version)
 
+```
 install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")
+```
 
 ###Load mnis
 
+```
 library(mnis)
+```
 
 ##Using mnis
 
-### mnis_Base function
+### mnis_base function
 
-The `mnis_Base()` function accepts requests to the mnis API. The full list of request options is available on the mnis website: http://data.parliament.uk/membersdataplatform/memberquery.aspx
+The `mnis_base()` function accepts requests to the mnis API. The full list of request options is available on the mnis website: http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
 ### Reference Functions
 
@@ -238,7 +246,7 @@ x
 
 The `mnis_extra()` function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to `mnis_full_biog()`.
 
-###Fixed Scope Functions
+### Fixed Scope Functions
 
 There are seven fixed scope functions that return ready-made datasets. They are: 
 
@@ -284,5 +292,9 @@ x
 ```
 
 
+### Data tidying
 
+`mnis` contains a parameter option called `tidy` with all functions except for `mnis_base`. The default variable names are unnecessarily lengthy, repeat the same piece of information several times in a row and contain non-alphanumeric characters. They also use a mixture of camelCase, `.`s, `@`s and `#`s to seperate words in multi-word variable names. `tidy` fixes this, and defaults to TRUE, so you won't have to deal with the clunky and over-complicated default variable names unless you really want to.
+
+There is also an internal function to remove byte-order marks from the API response.
 

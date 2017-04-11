@@ -4,24 +4,25 @@
 \alias{mnis_full_biog}
 \title{mnis_full_biog}
 \usage{
-mnis_full_biog(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE)
+mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE)
 }
 \arguments{
-\item{ID}{The ID number of the member. If left empty, returns an error.}
+\item{ID}{The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}}.}
 
-\item{mnis_id}{Request based on the default membership ID scheme. Defaults to TRUE.}
+\item{ref_dods}{Request based on the Dods monitoring member ID scheme. Defaults to FALSE. If FALSE, requests using the default MNIS identification scheme.}
 
-\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
-
-\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to snake_case. Defaults to TRUE.}
 }
 \description{
-Requests all available biographical information for a given member.
+Requests all available biographical information for a given member, and returns it in the form of a tibble.
 }
 \examples{
 \dontrun{
 x <- mnis_mnis_full_biog(172)
 
 }
+}
+\seealso{
+\code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 }
 \keyword{mnis}

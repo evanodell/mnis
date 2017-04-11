@@ -17,7 +17,7 @@ mnis_general_election_results(location_type = "Country",
 
 \item{end_date}{End date of search. In yyyy-mm-dd format. Defaults to current date if no date is selected.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }
 \value{
 Returns a list with details of the search parameter and a tibble with election results.

@@ -8,11 +8,11 @@ mnis_constituency_results(constituency_id = NULL, election_id = 0,
   tidy = TRUE)
 }
 \arguments{
-\item{constituency_id}{The ID of the constituency to return the data for. Defaults to NULL}
+\item{constituency_id}{The ID of the constituency to return the data for. This parameter cannot be empty.}
 
-\item{election_id}{The ID of the election to return the data for. Defaults to 0, which calls the latest result.}
+\item{election_id}{The ID of the election to return the data for. Defaults to 0, which calls the most recent result, either the result of the last general election, or the result of the last byelection held since that election.}
 
-\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.}
 }
 \value{
 A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.

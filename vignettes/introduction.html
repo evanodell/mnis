@@ -74,7 +74,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data.</p>
+<p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API, with the ability to tidy that data into object classes that are easy to work with in R. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. The Members’ Name Information Service API does not require registration or a token, and is very generous with the number of requests allowed (it is unclear what limits are applied to the API, but I have yet to hit the limit, aside from custom requests using <code>mnis_base</code>.)</p>
+<p><code>mnis</code> is for researchers, journalists and developers who follow the UK parliament for work, pleasure or some combination thereof. It has a sister package called <a href="https://cran.r-project.org/package=hansard"><code>hansard</code></a> that retrieves data from a different API, and while there is some overlap in function between the two packages, <code>mnis</code> is focused on retrieving data on individual MPs and Peers, government departments, cabinet and shadow cabinet positions, other parliamentary and political roles, and parliamentary reference data.</p>
 <p>All functions requests data in JSON format and parse it to a tibble, except for <code>mnis_constituency_results</code> which returns a list (with constituency details) and a tibble (with constituency election results).</p>
 <p>Functions are divided into three main types:</p>
 <ul>
@@ -82,27 +83,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p>Additional Information Functions</p></li>
 <li><p>Fixed Scope Functions</p></li>
 </ul>
-<p>There is also the <code>mnis_base</code> function that allows for increased flexibility in all API requests.</p>
+<p>There is also the <code>mnis_base</code> function that allows for fully flexibility in all API requests, by allowing you to fully specify the URL you want to call data from.</p>
 <div id="installing-mnis" class="section level2">
 <h2>Installing mnis</h2>
 <div id="from-cran" class="section level3">
 <h3>From CRAN</h3>
-<p>install.packages(“mnis”)</p>
+<pre><code>install.packages(&quot;mnis&quot;)</code></pre>
 </div>
 <div id="from-github-development-version" class="section level3">
 <h3>From GitHub (Development Version)</h3>
-<p>install.packages(“devtools”) devtools::install_github(“EvanOdell/mnis”)</p>
+<pre><code>install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 </div>
 <div id="load-mnis" class="section level3">
 <h3>Load mnis</h3>
-<p>library(mnis)</p>
+<pre><code>library(mnis)</code></pre>
 </div>
 </div>
 <div id="using-mnis" class="section level2">
 <h2>Using mnis</h2>
 <div id="mnis_base-function" class="section level3">
-<h3>mnis_Base function</h3>
-<p>The <code>mnis_Base()</code> function accepts requests to the mnis API. The full list of request options is available on the mnis website: <a href="http://data.parliament.uk/membersdataplatform/memberquery.aspx" class="uri">http://data.parliament.uk/membersdataplatform/memberquery.aspx</a></p>
+<h3>mnis_base function</h3>
+<p>The <code>mnis_base()</code> function accepts requests to the mnis API. The full list of request options is available on the mnis website: <a href="http://data.parliament.uk/membersdataplatform/memberquery.aspx" class="uri">http://data.parliament.uk/membersdataplatform/memberquery.aspx</a></p>
 </div>
 <div id="reference-functions" class="section level3">
 <h3>Reference Functions</h3>
@@ -263,6 +265,11 @@ x
 <span class="co"># 13 Commons       35            UK Independence Party                1                  0                 1</span>
 <span class="co"># 14 Commons        0                           Vacant                0                  0                 1</span></code></pre></div>
 </div>
+</div>
+<div id="data-tidying" class="section level3">
+<h3>Data tidying</h3>
+<p><code>mnis</code> contains a parameter option called <code>tidy</code> with all functions except for <code>mnis_base</code>. The default variable names are unnecessarily lengthy, repeat the same piece of information several times in a row and contain non-alphanumeric characters. They also use a mixture of camelCase, <code>.</code>s, <code>@</code>s and <code>#</code>s to seperate words in multi-word variable names. <code>tidy</code> fixes this, and defaults to TRUE, so you won’t have to deal with the clunky and over-complicated default variable names unless you really want to.</p>
+<p>There is also an internal function to remove byte-order marks from the API response.</p>
 </div>
 </div>
 

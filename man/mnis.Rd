@@ -11,14 +11,16 @@ An API package for the Members' Name Information Service operated by the UK parl
 \details{
 The package includes a built in function to remove a byte-order mark from the API data, and a parameter \code{tidy} with each function that converts variable names into an R friendly style, removing non-alphanumeric characters and converting to snake_case when equal to TRUE, its default value.
 
-All functions requests data in JSON format and parse it to a tibble, except for \code{\link{mnis_constituency_results}} which returns a list (with constituency details) and a tibble (with election results).
+All functions requests data in JSON format and parse it to a tibble. The exception is \code{\link{mnis_constituency_results}} which returns a single object containing a list (with constituency details) and a tibble (with election results).
+
+None of the functions included in this package appear to run into the API rate limit, although there may be restrictions to custom requests.
 }
 \section{mnis functions}{
 
 
 \code{\link{mnis_additional}}
 
-\code{\link{mnis_all_membersl}}
+\code{\link{mnis_all_members}}
 
 \code{\link{mnis_base}}
 

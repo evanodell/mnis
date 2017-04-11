@@ -1,10 +1,10 @@
 #' mnis_eligible
 #'
-#' Function returns all members who are eligible to sit in either house. The function requests data in JSON format and parses it to a tibble.
+#' Function returns all members who are eligible to sit in either house.
 #' @param eligible If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.
-#' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.
-#' @param party The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. 'green party'), the API does not accept searches on this parameter.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.
+#' @param party The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. 'green party'), the API does not accept searches on this parameter. For a tibble of parties, see \code{\link{ref_parties}}. This parameter is not case sensititive.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -23,6 +23,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/iseligible="
 
     house <- as.character(house)
+    house <- tolower(house)
 
     if (house == "lords") {
         house <- "|house=lords"

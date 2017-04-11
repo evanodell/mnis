@@ -5,7 +5,7 @@
 #' @param location_name The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.
 #' @param start_date Start date of search. In yyyy-mm-dd format. Defaults to '1900-01-01' if no date is selected.
 #' @param end_date End date of search. In yyyy-mm-dd format. Defaults to current date if no date is selected.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
 #' @return Returns a list with details of the search parameter and a tibble with election results.
 #' @keywords mnis
 #' @export
@@ -39,13 +39,11 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    x <- got$ElectionResults
+    x <- tibble::as_tibble(got$ElectionResults)
 
     if (tidy == TRUE) {
 
         x$ElectionResult <- mnis_tidy(x$ElectionResult)
-
-      
 
     } else {
 

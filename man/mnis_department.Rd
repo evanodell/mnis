@@ -14,7 +14,7 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
 
 \item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.}
 
-\item{tidy}{Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.}
 }
 \value{
 A tibble with information on departments and ministers/shadow ministers.

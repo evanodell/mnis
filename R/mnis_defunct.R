@@ -4,7 +4,7 @@
 #'
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Addresses <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_addresses")
     mnis_addresses(ID = ID, ref_dods = ref_dods)
 }
@@ -15,14 +15,14 @@ mnis_Addresses <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_BasicDetails <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_BasicDetails <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_basic_details")
     mnis_basic_details(ID = ID, ref_dods = ref_dods, tidy = tidy)
 }
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_BiographyEntries <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_BiographyEntries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_biography_entries")
     mnis_biography_entries(ID = ID, ref_dods = ref_dods)
 }
@@ -42,7 +42,7 @@ mnis_ConstituencyResults <- function(constituencyId = NULL, election_id = 0) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Committees <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_committees")
     mnis_committees(ID = ID, ref_dods = ref_dods)
 }
@@ -51,7 +51,7 @@ mnis_Committees <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Constituencies <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_constituencies")
     mnis_constituencies(ID = ID, ref_dods = ref_dods)
 }
@@ -63,7 +63,7 @@ mnis_Base <- function(request) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_ElectionsContested <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_ElectionsContested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_elections_contested")
     mnis_elections_contested(ID = ID, ref_dods = ref_dods)
 }
@@ -73,7 +73,7 @@ mnis_ElectionsContested <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Experiences <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_experiences")
     mnis_experiences(ID = ID, ref_dods = ref_dods)
 }
@@ -84,7 +84,7 @@ mnis_Experiences <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_GovernmentPosts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_GovernmentPosts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_government_posts")
     mnis_government_posts(ID = ID, ref_dods = ref_dods)
 }
@@ -94,7 +94,7 @@ mnis_GovernmentPosts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Honours <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_honours")
     mnis_honours(ID = ID, ref_dods = ref_dods)
 }
@@ -105,7 +105,7 @@ mnis_Honours <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_HouseMemberships <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_HouseMemberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_house_memberships")
     mnis_house_memberships(ID = ID, ref_dods = ref_dods)
 }
@@ -115,7 +115,7 @@ mnis_HouseMemberships <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Statuses <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_statuses")
     mnis_statuses(ID = ID, ref_dods = ref_dods)
 }
@@ -125,7 +125,7 @@ mnis_Statuses <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Staff <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_staff")
     mnis_staff(ID = ID, ref_dods = ref_dods)
 }
@@ -135,7 +135,7 @@ mnis_Staff <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Interests <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_interests")
     mnis_interests(ID = ID, ref_dods = ref_dods)
 }
@@ -145,7 +145,7 @@ mnis_Interests <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_KnownAs <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_KnownAs <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_known_as")
     mnis_known_as(ID = ID, ref_dods = ref_dods)
 }
@@ -156,7 +156,7 @@ mnis_KnownAs <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_MaidenSpeeches <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_MaidenSpeeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_maiden_speeches")
     mnis_maiden_speeches(ID = ID, ref_dods = ref_dods)
 }
@@ -165,7 +165,7 @@ mnis_MaidenSpeeches <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_OppositionPosts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_OppositionPosts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_opposition_posts")
     mnis_opposition_posts(ID = ID, ref_dods = ref_dods)
 }
@@ -175,7 +175,7 @@ mnis_OppositionPosts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_OtherParliaments <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_OtherParliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_other_parliaments")
     mnis_other_parliaments(ID = ID, ref_dods = ref_dods)
 }
@@ -184,7 +184,7 @@ mnis_OtherParliaments <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_ParliamentaryPosts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_ParliamentaryPosts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_parliamentary_posts")
     mnis_parliamentary_posts(ID = ID, ref_dods = ref_dods)
 }
@@ -193,7 +193,7 @@ mnis_ParliamentaryPosts <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_Parties <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_Parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_parties")
     mnis_parties(ID = ID, ref_dods = ref_dods)
 }
@@ -202,7 +202,7 @@ mnis_Parties <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_PreferredNames <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_PreferredNames <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_preferred_names")
     mnis_preferred_names(ID = ID, ref_dods = ref_dods)
 }
@@ -225,7 +225,7 @@ mnis_MemberDate <- function(ID = NULL, Date = Sys.Date()) {
 }
 
 
-mnis_FullBiog <- function(ID = NULL,  ref_dods = FALSE, tidy = TRUE) {
+mnis_FullBiog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     .Defunct("mnis_full_biog")
     mnis_full_biog(ID = ID, ref_dods = ref_dods, tidy = tidy)
 }
@@ -459,21 +459,18 @@ ref_HonourLists <- function(tidy = TRUE) {
 
 #' @rdname mnis_defunct
 #' @usage NULL
-mnis_GeneralElectionResults <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01",
-    end_date = Sys.Date()) {
+mnis_GeneralElectionResults <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01", end_date = Sys.Date()) {
     .Deprecated("mnis_general_election_results")
-    mnis_general_election_results(location_type = location_type, location_name = location_name, start_date = start_date,
-        end_date = end_date)
+    mnis_general_election_results(location_type = location_type, location_name = location_name, start_date = start_date, end_date = end_date)
 }
 
 
 
 
-mnis_JoinedBetween <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all",
+mnis_JoinedBetween <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", 
     tidy = TRUE) {
     .Deprecated("mnis_JoinedBetween")  #include a package argument, too
-    mnis_joined_between(start_date = start_date, end_date = end_date, house = house, party = party, eligible = eligible,
-        tidy = tidy)
+    mnis_joined_between(start_date = start_date, end_date = end_date, house = house, party = party, eligible = eligible, tidy = tidy)
 }
 
 

@@ -13,7 +13,7 @@ ref_tidy(x)
 
 constituency_results_tidy(results, details)
 
-tidy_bom(y)
+tidy_bom(df)
 }
 \arguments{
 \item{x}{The dataframe to tidy}
@@ -22,11 +22,14 @@ tidy_bom(y)
 
 \item{details}{The list to tidy}
 
-\item{y}{The GET returned from call to API.}
+\item{df}{The GET returned from call to API.}
+}
+\value{
+Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
 }
 \description{
 Internal tidying functions
 
 tidy_bom
-Strips BOM out of JSON data
+Strips BOM out of JSON data that does not need to be there.
 }

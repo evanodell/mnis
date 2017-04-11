@@ -1,23 +1,25 @@
 
 #' mnis_full_biog
 #'
-#' Requests all available biographical information for a given member.
-#' @param ID The ID number of the member. If left empty, returns an error.
-#' @param mnis_id Request based on the default membership ID scheme. Defaults to TRUE.
-#' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE.
-#' @param tidy Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.
+#' Requests all available biographical information for a given member, and returns it in the form of a tibble.
+#' @param ID The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}}.
+#' @param ref_dods Request based on the Dods monitoring member ID scheme. Defaults to FALSE. If FALSE, requests using the default MNIS identification scheme.
+#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to snake_case. Defaults to TRUE.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
 #' x <- mnis_mnis_full_biog(172)
 #'
 #' }
+#' @seealso \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 
-mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = TRUE) {
+mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be blank", call. = FALSE)
-    }
+    if (missing(ID)) {
+
+      x <- mnis_all_members()
+
+      } else {
 
     ID <- as.character(ID)
 
@@ -48,6 +50,8 @@ mnis_full_biog <- function(ID = NULL, mnis_id = TRUE, ref_dods = FALSE, tidy = T
     x <- tibble::as_tibble(x)
 
     x <- x[rownames(x) != "ID", ]
+
+    }
 
     if (tidy == TRUE) {
 

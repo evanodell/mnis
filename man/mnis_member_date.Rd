@@ -7,11 +7,11 @@
 mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE)
 }
 \arguments{
-\item{ID}{The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty,}
+\item{ID}{The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.}
 
-\item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
+\item{date}{A date in yyyy-mm-dd format, on which to return details on the requested member's status. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }
 \value{
 Returns a tibble with the given member's status on the given date.

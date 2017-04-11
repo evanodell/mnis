@@ -11,7 +11,7 @@ mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE)
 
 \item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to all lower case with underscores between each word. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }
 \value{
 A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.

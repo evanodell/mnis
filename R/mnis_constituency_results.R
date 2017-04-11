@@ -1,9 +1,9 @@
 #' mnis_constituency_results
 #'
 #' Returns a list with details of the constituency and a tibble with election results.
-#' @param constituency_id The ID of the constituency to return the data for. Defaults to NULL
-#' @param election_id The ID of the election to return the data for. Defaults to 0, which calls the latest result.
-#' @param tidy Fix the variable names in the tibble to remove '@' characters and superfluous text. Defaults to TRUE.
+#' @param constituency_id The ID of the constituency to return the data for. This parameter cannot be empty.
+#' @param election_id The ID of the election to return the data for. Defaults to 0, which calls the most recent result, either the result of the last general election, or the result of the last byelection held since that election.
+#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.
 #' @return A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
 #' @keywords mnis
 #' @export
@@ -14,7 +14,7 @@
 
 mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, tidy = TRUE) {
     
-    if (is.null(constituency_id) == TRUE) {
+    if (missing(constituency_id)) {
         stop("'constituency_id' cannot be empty", call. = FALSE)
     }
     
@@ -59,4 +59,3 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
     }
     
 }
-
