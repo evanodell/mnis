@@ -47,9 +47,11 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     x <- t(dl)
 
-    x <- tibble::as_tibble(x)
+    x <- as.data.frame(x)
 
     x <- x[rownames(x) != "ID", ]
+
+    x <- tibble::as_tibble(x)
 
     }
 

@@ -13,15 +13,7 @@ knitr::opts_chunk$set(
 ```
 
 #Resubmission 
-This is the first update of this package. The previous version, 0.1.0, was accepted and published on cran on 2016-12-29.
-
-In this release I:
-
-* Introduced a function parameter called `tidy` that can make the names of columns on the data frames returned by the API more legible.
-
-* Made the default function names all lower case, in place of the ungainly mixture of upper and lower case they were previously. The previous spelling still functions as usual, although it has been deprecated.
-
-* Introduced new `mnis_eligible` and `mnis_all_members` functions that are not pre-set in the API but that are likely to be commonly looked up.
+This is the second update of this package. The original version, 0.1.0, was accepted and published on CRAN on 2016-12-29, and the most recent update, 0.2.1, was released on CRAN on 2017-02-07.
 
 
 ## Test environments
