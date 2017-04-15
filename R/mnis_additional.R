@@ -16,8 +16,6 @@
 #' @rdname mnis_additional
 #' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
 #'
-
-
 #' @export
 #' @rdname mnis_additional
 #' @examples \dontrun{
@@ -71,9 +69,11 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -90,10 +90,6 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -132,10 +128,11 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
 
+        x <- tibble::as_tibble(x)
     }
 
     if (tidy == TRUE) {
@@ -151,8 +148,6 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -190,9 +185,11 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -209,8 +206,6 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -248,9 +243,11 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
-        x <- x <- x[rownames(x) != "ID", ]
+        x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -267,7 +264,6 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
 
 #' @export
 #' @rdname mnis_additional
@@ -305,9 +301,11 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -324,8 +322,6 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 #' @export
 #' @rdname mnis_additional
 mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
@@ -362,9 +358,11 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -381,8 +379,6 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -420,9 +416,11 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -439,8 +437,6 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -478,9 +474,11 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -497,8 +495,6 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -536,9 +532,11 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -555,8 +553,6 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -594,9 +590,11 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -613,8 +611,6 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 #' @export
 #' @rdname mnis_additional
 
@@ -652,9 +648,11 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -671,8 +669,6 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -711,9 +707,11 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -730,8 +728,6 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -773,8 +769,6 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(x)
 
-        x <- tibble::as_tibble(x)
-
     }
 
     if (tidy == TRUE) {
@@ -790,8 +784,6 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 #' @export
 #' @rdname mnis_additional
 mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
@@ -828,9 +820,11 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -884,9 +878,11 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -903,8 +899,6 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -943,9 +937,11 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -962,8 +958,6 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -1002,9 +996,11 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -1021,8 +1017,6 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 #' @export
 #' @rdname mnis_additional
 mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
@@ -1059,9 +1053,11 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -1078,8 +1074,6 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 
 #' @export
 #' @rdname mnis_additional
@@ -1118,9 +1112,11 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 
@@ -1137,8 +1133,6 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
     }
 
 }
-
-
 #' @export
 #' @rdname mnis_additional
 
@@ -1176,9 +1170,11 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(dl)
 
-        x <- tibble::as_tibble(x)
+        x <- as.data.frame(x)
 
         x <- x[rownames(x) != "ID", ]
+
+        x <- tibble::as_tibble(x)
 
     }
 

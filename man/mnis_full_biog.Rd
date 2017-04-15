@@ -18,7 +18,7 @@ Requests all available biographical information for a given member, and returns 
 }
 \examples{
 \dontrun{
-x <- mnis_mnis_full_biog(172)
+x <- mnis_full_biog(172)
 
 }
 }

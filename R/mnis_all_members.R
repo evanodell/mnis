@@ -14,17 +14,17 @@
 #'
 
 mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, tidy = TRUE) {
-
+    
     house <- tolower(house)
-
-    if (is.na(pmatch(house, c("all", "lords", "commons"))))
+    
+    if (is.na(pmatch(house, c("all", "lords", "commons")))) 
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
-
+    
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/Membership=all"
-
-    if (is.null(party) == FALSE)
+    
+    if (is.null(party) == FALSE) 
         party <- utils::URLencode(party)
-
+    
     if (house == "lords") {
         house <- "|house=lords"
     } else if (house == "commons") {
@@ -32,43 +32,43 @@ mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, t
     } else if (house == "all") {
         house <- ""
     }
-
+    
     if (is.null(party) == FALSE) {
         party <- paste0("|party*", party)
     }
-
+    
     if (is.null(joined_since) == FALSE) {
         joined_since <- paste0("joinedsince=", joined_since)
     }
-
+    
     message("Connecting to API")
-
+    
     query <- paste0(baseurl, house, party, joined_since, "/HouseMemberships/")
-
+    
     got <- httr::GET(query, httr::accept_json())
-
+    
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-
+    
     got <- tidy_bom(got)
-
+    
     got <- jsonlite::fromJSON(got, flatten = TRUE)
-
+    
     x <- got$Members$Member
-
+    
     # x <- tibble::as_tibble(x)
-
+    
     if (tidy == TRUE) {
-
+        
         x <- mnis_tidy(x)
-
+        
         x
-
+        
     } else {
-
+        
         x
-
+        
     }
-
+    
 }
