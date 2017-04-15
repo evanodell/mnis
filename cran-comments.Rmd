@@ -15,11 +15,12 @@ knitr::opts_chunk$set(
 #Resubmission 
 This is the second update of this package. The original version, 0.1.0, was accepted and published on CRAN on 2016-12-29, and the most recent update, 0.2.1, was released on CRAN on 2017-02-07.
 
+Since 0.2.1 I have added a function to remove byte order marks from the API return, switched from data frames to tibbles for the default data class, and clarified error messages on `mnis_all_members` and `mnis_additional`.
 
 ## Test environments
 
-* Ubuntu 12.04 (on Travis-CI): R 3.3.1
-* local MacOS 10.11.6 installation, R 3.3.2
+* Ubuntu 12.04 (on Travis-CI): R 3.3.3
+* local MacOS 10.11.6 installation, R 3.3.3
 * win-builder (devel and release)
 
 ##R CMD check results
