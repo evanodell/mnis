@@ -1,7 +1,5 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -36,7 +34,6 @@ The most recent version on GitHub can be installed by running:
 ```{r eval = FALSE}
 install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")
-
 ```
 
 For an introduction to `mnis`, the vignette `vignette("introduction", package = "mnis")` is the best place to start. If you are unfamiliar with APIs https://zapier.com/learn/apis/ is a helpful introduction.
