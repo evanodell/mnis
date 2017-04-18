@@ -41,9 +41,6 @@
   <a href="http://evanodell.com">Home</a>
 </li>
 <li>
-  <a href="http://evanodell.com/packages">Packages</a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li>
@@ -52,10 +49,30 @@
 <li>
   <a href="news/index.html">News</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Packages
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="http://evanodell.com/packages">Packages Home</a>
+    </li>
+    <li class="divider">
+    </li>
+<li>
+      <a href="http://evanodell.com/hansard">hansard</a>
+    </li>
+    <li>
+      <a href="http://evanodell.com/mnis">mnis</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/EvanOdell/hansard">
+  <a href="https://github.com/EvanOdell/mnis">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -86,7 +103,7 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"mnis"</span>)</code></pre></div>
 <p>The most recent version on GitHub can be installed by running:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"EvanOdell/mnis"</span>)</code></pre></div>
+devtools::<span class="kw">install_github</span>(<span class="st">"EvanOdell/mnis"</span>)</code></pre></div>
 <p>For an introduction to <code>mnis</code>, the vignette <code>vignette("introduction", package = "mnis")</code> is the best place to start. If you are unfamiliar with APIs <a href="https://zapier.com/learn/apis/" class="uri">https://zapier.com/learn/apis/</a> is a helpful introduction.</p>
 <div id="future-functions" class="section level2">
 <h2 class="hasAnchor">
