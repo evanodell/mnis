@@ -769,6 +769,8 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
         x <- t(x)
 
+        x <- tibble::as_tibble(x)
+
     }
 
     if (tidy == TRUE) {

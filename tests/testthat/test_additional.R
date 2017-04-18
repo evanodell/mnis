@@ -57,12 +57,32 @@ test_that("mnis_additional returns expected format", {
     expect_type(xexp, "list")
     expect_true(tibble::is_tibble(xexp))
 
+    xgp <- mnis_government_posts(15)
+    expect_length(xgp, 29)
+    expect_type(xgp, "list")
+    expect_true(tibble::is_tibble(xgp))
 
-    #mnis_government_posts()
-    #mnis_honours()
-    #mnis_house_memberships()
-    #mnis_statuses()
-    #mnis_interests()
+    xhon <- mnis_honours(288)
+    expect_length(xhon, 27)
+    expect_type(xhon, "list")
+    expect_true(tibble::is_tibble(xhon))
+
+    xhm <- mnis_house_memberships(500)
+    expect_length(xhm, 32)
+    expect_type(xhm, "list")
+    expect_true(tibble::is_tibble(xhm))
+
+
+    xstatus <- mnis_statuses(1467)
+    expect_length(xstatus, 28)
+    expect_type(xstatus, "list")
+    expect_true(tibble::is_tibble(xstatus))
+
+
+    xi <- mnis_interests(500)
+    expect_length(xi, 285)
+    expect_type(xi, "list")
+    expect_true(tibble::is_tibble(xi))
     #mnis_knownas()
     #mnis_maiden_speeches()
     #mnis_opposition_posts()
