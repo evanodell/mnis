@@ -16,15 +16,15 @@
 
 
 mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = TRUE) {
-    
-    if (is.na(pmatch(house, c("all", "lords", "commons")))) 
+
+    if (is.na(pmatch(house, c("all", "lords", "commons"))))
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
-    
+
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/iseligible="
-    
+
     house <- as.character(house)
     house <- tolower(house)
-    
+
     if (house == "lords") {
         house <- "|house=lords"
     } else if (house == "commons") {
@@ -32,36 +32,36 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
     } else if (house == "all") {
         house <- "|house=all"
     }
-    
+
     if (is.null(party) == FALSE) {
         party <- utils::URLencode(party)
         party <- paste0("|party=", party)
     }
-    
+
     query <- paste0(baseurl, eligible, house, party)
-    
+
     got <- httr::GET(query, httr::accept_json())
-    
+
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    
+
     got <- tidy_bom(got)
-    
+
     got <- jsonlite::fromJSON(got, flatten = TRUE)
-    
+
     x <- tibble::as_tibble(got)
-    
+
     if (tidy == TRUE) {
-        
+
         x <- mnis_tidy(x)
-        
+
         x
-        
+
     } else {
-        
+
         x
-        
+
     }
-    
+
 }
