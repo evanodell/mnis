@@ -242,6 +242,10 @@ x
 
 `mnis_statuses()`
 
+`mnis_mps_on_date()`
+
+`mnis_peers_on_date()`
+
 #### mnis_extra()
 
 The `mnis_extra()` function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to `mnis_full_biog()`.

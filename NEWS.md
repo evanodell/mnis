@@ -1,4 +1,14 @@
 
+# mnis 0.2.4
+
+`mnis_mps_on_date` and `mnis_peers_on_date` functions introduced, which return all members of the House of Commons or the House of Lords eligible to sit on a given date.
+
+# mnis 0.2.4
+
+## bug fixes
+
+Bug fixes for constituency names in `mnis_eligible`
+
 # mnis 0.2.3
 
 ## tibbling
