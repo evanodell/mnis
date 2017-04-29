@@ -56,6 +56,8 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
         x <- mnis_tidy(x)
 
+        x$member_from <- gsub("Ynys M\U00C1\U00B4n", "Ynys M\U00F4n", x$member_from)
+
         x
 
     } else {

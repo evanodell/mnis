@@ -5,6 +5,8 @@
 
 `mnis` now uses tibbles instead of data frames as the data class returned from API calls.
 
+Bug fixes for constituency names in `mnis_eligible`
+
 # mnis 0.2.2
 
 ## Removing BOM, changing behaviour for empty mnis_additional function calls
