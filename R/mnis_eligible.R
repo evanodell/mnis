@@ -40,7 +40,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
     query <- paste0(baseurl, eligible, house, party)
 
-    got <- httr::GET(query, httr::accept_json())
+    got <- httr::GET(query, httr::accept_json(),encoding = "UTF-8")
 
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
