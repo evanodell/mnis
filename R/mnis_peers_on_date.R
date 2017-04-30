@@ -4,7 +4,7 @@
 #' @param date2 An optional query parameter. If a proper date in "YYYY-MM-DD" format, the function returns a list of all peers in the House of Lords between date2 and date1. Defaults to NULL.
 #' @param tidy Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to snake_case. Defaults to TRUE.
 #'
-#' @return A tibble with all members of the House of Lords eligible to sit on a given date.
+#' @return A tibble with information on all Peers who were members of the House of Lords on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 #' @export
 #'
 #' @examples \dontrun{
@@ -16,6 +16,15 @@
 mnis_peers_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE){
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Lords|Membership=all|lordsmemberbetween="
+
+  if(is.null(date2)==TRUE) {
+    date2 <- date1
+  } else if (date1 > date2) {
+    date3 <- date1
+    date1 <- date2
+    date2 <- date3
+    rm(date3)
+  }
 
   query <- paste0(baseurl,date1,"and",date2,"/")
 

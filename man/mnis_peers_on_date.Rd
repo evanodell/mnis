@@ -14,7 +14,7 @@ mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE)
 \item{tidy}{Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to snake_case. Defaults to TRUE.}
 }
 \value{
-A tibble with all members of the House of Lords eligible to sit on a given date.
+A tibble with information on all Peers who were members of the House of Lords on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \description{
 mnis_peers_on_date
