@@ -1,7 +1,8 @@
 
 #' mnis_mps_on_date
 #'
-#' @param date The date to return the list of mps from. Defaults to current system date.
+#' @param date1 The date to return the list of mps from. Defaults to current system date.
+#' @param date2 An optional query parameter. If a proper date in "YYYY-MM-DD" format, the function returns a list of all MPs who were members between date2 and date1. Defaults to NULL.
 #' @param tidy Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to snake_case. Defaults to TRUE.
 #'
 #' @return A tibble with all members of the House of Commons eligible to sit on a given date.
@@ -13,11 +14,15 @@
 #'
 #' }
 
-mnis_mps_on_date <- function(date=Sys.Date(), tidy=TRUE){
+mnis_mps_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE){
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/commonsmemberbetween="
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons|Membership=all|commonsmemberbetween="
 
-  query <- paste0(baseurl,date,"and",date,"/")
+  if(is.null(date2)==TRUE) {
+    date2 <- date1
+  }
+
+  query <- paste0(baseurl,date1,"and",date2,"/")
 
   got <- httr::GET(query, httr::accept_json())
 

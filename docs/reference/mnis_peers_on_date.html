@@ -123,14 +123,18 @@
     <p>mnis_peers_on_date</p>
     
 
-    <pre class="usage"><span class='fu'>mnis_peers_on_date</span>(<span class='kw'>date</span> <span class='kw'>=</span> <span class='fu'>Sys.Date</span>(), <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>mnis_peers_on_date</span>(<span class='kw'>date1</span> <span class='kw'>=</span> <span class='fu'>Sys.Date</span>(), <span class='kw'>date2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>date</th>
+      <th>date1</th>
       <td><p>The date to return the list of peers from. Defaults to current system date.</p></td>
+    </tr>
+    <tr>
+      <th>date2</th>
+      <td><p>An optional query parameter. If a proper date in "YYYY-MM-DD" format, the function returns a list of all peers in the House of Lords between date2 and date1. Defaults to NULL.</p></td>
     </tr>
     <tr>
       <th>tidy</th>

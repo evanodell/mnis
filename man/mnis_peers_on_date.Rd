@@ -4,10 +4,12 @@
 \alias{mnis_peers_on_date}
 \title{mnis_peers_on_date}
 \usage{
-mnis_peers_on_date(date = Sys.Date(), tidy = TRUE)
+mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE)
 }
 \arguments{
-\item{date}{The date to return the list of peers from. Defaults to current system date.}
+\item{date1}{The date to return the list of peers from. Defaults to current system date.}
+
+\item{date2}{An optional query parameter. If a proper date in "YYYY-MM-DD" format, the function returns a list of all peers in the House of Lords between date2 and date1. Defaults to NULL.}
 
 \item{tidy}{Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to snake_case. Defaults to TRUE.}
 }
