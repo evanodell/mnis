@@ -18,7 +18,7 @@ test_that("mnis_mps_on_date return expected format", {
   expect_true(nrow(xmpon2)==1730)
 
   xpod <- mnis_peers_on_date("2017-04-30")
-  expect_length(xpod, 23)
+  expect_length(xpod, 22)
   expect_type(xpod, "list")
   expect_true(tibble::is_tibble(xpod))
   expect_true(nrow(xpod)==835)
