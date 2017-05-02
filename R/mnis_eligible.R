@@ -12,6 +12,8 @@
 #'
 #' x <- mnis_eligible(eligible=TRUE, house='all', party='green party')
 #'
+#' x <- mnis_eligible(house="commons")
+#'
 #' }
 
 
@@ -56,7 +58,13 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
         x <- mnis_tidy(x)
 
-        x$member_from <- gsub("Ynys M\U00C1\U00B4n", "Ynys M\U00F4n", x$member_from)
+        if(.Platform$OS.type=="windows"){
+
+          x$member_from <- stringi::stri_trans_general(x$member_from, "latin-ascii")
+
+          x$member_from <- gsub("Ynys MA´n", "Ynys M\U00F4n", x$member_from)
+
+        }
 
         x
 
