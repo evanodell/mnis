@@ -46,6 +46,7 @@
 #' @import jsonlite
 #' @import dplyr
 #' @import tibble
+#' @import stringi
 #' @useDynLib mnis
 #' @importFrom Rcpp sourceCpp
 NULL

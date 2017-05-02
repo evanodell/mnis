@@ -62,7 +62,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
           x$member_from <- stringi::stri_trans_general(x$member_from, "latin-ascii")
 
-          x$member_from <- gsub("Ynys MA´n", "Ynys M\U00F4n", x$member_from)
+          x$member_from <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", x$member_from)
 
         }
 
