@@ -8,9 +8,9 @@ mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
   house = "all", party = NULL, eligible = "all", tidy = TRUE)
 }
 \arguments{
-\item{start_date}{The start date of the search, in yyyy-mm-dd format. Defaults to '1900-01-01'.}
+\item{start_date}{The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.}
 
-\item{end_date}{The end date of the search, in yyyy-mm-dd format. Defaults to the current date.}
+\item{end_date}{The end date of the search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current date.}
 
 \item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.}
 

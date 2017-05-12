@@ -9,7 +9,7 @@ mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE)
 \arguments{
 \item{ID}{The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.}
 
-\item{date}{A date in yyyy-mm-dd format, on which to return details on the requested member's status. Defaults to the current system date.}
+\item{date}{Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Return details on the requested member's status on that date. Defaults to the current system date.}
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }

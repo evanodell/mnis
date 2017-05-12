@@ -2,7 +2,7 @@
 #'
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.
 #' @param party The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters.
-#' @param joined_since All members who joined after a given date, in yyyy-mm-dd format.
+#' @param joined_since All members who joined after a given date. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to NULL.
 #' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
 #' @keywords mnis
 #' @return A tibble with information on all members of the House of Commons and/or the House of Lords that meet the criteria included in the function parameters.
@@ -16,6 +16,8 @@
 mnis_all_members <- function(house = "all", party = NULL, joined_since = NULL, tidy = TRUE) {
 
     house <- tolower(house)
+
+    joined_since <- as.Date(joined_since)
 
     if (is.na(pmatch(house, c("all", "lords", "commons"))))
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")

@@ -13,9 +13,9 @@ mnis_general_election_results(location_type = "Country",
 
 \item{location_name}{The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.}
 
-\item{start_date}{Start date of search. In yyyy-mm-dd format. Defaults to '1900-01-01' if no date is selected.}
+\item{start_date}{Start date of search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01' if no date is selected.}
 
-\item{end_date}{End date of search. In yyyy-mm-dd format. Defaults to current date if no date is selected.}
+\item{end_date}{End date of search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current date if no date is selected.}
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }

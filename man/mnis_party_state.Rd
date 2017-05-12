@@ -9,7 +9,7 @@ mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE)
 \arguments{
 \item{house}{The house of parliament. Defaults to 'Commons'.}
 
-\item{date}{A date in yyyy-mm-dd format. Defaults to the current system date.}
+\item{date}{Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.}
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }

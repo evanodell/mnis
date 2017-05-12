@@ -7,7 +7,7 @@
 mnis_lords_type(date = Sys.Date(), tidy = TRUE)
 }
 \arguments{
-\item{date}{A date in yyyy-mm-dd format. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.}
+\item{date}{Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.}
 
 \item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.}
 }
