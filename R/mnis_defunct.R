@@ -467,7 +467,7 @@ mnis_GeneralElectionResults <- function(location_type = "Country", location_name
 
 
 
-mnis_JoinedBetween <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", 
+mnis_JoinedBetween <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all",
     tidy = TRUE) {
     .Deprecated("mnis_JoinedBetween")  #include a package argument, too
     mnis_joined_between(start_date = start_date, end_date = end_date, house = house, party = party, eligible = eligible, tidy = tidy)
@@ -648,3 +648,6 @@ ref_Titles <- function(tidy = TRUE) {
     .Defunct("ref_titles")
     ref_titles(tidy = tidy)
 }
+
+
+

@@ -3,6 +3,12 @@
 
 Now accepts dates as character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with `as.Date()`.
 
+Fixed bugs on `mnis_joined_between` to return full, proper tibble.
+
+Dropped parameter 'joined_since' from `mnis_all_members`, in favour of `mnis_joined_between`.
+
+Tidied up code in `mnis_reference` functions.
+
 # mnis 0.2.5
 
 `mnis_mps_on_date` and `mnis_peers_on_date` functions introduced, which return all members of the House of Commons or the House of Lords eligible to sit on a given date.

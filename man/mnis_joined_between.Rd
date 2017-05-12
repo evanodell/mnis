@@ -25,8 +25,7 @@ Function returns all members who took their seats in the house between two given
 }
 \examples{
 \dontrun{
-x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01',
-                         house='all', party='labour', eligible='all')
+x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01', party='labour')
 
 }
 }

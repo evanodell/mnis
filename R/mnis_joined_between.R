@@ -10,15 +10,12 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01',
-#'                          house='all', party='labour', eligible='all')
+#' x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01', party='labour')
 #'
 #' }
 
 
-mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all",
-    tidy = TRUE) {
-
+mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", tidy = TRUE) {
 
     ## Making sure house works
     house <- as.character(house)
@@ -38,8 +35,9 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     end_date <- as.Date(end_date)
 
-    if (is.null(party) == FALSE)
+    if (is.null(party) == FALSE) {
         party <- utils::URLencode(party)
+    }
 
     eligible <- as.character(eligible)
 
@@ -74,7 +72,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    x <- tibble::as_tibble(got)
+    x <- tibble::as_tibble(got$Members$Member)
 
     if (tidy == TRUE) {
 

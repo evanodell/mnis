@@ -4,15 +4,12 @@
 \alias{mnis_all_members}
 \title{mnis_all_members}
 \usage{
-mnis_all_members(house = "all", party = NULL, joined_since = NULL,
-  tidy = TRUE)
+mnis_all_members(house = "all", party = NULL, tidy = TRUE)
 }
 \arguments{
 \item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.}
 
 \item{party}{The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters.}
-
-\item{joined_since}{All members who joined after a given date. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to NULL.}
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
 }
@@ -24,7 +21,7 @@ mnis_all_members
 }
 \examples{
 \dontrun{
-x <- mnis_all_members(house = 'all', party = NULL, joined_since = NULL, tidy = TRUE)
+x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE)
 }
 
 }
