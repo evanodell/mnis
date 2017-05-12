@@ -5,6 +5,7 @@ context("additional")
 test_that("mnis_additional returns expected format", {
 
     skip_on_cran()
+    skip_on_travis()
 
     xbdnu <- mnis_basic_details(172)
     expect_length(xbdnu, 33)

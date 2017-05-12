@@ -1,6 +1,6 @@
 template:
   params:
-   bootswatch: yeti
+   bootswatch: readable
    ganalytics: UA-90706059-1
 
 name:
@@ -8,27 +8,27 @@ navbar:
   left:
     - text: "Home"
       href: http://evanodell.com
+    - text: "Documentation"
+      href: http://docs.evanodell.com
+    - text: "News"
+      href: news/index.html
     - text: "Reference"
       href: reference/index.html
     - text: "Articles"
       href: articles/index.html
-    - text: "News"
-      href: news/index.html
     - text: "Packages"
       menu:
-        - text: "Packages Home"
-          href: http://evanodell.com/packages
+        - text: "Documentation Home"
+          href: http://docs.evanodell.com
         - text: "---------"
         - text: "hansard"
-          href: http://evanodell.com/hansard
+          href: http://docs.evanodell.com/hansard
         - text: "mnis"
-          href: http://evanodell.com/mnis
+          href: http://docs.evanodell.com/mnis
         - text: "parlitools"
-          href: http://evanodell.com/parlitools
-
+          href: http://docs.evanodell.com/parlitools
   right:
     - icon: fa-github fa-lg
       href: https://github.com/EvanOdell/mnis
-
-
-
+    - icon: fa-home fa-lg
+      href: http://evanodell.com
