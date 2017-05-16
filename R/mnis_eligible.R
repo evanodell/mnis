@@ -4,7 +4,8 @@
 #' @param eligible If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.
 #' @param party The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. 'green party'), the API does not accept searches on this parameter. For a tibble of parties, see \code{\link{ref_parties}}. This parameter is not case sensititive.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -17,7 +18,7 @@
 #' }
 
 
-mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = TRUE) {
+mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = TRUE, tidy_style="snake_case") {
 
     if (is.na(pmatch(house, c("all", "lords", "commons"))))
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
@@ -56,7 +57,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         if(.Platform$OS.type=="windows"){
 

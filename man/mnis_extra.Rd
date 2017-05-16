@@ -11,7 +11,7 @@ mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
   interests = TRUE, known_as = TRUE, maiden_speeches = TRUE,
   opposition_posts = TRUE, other_parliaments = TRUE,
   parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE,
-  staff = TRUE, statuses = TRUE, tidy = TRUE)
+  staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL.}
@@ -60,7 +60,9 @@ mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
 
 \item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 A tibble with data on a given MP.

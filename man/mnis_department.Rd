@@ -5,7 +5,7 @@
 \title{mnis_department}
 \usage{
 mnis_department(department_id = 0, bench = "Government", former = TRUE,
-  tidy = TRUE)
+  tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
 \item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.}
@@ -14,7 +14,9 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
 
 \item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.}
 
-\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.}
+\item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
 A tibble with information on departments and ministers/shadow ministers.

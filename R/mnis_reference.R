@@ -2,7 +2,8 @@
 #' mnis_reference
 #'
 #' A series of 39 functions that return tibbles of reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
@@ -143,7 +144,7 @@ mnis_reference <- function() {
 
 #' @export
 #' @rdname mnis_reference
-ref_address_types <- function(tidy = TRUE) {
+ref_address_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AddressTypes/"
 
@@ -161,7 +162,7 @@ ref_address_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -177,7 +178,7 @@ ref_address_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_answering_bodies <- function(tidy = TRUE) {
+ref_answering_bodies <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AnsweringBodies/"
 
@@ -195,7 +196,7 @@ ref_answering_bodies <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -210,7 +211,7 @@ ref_answering_bodies <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_areas <- function(tidy = TRUE) {
+ref_areas <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Areas/"
 
@@ -228,7 +229,7 @@ ref_areas <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -243,7 +244,7 @@ ref_areas <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_area_types <- function(tidy = TRUE) {
+ref_area_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AreaTypes/"
 
@@ -261,7 +262,7 @@ ref_area_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -276,7 +277,7 @@ ref_area_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_biography_categories <- function(tidy = TRUE) {
+ref_biography_categories <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/BiographyCategories/"
 
@@ -294,7 +295,7 @@ ref_biography_categories <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -310,7 +311,7 @@ ref_biography_categories <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_cabinets <- function(tidy = TRUE) {
+ref_cabinets <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Cabinets/"
 
@@ -328,7 +329,7 @@ ref_cabinets <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -343,7 +344,7 @@ ref_cabinets <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_committees <- function(tidy = TRUE) {
+ref_committees <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Committees/"
 
@@ -361,7 +362,7 @@ ref_committees <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -377,7 +378,7 @@ ref_committees <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_committee_types <- function(tidy = TRUE) {
+ref_committee_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/CommitteeTypes/"
 
@@ -395,7 +396,7 @@ ref_committee_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -411,7 +412,7 @@ ref_committee_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_constituencies <- function(tidy = TRUE) {
+ref_constituencies <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Constituencies/"
 
@@ -429,7 +430,7 @@ ref_constituencies <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -445,7 +446,7 @@ ref_constituencies <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_areas <- function(tidy = TRUE) {
+ref_constituency_areas <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyAreas/"
 
@@ -463,7 +464,7 @@ ref_constituency_areas <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -478,7 +479,7 @@ ref_constituency_areas <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_types <- function(tidy = TRUE) {
+ref_constituency_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyTypes/"
 
@@ -496,7 +497,7 @@ ref_constituency_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -511,7 +512,7 @@ ref_constituency_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_countries <- function(tidy = TRUE) {
+ref_countries <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Countries/"
 
@@ -529,7 +530,7 @@ ref_countries <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -545,7 +546,7 @@ ref_countries <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_departments <- function(tidy = TRUE) {
+ref_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Departments/"
 
@@ -563,7 +564,7 @@ ref_departments <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -579,7 +580,7 @@ ref_departments <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_disqualification_types <- function(tidy = TRUE) {
+ref_disqualification_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/DisqualificationTypes/"
 
@@ -597,7 +598,7 @@ ref_disqualification_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -612,7 +613,7 @@ ref_disqualification_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_elections <- function(tidy = TRUE) {
+ref_elections <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Elections/"
 
@@ -630,7 +631,7 @@ ref_elections <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -646,7 +647,7 @@ ref_elections <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_election_types <- function(tidy = TRUE) {
+ref_election_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ElectionTypes/"
 
@@ -664,7 +665,7 @@ ref_election_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -680,7 +681,7 @@ ref_election_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_end_reasons <- function(tidy = TRUE) {
+ref_end_reasons <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/EndReasons/"
 
@@ -698,7 +699,7 @@ ref_end_reasons <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -714,7 +715,7 @@ ref_end_reasons <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_experience_types <- function(tidy = TRUE) {
+ref_experience_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ExperienceTypes/"
 
@@ -732,7 +733,7 @@ ref_experience_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -748,7 +749,7 @@ ref_experience_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_government_post_departments <- function(tidy = TRUE) {
+ref_government_post_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPostDepartments/"
 
@@ -766,7 +767,7 @@ ref_government_post_departments <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -782,7 +783,7 @@ ref_government_post_departments <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_government_posts <- function(tidy = TRUE) {
+ref_government_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPosts/"
 
@@ -800,7 +801,7 @@ ref_government_posts <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -816,7 +817,7 @@ ref_government_posts <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_government_ranks <- function(tidy = TRUE) {
+ref_government_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentRanks/"
 
@@ -834,7 +835,7 @@ ref_government_ranks <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -850,7 +851,7 @@ ref_government_ranks <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_honourary_prefixes <- function(tidy = TRUE) {
+ref_honourary_prefixes <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonouraryPrefixes/"
 
@@ -868,7 +869,7 @@ ref_honourary_prefixes <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -883,7 +884,7 @@ ref_honourary_prefixes <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_honour_lists <- function(tidy = TRUE) {
+ref_honour_lists <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonourLists/"
 
@@ -901,7 +902,7 @@ ref_honour_lists <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -917,7 +918,7 @@ ref_honour_lists <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_honours <- function(tidy = TRUE) {
+ref_honours <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Honours/"
 
@@ -935,7 +936,7 @@ ref_honours <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -951,7 +952,7 @@ ref_honours <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_interest_categories <- function(tidy = TRUE) {
+ref_interest_categories <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/InterestCategories/"
 
@@ -969,7 +970,7 @@ ref_interest_categories <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -985,7 +986,7 @@ ref_interest_categories <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_membership_types <- function(tidy = TRUE) {
+ref_lords_membership_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsMembershipTypes/"
 
@@ -1003,7 +1004,7 @@ ref_lords_membership_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1018,7 +1019,7 @@ ref_lords_membership_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_ranks <- function(tidy = TRUE) {
+ref_lords_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsRanks/"
 
@@ -1036,7 +1037,7 @@ ref_lords_ranks <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1052,7 +1053,7 @@ ref_lords_ranks <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_post_departments <- function(tidy = TRUE) {
+ref_opposition_post_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPostDepartments/"
 
@@ -1070,7 +1071,7 @@ ref_opposition_post_departments <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1086,7 +1087,7 @@ ref_opposition_post_departments <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_posts <- function(tidy = TRUE) {
+ref_opposition_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPosts/"
 
@@ -1104,7 +1105,7 @@ ref_opposition_posts <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1119,7 +1120,7 @@ ref_opposition_posts <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_ranks <- function(tidy = TRUE) {
+ref_opposition_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionRanks/"
 
@@ -1137,7 +1138,7 @@ ref_opposition_ranks <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1153,7 +1154,7 @@ ref_opposition_ranks <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_other_parliaments <- function(tidy = TRUE) {
+ref_other_parliaments <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OtherParliaments/"
 
@@ -1171,7 +1172,7 @@ ref_other_parliaments <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1186,7 +1187,7 @@ ref_other_parliaments <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_posts <- function(tidy = TRUE) {
+ref_parliamentary_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryPosts/"
 
@@ -1204,7 +1205,7 @@ ref_parliamentary_posts <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1218,7 +1219,7 @@ ref_parliamentary_posts <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_ranks <- function(tidy = TRUE) {
+ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryRanks/"
 
@@ -1236,7 +1237,7 @@ ref_parliamentary_ranks <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1251,7 +1252,7 @@ ref_parliamentary_ranks <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_parliament_types <- function(tidy = TRUE) {
+ref_parliament_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentTypes/"
 
@@ -1269,7 +1270,7 @@ ref_parliament_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1285,7 +1286,7 @@ ref_parliament_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_parties <- function(tidy = TRUE) {
+ref_parties <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Parties/"
 
@@ -1303,7 +1304,7 @@ ref_parties <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
 
 
@@ -1320,7 +1321,7 @@ ref_parties <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_party_sub_types <- function(tidy = TRUE) {
+ref_party_sub_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PartySubTypes/"
 
@@ -1344,7 +1345,7 @@ ref_party_sub_types <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1359,7 +1360,7 @@ ref_party_sub_types <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_photo_outputs <- function(tidy = TRUE) {
+ref_photo_outputs <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PhotoOutputs/"
 
@@ -1377,7 +1378,7 @@ ref_photo_outputs <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
 
 
@@ -1394,7 +1395,7 @@ ref_photo_outputs <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_statuses <- function(tidy = TRUE) {
+ref_statuses <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Statuses/"
 
@@ -1412,7 +1413,7 @@ ref_statuses <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 
@@ -1429,7 +1430,7 @@ ref_statuses <- function(tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_reference
-ref_titles <- function(tidy = TRUE) {
+ref_titles <- function(tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/"
 
@@ -1447,7 +1448,7 @@ ref_titles <- function(tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x)
+        x <- ref_tidy(x, tidy_style)
 
         x
 

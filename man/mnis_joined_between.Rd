@@ -5,7 +5,8 @@
 \title{mnis_joined_between}
 \usage{
 mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
-  house = "all", party = NULL, eligible = "all", tidy = TRUE)
+  house = "all", party = NULL, eligible = "all", tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
 \item{start_date}{The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.}

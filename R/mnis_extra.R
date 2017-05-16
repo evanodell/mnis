@@ -29,7 +29,8 @@
 #' @param preferred_names Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).
 #' @param staff The staff employed by a Member.
 #' @param statuses Status history (e.g. suspensions and disqualifications) for a Member.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
 #' @keywords mnis
 #' @return A tibble with data on a given MP.
 #' @examples \dontrun{
@@ -44,7 +45,7 @@
 mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE, biography_entries = TRUE, committees = TRUE, 
     constituencies = TRUE, elections_contested = TRUE, experiences = TRUE, government_posts = TRUE, honours = TRUE, house_memberships = TRUE, 
     interests = TRUE, known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE, other_parliaments = TRUE, parliamentary_posts = TRUE, 
-    parties = TRUE, preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE) {
+    parties = TRUE, preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style="snake_case") {
     
     ID <- as.character(ID)
     
@@ -140,7 +141,7 @@ mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, b
     
     if (tidy == TRUE) {
         
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
         
         x
         

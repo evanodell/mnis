@@ -5,7 +5,8 @@
 #' @param location_name The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.
 #' @param start_date Start date of search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01' if no date is selected.
 #' @param end_date End date of search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current date if no date is selected.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
 #' @return Returns a list with details of the search parameter and a tibble with election results.
 #' @keywords mnis
 #' @export
@@ -15,7 +16,7 @@
 #' }
 
 mnis_general_election_results <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01",
-    end_date = Sys.Date(), tidy = TRUE) {
+    end_date = Sys.Date(), tidy = TRUE, tidy_style="snake_case") {
 
     location_type <- utils::URLencode(location_type)
 
@@ -43,7 +44,7 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 
     if (tidy == TRUE) {
 
-        x$ElectionResult <- mnis_tidy(x$ElectionResult)
+        x$ElectionResult <- mnis_tidy(x$ElectionResult, tidy_style)
 
     } else {
 

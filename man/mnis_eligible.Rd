@@ -4,7 +4,8 @@
 \alias{mnis_eligible}
 \title{mnis_eligible}
 \usage{
-mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE)
+mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
 \item{eligible}{If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.}
@@ -13,7 +14,9 @@ mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE)
 
 \item{party}{The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. 'green party'), the API does not accept searches on this parameter. For a tibble of parties, see \code{\link{ref_parties}}. This parameter is not case sensititive.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \description{
 Function returns all members who are eligible to sit in either house.

@@ -4,7 +4,8 @@
 #' A series of basic function for the API lookup.
 #' @param ID The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.
 #' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.
-#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.
+#' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @keywords mnis
 #' @return A tibble with the data corresponding to the particular function called.
 #' @examples \dontrun{
@@ -35,7 +36,7 @@ mnis_additional <- function() {
 
 #' @export
 #' @rdname mnis_additional
-mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -79,7 +80,7 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -94,7 +95,7 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -137,7 +138,7 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -151,7 +152,7 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -195,7 +196,7 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -209,7 +210,7 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -253,7 +254,7 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -267,7 +268,7 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -311,7 +312,7 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -324,7 +325,7 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 }
 #' @export
 #' @rdname mnis_additional
-mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -368,7 +369,7 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -382,7 +383,7 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -426,7 +427,7 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -440,7 +441,7 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -484,7 +485,7 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -498,7 +499,7 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -542,7 +543,7 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -556,7 +557,7 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -600,7 +601,7 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -614,7 +615,7 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -658,7 +659,7 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -673,7 +674,7 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -717,7 +718,7 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -731,7 +732,7 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -775,7 +776,7 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -788,7 +789,7 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 }
 #' @export
 #' @rdname mnis_additional
-mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -832,7 +833,7 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -846,7 +847,7 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
 #' @export
 #' @rdname mnis_additional
-mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -890,7 +891,7 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -905,7 +906,7 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -949,7 +950,7 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -964,7 +965,7 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -1008,7 +1009,7 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -1021,7 +1022,7 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 }
 #' @export
 #' @rdname mnis_additional
-mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -1065,7 +1066,7 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -1080,7 +1081,7 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -1124,7 +1125,7 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -1138,7 +1139,7 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 #' @export
 #' @rdname mnis_additional
 
-mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
+mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
     if (missing(ID)) {
         x <- mnis_all_members()
@@ -1182,7 +1183,7 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 

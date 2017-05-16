@@ -4,14 +4,17 @@
 \alias{mnis_all_members}
 \title{mnis_all_members}
 \usage{
-mnis_all_members(house = "all", party = NULL, tidy = TRUE)
+mnis_all_members(house = "all", party = NULL, tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
 \item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.}
 
 \item{party}{The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 A tibble with information on all members of the House of Commons and/or the House of Lords that meet the criteria included in the function parameters.
@@ -21,7 +24,7 @@ mnis_all_members
 }
 \examples{
 \dontrun{
-x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE)
+x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE, tidy_style="snake_case")
 }
 
 }

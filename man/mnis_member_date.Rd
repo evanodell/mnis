@@ -4,14 +4,17 @@
 \alias{mnis_member_date}
 \title{mnis_member_date}
 \usage{
-mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE)
+mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
 \item{ID}{The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.}
 
 \item{date}{Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Return details on the requested member's status on that date. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 Returns a tibble with the given member's status on the given date.

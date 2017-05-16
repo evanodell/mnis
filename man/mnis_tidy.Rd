@@ -7,9 +7,9 @@
 \alias{tidy_bom}
 \title{mnis_tidy}
 \usage{
-mnis_tidy(x)
+mnis_tidy(x, tidy_style)
 
-ref_tidy(x)
+ref_tidy(x, tidy_style)
 
 constituency_results_tidy(results, details)
 
@@ -18,17 +18,25 @@ tidy_bom(df)
 \arguments{
 \item{x}{The dataframe to tidy}
 
+\item{tidy_style}{The style to tidy the dataframe with.}
+
 \item{results}{The tibble to tidy}
 
 \item{details}{The list to tidy}
 
 \item{df}{The GET returned from call to API.}
+
+\item{x}{The dataframe to tidy}
+
+\item{tidy_style}{The style to tidy the dataframe with.}
 }
 \value{
 Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
 }
 \description{
 Internal tidying functions
+
+ref_tidy
 
 tidy_bom
 Strips BOM out of JSON data that does not need to be there.

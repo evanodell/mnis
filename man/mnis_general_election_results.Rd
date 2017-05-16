@@ -6,7 +6,7 @@
 \usage{
 mnis_general_election_results(location_type = "Country",
   location_name = "Great Britain", start_date = "1900-01-01",
-  end_date = Sys.Date(), tidy = TRUE)
+  end_date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
 \item{location_type}{The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}
@@ -17,7 +17,9 @@ mnis_general_election_results(location_type = "Country",
 
 \item{end_date}{End date of search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current date if no date is selected.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 Returns a list with details of the search parameter and a tibble with election results.

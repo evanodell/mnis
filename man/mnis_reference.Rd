@@ -45,86 +45,88 @@
 \usage{
 mnis_reference()
 
-ref_address_types(tidy = TRUE)
+ref_address_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_answering_bodies(tidy = TRUE)
+ref_answering_bodies(tidy = TRUE, tidy_style = "snake_case")
 
-ref_areas(tidy = TRUE)
+ref_areas(tidy = TRUE, tidy_style = "snake_case")
 
-ref_area_types(tidy = TRUE)
+ref_area_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_biography_categories(tidy = TRUE)
+ref_biography_categories(tidy = TRUE, tidy_style = "snake_case")
 
-ref_cabinets(tidy = TRUE)
+ref_cabinets(tidy = TRUE, tidy_style = "snake_case")
 
-ref_committees(tidy = TRUE)
+ref_committees(tidy = TRUE, tidy_style = "snake_case")
 
-ref_committee_types(tidy = TRUE)
+ref_committee_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_constituencies(tidy = TRUE)
+ref_constituencies(tidy = TRUE, tidy_style = "snake_case")
 
-ref_constituency_areas(tidy = TRUE)
+ref_constituency_areas(tidy = TRUE, tidy_style = "snake_case")
 
-ref_constituency_types(tidy = TRUE)
+ref_constituency_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_countries(tidy = TRUE)
+ref_countries(tidy = TRUE, tidy_style = "snake_case")
 
-ref_departments(tidy = TRUE)
+ref_departments(tidy = TRUE, tidy_style = "snake_case")
 
-ref_disqualification_types(tidy = TRUE)
+ref_disqualification_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_elections(tidy = TRUE)
+ref_elections(tidy = TRUE, tidy_style = "snake_case")
 
-ref_election_types(tidy = TRUE)
+ref_election_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_end_reasons(tidy = TRUE)
+ref_end_reasons(tidy = TRUE, tidy_style = "snake_case")
 
-ref_experience_types(tidy = TRUE)
+ref_experience_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_government_post_departments(tidy = TRUE)
+ref_government_post_departments(tidy = TRUE, tidy_style = "snake_case")
 
-ref_government_posts(tidy = TRUE)
+ref_government_posts(tidy = TRUE, tidy_style = "snake_case")
 
-ref_government_ranks(tidy = TRUE)
+ref_government_ranks(tidy = TRUE, tidy_style = "snake_case")
 
-ref_honourary_prefixes(tidy = TRUE)
+ref_honourary_prefixes(tidy = TRUE, tidy_style = "snake_case")
 
-ref_honour_lists(tidy = TRUE)
+ref_honour_lists(tidy = TRUE, tidy_style = "snake_case")
 
-ref_honours(tidy = TRUE)
+ref_honours(tidy = TRUE, tidy_style = "snake_case")
 
-ref_interest_categories(tidy = TRUE)
+ref_interest_categories(tidy = TRUE, tidy_style = "snake_case")
 
-ref_lords_membership_types(tidy = TRUE)
+ref_lords_membership_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_lords_ranks(tidy = TRUE)
+ref_lords_ranks(tidy = TRUE, tidy_style = "snake_case")
 
-ref_opposition_post_departments(tidy = TRUE)
+ref_opposition_post_departments(tidy = TRUE, tidy_style = "snake_case")
 
-ref_opposition_posts(tidy = TRUE)
+ref_opposition_posts(tidy = TRUE, tidy_style = "snake_case")
 
-ref_opposition_ranks(tidy = TRUE)
+ref_opposition_ranks(tidy = TRUE, tidy_style = "snake_case")
 
-ref_other_parliaments(tidy = TRUE)
+ref_other_parliaments(tidy = TRUE, tidy_style = "snake_case")
 
-ref_parliamentary_posts(tidy = TRUE)
+ref_parliamentary_posts(tidy = TRUE, tidy_style = "snake_case")
 
-ref_parliamentary_ranks(tidy = TRUE)
+ref_parliamentary_ranks(tidy = TRUE, tidy_style = "snake_case")
 
-ref_parliament_types(tidy = TRUE)
+ref_parliament_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_parties(tidy = TRUE)
+ref_parties(tidy = TRUE, tidy_style = "snake_case")
 
-ref_party_sub_types(tidy = TRUE)
+ref_party_sub_types(tidy = TRUE, tidy_style = "snake_case")
 
-ref_photo_outputs(tidy = TRUE)
+ref_photo_outputs(tidy = TRUE, tidy_style = "snake_case")
 
-ref_statuses(tidy = TRUE)
+ref_statuses(tidy = TRUE, tidy_style = "snake_case")
 
-ref_titles(tidy = TRUE)
+ref_titles(tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \description{
 A series of 39 functions that return tibbles of reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.

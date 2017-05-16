@@ -9,6 +9,10 @@ Dropped parameter 'joined_since' from `mnis_all_members`, in favour of `mnis_joi
 
 Tidied up code in `mnis_reference` functions.
 
+Fixed bug in `mnis_party_state` which produced an error if not using the current system date.
+
+Added optional 'tidy_style' parameter, allowing users to decide which style snake_case, camelCase and period.case they want variable names to be in, if 'tidy'==TRUE.
+
 # mnis 0.2.5
 
 `mnis_mps_on_date` and `mnis_peers_on_date` functions introduced, which return all members of the House of Commons or the House of Lords eligible to sit on a given date.

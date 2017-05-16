@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evan Odell" />
 
-<meta name="date" content="2017-04-30" />
+<meta name="date" content="2017-05-16" />
 
 <title>Introduction to mnis</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to mnis</h1>
 <h4 class="author"><em>Evan Odell</em></h4>
-<h4 class="date"><em>2017-04-30</em></h4>
+<h4 class="date"><em>2017-05-16</em></h4>
 
 
 
@@ -220,6 +220,7 @@ x
 <p><code>mnis_interests()</code></p>
 <p><code>mnis_known_as()</code></p>
 <p><code>mnis_maiden_speeches()</code></p>
+<p><code>mnis_mps_on_date()</code></p>
 <p><code>mnis_opposition_posts()</code></p>
 <p><code>mnis_other_parliaments()</code></p>
 <p><code>mnis_parliamentary_posts()</code></p>
@@ -227,7 +228,6 @@ x
 <p><code>mnis_preferred_names()</code></p>
 <p><code>mnis_staff()</code></p>
 <p><code>mnis_statuses()</code></p>
-<p><code>mnis_mps_on_date()</code></p>
 <p><code>mnis_peers_on_date()</code></p>
 <div id="mnis_extra" class="section level4">
 <h4>mnis_extra()</h4>
@@ -248,7 +248,7 @@ x
 <h4>Fixed Scope Example</h4>
 <p>Fixed scope example, returning the state of all parties in the House of Commons, as reported on 2017-04-04.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
-x &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>()
+x &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;2017-04-04&quot;</span>)
 x
 
 <span class="co">#         house party_id                       party_name party_male_count party_female_count party_total_count</span>
@@ -266,6 +266,25 @@ x
 <span class="co"># 12 Commons       47                          Speaker                1                  0                 1</span>
 <span class="co"># 13 Commons       35            UK Independence Party                1                  0                 1</span>
 <span class="co"># 14 Commons        0                           Vacant                0                  0                 1</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;Lords&quot;</span>, <span class="st">&quot;2017-04-04&quot;</span>)
+&gt;<span class="st"> </span>y
+<span class="co"># A tibble: 14 × 5</span>
+<span class="co">#      id                        name male_count female_count total_count</span>
+<span class="co">#*  &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;</span>
+<span class="co">#1      4                Conservative        192           62         254</span>
+<span class="co">#2     15                      Labour        137           65         202</span>
+<span class="co">#3      6                  Crossbench        138           40         178</span>
+<span class="co">#4     17            Liberal Democrat         68           34         102</span>
+<span class="co">#5     49              Non-affiliated         27            3          30</span>
+<span class="co">#6      3                     Bishops         23            2          25</span>
+<span class="co">#7      7   Democratic Unionist Party          3            0           3</span>
+<span class="co">#8     35       UK Independence Party          3            0           3</span>
+<span class="co">#9     10          Independent Labour          2            0           2</span>
+<span class="co">#10    38       Ulster Unionist Party          2            0           2</span>
+<span class="co">#11    44                 Green Party          0            1           1</span>
+<span class="co">#12    53 Independent Social Democrat          1            0           1</span>
+<span class="co">#13    52 Independent Ulster Unionist          1            0           1</span>
+<span class="co">#14    22                 Plaid Cymru          1            0           1</span></code></pre></div>
 </div>
 </div>
 <div id="data-tidying" class="section level3">

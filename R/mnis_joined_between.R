@@ -15,7 +15,7 @@
 #' }
 
 
-mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", tidy = TRUE) {
+mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", tidy = TRUE, tidy_style="snake_case") {
 
     ## Making sure house works
     house <- as.character(house)
@@ -76,7 +76,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 

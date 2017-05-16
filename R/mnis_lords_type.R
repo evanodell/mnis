@@ -2,7 +2,8 @@
 #'
 #' Calls the API to return a tibble with details on the number of Lords and their affiliations.
 #' @param date Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.
-#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to TRUE.
+#' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @return A tibble with information on the numbers of different types of Lords on a given date.
 #' @keywords mnis
 #' @export
@@ -12,7 +13,7 @@
 #'
 #' }
 
-mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
+mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_case") {
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
 
@@ -34,7 +35,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x)
+        x <- mnis_tidy(x, tidy_style)
 
         x <- tibble::as_tibble(x)
 
@@ -50,7 +51,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE) {
 
 }
 
-mnis_LordsType <- function(date = Sys.Date(), tidy = TRUE) {
+mnis_LordsType <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_case") {
     .Defunct("mnis_LordsType")
     mnis_lords_type(date = date, tidy = tidy)
 }

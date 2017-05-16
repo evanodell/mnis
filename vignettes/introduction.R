@@ -58,7 +58,7 @@
 
 ## ----eval=FALSE----------------------------------------------------------
 #  library(mnis)
-#  x <- mnis_party_state()
+#  x <- mnis_party_state("2017-04-04")
 #  x
 #  
 #  #         house party_id                       party_name party_male_count party_female_count party_total_count
@@ -76,5 +76,27 @@
 #  # 12 Commons       47                          Speaker                1                  0                 1
 #  # 13 Commons       35            UK Independence Party                1                  0                 1
 #  # 14 Commons        0                           Vacant                0                  0                 1
+#  
+
+## ----eval=FALSE----------------------------------------------------------
+#  > y <- mnis_party_state("Lords", "2017-04-04")
+#  > y
+#  # A tibble: 14 × 5
+#  #      id                        name male_count female_count total_count
+#  #*  <chr>                       <chr>      <chr>        <chr>       <chr>
+#  #1      4                Conservative        192           62         254
+#  #2     15                      Labour        137           65         202
+#  #3      6                  Crossbench        138           40         178
+#  #4     17            Liberal Democrat         68           34         102
+#  #5     49              Non-affiliated         27            3          30
+#  #6      3                     Bishops         23            2          25
+#  #7      7   Democratic Unionist Party          3            0           3
+#  #8     35       UK Independence Party          3            0           3
+#  #9     10          Independent Labour          2            0           2
+#  #10    38       Ulster Unionist Party          2            0           2
+#  #11    44                 Green Party          0            1           1
+#  #12    53 Independent Social Democrat          1            0           1
+#  #13    52 Independent Ulster Unionist          1            0           1
+#  #14    22                 Plaid Cymru          1            0           1
 #  
 

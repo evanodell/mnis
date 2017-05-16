@@ -4,14 +4,17 @@
 \alias{mnis_party_state}
 \title{mnis_party_state}
 \usage{
-mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE)
+mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
-\item{house}{The house of parliament. Defaults to 'Commons'.}
+\item{house}{The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.}
 
 \item{date}{Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to snake_case. Defaults to TRUE.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
 A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.
