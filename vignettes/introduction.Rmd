@@ -295,6 +295,8 @@ x
 
 ```
 
+The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.
+
 ```{r eval=FALSE}
 > y <- mnis_party_state("Lords", "2017-04-04")
 > y
