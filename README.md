@@ -20,7 +20,7 @@ install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")
 ```
 
-The most up to date documentation for the development version will always be available at <http://evanodell.com/mnis/>
+The most up to date documentation for the development version will always be available at <http://docs.evanodell.com/mnis/>
 
 For an introduction to `mnis`, the vignette `vignette("introduction", package = "mnis")` is the best place to start. If you are unfamiliar with APIs <https://zapier.com/learn/apis/> is a helpful introduction.
 
