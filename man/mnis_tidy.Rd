@@ -25,10 +25,6 @@ tidy_bom(df)
 \item{details}{The list to tidy}
 
 \item{df}{The GET returned from call to API.}
-
-\item{x}{The dataframe to tidy}
-
-\item{tidy_style}{The style to tidy the dataframe with.}
 }
 \value{
 Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.

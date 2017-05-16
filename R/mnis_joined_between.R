@@ -6,7 +6,8 @@
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.
 #' @param party The party to which a member belongs. Defaults to NULL.
 #' @param eligible If the member is currently eligible to sit. Accepts one of 'all', 'current', 'former', defaults to 'all'.
-#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to FALSE.
+#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to TRUE.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{

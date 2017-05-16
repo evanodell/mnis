@@ -4,7 +4,7 @@
 \alias{mnis_all_reference}
 \title{mnis_all_reference}
 \usage{
-mnis_all_reference(tidy = TRUE)
+mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
 \item{tidy}{Fix the variable names in each tibble to remove special characters and superfluous text, and convert all the variable names to snake_case. Defaults to TRUE.}

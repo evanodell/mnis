@@ -12,87 +12,87 @@
 #'
 #'}
 
-mnis_all_reference <- function(tidy = TRUE) {
+mnis_all_reference <- function(tidy = TRUE, tidy_style="snake_case") {
 
-    address_types <- ref_address_types(tidy = tidy)
+    address_types <- ref_address_types(tidy = tidy, tidy_style="snake_case")
 
-    answering_bodies <- ref_answering_bodies(tidy = tidy)
+    answering_bodies <- ref_answering_bodies(tidy = tidy, tidy_style="snake_case")
 
-    area_types <- ref_area_types(tidy = tidy)
+    area_types <- ref_area_types(tidy = tidy, tidy_style="snake_case")
 
-    areas <- ref_areas(tidy = tidy)
+    areas <- ref_areas(tidy = tidy, tidy_style="snake_case")
 
-    biography_categories <- ref_biography_categories(tidy = tidy)
+    biography_categories <- ref_biography_categories(tidy = tidy, tidy_style="snake_case")
 
-    cabinets <- ref_cabinets(tidy = tidy)
+    cabinets <- ref_cabinets(tidy = tidy, tidy_style="snake_case")
 
-    committee_types <- ref_committee_types(tidy = tidy)
+    committee_types <- ref_committee_types(tidy = tidy, tidy_style="snake_case")
 
-    committees <- ref_committees(tidy = tidy)
+    committees <- ref_committees(tidy = tidy, tidy_style="snake_case")
 
-    constituencies <- ref_constituencies(tidy = tidy)
+    constituencies <- ref_constituencies(tidy = tidy, tidy_style="snake_case")
 
-    constituency_areas <- ref_constituency_areas(tidy = tidy)
+    constituency_areas <- ref_constituency_areas(tidy = tidy, tidy_style="snake_case")
 
-    constituency_types <- ref_constituency_types(tidy = tidy)
+    constituency_types <- ref_constituency_types(tidy = tidy, tidy_style="snake_case")
 
-    countries <- ref_countries(tidy = tidy)
+    countries <- ref_countries(tidy = tidy, tidy_style="snake_case")
 
-    departments <- ref_departments(tidy = tidy)
+    departments <- ref_departments(tidy = tidy, tidy_style="snake_case")
 
-    disqualification_types <- ref_disqualification_types(tidy = tidy)
+    disqualification_types <- ref_disqualification_types(tidy = tidy, tidy_style="snake_case")
 
-    election_types <- ref_election_types(tidy = tidy)
+    election_types <- ref_election_types(tidy = tidy, tidy_style="snake_case")
 
-    elections <- ref_elections(tidy = tidy)
+    elections <- ref_elections(tidy = tidy, tidy_style="snake_case")
 
-    end_reasons <- ref_end_reasons(tidy = tidy)
+    end_reasons <- ref_end_reasons(tidy = tidy, tidy_style="snake_case")
 
-    experience_types <- ref_experience_types(tidy = tidy)
+    experience_types <- ref_experience_types(tidy = tidy, tidy_style="snake_case")
 
-    government_post_departments <- ref_government_post_departments(tidy = tidy)
+    government_post_departments <- ref_government_post_departments(tidy = tidy, tidy_style="snake_case")
 
-    government_posts <- ref_government_posts(tidy = tidy)
+    government_posts <- ref_government_posts(tidy = tidy, tidy_style="snake_case")
 
-    government_ranks <- ref_government_ranks(tidy = tidy)
+    government_ranks <- ref_government_ranks(tidy = tidy, tidy_style="snake_case")
 
-    honour_lists <- ref_honour_lists(tidy = tidy)
+    honour_lists <- ref_honour_lists(tidy = tidy, tidy_style="snake_case")
 
-    honourary_prefixes <- ref_honourary_prefixes(tidy = tidy)
+    honourary_prefixes <- ref_honourary_prefixes(tidy = tidy, tidy_style="snake_case")
 
-    honours <- ref_honours(tidy = tidy)
+    honours <- ref_honours(tidy = tidy, tidy_style="snake_case")
 
-    interest_categories <- ref_interest_categories(tidy = tidy)
+    interest_categories <- ref_interest_categories(tidy = tidy, tidy_style="snake_case")
 
-    lords_membership_types <- ref_lords_membership_types(tidy = tidy)
+    lords_membership_types <- ref_lords_membership_types(tidy = tidy, tidy_style="snake_case")
 
-    lords_ranks <- ref_lords_ranks(tidy = tidy)
+    lords_ranks <- ref_lords_ranks(tidy = tidy, tidy_style="snake_case")
 
-    opposition_post_departments <- ref_opposition_post_departments(tidy = tidy)
+    opposition_post_departments <- ref_opposition_post_departments(tidy = tidy, tidy_style="snake_case")
 
-    opposition_posts <- ref_opposition_posts(tidy = tidy)
+    opposition_posts <- ref_opposition_posts(tidy = tidy, tidy_style="snake_case")
 
-    opposition_ranks <- ref_opposition_ranks(tidy = tidy)
+    opposition_ranks <- ref_opposition_ranks(tidy = tidy, tidy_style="snake_case")
 
-    other_parliaments <- ref_other_parliaments(tidy = tidy)
+    other_parliaments <- ref_other_parliaments(tidy = tidy, tidy_style="snake_case")
 
-    parliament_types <- ref_parliament_types(tidy = tidy)
+    parliament_types <- ref_parliament_types(tidy = tidy, tidy_style="snake_case")
 
-    parliamentary_posts <- ref_parliamentary_posts(tidy = tidy)
+    parliamentary_posts <- ref_parliamentary_posts(tidy = tidy, tidy_style="snake_case")
 
-    parliamentary_ranks <- ref_parliamentary_ranks(tidy = tidy)
+    parliamentary_ranks <- ref_parliamentary_ranks(tidy = tidy, tidy_style="snake_case")
 
-    parties <- ref_parties(tidy = tidy)
+    parties <- ref_parties(tidy = tidy, tidy_style="snake_case")
 
-    party_sub_types <- ref_party_sub_types(tidy = tidy)
+    party_sub_types <- ref_party_sub_types(tidy = tidy, tidy_style="snake_case")
 
-    photo_outputs <- ref_photo_outputs(tidy = tidy)
+    photo_outputs <- ref_photo_outputs(tidy = tidy, tidy_style="snake_case")
 
-    statuses <- ref_statuses(tidy = tidy)
+    statuses <- ref_statuses(tidy = tidy, tidy_style="snake_case")
 
-    titles <- ref_titles(tidy = tidy)
+    titles <- ref_titles(tidy = tidy, tidy_style="snake_case")
 
-    ## make the reference list thingy
+    ## make the reference
 
     ref_list <- list()
 

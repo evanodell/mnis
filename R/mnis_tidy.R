@@ -95,8 +95,6 @@ mnis_tidy <- function(x, tidy_style) {
 }
 
 #' ref_tidy
-#' @param x The dataframe to tidy
-#' @param tidy_style The style to tidy the dataframe with.
 #' @export
 #' @rdname mnis_tidy
 ref_tidy <- function(x, tidy_style) {

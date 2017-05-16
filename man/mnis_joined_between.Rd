@@ -19,7 +19,9 @@ mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
 
 \item{eligible}{If the member is currently eligible to sit. Accepts one of 'all', 'current', 'former', defaults to 'all'.}
 
-\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text. Defaults to FALSE.}
+\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to TRUE.}
+
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \description{
 Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a tibble. The
