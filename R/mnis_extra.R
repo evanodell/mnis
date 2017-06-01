@@ -141,7 +141,7 @@ mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, b
     
     if (tidy == TRUE) {
         
-        x <- mnis_tidy(x, tidy_style)
+        x <- mnis::mnis_tidy(x, tidy_style)
         
         x
         

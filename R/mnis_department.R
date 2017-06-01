@@ -19,11 +19,11 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     if (former == TRUE) {
 
-        former <- "former"
+        query_former <- "former"
 
     } else {
 
-        former <- "current"
+      query_former <- "current"
     }
 
     department_id <- as.character(department_id)
@@ -32,7 +32,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
 
-    query <- paste0(baseurl, department_id, "/", bench, "/", former, "/")
+    query <- paste0(baseurl, department_id, "/", bench, "/", query_former, "/")
 
     got <- httr::GET(query, httr::accept_json())
 
@@ -40,15 +40,15 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    x <- tibble::as_tibble(got$Department$Posts)
+    x <- tibble::as_tibble(as.data.frame(got$Department$Posts))
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        x <- mnis::mnis_tidy(x, tidy_style)
 
         x
 

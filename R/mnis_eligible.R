@@ -49,7 +49,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -57,7 +57,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        x <- mnis::mnis_tidy(x, tidy_style)
 
         if(.Platform$OS.type=="windows"){
 

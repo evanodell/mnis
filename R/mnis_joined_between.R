@@ -69,7 +69,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -77,7 +77,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        x <- mnis::mnis_tidy(x, tidy_style)
 
         x
 

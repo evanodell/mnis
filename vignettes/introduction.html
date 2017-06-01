@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evan Odell" />
 
-<meta name="date" content="2017-05-16" />
+<meta name="date" content="2017-06-01" />
 
 <title>Introduction to mnis</title>
 
@@ -70,22 +70,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to mnis</h1>
 <h4 class="author"><em>Evan Odell</em></h4>
-<h4 class="date"><em>2017-05-16</em></h4>
+<h4 class="date"><em>2017-06-01</em></h4>
 
 
 
-<p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API, with the ability to tidy that data into object classes that are easy to work with in R. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. The Members’ Name Information Service API does not require registration or a token, and is very generous with the number of requests allowed (it is unclear what limits are applied to the API, but I have yet to hit the limit, aside from custom requests using <code>mnis_base</code>.)</p>
+<p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API, with the ability to tidy that data into object classes that are easy to work with in R. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. The Members’ Name Information Service API does not require registration or a token, and is very generous with the number of requests allowed (it is unclear what limits are applied to the API, but I have yet to hit the limit, aside from custom requests using <code>mnis_base()</code>.)</p>
 <p><code>mnis</code> is for researchers, journalists and developers who follow the UK parliament for work, pleasure or some combination thereof. It has a sister package called <a href="https://cran.r-project.org/package=hansard"><code>hansard</code></a> that retrieves data from a different API, and while there is some overlap in function between the two packages, <code>mnis</code> is focused on retrieving data on individual MPs and Peers, government departments, cabinet and shadow cabinet positions, other parliamentary and political roles, and parliamentary reference data.</p>
-<p>All functions requests data in JSON format and parse it to a tibble, except for <code>mnis_constituency_results</code> which returns a list (with constituency details) and a tibble (with constituency election results).</p>
+<p>All functions requests data in JSON format and parse it to a tibble, except for <code>mnis_constituency_results()</code> which returns a list (with constituency details) and a tibble (with constituency election results).</p>
 <p>Functions are divided into three main types:</p>
 <ul>
 <li><p>Reference Functions</p></li>
 <li><p>Additional Information Functions</p></li>
 <li><p>Fixed Scope Functions</p></li>
 </ul>
-<p>There is also the <code>mnis_base</code> function that allows for fully flexibility in all API requests, by allowing you to fully specify the URL you want to call data from.</p>
+<p>There is also the <code>mnis_base()</code> function that allows for fully flexibility in all API requests, by allowing you to fully specify the URL you want to call data from.</p>
 <div id="installing-mnis" class="section level2">
-<h2>Installing mnis</h2>
+<h2>Installing <code>mnis</code></h2>
 <div id="from-cran" class="section level3">
 <h3>From CRAN</h3>
 <pre><code>install.packages(&quot;mnis&quot;)</code></pre>
@@ -96,12 +96,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 </div>
 <div id="load-mnis" class="section level3">
-<h3>Load mnis</h3>
+<h3>Load <code>mnis</code></h3>
 <pre><code>library(mnis)</code></pre>
 </div>
 </div>
 <div id="using-mnis" class="section level2">
-<h2>Using mnis</h2>
+<h2>Using <code>mnis</code></h2>
+<p>All <code>mnis</code> functions contain two parameters, <code>tidy</code> and <code>tidy_style</code>:</p>
+<ul>
+<li><p><code>tidy</code> is a logical parameter accepting either TRUE or FALSE, defaulting to TRUE. If TRUE, <code>mnis</code> will fix variable names, which by default contain non alpha-numeric characters and appear to use an inconsistent/idiosyncratic naming convention, at least by the standards of the various naming conventions used in R. Dates and datetimes are converted to POSIXct class. The default variable names are unnecessarily lengthy and repeat the same piece of information several times in a row and contain non-alphanumeric characters. <code>tidy</code> fixes this, and defaults to TRUE, so you won’t have to deal with the clunky and over-complicated default variable names unless you really want to. It transforms names like <code>&quot;Members.Member.BasicDetails.Gender&quot;</code> into <code>&quot;gender&quot;</code>.</p></li>
+<li><p>The naming convention for variables used if <code>tidy</code>==TRUE is indicated by <code>tidy_style</code>. <code>tidy_style</code> accepts one of <code>&quot;snake_case&quot;</code>, <code>&quot;camelCase&quot;</code> and <code>&quot;period.case&quot;</code>, defaulting to <code>&quot;snake_case&quot;</code>. All variable names will be converted to match the given naming convention.</p></li>
+</ul>
 <div id="mnis_base-function" class="section level3">
 <h3>mnis_base function</h3>
 <p>The <code>mnis_base()</code> function accepts requests to the mnis API. The full list of request options is available on the mnis website: <a href="http://data.parliament.uk/membersdataplatform/memberquery.aspx" class="uri">http://data.parliament.uk/membersdataplatform/memberquery.aspx</a></p>
@@ -150,59 +155,39 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 <p><code>ref_titles()</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
 x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>(<span class="dt">tidy =</span> <span class="ot">FALSE</span>)
-x
-
-<span class="co">#   Title_Id         Name</span>
-<span class="co">#1        22        Canon</span>
-<span class="co">#2         1         Dame</span>
-<span class="co">#4         3          Hon</span>
-<span class="co">#3         2           Dr</span>
-<span class="co">#6         5         Lord</span>
-<span class="co">#5         4         Lady</span>
-<span class="co">#7         6       Lt Col</span>
-<span class="co">#8        21       Lt Gen</span>
-<span class="co">#9         7         Miss</span>
-<span class="co">#10        8           Mr</span>
-<span class="co">#11        9          Mrs</span>
-<span class="co">#12       10           Ms</span>
-<span class="co">#13       11         Prof</span>
-<span class="co">#14       19    Professor</span>
-<span class="co">#15       12          Rev</span>
-<span class="co">#16       13       Rev Dr</span>
-<span class="co">#17       18         Revd</span>
-<span class="co">#18       20      Revd Dr</span>
-<span class="co">#20       15          Sir</span>
-<span class="co">#19       14     Reverend</span>
-<span class="co">#21       16      The Rev</span>
-<span class="co">#22       17 The Reverend</span></code></pre></div>
+x</code></pre></div>
+<pre><code>## # A tibble: 22 x 2
+##    Title.Title_Id Title.Name
+##  *          &lt;chr&gt;      &lt;chr&gt;
+##  1             22      Canon
+##  2              1       Dame
+##  3              2         Dr
+##  4              3        Hon
+##  5              4       Lady
+##  6              5       Lord
+##  7              6     Lt Col
+##  8             21     Lt Gen
+##  9              7       Miss
+## 10              8         Mr
+## # ... with 12 more rows</code></pre>
 <p>With the <code>tidy</code> parameter</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
 x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>(<span class="dt">tidy =</span> <span class="ot">TRUE</span>)
-x
-
-<span class="co">#   title_id         name</span>
-<span class="co">#1        22        Canon</span>
-<span class="co">#2         1         Dame</span>
-<span class="co">#4         3          Hon</span>
-<span class="co">#3         2           Dr</span>
-<span class="co">#6         5         Lord</span>
-<span class="co">#5         4         Lady</span>
-<span class="co">#7         6       Lt Col</span>
-<span class="co">#8        21       Lt Gen</span>
-<span class="co">#9         7         Miss</span>
-<span class="co">#10        8           Mr</span>
-<span class="co">#11        9          Mrs</span>
-<span class="co">#12       10           Ms</span>
-<span class="co">#13       11         Prof</span>
-<span class="co">#14       19    Professor</span>
-<span class="co">#15       12          Rev</span>
-<span class="co">#16       13       Rev Dr</span>
-<span class="co">#17       18         Revd</span>
-<span class="co">#18       20      Revd Dr</span>
-<span class="co">#20       15          Sir</span>
-<span class="co">#19       14     Reverend</span>
-<span class="co">#21       16      The Rev</span>
-<span class="co">#22       17 The Reverend</span></code></pre></div>
+x</code></pre></div>
+<pre><code>## # A tibble: 22 x 2
+##    title_id   name
+##  *    &lt;chr&gt;  &lt;chr&gt;
+##  1       22  Canon
+##  2        1   Dame
+##  3        2     Dr
+##  4        3    Hon
+##  5        4   Lady
+##  6        5   Lord
+##  7        6 Lt Col
+##  8       21 Lt Gen
+##  9        7   Miss
+## 10        8     Mr
+## # ... with 12 more rows</code></pre>
 </div>
 <div id="additional-information-functions" class="section level3">
 <h3>Additional Information Functions</h3>
@@ -249,48 +234,45 @@ x
 <p>Fixed scope example, returning the state of all parties in the House of Commons, as reported on 2017-04-04.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
 x &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;2017-04-04&quot;</span>)
-x
-
-<span class="co">#         house party_id                       party_name party_male_count party_female_count party_total_count</span>
-<span class="co"># 1  Commons        4                     Conservative              260                 70               330</span>
-<span class="co"># 2  Commons       15                           Labour              128                101               229</span>
-<span class="co"># 3  Commons       29          Scottish National Party               36                 18                54</span>
-<span class="co"># 4  Commons       17                 Liberal Democrat                8                  1                 9</span>
-<span class="co"># 5  Commons        7        Democratic Unionist Party                8                  0                 8</span>
-<span class="co"># 6  Commons        8                      Independent                1                  3                 4</span>
-<span class="co"># 7  Commons       30                        Sinn Fein                4                  0                 4</span>
-<span class="co"># 8  Commons       22                      Plaid Cymru                2                  1                 3</span>
-<span class="co"># 9  Commons       31 Social Democratic &amp; Labour Party                2                  1                 3</span>
-<span class="co"># 10 Commons       38            Ulster Unionist Party                2                  0                 2</span>
-<span class="co"># 11 Commons       44                      Green Party                0                  1                 1</span>
-<span class="co"># 12 Commons       47                          Speaker                1                  0                 1</span>
-<span class="co"># 13 Commons       35            UK Independence Party                1                  0                 1</span>
-<span class="co"># 14 Commons        0                           Vacant                0                  0                 1</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;Lords&quot;</span>, <span class="st">&quot;2017-04-04&quot;</span>)
-&gt;<span class="st"> </span>y
-<span class="co"># A tibble: 14 × 5</span>
-<span class="co">#      id                        name male_count female_count total_count</span>
-<span class="co">#*  &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;</span>
-<span class="co">#1      4                Conservative        192           62         254</span>
-<span class="co">#2     15                      Labour        137           65         202</span>
-<span class="co">#3      6                  Crossbench        138           40         178</span>
-<span class="co">#4     17            Liberal Democrat         68           34         102</span>
-<span class="co">#5     49              Non-affiliated         27            3          30</span>
-<span class="co">#6      3                     Bishops         23            2          25</span>
-<span class="co">#7      7   Democratic Unionist Party          3            0           3</span>
-<span class="co">#8     35       UK Independence Party          3            0           3</span>
-<span class="co">#9     10          Independent Labour          2            0           2</span>
-<span class="co">#10    38       Ulster Unionist Party          2            0           2</span>
-<span class="co">#11    44                 Green Party          0            1           1</span>
-<span class="co">#12    53 Independent Social Democrat          1            0           1</span>
-<span class="co">#13    52 Independent Ulster Unionist          1            0           1</span>
-<span class="co">#14    22                 Plaid Cymru          1            0           1</span></code></pre></div>
+x</code></pre></div>
+<pre><code>## # A tibble: 14 x 5
+##       id                        name male_count female_count total_count
+##  * &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;
+##  1     4                Conservative        191           62         253
+##  2    15                      Labour        137           64         201
+##  3     6                  Crossbench        135           40         175
+##  4    17            Liberal Democrat         68           34         102
+##  5    49              Non-affiliated         26            4          30
+##  6     3                     Bishops         23            2          25
+##  7     7   Democratic Unionist Party          3            0           3
+##  8    35       UK Independence Party          3            0           3
+##  9    10          Independent Labour          2            0           2
+## 10    38       Ulster Unionist Party          2            0           2
+## 11    44                 Green Party          0            1           1
+## 12    53 Independent Social Democrat          1            0           1
+## 13    52 Independent Ulster Unionist          1            0           1
+## 14    22                 Plaid Cymru          1            0           1</code></pre>
+<p>The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> y &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;Lords&quot;</span>, <span class="st">&quot;2017-04-04&quot;</span>)
+ y</code></pre></div>
+<pre><code>## # A tibble: 14 x 5
+##       id                        name male_count female_count total_count
+##  * &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;
+##  1     4                Conservative        192           62         254
+##  2    15                      Labour        137           65         202
+##  3     6                  Crossbench        138           40         178
+##  4    17            Liberal Democrat         68           34         102
+##  5    49              Non-affiliated         27            3          30
+##  6     3                     Bishops         23            2          25
+##  7     7   Democratic Unionist Party          3            0           3
+##  8    35       UK Independence Party          3            0           3
+##  9    10          Independent Labour          2            0           2
+## 10    38       Ulster Unionist Party          2            0           2
+## 11    44                 Green Party          0            1           1
+## 12    53 Independent Social Democrat          1            0           1
+## 13    52 Independent Ulster Unionist          1            0           1
+## 14    22                 Plaid Cymru          1            0           1</code></pre>
 </div>
-</div>
-<div id="data-tidying" class="section level3">
-<h3>Data tidying</h3>
-<p><code>mnis</code> contains a parameter option called <code>tidy</code> with all functions except for <code>mnis_base</code>. The default variable names are unnecessarily lengthy, repeat the same piece of information several times in a row and contain non-alphanumeric characters. They also use a mixture of camelCase, <code>.</code>s, <code>@</code>s and <code>#</code>s to seperate words in multi-word variable names. <code>tidy</code> fixes this, and defaults to TRUE, so you won’t have to deal with the clunky and over-complicated default variable names unless you really want to.</p>
-<p>There is also an internal function to remove byte-order marks from the API response.</p>
 </div>
 </div>
 

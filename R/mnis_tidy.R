@@ -1,12 +1,14 @@
 #' mnis_tidy
 #'
 #' Internal tidying functions
-#' @param x The dataframe to tidy
-#' @param tidy_style The style to tidy the dataframe with.
+#' @param x The tibble to tidy
+#' @param tidy_style The style to tidy the tibble with.
 #' @return Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
 #' @export
 #' @rdname mnis_tidy
 mnis_tidy <- function(x, tidy_style) {
+
+    x <- mnis::date_tidy(x)
 
     names(x) <- gsub("@", "", names(x))
 
@@ -121,6 +123,7 @@ ref_tidy <- function(x, tidy_style) {
 
 }
 
+#' constituency_results_tidy
 #' @param results The tibble to tidy
 #' @param details The list to tidy
 #' @export
@@ -160,3 +163,23 @@ tidy_bom <- function(df) {
     got
 
 }
+
+#' date_tidy
+#' Makes dates datable
+#'
+#' @param df The tibble with the undateable dates.
+#' @export
+#' @rdname mnis_tidy
+date_tidy <- function(df) {
+
+  indx <- grepl('date', colnames(df), ignore.case=TRUE)
+
+  df[indx] <- lapply(df[indx], function(y) gsub("T", " ", y))
+
+  df[indx] <- lapply(df[indx], as.POSIXct, format = "%Y-%m-%d %H:%M:%S")
+
+  df
+
+}
+
+

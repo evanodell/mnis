@@ -24,7 +24,7 @@ mnis_base <- function(request) {
         stop("API did not return json", call. = FALSE)
     }
     
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
     
     got <- jsonlite::fromJSON(got, flatten = TRUE)
     

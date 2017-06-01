@@ -18,10 +18,6 @@ mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_styl
 
   house <- tolower(house)
 
-  if(is.null(joined_since)==FALSE){
-    joined_since <- as.Date(joined_since)
-  }
-
   if (is.na(pmatch(house, c("all", "lords", "commons"))))
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
 
@@ -42,13 +38,9 @@ mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_styl
     party <- paste0("|party*", party)
   }
 
-  if (is.null(joined_since) == FALSE) {
-    joined_since <- paste0("joinedsince=", joined_since)
-  }
-
   message("Connecting to API")
 
-  query <- paste0(baseurl, house, party, joined_since, "/HouseMemberships/")
+  query <- paste0(baseurl, house, party, "/HouseMemberships/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -56,7 +48,7 @@ mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_styl
     stop("API did not return json", call. = FALSE)
   }
 
-  got <- tidy_bom(got)
+  got <- mnis::tidy_bom(got)
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -66,7 +58,7 @@ mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_styl
 
   if (tidy == TRUE) {
 
-    x <- mnis_tidy(x, tidy_style)
+    x <- mnis::mnis_tidy(x, tidy_style)
 
     x
 

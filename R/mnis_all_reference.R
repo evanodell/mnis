@@ -8,7 +8,7 @@
 #' @export
 #' @examples \dontrun{
 #'
-#' mnis_all_reference()
+#' z <- mnis_all_reference()
 #'
 #'}
 

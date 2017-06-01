@@ -154,7 +154,7 @@ ref_address_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -162,7 +162,7 @@ ref_address_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -188,7 +188,7 @@ ref_answering_bodies <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -196,7 +196,7 @@ ref_answering_bodies <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -221,7 +221,7 @@ ref_areas <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -229,7 +229,7 @@ ref_areas <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -254,7 +254,7 @@ ref_area_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -262,7 +262,7 @@ ref_area_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -287,7 +287,7 @@ ref_biography_categories <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -295,7 +295,7 @@ ref_biography_categories <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -321,7 +321,7 @@ ref_cabinets <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -329,7 +329,7 @@ ref_cabinets <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -354,7 +354,7 @@ ref_committees <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -362,7 +362,7 @@ ref_committees <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -388,7 +388,7 @@ ref_committee_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -396,7 +396,7 @@ ref_committee_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -422,7 +422,7 @@ ref_constituencies <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -430,7 +430,7 @@ ref_constituencies <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -456,7 +456,7 @@ ref_constituency_areas <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -464,7 +464,7 @@ ref_constituency_areas <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -489,7 +489,7 @@ ref_constituency_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -497,7 +497,7 @@ ref_constituency_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -522,7 +522,7 @@ ref_countries <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -530,7 +530,7 @@ ref_countries <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -556,7 +556,7 @@ ref_departments <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -564,7 +564,7 @@ ref_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -590,7 +590,7 @@ ref_disqualification_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -598,7 +598,7 @@ ref_disqualification_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -623,7 +623,7 @@ ref_elections <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -631,7 +631,7 @@ ref_elections <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -657,7 +657,7 @@ ref_election_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -665,7 +665,7 @@ ref_election_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -691,7 +691,7 @@ ref_end_reasons <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -699,7 +699,7 @@ ref_end_reasons <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -725,7 +725,7 @@ ref_experience_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -733,7 +733,7 @@ ref_experience_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -759,7 +759,7 @@ ref_government_post_departments <- function(tidy = TRUE, tidy_style="snake_case"
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -767,7 +767,7 @@ ref_government_post_departments <- function(tidy = TRUE, tidy_style="snake_case"
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -793,7 +793,7 @@ ref_government_posts <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -801,7 +801,7 @@ ref_government_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -827,7 +827,7 @@ ref_government_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -835,7 +835,7 @@ ref_government_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -861,7 +861,7 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -869,7 +869,7 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -894,7 +894,7 @@ ref_honour_lists <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -902,7 +902,7 @@ ref_honour_lists <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -928,7 +928,7 @@ ref_honours <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -936,7 +936,7 @@ ref_honours <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -962,7 +962,7 @@ ref_interest_categories <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -970,7 +970,7 @@ ref_interest_categories <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -996,7 +996,7 @@ ref_lords_membership_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1004,7 +1004,7 @@ ref_lords_membership_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1029,7 +1029,7 @@ ref_lords_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1037,7 +1037,7 @@ ref_lords_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1063,7 +1063,7 @@ ref_opposition_post_departments <- function(tidy = TRUE, tidy_style="snake_case"
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1071,7 +1071,7 @@ ref_opposition_post_departments <- function(tidy = TRUE, tidy_style="snake_case"
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1097,7 +1097,7 @@ ref_opposition_posts <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1105,7 +1105,7 @@ ref_opposition_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1130,7 +1130,7 @@ ref_opposition_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1138,7 +1138,7 @@ ref_opposition_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1164,7 +1164,7 @@ ref_other_parliaments <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1172,7 +1172,7 @@ ref_other_parliaments <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1197,7 +1197,7 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1205,7 +1205,7 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1229,7 +1229,7 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1237,7 +1237,7 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1262,7 +1262,7 @@ ref_parliament_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1270,7 +1270,7 @@ ref_parliament_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1296,7 +1296,7 @@ ref_parties <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1304,7 +1304,7 @@ ref_parties <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
 
 
@@ -1331,7 +1331,7 @@ ref_party_sub_types <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1345,7 +1345,7 @@ ref_party_sub_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1370,7 +1370,7 @@ ref_photo_outputs <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1378,7 +1378,7 @@ ref_photo_outputs <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
 
 
@@ -1405,7 +1405,7 @@ ref_statuses <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1413,7 +1413,7 @@ ref_statuses <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 
@@ -1440,7 +1440,7 @@ ref_titles <- function(tidy = TRUE, tidy_style="snake_case") {
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1448,7 +1448,7 @@ ref_titles <- function(tidy = TRUE, tidy_style="snake_case") {
 
     if (tidy == TRUE) {
 
-        x <- ref_tidy(x, tidy_style)
+        x <- mnis::ref_tidy(x, tidy_style)
 
         x
 

@@ -648,3 +648,10 @@ ref_Titles <- function(tidy = TRUE) {
     .Defunct("ref_titles")
     ref_titles(tidy = tidy)
 }
+
+
+
+mnis_LordsType <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_case") {
+  .Defunct("mnis_lords_type")
+  mnis_lords_type(date = date, tidy = tidy)
+}

@@ -14,5 +14,11 @@ test_that("mnis_lords_type returns expected format", {
     expect_length(xltmessy, 6)
     expect_type(xltmessy, "list")
 
+    xpod <- mnis_peers_on_date("2017-01-01")
+    expect_true(tibble::is_tibble(xpod))
+    expect_length(xpod, 21)
+    expect_type(xpod, "list")
+    expect_true(nrow(xpod)==843)
+
   })
 

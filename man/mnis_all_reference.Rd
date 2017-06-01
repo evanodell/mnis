@@ -20,7 +20,7 @@ mnis_all_reference
 \examples{
 \dontrun{
 
-mnis_all_reference()
+z <- mnis_all_reference()
 
 }
 }

@@ -40,7 +40,7 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- tidy_bom(got)
+        got <- mnis::tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -58,9 +58,9 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+      x <- mnis::mnis_tidy(x, tidy_style)
 
-        x
+      x
 
     } else {
 

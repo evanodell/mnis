@@ -33,7 +33,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -45,7 +45,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
 
     if (tidy == TRUE) {
 
-        y <- constituency_results_tidy(results, details)
+        y <- mnis::constituency_results_tidy(results, details)
 
         y
 

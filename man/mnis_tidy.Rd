@@ -5,6 +5,7 @@
 \alias{ref_tidy}
 \alias{constituency_results_tidy}
 \alias{tidy_bom}
+\alias{date_tidy}
 \title{mnis_tidy}
 \usage{
 mnis_tidy(x, tidy_style)
@@ -14,17 +15,21 @@ ref_tidy(x, tidy_style)
 constituency_results_tidy(results, details)
 
 tidy_bom(df)
+
+date_tidy(df)
 }
 \arguments{
-\item{x}{The dataframe to tidy}
+\item{x}{The tibble to tidy}
 
-\item{tidy_style}{The style to tidy the dataframe with.}
+\item{tidy_style}{The style to tidy the tibble with.}
 
 \item{results}{The tibble to tidy}
 
 \item{details}{The list to tidy}
 
 \item{df}{The GET returned from call to API.}
+
+\item{df}{The tibble with the undateable dates.}
 }
 \value{
 Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
@@ -34,6 +39,11 @@ Internal tidying functions
 
 ref_tidy
 
+constituency_results_tidy
+
 tidy_bom
 Strips BOM out of JSON data that does not need to be there.
+
+date_tidy
+Makes dates datable
 }

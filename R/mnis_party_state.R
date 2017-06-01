@@ -28,7 +28,7 @@ mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE, 
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -36,7 +36,7 @@ mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE, 
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        x <- mnis::mnis_tidy(x, tidy_style)
 
     } else {
 

@@ -36,7 +36,7 @@ mnis_general_election_results <- function(location_type = "Country", location_na
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -44,7 +44,7 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 
     if (tidy == TRUE) {
 
-        x$ElectionResult <- mnis_tidy(x$ElectionResult, tidy_style)
+        x$ElectionResult <- mnis::mnis_tidy(x$ElectionResult, tidy_style)
 
     } else {
 

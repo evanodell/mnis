@@ -27,23 +27,19 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_ca
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    x <- as.data.frame(got$LordsByType)
+    x <- tibble::as_tibble(as.data.frame(got$LordsByType))
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
-
-        x <- tibble::as_tibble(x)
+        x <- mnis::mnis_tidy(x, tidy_style)
 
         x
 
     } else {
-
-        x <- tibble::as_tibble(x)
 
         x
 
@@ -51,7 +47,3 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_ca
 
 }
 
-mnis_LordsType <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_case") {
-    .Defunct("mnis_LordsType")
-    mnis_lords_type(date = date, tidy = tidy)
-}

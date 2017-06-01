@@ -33,7 +33,7 @@ mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE, tidy_sty
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- tidy_bom(got)
+    got <- mnis::tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -47,7 +47,7 @@ mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE, tidy_sty
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        x <- mnis::mnis_tidy(x, tidy_style)
 
         x
 
