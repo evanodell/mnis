@@ -11,7 +11,7 @@ Tidied up code in `mnis_reference` functions.
 
 Fixed bug in `mnis_party_state` which produced an error if not using the current system date.
 
-Added optional 'tidy_style' parameter, allowing users to decide which style snake_case, camelCase and period.case they want variable names to be in, if 'tidy'==TRUE.
+Added optional 'tidy_style' parameter, allowing users to decide which style `"snake_case"`, `"camelCase"` and `"period.case"` they want variable names to be in, if 'tidy'==TRUE.
 
 # mnis 0.2.5
 
