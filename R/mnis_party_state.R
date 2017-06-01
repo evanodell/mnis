@@ -16,8 +16,6 @@
 
 mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE, tidy_style="snake_case") {
 
-    date <- as.Date(date)
-
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/"
 
     query <- paste0(baseurl, house, "/", date, "/")
@@ -36,7 +34,7 @@ mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE, 
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
     } else {
 

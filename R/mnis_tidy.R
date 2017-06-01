@@ -172,13 +172,13 @@ tidy_bom <- function(df) {
 #' @rdname mnis_tidy
 date_tidy <- function(z) {
 
-  indx <- grepl('date', colnames(df), ignore.case=TRUE)
+  indx <- grepl('date', colnames(z), ignore.case=TRUE)
 
   z[indx] <- lapply(z[indx], function(y) gsub("T", " ", y))
 
   z[indx] <- lapply(z[indx], as.POSIXct, format = "%Y-%m-%d %H:%M:%S")
 
-  df
+  z
 
 }
 
