@@ -16,7 +16,7 @@ constituency_results_tidy(results, details)
 
 tidy_bom(df)
 
-date_tidy(df)
+date_tidy(z)
 }
 \arguments{
 \item{x}{The tibble to tidy}
@@ -29,7 +29,7 @@ date_tidy(df)
 
 \item{df}{The GET returned from call to API.}
 
-\item{df}{The tibble with the undateable dates.}
+\item{z}{The tibble with the undateable dates.}
 }
 \value{
 Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
