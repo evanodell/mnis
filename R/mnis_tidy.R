@@ -76,6 +76,8 @@ mnis_tidy <- function(x, tidy_style) {
 
     names(x) <- gsub("([[:lower:]])([[:upper:]])", "\\1_\\2", names(x))
 
+    names(x) <- gsub("__", "_", names(x))
+
     names(x) <- tolower(names(x))
 
     names(x)[names(x) == "x_house"] <- "house"
