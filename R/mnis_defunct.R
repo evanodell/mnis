@@ -1,7 +1,3 @@
-#' @title mnis_defunct
-#' @description Defunct functions for the `mnis` package.
-#'
-#'
 #' @rdname mnis_defunct
 #' @usage NULL
 mnis_Addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
