@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_party_state.R
 \name{mnis_party_state}
 \alias{mnis_party_state}
-\title{mnis_party_state}
+\title{A tibble with information on the numbers and gender of MPs, by party, for the given date.}
 \usage{
 mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
   tidy_style = "snake_case")
@@ -28,5 +28,8 @@ A tibble with information on the numbers and gender of MPs, by party, for the gi
 x <- mnis_party_state('2012-01-12')
 
 }
+}
+\seealso{
+\code{\link{mnis_mps_on_date}} \code{\link{mnis_peers_on_date}}
 }
 \keyword{mnis}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_eligible.R
 \name{mnis_eligible}
 \alias{mnis_eligible}
-\title{mnis_eligible}
+\title{Returns all members who are able to sit in either house, or who are currently ineligible to sit. Members ineligible to sit include but are not necessarily limited to former MPs, members of the judiciary, who are recused from House of Lords duties.}
 \usage{
 mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
   tidy_style = "snake_case")
@@ -19,7 +19,7 @@ mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
 \item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \description{
-Function returns all members who are eligible to sit in either house.
+Returns all members who are able to sit in either house, or who are currently ineligible to sit. Members ineligible to sit include but are not necessarily limited to former MPs, members of the judiciary, who are recused from House of Lords duties.
 }
 \examples{
 \dontrun{

@@ -1,8 +1,8 @@
 
-#' mnis_all_members
+#' Returns a tibble with information on al members of both houses or a given house.
 #'
-#' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.
-#' @param party The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters.
+#' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so using 'commons', 'Commons' or 'cOmMOnS' will result in the same data being returned.
+#' @param party The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters. The party names are not case sensitive, but must be the complete string of the party name, searching and wildcard options are not accepted by the API, e.g. 'green party'.
 #' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
 #' @keywords mnis

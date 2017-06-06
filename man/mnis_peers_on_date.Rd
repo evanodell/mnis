@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_peers_on_date.R
 \name{mnis_peers_on_date}
 \alias{mnis_peers_on_date}
-\title{mnis_peers_on_date}
+\title{A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.}
 \usage{
 mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")
@@ -20,7 +20,7 @@ mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
 A tibble with information on all Peers who were members of the House of Lords on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \description{
-mnis_peers_on_date
+A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \examples{
 \dontrun{
@@ -28,4 +28,7 @@ mnis_peers_on_date
 x <- mnis_peers_on_date("2017-01-01")
 
 }
+}
+\seealso{
+\code{\link{mnis_party_state}} \code{\link{mnis_peers_on_date}}
 }

@@ -41,7 +41,7 @@
 \alias{ref_photo_outputs}
 \alias{ref_statuses}
 \alias{ref_titles}
-\title{mnis_reference}
+\title{A series of 39 functions that return tibbles of reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.}
 \usage{
 mnis_reference()
 
@@ -255,5 +255,8 @@ mnis_reference()
 # Returns a list of all possible reference functions.
 }
 
+}
+\seealso{
+\code{\link{mnis_all_reference}}
 }
 \keyword{mnis}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_department.R
 \name{mnis_department}
 \alias{mnis_department}
-\title{mnis_department}
+\title{Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{ref_department}})}
 \usage{
 mnis_department(department_id = 0, bench = "Government", former = TRUE,
   tidy = TRUE, tidy_style = "snake_case")
@@ -22,13 +22,17 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
 A tibble with information on departments and ministers/shadow ministers.
 }
 \description{
-mnis_department
+Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{ref_department}})
 }
 \examples{
 \dontrun{
+
 x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
 
 }
 
+}
+\seealso{
+\code{\link{ref_department}}
 }
 \keyword{mnis}

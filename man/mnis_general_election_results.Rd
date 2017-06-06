@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_general_election_results.R
 \name{mnis_general_election_results}
 \alias{mnis_general_election_results}
-\title{mnis_general_election_results}
+\title{Returns an object containing list with details of the search parameter and a tibble with election results. Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.}
 \usage{
 mnis_general_election_results(location_type = "Country",
   location_name = "Great Britain", start_date = "1900-01-01",
@@ -25,12 +25,15 @@ mnis_general_election_results(location_type = "Country",
 Returns a list with details of the search parameter and a tibble with election results.
 }
 \description{
-Returns a list with details of the search parameter and a tibble with election results. Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.
+Returns an object containing list with details of the search parameter and a tibble with election results. Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.
 }
 \examples{
 \dontrun{
 x <- mnis_general_election_results(location_type = 'Country', location_name = 'England',
                                  start_date = '2010-01-01', end_date = '2016-01-01')
 }
+}
+\seealso{
+\code{\link{ref_area_types}} \code{\link{ref_areas}}
 }
 \keyword{mnis}

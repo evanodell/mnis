@@ -1,5 +1,5 @@
-#' mnis_party_state
-#'
+
+
 #' A tibble with information on the numbers and gender of MPs, by party, for the given date.
 #' @param house The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.
 #' @param date Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.
@@ -7,6 +7,7 @@
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @return A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.
 #' @keywords mnis
+#' @seealso \code{\link{mnis_mps_on_date}} \code{\link{mnis_peers_on_date}}
 #' @export
 #' @examples \dontrun{
 #'

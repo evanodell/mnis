@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_lords_type.R
 \name{mnis_lords_type}
 \alias{mnis_lords_type}
-\title{mnis_lords_type}
+\title{Calls the API to return a tibble with details on the number of Lords and their affiliations.}
 \usage{
 mnis_lords_type(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
 }
@@ -25,5 +25,8 @@ Calls the API to return a tibble with details on the number of Lords and their a
 x <- mnis_lords_type()
 
 }
+}
+\seealso{
+\code{\link{ref_lords_membership_types}} \code{\link{ref_lords_rank}}
 }
 \keyword{mnis}

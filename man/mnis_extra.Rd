@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_extra.R
 \name{mnis_extra}
 \alias{mnis_extra}
-\title{mnis_extra}
+\title{A wrapper for \code{\link{mnis_additional}} functions.}
 \usage{
 mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
   basic_details = TRUE, biography_entries = TRUE, committees = TRUE,
@@ -14,62 +14,61 @@ mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
   staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The ID number of the member. Defaults to NULL.}
+\item{ID}{The ID number of the member. Defaults to NULL. If NULL, returns}
 
 \item{mnis_id}{Request based on the default membership ID scheme.}
 
 \item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
 
-\item{addresses}{Member address information (e.g. website, twitter, consituency address etc...).}
+\item{addresses}{Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE. If TRUE, address details are included in the tibble.}
 
-\item{basic_details}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...)}
+\item{basic_details}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...) Defaults to TRUE. If TRUE, basic details are included in the tibble.}
 
-\item{biography_entries}{Member biographical information (e.g. countries of interest, policy expertise etc...)}
+\item{biography_entries}{Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to TRUE. If TRUE, biographical details are included in the tibble.}
 
-\item{committees}{Committees a Member sits or has sat on as well details on committee chairing.}
+\item{committees}{Committees a Member sits or has sat on as well details on committee chairing. Defaults to TRUE. If TRUE, committee details are included in the tibble.}
 
-\item{constituencies}{constituencies a Member has represented.}
+\item{constituencies}{constituencies a Member has represented. Defaults to TRUE. If TRUE, constituency details are included in the tibble.}
 
-\item{elections_contested}{Elections a Member has contested but not won.}
+\item{elections_contested}{Elections a Member has contested but not won. Defaults to TRUE. If TRUE, details of unsuccessful election contests are included in the tibble.}
 
-\item{experiences}{Non-parliamentary experience of a Member.}
+\item{experiences}{Non-parliamentary experience of a Member. Defaults to TRUE. If TRUE, extra-parliamentary experience details are included in the tibble.}
 
-\item{government_posts}{Government posts a Member currently holds.}
+\item{government_posts}{Government posts a Member currently holds. Defaults to TRUE. If TRUE, government posts details are included in the tibble.}
 
-\item{honours}{Honours (e.g. MBE, OBE etc...) held by a Member.}
+\item{honours}{Honours (e.g. MBE, OBE etc...) held by a Member. Defaults to TRUE. If TRUE, honours details are included in the tibble.}
 
-\item{house_memberships}{House membership list of a Member.}
+\item{house_memberships}{House membership list of a Member. Defaults to TRUE. If TRUE, house membership details are included in the tibble.}
 
-\item{interests}{Registered interests (financial) of a Member.}
+\item{interests}{Registered interests (financial) of a Member. Defaults to TRUE. If TRUE, interest details are included in the tibble.}
 
-\item{known_as}{Details of names a Member has chosen to be known as instead of their full title (House of Lords members only).}
+\item{known_as}{Details of names a Member has chosen to be known as instead of their full title (House of Lords members only). Defaults to TRUE. If TRUE, known as details are included in the tibble.}
 
-\item{maiden_speeches}{Maiden speech dates for a Member.}
+\item{maiden_speeches}{Maiden speech dates for a Member. Defaults to TRUE. If TRUE, maiden speech details are included in the tibble.}
 
-\item{opposition_posts}{Opposition posts a Member has held.}
+\item{opposition_posts}{Opposition posts a Member has held. Defaults to TRUE. If TRUE, opposition post details are included in the tibble.}
 
-\item{other_parliaments}{Other Parliaments that a Member has held a membership of.}
+\item{other_parliaments}{Other Parliaments that a Member has held a membership of. Defaults to TRUE. If TRUE, details of other parliaments are included in the tibble.}
 
-\item{parliamentary_posts}{Parliamentary posts a Member has held.}
+\item{parliamentary_posts}{Parliamentary posts a Member has held. Defaults to TRUE. If TRUE, parliamentary posts details are included in the tibble.}
 
-\item{parties}{Party affiliations of a Member.}
+\item{parties}{Party affiliations of a Member. Defaults to TRUE. If TRUE, address details are included in the tibble.}
 
-\item{preferred_names}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
+\item{preferred_names}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...). Defaults to TRUE. If TRUE, preferred names details are included in the tibble.}
 
-\item{staff}{The staff employed by a Member.}
+\item{staff}{The staff employed by a Member. Defaults to TRUE. If TRUE, staff details are included in the tibble.}
 
-\item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member.}
+\item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member. Defaults to TRUE. If TRUE, status details are included in the tibble.}
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
 
 \item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
-A tibble with data on a given MP.
+A tibble with the requested data on a given MP.
 }
 \description{
-A wrapper for \code{\link{mnis_additional}} functions. It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}.
-Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>
+It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>
 }
 \examples{
 \dontrun{

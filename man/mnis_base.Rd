@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_base.R
 \name{mnis_base}
 \alias{mnis_base}
-\title{mnis_base}
+\title{A generic function for the MNIS API lookup. The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined. \code{mnis_base} does not include the option to tidy variable names and data types, but the \code{\link{mnis_tidy}} function can be called on the data returned from the API.}
 \usage{
 mnis_base(request)
 }
@@ -10,7 +10,7 @@ mnis_base(request)
 \item{request}{The request query being made to the MNIS URL}
 }
 \description{
-A generic function for the MNIS API lookup. The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined.
+A generic function for the MNIS API lookup. The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined. \code{mnis_base} does not include the option to tidy variable names and data types, but the \code{\link{mnis_tidy}} function can be called on the data returned from the API.
 }
 \examples{
 \dontrun{

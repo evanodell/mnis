@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_joined_between.R
 \name{mnis_joined_between}
 \alias{mnis_joined_between}
-\title{mnis_joined_between}
+\title{Function returns all members who took their seats in the house between two given dates.}
 \usage{
 mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
   house = "all", party = NULL, eligible = "all", tidy = TRUE,
@@ -24,10 +24,11 @@ mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
 \item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \description{
-Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a tibble. The
+Function returns all members who took their seats in the house between two given dates.
 }
 \examples{
 \dontrun{
+
 x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01', party='labour')
 
 }

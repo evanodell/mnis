@@ -2,13 +2,13 @@
 % Please edit documentation in R/mnis_full_biog.R
 \name{mnis_full_biog}
 \alias{mnis_full_biog}
-\title{mnis_full_biog}
+\title{Requests all available biographical information for a given member, and returns it in the form of a tibble.}
 \usage{
 mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}}.}
+\item{ID}{The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}} with default parameters.}
 
 \item{ref_dods}{Request based on the Dods monitoring member ID scheme. Defaults to FALSE. If FALSE, requests using the default MNIS identification scheme.}
 
@@ -21,6 +21,7 @@ Requests all available biographical information for a given member, and returns 
 }
 \examples{
 \dontrun{
+
 x <- mnis_full_biog(172)
 
 }

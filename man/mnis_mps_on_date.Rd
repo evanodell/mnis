@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_mps_on_date.R
 \name{mnis_mps_on_date}
 \alias{mnis_mps_on_date}
-\title{mnis_mps_on_date}
+\title{A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.}
 \usage{
 mnis_mps_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")
@@ -20,7 +20,7 @@ mnis_mps_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
 A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \description{
-mnis_mps_on_date
+A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \examples{
 \dontrun{

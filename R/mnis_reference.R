@@ -1,6 +1,5 @@
 
-#' mnis_reference
-#'
+
 #' A series of 39 functions that return tibbles of reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.
 #' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
@@ -130,6 +129,7 @@
 #' }
 #'
 #' @export
+#' @seealso \code{\link{mnis_all_reference}}
 #' @rdname mnis_reference
 
 mnis_reference <- function() {

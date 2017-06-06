@@ -1,14 +1,13 @@
 
-#' mnis_full_biog
-#'
 #' Requests all available biographical information for a given member, and returns it in the form of a tibble.
-#' @param ID The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}}.
+#' @param ID The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}} with default parameters.
 #' @param ref_dods Request based on the Dods monitoring member ID scheme. Defaults to FALSE. If FALSE, requests using the default MNIS identification scheme.
 #' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
+#'
 #' x <- mnis_full_biog(172)
 #'
 #' }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_all_reference.R
 \name{mnis_all_reference}
 \alias{mnis_all_reference}
-\title{mnis_all_reference}
+\title{Returns a list of 39 tibbles, with the name and data returned from each respective reference function.}
 \usage{
 mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 }
@@ -15,7 +15,7 @@ mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
 }
 \description{
-mnis_all_reference
+Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
 }
 \examples{
 \dontrun{
@@ -23,4 +23,7 @@ mnis_all_reference
 z <- mnis_all_reference()
 
 }
+}
+\seealso{
+\code{\link{mnis_reference}}
 }

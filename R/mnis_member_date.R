@@ -1,6 +1,5 @@
-#' mnis_member_date
-#'
-#' Returns a tibble with a members status on a given date.
+
+#' Returns a tibble with a member's status on a given date.
 #' @param ID The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.
 #' @param date Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Return details on the requested member's status on that date. Defaults to the current system date.
 #' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.
@@ -8,7 +7,9 @@
 #' @return Returns a tibble with the given member's status on the given date.
 #' @keywords mnis
 #' @export
+#' @seealso \code{\link{mnis_mps_on_date}}
 #' @examples \dontrun{
+#'
 #' x <- mnis_member_date(172)
 #'
 #' }

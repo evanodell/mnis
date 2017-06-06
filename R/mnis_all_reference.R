@@ -1,9 +1,9 @@
 
-#' mnis_all_reference
+#' Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
 #' @return Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
 #' @param tidy Fix the variable names in each tibble to remove special characters and superfluous text, and convert all the variable names to snake_case. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
-#'
+#' @seealso \code{\link{mnis_reference}}
 #' @rdname mnis_all_reference
 #' @export
 #' @examples \dontrun{

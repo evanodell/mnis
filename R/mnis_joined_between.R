@@ -1,6 +1,5 @@
-#' mnis_joined_between
-#'
-#' Function returns all members who took their seats in the house between two given dates. The function requests data in JSON format and parses it to a tibble. The
+
+#' Function returns all members who took their seats in the house between two given dates.
 #' @param start_date The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.
 #' @param end_date The end date of the search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current date.
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.
@@ -11,6 +10,7 @@
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
+#'
 #' x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01', party='labour')
 #'
 #' }

@@ -1,127 +1,126 @@
-#' mnis_tidy
-#'
-#' Internal tidying functions
-#' @param x The tibble to tidy
+
+#' Functions to tidy up the variable names returned from the API.
+#' @param df The tibble to tidy
 #' @param tidy_style The style to tidy the tibble with.
 #' @return Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
 #' @export
 #' @rdname mnis_tidy
-mnis_tidy <- function(x, tidy_style) {
+mnis_tidy <- function(df, tidy_style) {
 
-    x <- mnis::date_tidy(x)
+    df <- mnis::date_tidy(df)
 
-    names(x) <- gsub("@", "", names(x))
+    names(df) <- gsub("@", "", names(df))
 
-    names(x) <- gsub("#", "", names(x))
+    names(df) <- gsub("#", "", names(df))
 
-    names(x) <- gsub("\\.\\.", "\\.", names(x))
+    names(df) <- gsub("\\.\\.", "\\.", names(df))
 
-    names(x) <- gsub("^Members\\.Member\\.", "", names(x))
+    names(df) <- gsub("^Members\\.Member\\.", "", names(df))
 
-    names(x) <- gsub("^BasicDetails\\.", "", names(x))
+    names(df) <- gsub("^BasicDetails\\.", "", names(df))
 
-    names(x) <- gsub("^BiographyEntries\\.", "", names(x))
+    names(df) <- gsub("^BiographyEntries\\.", "", names(df))
 
-    names(x) <- gsub("^Committees\\.", "", names(x))
+    names(df) <- gsub("^Committees\\.", "", names(df))
 
-    names(x) <- gsub("^Addresses\\.", "", names(x))
+    names(df) <- gsub("^Addresses\\.", "", names(df))
 
-    names(x) <- gsub("^Constituencies\\.", "", names(x))
+    names(df) <- gsub("^Constituencies\\.", "", names(df))
 
-    names(x) <- gsub("^ElectionsContested\\.", "", names(x))
+    names(df) <- gsub("^ElectionsContested\\.", "", names(df))
 
-    names(x) <- gsub("^Experiences\\.", "", names(x))
+    names(df) <- gsub("^Edfperiences\\.", "", names(df))
 
-    names(x) <- gsub("^GovernmentPosts\\.", "", names(x))
+    names(df) <- gsub("^GovernmentPosts\\.", "", names(df))
 
-    names(x) <- gsub("^Honours\\.", "", names(x))
+    names(df) <- gsub("^Honours\\.", "", names(df))
 
-    names(x) <- gsub("^HouseMemberships\\.", "", names(x))
+    names(df) <- gsub("^HouseMemberships\\.", "", names(df))
 
-    names(x) <- gsub("^Statuses\\.", "", names(x))
+    names(df) <- gsub("^Statuses\\.", "", names(df))
 
-    names(x) <- gsub("^Staff\\.", "", names(x))
+    names(df) <- gsub("^Staff\\.", "", names(df))
 
-    names(x) <- gsub("^Interests\\.Category\\.Interest\\.", "Interest\\.", names(x))
+    names(df) <- gsub("^Interests\\.Category\\.Interest\\.", "Interest\\.", names(df))
 
-    names(x) <- gsub("^Interests\\.Category\\.", "Interest\\.", names(x))
+    names(df) <- gsub("^Interests\\.Category\\.", "Interest\\.", names(df))
 
-    names(x) <- gsub("^MaidenSpeeches\\.", "", names(x))
+    names(df) <- gsub("^MaidenSpeeches\\.", "", names(df))
 
-    names(x) <- gsub("^OppositionPosts\\.", "", names(x))
+    names(df) <- gsub("^OppositionPosts\\.", "", names(df))
 
-    names(x) <- gsub("^Parties\\.", "", names(x))
+    names(df) <- gsub("^Parties\\.", "", names(df))
 
-    names(x) <- gsub("^PreferredNames\\.", "", names(x))
+    names(df) <- gsub("^PreferredNames\\.", "", names(df))
 
-    names(x) <- gsub("^ParliamentaryPosts\\.", "", names(x))
+    names(df) <- gsub("^ParliamentaryPosts\\.", "", names(df))
 
-    names(x) <- gsub("^OtherParliaments\\.", "", names(x))
+    names(df) <- gsub("^OtherParliaments\\.", "", names(df))
 
-    names(x) <- gsub("^ParliamentaryPosts\\.", "", names(x))
+    names(df) <- gsub("^ParliamentaryPosts\\.", "", names(df))
 
-    names(x) <- gsub("^Post.PostHolders.PostHolder.Member", "PostHolder", names(x))
+    names(df) <- gsub("^Post.PostHolders.PostHolder.Member", "PostHolder", names(df))
 
-    names(x) <- gsub("^Post\\.PostHolders\\.", "", names(x))
+    names(df) <- gsub("^Post\\.PostHolders\\.", "", names(df))
 
-    names(x) <- gsub("xsi:nil", "nil", names(x))
+    names(df) <- gsub("dfsi:nil", "nil", names(df))
 
-    names(x) <- gsub("xmlns:xsi", "label", names(x))
+    names(df) <- gsub("dfmlns:dfsi", "label", names(df))
 
-    names(x) <- gsub("xsi.nil", "nil", names(x))
+    names(df) <- gsub("dfsi.nil", "nil", names(df))
 
-    names(x) <- gsub("xmlns.xsi", "label", names(x))
+    names(df) <- gsub("dfmlns.dfsi", "label", names(df))
 
-    names(x) <- gsub("\\.", "_", names(x))
+    names(df) <- gsub("\\.", "_", names(df))
 
-    names(x) <- gsub("([[:lower:]])([[:upper:]])", "\\1_\\2", names(x))
+    names(df) <- gsub("([[:lower:]])([[:upper:]])", "\\1_\\2", names(df))
 
-    names(x) <- gsub("__", "_", names(x))
+    names(df) <- gsub("__", "_", names(df))
 
-    names(x) <- tolower(names(x))
+    names(df) <- tolower(names(df))
 
-    names(x)[names(x) == "x_house"] <- "house"
+    names(df)[names(df) == "df_house"] <- "house"
 
     if(tidy_style=="camelCase") {
 
-      names(x) <- gsub("(^|[^[:alnum:]])([[:alnum:]])", "\\U\\2", names(x), perl = TRUE)
+      names(df) <- gsub("(^|[^[:alnum:]])([[:alnum:]])", "\\U\\2", names(df), perl = TRUE)
 
-      substr( names(x), 1, 1) <- tolower(substr(names(x), 1, 1))
+      substr( names(df), 1, 1) <- tolower(substr(names(df), 1, 1))
 
     } else if (tidy_style=="period.case") {
 
-      names(x) <- gsub("_", ".", names(x))
+      names(df) <- gsub("_", ".", names(df))
 
     }
 
-    x
+    df
 
 }
 
 #' ref_tidy
 #' @export
 #' @rdname mnis_tidy
-ref_tidy <- function(x, tidy_style) {
+ref_tidy <- function(df, tidy_style) {
 
-    names(x) <- gsub(".*\\.", "", names(x))
+    names(df) <- gsub(".*\\.", "", names(df))
 
-    names(x) <- gsub("([[:lower:]])([[:upper:]])", "\\1_\\2", names(x))
+    names(df) <- gsub("([[:lower:]])([[:upper:]])", "\\1_\\2", names(df))
 
-    names(x) <- tolower(names(x))
+    names(df) <- tolower(names(df))
 
     if(tidy_style=="camelCase") {
 
-      names(x) <- gsub("(^|[^[:alnum:]])([[:alnum:]])", "\\U\\2", names(x), perl = TRUE)
+      names(df) <- gsub("(^|[^[:alnum:]])([[:alnum:]])", "\\U\\2", names(df), perl = TRUE)
 
-      substr( names(x), 1, 1) <- tolower(substr(names(x), 1, 1))
+      substr( names(df), 1, 1) <- tolower(substr(names(df), 1, 1))
 
     } else if (tidy_style=="period.case") {
 
-      names(x) <- gsub("_", ".", names(x))
+      names(df) <- gsub("_", ".", names(df))
 
     }
 
-    x
+    df
 
 }
 
@@ -129,7 +128,6 @@ ref_tidy <- function(x, tidy_style) {
 #' @param results The tibble to tidy
 #' @param details The list to tidy
 #' @export
-#' @rdname mnis_tidy
 constituency_results_tidy <- function(results, details) {
 
     names(results) <- gsub("Candidates\\.Candidate\\.", "", names(results))
@@ -150,8 +148,8 @@ constituency_results_tidy <- function(results, details) {
 
 }
 
-#' tidy_bom
-#' Strips BOM out of JSON data that does not need to be there.
+
+#' A function to strip Byte Order Marks (BOM) out of JSON data returned from the API.
 #'
 #' @param df The GET returned from call to API.
 #' @export
@@ -160,27 +158,26 @@ tidy_bom <- function(df) {
 
     got <- as.character(df)
 
-    got <- mnis_bom(got)  ## This is the C++ function that searches for and removes byte-order marks
+    got <- mnis_bom(got)
 
     got
 
 }
 
-#' date_tidy
-#' Makes dates datable
+
+#' A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.
 #'
-#' @param z The tibble with the undateable dates.
+#' @param df The tibble with the undateable dates.
 #' @export
-#' @rdname mnis_tidy
-date_tidy <- function(z) {
+date_tidy <- function(df) {
 
-  indx <- grepl('date', colnames(z), ignore.case=TRUE)
+  inddf <- grepl('date', colnames(df), ignore.case=TRUE)
 
-  z[indx] <- lapply(z[indx], function(y) gsub("T", " ", y))
+  df[inddf] <- lapply(df[inddf], function(y) gsub("T", " ", y))
 
-  z[indx] <- lapply(z[indx], as.POSIXct, format = "%Y-%m-%d %H:%M:%S")
+  df[inddf] <- lapply(df[inddf], as.POSIXct, format = "%Y-%m-%d %H:%M:%S")
 
-  z
+  df
 
 }
 

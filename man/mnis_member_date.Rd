@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_member_date.R
 \name{mnis_member_date}
 \alias{mnis_member_date}
-\title{mnis_member_date}
+\title{Returns a tibble with a member's status on a given date.}
 \usage{
 mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
   tidy_style = "snake_case")
@@ -20,12 +20,16 @@ mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
 Returns a tibble with the given member's status on the given date.
 }
 \description{
-Returns a tibble with a members status on a given date.
+Returns a tibble with a member's status on a given date.
 }
 \examples{
 \dontrun{
+
 x <- mnis_member_date(172)
 
 }
+}
+\seealso{
+\code{\link{mnis_mps_on_date}}
 }
 \keyword{mnis}

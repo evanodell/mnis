@@ -22,7 +22,7 @@
 \alias{mnis_parliamentary_posts}
 \alias{mnis_parties}
 \alias{mnis_preferred_names}
-\title{mnis_additional}
+\title{A series of basic function for the API lookup. Each of these functions accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.}
 \usage{
 mnis_additional()
 
@@ -99,7 +99,7 @@ mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE,
 A tibble with the data corresponding to the particular function called.
 }
 \description{
-A series of basic function for the API lookup.
+A series of basic function for the API lookup. Each of these functions accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.
 }
 \examples{
 \dontrun{
