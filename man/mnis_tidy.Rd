@@ -3,29 +3,19 @@
 \name{mnis_tidy}
 \alias{mnis_tidy}
 \alias{ref_tidy}
-\alias{tidy_bom}
-\title{Functions to tidy up the variable names returned from the API.}
+\title{Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.}
 \usage{
 mnis_tidy(df, tidy_style)
 
 ref_tidy(df, tidy_style)
-
-tidy_bom(df)
 }
 \arguments{
 \item{df}{The tibble to tidy}
 
 \item{tidy_style}{The style to tidy the tibble with.}
-
-\item{df}{The GET returned from call to API.}
-}
-\value{
-Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
 }
 \description{
-Functions to tidy up the variable names returned from the API.
+Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
 
 ref_tidy
-
-A function to strip Byte Order Marks (BOM) out of JSON data returned from the API.
 }

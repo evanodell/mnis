@@ -15,7 +15,9 @@ vignette: >
 
 All functions requests data in JSON format and parse it to a tibble, except for `mnis_constituency_results()` which returns a list (with constituency details) and a tibble (with constituency election results).
 
-Functions are divided into three main types:
+Functions are divided into four main types:
+
+* General Functions
 
 * Reference Functions
 

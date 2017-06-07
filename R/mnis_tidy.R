@@ -1,8 +1,7 @@
 
-#' Functions to tidy up the variable names returned from the API.
+#' Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
 #' @param df The tibble to tidy
 #' @param tidy_style The style to tidy the tibble with.
-#' @return Functions that optionally, but by default, clean up variable names in all other functions, and a function that removes a needless byte-order mark from the API response.
 #' @export
 #' @rdname mnis_tidy
 mnis_tidy <- function(df, tidy_style) {
@@ -81,6 +80,10 @@ mnis_tidy <- function(df, tidy_style) {
 
     names(df)[names(df) == "df_house"] <- "house"
 
+    names(df) <- gsub("_xsi:nil", "_nil", names(df))
+
+    names(df) <- gsub("_xmlns:xsi", "", names(df))
+
     if(tidy_style=="camelCase") {
 
       names(df) <- gsub("(^|[^[:alnum:]])([[:alnum:]])", "\\U\\2", names(df), perl = TRUE)
@@ -153,7 +156,6 @@ constituency_results_tidy <- function(results, details) {
 #'
 #' @param df The GET returned from call to API.
 #' @export
-#' @rdname mnis_tidy
 tidy_bom <- function(df) {
 
     got <- as.character(df)
@@ -171,14 +173,12 @@ tidy_bom <- function(df) {
 #' @export
 date_tidy <- function(df) {
 
-  inddf <- grepl('date', colnames(df), ignore.case=TRUE)
+  date_vars <- grepl('date', colnames(df), ignore.case=TRUE)
 
-  df[inddf] <- lapply(df[inddf], function(y) gsub("T", " ", y))
+  df[date_vars] <- lapply(df[date_vars], function(y) gsub("T", " ", y))
 
-  df[inddf] <- lapply(df[inddf], as.POSIXct, format = "%Y-%m-%d %H:%M:%S")
+  df[date_vars] <- lapply(df[date_vars], as.POSIXct, format = "%Y-%m-%d %H:%M:%S")
 
   df
 
 }
-
-

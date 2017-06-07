@@ -27,6 +27,6 @@ x <- mnis_lords_type()
 }
 }
 \seealso{
-\code{\link{ref_lords_membership_types}} \code{\link{ref_lords_rank}}
+\code{\link{mnis_reference}} \code{\link{mnis_reference}}
 }
 \keyword{mnis}

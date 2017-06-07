@@ -6,7 +6,7 @@
 #' @return A tibble with information on the numbers of different types of Lords on a given date.
 #' @keywords mnis
 #' @export
-#' @seealso \code{\link{ref_lords_membership_types}} \code{\link{ref_lords_rank}}
+#' @seealso \code{\link{mnis_reference}} \code{\link{mnis_reference}}
 #' @examples \dontrun{
 #'
 #' x <- mnis_lords_type()

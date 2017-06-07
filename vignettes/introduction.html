@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evan Odell" />
 
-<meta name="date" content="2017-06-01" />
+<meta name="date" content="2017-06-07" />
 
 <title>Introduction to mnis</title>
 
@@ -70,15 +70,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to mnis</h1>
 <h4 class="author"><em>Evan Odell</em></h4>
-<h4 class="date"><em>2017-06-01</em></h4>
+<h4 class="date"><em>2017-06-07</em></h4>
 
 
 
 <p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API, with the ability to tidy that data into object classes that are easy to work with in R. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. The Members’ Name Information Service API does not require registration or a token, and is very generous with the number of requests allowed (it is unclear what limits are applied to the API, but I have yet to hit the limit, aside from custom requests using <code>mnis_base()</code>.)</p>
 <p><code>mnis</code> is for researchers, journalists and developers who follow the UK parliament for work, pleasure or some combination thereof. It has a sister package called <a href="https://cran.r-project.org/package=hansard"><code>hansard</code></a> that retrieves data from a different API, and while there is some overlap in function between the two packages, <code>mnis</code> is focused on retrieving data on individual MPs and Peers, government departments, cabinet and shadow cabinet positions, other parliamentary and political roles, and parliamentary reference data.</p>
 <p>All functions requests data in JSON format and parse it to a tibble, except for <code>mnis_constituency_results()</code> which returns a list (with constituency details) and a tibble (with constituency election results).</p>
-<p>Functions are divided into three main types:</p>
+<p>Functions are divided into four main types:</p>
 <ul>
+<li><p>General Functions</p></li>
 <li><p>Reference Functions</p></li>
 <li><p>Additional Information Functions</p></li>
 <li><p>Fixed Scope Functions</p></li>

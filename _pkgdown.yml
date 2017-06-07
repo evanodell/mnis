@@ -35,24 +35,36 @@ navbar:
 
 
 reference:
+- title: General Functions
+  desc: General information retrieval functions.
+  contents:
+  - mnis_all_members
+  - mnis_base
+  - mnis_eligible
+  - mnis_full_biog
+  - mnis_joined_between
+  - mnis_mps_on_date
+  - mnis_peers_on_date
+  - mnis
 - title: Reference Functions
-  desc: Reference functions
+  desc: Functions to return reference data, which can provide parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.
   contents:
   - mnis_reference
   - mnis_all_reference
 - title: Tidy Functions
-  desc: Tidy functions
+  desc: Functions to clean up variable names and convert dates and datetimes to POSIXct.
   contents:
   - mnis_tidy
   - constituency_results_tidy
   - mnis_bom
   - date_tidy
 - title: Additional Functions
-  desc: Additional information functions
+  desc: Functions to return additional information on an MP.
   contents:
   - mnis_additional
+  - mnis_extra
 - title: Fixed Scope Functions
-  desc: Fixed scope functions
+  desc: Functions to return datasets, with a limited number of accepted parameters,
   contents:
   - mnis_party_state
   - mnis_constituency_results
@@ -61,15 +73,4 @@ reference:
   - mnis_lords_type
   - mnis_member_date
   - mnis_party_state
-- title: General Functions
-  desc: General functions
-  contents:
-  - mnis_all_members
-  - mnis_base
-  - mnis_eligible
-  - mnis_extra
-  - mnis_full_biog
-  - mnis_joined_between
-  - mnis_mps_on_date
-  - mnis_peers_on_date
-  - mnis
+
