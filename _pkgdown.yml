@@ -32,3 +32,44 @@ navbar:
       href: https://github.com/EvanOdell/mnis
     - icon: fa-home fa-lg
       href: http://evanodell.com
+
+
+reference:
+- title: Reference Functions
+  desc: Reference functions
+  contents:
+  - mnis_reference
+  - mnis_all_reference
+- title: Tidy Functions
+  desc: Tidy functions
+  contents:
+  - mnis_tidy
+  - constituency_results_tidy
+  - mnis_bom
+  - date_tidy
+- title: Additional Functions
+  desc: Additional information functions
+  contents:
+  - mnis_additional
+- title: Fixed Scope Functions
+  desc: Fixed scope functions
+  contents:
+  - mnis_party_state
+  - mnis_constituency_results
+  - mnis_department
+  - mnis_general_election_results
+  - mnis_lords_type
+  - mnis_member_date
+  - mnis_party_state
+- title: General Functions
+  desc: General functions
+  contents:
+  - mnis_all_members
+  - mnis_base
+  - mnis_eligible
+  - mnis_extra
+  - mnis_full_biog
+  - mnis_joined_between
+  - mnis_mps_on_date
+  - mnis_peers_on_date
+  - mnis
