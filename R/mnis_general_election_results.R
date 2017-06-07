@@ -40,11 +40,19 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    x <- tibble::as_tibble(got$ElectionResults)
+    x <- got$ElectionResults
+
+    x$ElectionResult <- as.tibble(x$ElectionResult)
 
     if (tidy == TRUE) {
 
-        x$ElectionResult <- mnis::mnis_tidy(x$ElectionResult, tidy_style)
+        names(x)[names(x)=="LocationInfo"] <- "location_info"
+
+        names(x)[names(x)=="ElectionResult"] <- "election_result"
+
+        x$election_result <- mnis::mnis_tidy(x$election_result, tidy_style)
+
+        x
 
     } else {
 
