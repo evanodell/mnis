@@ -8,6 +8,6 @@ test_that("mnis_joined_between returns expected format", {
   expect_length(xmjb, 23)
   expect_type(xmjb, "list")
   expect_true(tibble::is_tibble(xmjb))
-  expect_true(nrow(xmjb)==9)
+  expect_true(nrow(xmjb)==64)
 
 })
