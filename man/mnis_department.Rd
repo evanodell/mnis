@@ -27,7 +27,7 @@ Request data on the holders of cabinet/shadow cabinet positions. Request specifi
 \examples{
 \dontrun{
 
-x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
+x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
 
 }
 

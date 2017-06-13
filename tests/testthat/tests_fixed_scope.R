@@ -34,4 +34,11 @@ test_that("fixed scope functions returns expected format", {
   expect_true(tibble::is_tibble(xlt))
   expect_true(nrow(xlt)==15)
 
+
+  xmdepart <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
+  expect_length(xmdepart, 31)
+  expect_type(xmdepart, "list")
+  expect_true(tibble::is_tibble(xmdepart))
+
+
 })
