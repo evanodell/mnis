@@ -49,6 +49,14 @@ mnis_mps_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE, tidy_s
 
   mps <- tibble::as_tibble(mps)
 
+  if(.Platform$OS.type=="windows"){
+
+    mps$MemberFrom <- stringi::stri_trans_general(mps$MemberFrom, "latin-ascii")
+
+    mps$MemberFrom <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", mps$MemberFrom)
+
+  }
+
   if (tidy == TRUE) {
 
     mps <- mnis::mnis_tidy(mps, tidy_style)
