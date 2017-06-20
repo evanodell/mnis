@@ -1,3 +1,8 @@
+# mnis 0.2.7
+
+## Bug Fixes
+
+Fixed bug in `mnis_tidy()` that didn't correct data schema names.
 
 # mnis 0.2.6
 
