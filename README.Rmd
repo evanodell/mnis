@@ -29,8 +29,14 @@ The package is available on CRAN. To install from CRAN run:
 
 ```{r eval = FALSE}
 install.packages("mnis")
-
 ```
+
+Or, if using the [`pacman`](https://CRAN.R-project.org/package=pacman) package:
+
+```{r eval = FALSE}
+pacman::p_load(mnis)
+```
+
 
 The most recent version on GitHub can be installed by running:
 
