@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/EvanOdell/mnis/blob/master/LICENSE)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
 [![GitHub tag](https://img.shields.io/github/tag/evanodell/mnis.svg)](https://github.com/evanodell/mnis)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/)
 [![Build Status](https://travis-ci.org/EvanOdell/mnis.png?branch=master)](https://travis-ci.org/EvanOdell/mnis) 
 [![DOI](https://zenodo.org/badge/76553907.svg)](https://zenodo.org/badge/latestdoi/76553907)
 [![codecov](https://codecov.io/gh/EvanOdell/mnis/branch/master/graph/badge.svg)](https://codecov.io/gh/EvanOdell/mnis)
@@ -45,7 +45,7 @@ install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")
 ```
 
-The most up to date documentation for the development version will always be available at http://docs.evanodell.com/mnis/
+The most up to date documentation for the development version will always be available at https://docs.evanodell.com/mnis/
 
 For an introduction to `mnis`, the vignette `vignette("introduction", package = "mnis")` is the best place to start. If you are unfamiliar with APIs https://zapier.com/learn/apis/ is a helpful introduction.
 
