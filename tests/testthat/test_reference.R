@@ -11,12 +11,12 @@ test_that("mnis_reference returns expected format", {
   expect_type(refa, "list")
   expect_true(tibble::is_tibble(refa))
 
-  refb <- ref_answering_bodies()
+  refb <- ref_answering_bodies(tidy_style = "camelCase")
   expect_length(refb, 17)
   expect_type(refb, "list")
   expect_true(tibble::is_tibble(refb))
 
-  refc <- ref_areas()
+  refc <- ref_areas(tidy_style = "period.case")
   expect_length(refc, 6)
   expect_type(refc, "list")
   expect_true(tibble::is_tibble(refc))
