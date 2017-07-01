@@ -4,6 +4,8 @@
 
 Fixed bug in `mnis_tidy()` that didn't correct data schema names.
 
+Fixed test errors for `mnis_joined_between()`
+
 # mnis 0.2.6
 
 Now accepts dates as character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with `as.Date()`.
