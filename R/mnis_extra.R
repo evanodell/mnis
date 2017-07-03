@@ -2,7 +2,7 @@
 
 #' A wrapper for \code{\link{mnis_additional}} functions.
 #'
-#' It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>
+#' It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
 #'
 #' @param ID The ID number of the member. Defaults to NULL. If NULL, returns
 #' @param mnis_id Request based on the default membership ID scheme.
@@ -54,89 +54,89 @@ mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, b
       stop("ID cannot be null", call. = FALSE)
     }
 
-    mnis_DF_list <- list()
+    mnis_df_list <- list()
 
     if (addresses == TRUE)
         addresses_DF <- mnis_addresses(ID)
-    mnis_DF_list[["addresses_DF"]] <- addresses_DF
+    mnis_df_list[["addresses_DF"]] <- addresses_DF
 
     if (basic_details == TRUE)
         basic_details_DF <- mnis_basic_details(ID)
-    mnis_DF_list[["basic_details_DF"]] <- basic_details_DF
+    mnis_df_list[["basic_details_DF"]] <- basic_details_DF
 
     if (biography_entries == TRUE)
         biography_entries_DF <- mnis_biography_entries(ID)
-    mnis_DF_list[["biography_entries_DF"]] <- biography_entries_DF
+    mnis_df_list[["biography_entries_DF"]] <- biography_entries_DF
 
     if (committees == TRUE)
         committees_DF <- mnis_committees(ID)
-    mnis_DF_list[["committees_DF"]] <- committees_DF
+    mnis_df_list[["committees_DF"]] <- committees_DF
 
     if (constituencies == TRUE)
         constituencies_DF <- mnis_constituencies(ID)
-    mnis_DF_list[["constituencies_DF"]] <- constituencies_DF
+    mnis_df_list[["constituencies_DF"]] <- constituencies_DF
 
     if (elections_contested == TRUE)
         elections_contested_DF <- mnis_elections_contested(ID)
-    mnis_DF_list[["elections_contested_DF"]] <- elections_contested_DF
+    mnis_df_list[["elections_contested_DF"]] <- elections_contested_DF
 
     if (experiences == TRUE)
         experiences_DF <- mnis_experiences(ID)
-    mnis_DF_list[["experiences_DF"]] <- experiences_DF
+    mnis_df_list[["experiences_DF"]] <- experiences_DF
 
     if (government_posts == TRUE)
         government_posts_DF <- mnis_government_posts(ID)
-    mnis_DF_list[["government_posts_DF"]] <- government_posts_DF
+    mnis_df_list[["government_posts_DF"]] <- government_posts_DF
 
     if (honours == TRUE)
         honours_DF <- mnis_honours(ID)
-    mnis_DF_list[["honours_DF"]] <- honours_DF
+    mnis_df_list[["honours_DF"]] <- honours_DF
 
     if (house_memberships == TRUE)
         house_memberships_DF <- mnis_house_memberships(ID)
-    mnis_DF_list[["house_memberships_DF"]] <- house_memberships_DF
+    mnis_df_list[["house_memberships_DF"]] <- house_memberships_DF
 
     if (interests == TRUE)
         interests_DF <- mnis_interests(ID)
-    mnis_DF_list[["interests_DF"]] <- interests_DF
+    mnis_df_list[["interests_DF"]] <- interests_DF
 
     if (known_as == TRUE)
         known_as_DF <- mnis_known_as(ID)
-    mnis_DF_list[["known_as_DF"]] <- known_as_DF
+    mnis_df_list[["known_as_DF"]] <- known_as_DF
 
     if (maiden_speeches == TRUE)
         maiden_speeches_DF <- mnis_maiden_speeches(ID)
-    mnis_DF_list[["maiden_speeches_DF"]] <- maiden_speeches_DF
+    mnis_df_list[["maiden_speeches_DF"]] <- maiden_speeches_DF
 
     if (opposition_posts == TRUE)
         opposition_posts_DF <- mnis_opposition_posts(ID)
-    mnis_DF_list[["opposition_posts_DF"]] <- opposition_posts_DF
+    mnis_df_list[["opposition_posts_DF"]] <- opposition_posts_DF
 
     if (other_parliaments == TRUE)
         other_parliaments_DF <- mnis_other_parliaments(ID)
-    mnis_DF_list[["other_parliaments_DF"]] <- other_parliaments_DF
+    mnis_df_list[["other_parliaments_DF"]] <- other_parliaments_DF
 
     if (parliamentary_posts == TRUE)
         parliamentary_posts_DF <- mnis_parliamentary_posts(ID)
-    mnis_DF_list[["parliamentary_posts_DF"]] <- parliamentary_posts_DF
+    mnis_df_list[["parliamentary_posts_DF"]] <- parliamentary_posts_DF
 
     if (parties == TRUE)
         parties_DF <- mnis_parties(ID)
-    mnis_DF_list[["parties_DF"]] <- parties_DF
+    mnis_df_list[["parties_DF"]] <- parties_DF
 
     if (preferred_names == TRUE)
         preferred_names_DF <- mnis_preferred_names(ID)
-    mnis_DF_list[["preferred_names_DF"]] <- preferred_names_DF
+    mnis_df_list[["preferred_names_DF"]] <- preferred_names_DF
 
     if (staff == TRUE)
         staff_DF <- mnis_staff(ID)
-    mnis_DF_list[["staff_DF"]] <- staff_DF
+    mnis_df_list[["staff_DF"]] <- staff_DF
 
     if (statuses == TRUE)
         statuses_DF <- mnis_statuses(ID)
-    mnis_DF_list[["statuses_DF"]] <- statuses_DF
+    mnis_df_list[["statuses_DF"]] <- statuses_DF
 
-    x <- dplyr::bind_cols(mnis_DF_list)
+    x <- dplyr::bind_cols(mnis_df_list)
 
     if (tidy == TRUE) {
 

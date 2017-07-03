@@ -9,7 +9,7 @@
 #' @return Returns a list with details of the search parameter and a tibble with election results.
 #' @keywords mnis
 #' @export
-#' @seealso \code{\link{ref_area_types}} \code{\link{ref_areas}}
+#' @seealso \code{\link{mnis_reference}}
 #' @examples \dontrun{
 #' x <- mnis_general_election_results(location_type = 'Country', location_name = 'England',
 #'                                  start_date = '2010-01-01', end_date = '2016-01-01')

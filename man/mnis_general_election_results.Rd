@@ -34,6 +34,6 @@ x <- mnis_general_election_results(location_type = 'Country', location_name = 'E
 }
 }
 \seealso{
-\code{\link{ref_area_types}} \code{\link{ref_areas}}
+\code{\link{mnis_reference}}
 }
 \keyword{mnis}

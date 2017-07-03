@@ -6,7 +6,7 @@
 #'
 #' All functions requests data in JSON format and parse it to a tibble. The exception is \code{\link{mnis_constituency_results}} which returns a single object containing a list (with constituency details) and a tibble (with election results).
 #'
-#' None of the functions included in this package appear to run into the API rate limit, although there may be restrictions to custom requests.
+#' None of the functions included in this package appear to run into the API rate limit, although there may be restrictions to custom requests, which allow a maximum of three parameters.
 #'
 #'
 #' @section mnis functions:

@@ -27,6 +27,6 @@ x <- mnis_full_biog(172)
 }
 }
 \seealso{
-\code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+\code{\link{mnis_basic_details}} \code{\link{mnis_additional}} \code{\link{mnis_extra}}
 }
 \keyword{mnis}

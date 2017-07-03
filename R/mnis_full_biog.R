@@ -11,7 +11,7 @@
 #' x <- mnis_full_biog(172)
 #'
 #' }
-#' @seealso \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+#' @seealso \code{\link{mnis_basic_details}} \code{\link{mnis_additional}} \code{\link{mnis_extra}}
 
 mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
 
