@@ -8,7 +8,7 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
   tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.}
+\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0. For departmental IDs see \code{ref_department()} in \code{\link{mnis_reference}}.}
 
 \item{bench}{Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.}
 
@@ -30,7 +30,6 @@ Request data on the holders of cabinet or shadow cabinet positions. Request spec
 x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
 
 }
-
 }
 \seealso{
 \code{\link{mnis_reference}}
