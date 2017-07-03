@@ -14,5 +14,3 @@ test_that("mnis_joined_between returns expected format", {
 
 })
 
-
-df2 <- mnis_tidy(df)

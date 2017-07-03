@@ -13,7 +13,7 @@ member_tidy(df)
 ref_tidy(df, tidy_style)
 }
 \arguments{
-\item{df}{The tibble to tidy}
+\item{df}{The tibble to tidy.}
 
 \item{tidy_style}{The style to tidy the tibble with.}
 }

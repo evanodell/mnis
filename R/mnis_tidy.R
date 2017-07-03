@@ -1,6 +1,6 @@
 
 #' Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
-#' @param df The tibble to tidy
+#' @param df The tibble to tidy.
 #' @param tidy_style The style to tidy the tibble with.
 #' @export
 #' @rdname mnis_tidy
