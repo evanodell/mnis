@@ -4,21 +4,19 @@
 \alias{mnis_extra}
 \title{A wrapper for \code{\link{mnis_additional}} functions.}
 \usage{
-mnis_extra(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE,
-  basic_details = TRUE, biography_entries = TRUE, committees = TRUE,
-  constituencies = TRUE, elections_contested = TRUE, experiences = TRUE,
-  government_posts = TRUE, honours = TRUE, house_memberships = TRUE,
-  interests = TRUE, known_as = TRUE, maiden_speeches = TRUE,
-  opposition_posts = TRUE, other_parliaments = TRUE,
-  parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE,
-  staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style = "snake_case")
+mnis_extra(ID, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE,
+  biography_entries = TRUE, committees = TRUE, constituencies = TRUE,
+  elections_contested = TRUE, experiences = TRUE, government_posts = TRUE,
+  honours = TRUE, house_memberships = TRUE, interests = TRUE,
+  known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE,
+  other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE,
+  preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL. If NULL, returns}
 
-\item{mnis_id}{Request based on the default membership ID scheme.}
-
-\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE.}
+\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE. If FALSE, requests data based on the default membership ID scheme.}
 
 \item{addresses}{Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE. If TRUE, address details are included in the tibble.}
 

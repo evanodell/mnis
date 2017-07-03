@@ -5,8 +5,7 @@
 #' It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
 #'
 #' @param ID The ID number of the member. Defaults to NULL. If NULL, returns
-#' @param mnis_id Request based on the default membership ID scheme.
-#' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE.
+#' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE. If FALSE, requests data based on the default membership ID scheme.
 #' @param addresses Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE. If TRUE, address details are included in the tibble.
 #' @param basic_details Basic information about the Member (e.g. given name, HoL membership type, oaths etc...) Defaults to TRUE. If TRUE, basic details are included in the tibble.
 #' @param biography_entries Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to TRUE. If TRUE, biographical details are included in the tibble.
@@ -40,114 +39,107 @@
 #' @rdname mnis_extra
 #' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 
-mnis_extra <- function(ID, mnis_id = TRUE, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE, biography_entries = TRUE, committees = TRUE, constituencies = TRUE, elections_contested = TRUE, experiences = TRUE, government_posts = TRUE, honours = TRUE, house_memberships = TRUE, interests = TRUE, known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE, other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style="snake_case") {
+mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE, biography_entries = TRUE, committees = TRUE, constituencies = TRUE, elections_contested = TRUE, experiences = TRUE, government_posts = TRUE, honours = TRUE, house_memberships = TRUE, interests = TRUE, known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE, other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style="snake_case") {
 
     ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-        ID_Type <- "refDods="
-    } else {
-        ID_Type <- "id="
-    }
 
     if(is.null(ID)==TRUE){
       stop("ID cannot be null", call. = FALSE)
     }
 
-    mnis_df_list <- list()
+    mnis_df <- tibble::tibble(member_id=ID)
 
     if (addresses == TRUE)
-        addresses_DF <- mnis_addresses(ID)
-    mnis_df_list[["addresses_DF"]] <- addresses_DF
+        addresses_df <- mnis_addresses(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressMessages(suppressWarnings(mnis_df <- as.data.frame(dplyr::inner_join(mnis_df, addresses_df)))))
 
     if (basic_details == TRUE)
-        basic_details_DF <- mnis_basic_details(ID)
-    mnis_df_list[["basic_details_DF"]] <- basic_details_DF
+        basic_details_df <- mnis_basic_details(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, basic_details_df)))
 
     if (biography_entries == TRUE)
-        biography_entries_DF <- mnis_biography_entries(ID)
-    mnis_df_list[["biography_entries_DF"]] <- biography_entries_DF
+        biography_entries_df <- mnis_biography_entries(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, biography_entries_df)))
 
     if (committees == TRUE)
-        committees_DF <- mnis_committees(ID)
-    mnis_df_list[["committees_DF"]] <- committees_DF
+        committees_df <- mnis_committees(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, committees_df)))
 
     if (constituencies == TRUE)
-        constituencies_DF <- mnis_constituencies(ID)
-    mnis_df_list[["constituencies_DF"]] <- constituencies_DF
+        constituencies_df <- mnis_constituencies(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, constituencies_df)))
 
     if (elections_contested == TRUE)
-        elections_contested_DF <- mnis_elections_contested(ID)
-    mnis_df_list[["elections_contested_DF"]] <- elections_contested_DF
+        elections_contested_df <- mnis_elections_contested(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, elections_contested_df)))
 
     if (experiences == TRUE)
-        experiences_DF <- mnis_experiences(ID)
-    mnis_df_list[["experiences_DF"]] <- experiences_DF
+        experiences_df <- mnis_experiences(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, experiences_df)))
 
     if (government_posts == TRUE)
-        government_posts_DF <- mnis_government_posts(ID)
-    mnis_df_list[["government_posts_DF"]] <- government_posts_DF
+        government_posts_df <- mnis_government_posts(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, government_posts_df)))
 
     if (honours == TRUE)
-        honours_DF <- mnis_honours(ID)
-    mnis_df_list[["honours_DF"]] <- honours_DF
+        honours_df <- mnis_honours(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, honours_df)))
 
     if (house_memberships == TRUE)
-        house_memberships_DF <- mnis_house_memberships(ID)
-    mnis_df_list[["house_memberships_DF"]] <- house_memberships_DF
+        house_memberships_df <- mnis_house_memberships(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, house_memberships_df)))
 
     if (interests == TRUE)
-        interests_DF <- mnis_interests(ID)
-    mnis_df_list[["interests_DF"]] <- interests_DF
+        interests_df <- mnis_interests(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, interests_df)))
 
     if (known_as == TRUE)
-        known_as_DF <- mnis_known_as(ID)
-    mnis_df_list[["known_as_DF"]] <- known_as_DF
+        known_as_df <- mnis_known_as(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, known_as_df)))
 
     if (maiden_speeches == TRUE)
-        maiden_speeches_DF <- mnis_maiden_speeches(ID)
-    mnis_df_list[["maiden_speeches_DF"]] <- maiden_speeches_DF
+        maiden_speeches_df <- mnis_maiden_speeches(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, maiden_speeches_df)))
 
     if (opposition_posts == TRUE)
-        opposition_posts_DF <- mnis_opposition_posts(ID)
-    mnis_df_list[["opposition_posts_DF"]] <- opposition_posts_DF
+        opposition_posts_df <- mnis_opposition_posts(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, opposition_posts_df)))
 
     if (other_parliaments == TRUE)
-        other_parliaments_DF <- mnis_other_parliaments(ID)
-    mnis_df_list[["other_parliaments_DF"]] <- other_parliaments_DF
+        other_parliaments_df <- mnis_other_parliaments(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, other_parliaments_df)))
 
     if (parliamentary_posts == TRUE)
-        parliamentary_posts_DF <- mnis_parliamentary_posts(ID)
-    mnis_df_list[["parliamentary_posts_DF"]] <- parliamentary_posts_DF
+        parliamentary_posts_df <- mnis_parliamentary_posts(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, parliamentary_posts_df)))
 
     if (parties == TRUE)
-        parties_DF <- mnis_parties(ID)
-    mnis_df_list[["parties_DF"]] <- parties_DF
+        parties_df <- mnis_parties(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, parties_df)))
 
     if (preferred_names == TRUE)
-        preferred_names_DF <- mnis_preferred_names(ID)
-    mnis_df_list[["preferred_names_DF"]] <- preferred_names_DF
+        preferred_names_df <- mnis_preferred_names(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, preferred_names_df)))
 
     if (staff == TRUE)
-        staff_DF <- mnis_staff(ID)
-    mnis_df_list[["staff_DF"]] <- staff_DF
+        staff_df <- mnis_staff(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, staff_df)))
 
     if (statuses == TRUE)
-        statuses_DF <- mnis_statuses(ID)
-    mnis_df_list[["statuses_DF"]] <- statuses_DF
-
-    x <- dplyr::bind_cols(mnis_df_list)
+        statuses_df <- mnis_statuses(ID=ID, ref_dods = ref_dods, tidy=TRUE, tidy_style = "snake_case")
+    suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, statuses_df)))
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+      mnis_df <- mnis::mnis_tidy(mnis_df, tidy_style)
 
-        x
+      mnis_df
 
     } else {
 
-        x
+      mnis_df
 
     }
 
 }
+

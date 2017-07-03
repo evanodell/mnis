@@ -2,10 +2,13 @@
 % Please edit documentation in R/mnis_tidy.R
 \name{mnis_tidy}
 \alias{mnis_tidy}
+\alias{member_tidy}
 \alias{ref_tidy}
 \title{Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.}
 \usage{
-mnis_tidy(df, tidy_style = c("snake_case", "camelCase", "period.case"))
+mnis_tidy(df, tidy_style = "snake_case")
+
+member_tidy(df)
 
 ref_tidy(df, tidy_style)
 }
@@ -16,6 +19,8 @@ ref_tidy(df, tidy_style)
 }
 \description{
 Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
+
+member_tidy
 
 ref_tidy
 }

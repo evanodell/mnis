@@ -1,15 +1,17 @@
 library(mnis)
-context("mnis_extra")
+context("mnis_eligible")
 
 
-test_that("mnis_extra returns expected format", {
+test_that("mnis_eligible returns expected format", {
+
 
   skip_on_cran()
 
-  xmnise <- mnis_extra(4019)
-  expect_length(xmnise, 579)
-  expect_type(xmnise, "list")
-  expect_true(nrow(xmnise)==1)
-  expect_true(tibble::is_tibble(xmnise))
+  xmniselig <- mnis_eligible()
+  expect_length(xmniselig, 23)
+  expect_type(xmniselig, "list")
+  expect_true(nrow(xmniselig)==1456)
+  expect_true(tibble::is_tibble(xmniselig))
+
 
 })

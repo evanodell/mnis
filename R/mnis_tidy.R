@@ -4,17 +4,17 @@
 #' @param tidy_style The style to tidy the tibble with.
 #' @export
 #' @rdname mnis_tidy
-mnis_tidy <- function(df, tidy_style = c("snake_case", "camelCase", "period.case")) {
+mnis_tidy <- function(df, tidy_style="snake_case") {
 
     df <- mnis::date_tidy(df)
+
+    df <- member_tidy(df)
 
     names(df) <- gsub("@", "", names(df))
 
     names(df) <- gsub("#", "", names(df))
 
     names(df) <- gsub("\\.\\.", "\\.", names(df))
-
-    names(df) <- gsub("^Members\\.Member\\.", "", names(df))
 
     names(df) <- gsub("^BasicDetails\\.", "", names(df))
 
@@ -24,7 +24,7 @@ mnis_tidy <- function(df, tidy_style = c("snake_case", "camelCase", "period.case
 
     names(df) <- gsub("^Addresses\\.", "", names(df))
 
-    names(df) <- gsub("^Constituencies\\.", "", names(df))
+    names(df) <- gsub("^Constituencies\\.Constituency\\.", "Constituency.", names(df))
 
     names(df) <- gsub("^ElectionsContested\\.", "", names(df))
 
@@ -95,6 +95,18 @@ mnis_tidy <- function(df, tidy_style = c("snake_case", "camelCase", "period.case
     df
 
 }
+
+#' member_tidy
+#' @export
+#' @rdname mnis_tidy
+member_tidy <- function(df){
+
+  names(df) <- gsub("^Members\\.Member\\.", "", names(df))
+
+  df
+
+}
+
 
 #' ref_tidy
 #' @export

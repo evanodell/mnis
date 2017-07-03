@@ -762,11 +762,11 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
         dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-        x <- as.list(got$Members$Member)
+        x <- t(dl)
 
-        x <- unlist(x)
+        x <- as.data.frame(x)
 
-        x <- t(x)
+        x <- x[rownames(x) != "ID", ]
 
         x <- tibble::as_tibble(x)
 
