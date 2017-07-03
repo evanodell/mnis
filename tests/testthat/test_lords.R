@@ -4,6 +4,8 @@ context("lords_types")
 
 test_that("mnis_lords_type returns expected format", {
 
+    skip_on_cran()
+
     xlt <- mnis_lords_type(date = '2017-01-01')
     expect_true(tibble::is_tibble(xlt))
     expect_length(xlt, 6)
