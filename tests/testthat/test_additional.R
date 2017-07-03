@@ -27,7 +27,7 @@ test_that("mnis_additional returns expected format", {
     expect_true(tibble::is_tibble(xstaff))
 
     xfbs <- mnis_full_biog(7)
-    expect_length(xfbs, 341)
+    expect_length(xfbs, 344)
     expect_type(xfbs, "list")
     expect_true(tibble::is_tibble(xfbs))
 
@@ -93,13 +93,13 @@ test_that("mnis_additional returns expected format", {
     expect_true(nrow(xms)==1)
 
     xop <- mnis_opposition_posts(172)
-    expect_length(xop, 27)
+    expect_length(xop, 28)
     expect_type(xop, "list")
     expect_true(tibble::is_tibble(xop))
     expect_true(nrow(xop)==1)
 
     xoparls <- mnis_other_parliaments(577)
-    expect_length(xoparls, 39)
+    expect_length(xoparls, 38)
     expect_type(xoparls, "list")
     expect_true(tibble::is_tibble(xoparls))
     expect_true(nrow(xoparls)==1)
@@ -111,13 +111,13 @@ test_that("mnis_additional returns expected format", {
     expect_true(nrow(xpp)==1)
 
     xparties <- mnis_parties(1527)
-    expect_length(xparties, 43)
+    expect_length(xparties, 41)
     expect_type(xparties,"list")
     expect_true(tibble::is_tibble(xparties))
     expect_true(nrow(xparties)==1)
 
     xpn <- mnis_preferred_names(288)
-    expect_length(xpn, 42)
+    expect_length(xpn, 48)
     expect_type(xpn,"list")
     expect_true(tibble::is_tibble(xpn))
     expect_true(nrow(xpn)==1)
