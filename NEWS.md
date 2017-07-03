@@ -4,7 +4,7 @@
 
 Fixed bug in `mnis_tidy()` that didn't correct data schema names.
 
-Fixed test errors for `mnis_joined_between()`
+Fixed test errors for `mnis_joined_between()`.
 
 # mnis 0.2.6
 
