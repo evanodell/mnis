@@ -1,5 +1,7 @@
 
-#' Returns all members who are able to sit in either house, or who are currently ineligible to sit. Members ineligible to sit include but are not necessarily limited to former MPs, members of the judiciary, who are recused from House of Lords duties.
+#' Returns all members who are able to sit in either house, or who are currently ineligible to sit.
+#'
+#'  Returns all members who are able to sit in either house, or who are currently ineligible to sit. Members ineligible to sit include but are not necessarily limited to former MPs, members of the judiciary, who are recused from House of Lords duties.
 #' @param eligible If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.
 #' @param party The party to which a member belongs. Defaults to NULL. The party must be fully spelled out (e.g. 'green party'), the API does not accept searches on this parameter. For a tibble of parties, see \code{\link{ref_parties}}. This parameter is not case sensititive.

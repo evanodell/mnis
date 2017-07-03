@@ -96,7 +96,6 @@ mnis_tidy <- function(df, tidy_style="snake_case") {
 
 }
 
-#' member_tidy
 #' @export
 #' @rdname mnis_tidy
 member_tidy <- function(df){
@@ -108,7 +107,6 @@ member_tidy <- function(df){
 }
 
 
-#' ref_tidy
 #' @export
 #' @rdname mnis_tidy
 ref_tidy <- function(df, tidy_style) {
@@ -135,10 +133,10 @@ ref_tidy <- function(df, tidy_style) {
 
 }
 
-#' constituency_results_tidy
 #' @param results The tibble to tidy
 #' @param details The list to tidy
 #' @export
+#' @rdname mnis_tidy
 constituency_results_tidy <- function(results, details) {
 
     names(results) <- gsub("Candidates\\.Candidate\\.", "", names(results))

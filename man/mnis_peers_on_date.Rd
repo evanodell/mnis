@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_peers_on_date.R
 \name{mnis_peers_on_date}
 \alias{mnis_peers_on_date}
-\title{A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.}
+\title{A tibble with information on all peers who were members of the House of Lords on and between the date(s) specified.}
 \usage{
 mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")
@@ -17,10 +17,10 @@ mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
 \item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
-A tibble with information on all Peers who were members of the House of Lords on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
+A tibble with information on all Peers who were members of the House of Lords on the date specified (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \description{
-A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
+A tibble with information on all peers who were members of the House of Lords on the date specified, (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \examples{
 \dontrun{
@@ -30,5 +30,7 @@ x <- mnis_peers_on_date("2017-01-01")
 }
 }
 \seealso{
-\code{\link{mnis_party_state}} \code{\link{mnis_peers_on_date}}
+\code{\link{mnis_party_state}}
+
+\code{\link{mnis_peers_on_date}}
 }

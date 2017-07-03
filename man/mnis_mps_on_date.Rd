@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_mps_on_date.R
 \name{mnis_mps_on_date}
 \alias{mnis_mps_on_date}
-\title{A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.}
+\title{A tibble with information on all MPs who were members of the House of Commons on and between the date(s) specified.}
 \usage{
 mnis_mps_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")
@@ -28,4 +28,9 @@ A tibble with information on all MPs who were members of the House of Commons on
 x <- mnis_mps_on_date()
 
 }
+}
+\seealso{
+\code{\link{mnis_party_state}}
+
+\code{\link{mnis_peers_on_date}}
 }

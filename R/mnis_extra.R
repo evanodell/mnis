@@ -2,14 +2,16 @@
 
 #' A wrapper for \code{\link{mnis_additional}} functions.
 #'
-#' It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
+#' It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website:
+#'
+#' <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
 #'
 #' @param ID The ID number of the member. Defaults to NULL. If NULL, returns
 #' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE. If FALSE, requests data based on the default membership ID scheme.
 #' @param addresses Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE. If TRUE, address details are included in the tibble.
 #' @param biography_entries Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to TRUE. If TRUE, biographical details are included in the tibble.
 #' @param committees Committees a Member sits or has sat on as well details on committee chairing. Defaults to TRUE. If TRUE, committee details are included in the tibble.
-#' @param constituencies constituencies a Member has represented. Defaults to TRUE. If TRUE, constituency details are included in the tibble.
+#' @param constituencies Constituencies a Member has represented. Defaults to TRUE. If TRUE, constituency details are included in the tibble.
 #' @param elections_contested Elections a Member has contested but not won. Defaults to TRUE. If TRUE, details of unsuccessful election contests are included in the tibble.
 #' @param experiences Non-parliamentary experience of a Member. Defaults to TRUE. If TRUE, extra-parliamentary experience details are included in the tibble.
 #' @param government_posts Government posts a Member currently holds. Defaults to TRUE. If TRUE, government posts details are included in the tibble.
@@ -36,7 +38,9 @@
 #' }
 #' @export
 #' @rdname mnis_extra
-#' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+#' @seealso \code{\link{mnis_full_biog}}
+#' @seealso \code{\link{mnis_basic_details}}
+#' @seealso \code{\link{mnis_additional}}
 
 mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE, biography_entries = TRUE, committees = TRUE, constituencies = TRUE, elections_contested = TRUE, experiences = TRUE, government_posts = TRUE, honours = TRUE, house_memberships = TRUE, interests = TRUE, known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE, other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style="snake_case") {
 

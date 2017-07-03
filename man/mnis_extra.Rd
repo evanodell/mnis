@@ -24,7 +24,7 @@ mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
 
 \item{committees}{Committees a Member sits or has sat on as well details on committee chairing. Defaults to TRUE. If TRUE, committee details are included in the tibble.}
 
-\item{constituencies}{constituencies a Member has represented. Defaults to TRUE. If TRUE, constituency details are included in the tibble.}
+\item{constituencies}{Constituencies a Member has represented. Defaults to TRUE. If TRUE, constituency details are included in the tibble.}
 
 \item{elections_contested}{Elections a Member has contested but not won. Defaults to TRUE. If TRUE, details of unsuccessful election contests are included in the tibble.}
 
@@ -64,7 +64,10 @@ mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
 A tibble with the requested data on a given MP.
 }
 \description{
-It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
+It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website:
+}
+\details{
+<http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
 }
 \examples{
 \dontrun{
@@ -74,6 +77,10 @@ x <- mnis_extra(172)
 }
 }
 \seealso{
-\code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+\code{\link{mnis_full_biog}}
+
+\code{\link{mnis_basic_details}}
+
+\code{\link{mnis_additional}}
 }
 \keyword{mnis}

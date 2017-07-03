@@ -1,3 +1,14 @@
+
+# mnis 0.2.7.9000
+
+## Documentation
+
+Improvements to documentation examples and layout.
+
+## Bug Fixes
+
+`constituency_results_tidy()` not within the `mnis_tidy()` function group.
+
 # mnis 0.2.7
 
 ## Bug Fixes

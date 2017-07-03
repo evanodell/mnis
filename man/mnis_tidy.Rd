@@ -4,6 +4,7 @@
 \alias{mnis_tidy}
 \alias{member_tidy}
 \alias{ref_tidy}
+\alias{constituency_results_tidy}
 \title{Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.}
 \usage{
 mnis_tidy(df, tidy_style = "snake_case")
@@ -11,16 +12,18 @@ mnis_tidy(df, tidy_style = "snake_case")
 member_tidy(df)
 
 ref_tidy(df, tidy_style)
+
+constituency_results_tidy(results, details)
 }
 \arguments{
 \item{df}{The tibble to tidy.}
 
 \item{tidy_style}{The style to tidy the tibble with.}
+
+\item{results}{The tibble to tidy}
+
+\item{details}{The list to tidy}
 }
 \description{
 Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
-
-member_tidy
-
-ref_tidy
 }

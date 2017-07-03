@@ -7,7 +7,8 @@
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @return A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.
 #' @keywords mnis
-#' @seealso \code{\link{mnis_mps_on_date}} \code{\link{mnis_peers_on_date}}
+#' @seealso \code{\link{mnis_mps_on_date}}
+#' @seealso \code{\link{mnis_peers_on_date}}
 #' @export
 #' @examples \dontrun{
 #'

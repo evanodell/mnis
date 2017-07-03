@@ -30,6 +30,8 @@ x <- mnis_party_state('2012-01-12')
 }
 }
 \seealso{
-\code{\link{mnis_mps_on_date}} \code{\link{mnis_peers_on_date}}
+\code{\link{mnis_mps_on_date}}
+
+\code{\link{mnis_peers_on_date}}
 }
 \keyword{mnis}
