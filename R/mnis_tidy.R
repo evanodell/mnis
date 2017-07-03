@@ -4,7 +4,7 @@
 #' @param tidy_style The style to tidy the tibble with.
 #' @export
 #' @rdname mnis_tidy
-mnis_tidy <- function(df, tidy_style) {
+mnis_tidy <- function(df, tidy_style = c("snake_case", "camelCase", "period.case")) {
 
     df <- mnis::date_tidy(df)
 
@@ -28,7 +28,7 @@ mnis_tidy <- function(df, tidy_style) {
 
     names(df) <- gsub("^ElectionsContested\\.", "", names(df))
 
-    names(df) <- gsub("^Edfperiences\\.", "", names(df))
+    names(df) <- gsub("^Experiences\\.", "", names(df))
 
     names(df) <- gsub("^GovernmentPosts\\.", "", names(df))
 

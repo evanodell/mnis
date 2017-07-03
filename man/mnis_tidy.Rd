@@ -5,7 +5,7 @@
 \alias{ref_tidy}
 \title{Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.}
 \usage{
-mnis_tidy(df, tidy_style)
+mnis_tidy(df, tidy_style = c("snake_case", "camelCase", "period.case"))
 
 ref_tidy(df, tidy_style)
 }

@@ -5,8 +5,12 @@ test_that("mnis_reference returns expected format", {
 
   skip_on_cran()
 
-  refa <- ref_address_types()
+  refallreferences <- mnis_all_reference()
+  expect_length(refallreferences, 39)
+  expect_type(refallreferences, "list")
+  expect_true(is.list(refallreferences))
 
+  refa <- ref_address_types()
   expect_length(refa, 3)
   expect_type(refa, "list")
   expect_true(tibble::is_tibble(refa))
