@@ -4,7 +4,7 @@
 \alias{mnis_extra}
 \title{A wrapper for \code{\link{mnis_additional}} functions.}
 \usage{
-mnis_extra(ID, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE,
+mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
   biography_entries = TRUE, committees = TRUE, constituencies = TRUE,
   elections_contested = TRUE, experiences = TRUE, government_posts = TRUE,
   honours = TRUE, house_memberships = TRUE, interests = TRUE,
@@ -19,8 +19,6 @@ mnis_extra(ID, ref_dods = FALSE, addresses = TRUE, basic_details = TRUE,
 \item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE. If FALSE, requests data based on the default membership ID scheme.}
 
 \item{addresses}{Member address information (e.g. website, twitter, consituency address etc...). Defaults to TRUE. If TRUE, address details are included in the tibble.}
-
-\item{basic_details}{Basic information about the Member (e.g. given name, HoL membership type, oaths etc...) Defaults to TRUE. If TRUE, basic details are included in the tibble.}
 
 \item{biography_entries}{Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to TRUE. If TRUE, biographical details are included in the tibble.}
 

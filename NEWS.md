@@ -6,6 +6,10 @@ Fixed bug in `mnis_tidy()` that didn't correct data schema names.
 
 Fixed test errors for `mnis_joined_between()`.
 
+Removed `basic_details` parameter from `mnis_extra()`, as it didn't provide any information that wasn't included by other parameters.
+
+Changed `mnis_extra()` code to eliminate duplicate columns.
+
 # mnis 0.2.6
 
 Now accepts dates as character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with `as.Date()`.
