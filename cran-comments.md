@@ -12,6 +12,7 @@ Test environments
 
 -   Ubuntu 12.04.5 (on Travis-CI): (devel and release)
 -   local MacOS 10.12.4 installation, R 3.4.0
+-   local Windows 7installation, R 3.4.1
 -   win-builder (devel and release)
 
 R CMD check results
