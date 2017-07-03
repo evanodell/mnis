@@ -1,4 +1,7 @@
-#' Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{mnis_reference}} for the \code{ref_department} function to retrieve departmental IDs).
+
+#' Retrieve data on the holders of cabinet/shadow cabinet positions.
+#'
+#' Request data on the holders of cabinet or shadow cabinet positions. Request specific departments by department ID (see \code{\link{mnis_reference}} for the \code{ref_department} function to retrieve departmental IDs).
 #'
 #' @param department_id The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.
 #' @param bench Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.

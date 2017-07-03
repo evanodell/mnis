@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_constituency_results.R
 \name{mnis_constituency_results}
 \alias{mnis_constituency_results}
-\title{Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see \code{\link{ref_constituencies}}.}
+\title{Electoral results in a given constituency.}
 \usage{
 mnis_constituency_results(constituency_id = NULL, election_id = 0,
   tidy = TRUE, tidy_style = "snake_case")
