@@ -1,5 +1,5 @@
 
-# mnis 0.2.7.9000
+# mnis 0.2.8
 
 ## Documentation
 
@@ -8,6 +8,8 @@ Improvements to documentation examples and layout.
 ## Bug Fixes
 
 `constituency_results_tidy()` not within the `mnis_tidy()` function group.
+
+Fixed test error for `mnis_eligible()`, as the data returned by this function is too dynamic for some of the previously used tests to be effective.
 
 # mnis 0.2.7
 
