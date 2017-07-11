@@ -101,7 +101,7 @@ A tibble with the data corresponding to the particular function called.
 \description{
 A series of basic function for the API lookup. Each function accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.
 }
-\section{\code{mnis_additional} functions}{
+\section{`mnis_additional` functions}{
 
 
 \describe{

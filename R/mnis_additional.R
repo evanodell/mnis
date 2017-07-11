@@ -15,7 +15,7 @@
 #' @rdname mnis_additional
 #' @seealso \code{\link{mnis_full_biog}}
 #' @seealso \code{\link{mnis_extra}}
-#' @section \code{mnis_additional} functions:
+#' @section `mnis_additional` functions:
 #'
 #' \describe{
 #' \item{`mnis_basic_details()`}{Basic biographical details of a member.}
