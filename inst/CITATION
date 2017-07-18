@@ -8,5 +8,5 @@ bibentry(bibtype = "Manual",
          author = c(person("Evan", "Odell")),
          year = year,
          note = note,
-         doi = "10.5281/zenodo.591287",
+         doi = "10.5281/zenodo.822424",
          url = "https://cran.r-project.org/package=mnis")
