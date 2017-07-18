@@ -3,7 +3,6 @@ output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- rmarkdown v1 --> <!--to accomodate pandoc bug on windows-->
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
@@ -14,14 +13,14 @@ knitr::opts_chunk$set(
 ```
 
 # mnis
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/EvanOdell/mnis/blob/master/LICENSE)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/evanodell/mnis/blob/master/LICENSE)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
 [![GitHub tag](https://img.shields.io/github/tag/evanodell/mnis.svg)](https://github.com/evanodell/mnis)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/)
-[![Build Status](https://travis-ci.org/EvanOdell/mnis.png?branch=master)](https://travis-ci.org/EvanOdell/mnis) 
+[![Travis-CI Build Status](https://travis-ci.org/evanodell/mnis.svg?branch=master)](https://travis-ci.org/evanodell/mnis)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/evanodell/mnis?branch=master&svg=true)](https://ci.appveyor.com/project/evanodell/mnis)
+[![Coverage Status](https://img.shields.io/codecov/c/github/evanodell/mnis/master.svg)](https://codecov.io/github/evanodell/mnis?branch=master)
 [![DOI](https://zenodo.org/badge/76553907.svg)](https://zenodo.org/badge/latestdoi/76553907)
-[![codecov](https://codecov.io/gh/EvanOdell/mnis/branch/master/graph/badge.svg)](https://codecov.io/gh/EvanOdell/mnis)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/EvanOdell/mnis?branch=master&svg=true)](https://ci.appveyor.com/project/EvanOdell/mnis)
 
 `mnis` is a package for downloading data from the Members' Names Information Service API. For information on the API is available here: http://data.parliament.uk/membersdataplatform/default.aspx.
 
