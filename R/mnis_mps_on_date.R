@@ -1,4 +1,4 @@
-#' A tibble with information on all MPs who were members of the House of Commons on and between the date(s) specified.
+#' All MPs between two dates
 #'
 #' A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 #' @param date1 The date to return the list of mps from. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current system date.
@@ -44,7 +44,7 @@ mnis_mps_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE, tidy_s
     stop("API did not return json", call. = FALSE)
   }
 
-  got <- mnis::tidy_bom(got)
+  got <- tidy_bom(got)
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -62,7 +62,7 @@ mnis_mps_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE, tidy_s
 
   if (tidy == TRUE) {
 
-    mps <- mnis::mnis_tidy(mps, tidy_style)
+    mps <- mnis_tidy(mps, tidy_style)
 
     mps
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_eligible.R
 \name{mnis_eligible}
 \alias{mnis_eligible}
-\title{Returns all members who are able to sit in either house, or who are currently ineligible to sit.}
+\title{All members of the houses.}
 \usage{
 mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
   tidy_style = "snake_case")

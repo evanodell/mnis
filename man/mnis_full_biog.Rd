@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_full_biog.R
 \name{mnis_full_biog}
 \alias{mnis_full_biog}
-\title{Requests all available biographical information for a given member, and returns it in the form of a tibble.}
+\title{Biographical details}
 \usage{
 mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE,
   tidy_style = "snake_case")

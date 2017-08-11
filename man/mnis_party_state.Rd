@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_party_state.R
 \name{mnis_party_state}
 \alias{mnis_party_state}
-\title{A tibble with information on the numbers and gender of MPs, by party, for the given date.}
+\title{Party standing on given dates}
 \usage{
 mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
   tidy_style = "snake_case")

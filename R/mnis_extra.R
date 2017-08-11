@@ -130,7 +130,7 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE, biography_entries
 
     if (tidy == TRUE) {
 
-      mnis_df <- mnis::mnis_tidy(mnis_df, tidy_style)
+      mnis_df <- mnis_tidy(mnis_df, tidy_style)
 
       mnis_df
 

@@ -1,5 +1,8 @@
 
-#' Calls the API to return a tibble with details on the number of Lords and their affiliations.
+#' Peers' party affiliations
+#'
+#'
+#' Calls the API to return a tibble with details on the number of Lords and their party affiliations.
 #' @param date Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.
 #' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
@@ -27,7 +30,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_ca
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -35,7 +38,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style="snake_ca
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 

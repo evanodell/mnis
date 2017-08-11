@@ -1,4 +1,6 @@
 
+#' Members who joined between two dates.
+#'
 #' Function returns all members who took their seats in the house between two given dates.
 #' @param start_date The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.
 #' @param end_date The end date of the search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current date.
@@ -69,7 +71,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
     if (httr::http_type(got) != "application/json") {
         stop("API did not return json", call. = FALSE)
     }
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -77,7 +79,7 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 

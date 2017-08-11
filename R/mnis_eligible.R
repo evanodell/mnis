@@ -1,5 +1,5 @@
 
-#' Returns all members who are able to sit in either house, or who are currently ineligible to sit.
+#' All members of the houses.
 #'
 #'  Returns all members who are able to sit in either house, or who are currently ineligible to sit. Members ineligible to sit include but are not necessarily limited to former MPs, members of the judiciary, who are recused from House of Lords duties.
 #' @param eligible If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.
@@ -50,7 +50,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -58,7 +58,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = T
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         if(.Platform$OS.type=="windows"){
 

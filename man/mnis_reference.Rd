@@ -41,7 +41,7 @@
 \alias{ref_photo_outputs}
 \alias{ref_statuses}
 \alias{ref_titles}
-\title{A series of 39 functions that return tibbles of reference data.}
+\title{Reference data}
 \usage{
 mnis_reference()
 
@@ -126,7 +126,7 @@ ref_titles(tidy = TRUE, tidy_style = "snake_case")
 \arguments{
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of 'snake_case', 'camelCase' and 'period.case'. Defaults to 'snake_case'}
 }
 \description{
 This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which defaults to TRUE.
@@ -136,13 +136,13 @@ This data is useful for providing parameters for other function calls. The funct
 
 \describe{
 \item{ref_address_types}{The types of addresses available in member's contact details. Includes websites and social media, as well as physical addresses.}
-\item{ref_answering_bodies}{The bodies that members' can address questions to.}
-\item{ref_areas}{Geographic areas.}
-\item{ref_area_types}{Identifiers for grouping areas (e.g. borough constituencies).}
-\item{ref_biography_categories}{Member biography categories.}
-\item{ref_cabinets}{Connections that a member has to the cabinet or shadow cabinet.}
-\item{ref_committees}{Identifier for parliamentary committees.}
-\item{ref_committee_types}{Types of parliamentary committees.}
+\item{`ref_answering_bodies`}{The bodies that members' can address questions to.}
+\item{`ref_areas`}{Geographic areas.}
+\item{`ref_area_types`}{Identifiers for grouping areas (e.g. borough constituencies).}
+\item{`ref_biography_categories`}{Member biography categories.}
+\item{`ref_cabinets`}{Connections that a member has to the cabinet or shadow cabinet.}
+\item{`ref_committees`}{Identifier for parliamentary committees.}
+\item{`ref_committee_types`}{Types of parliamentary committees.}
 \item{`ref_constituencies()`}{All constituencies.}
 \item{`ref_constituency_areas()`}{The links between constituencies and constituency areas.}
 \item{`ref_constituency_types()`}{Constituency categories.}

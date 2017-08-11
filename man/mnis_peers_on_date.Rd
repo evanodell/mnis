@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_peers_on_date.R
 \name{mnis_peers_on_date}
 \alias{mnis_peers_on_date}
-\title{A tibble with information on all peers who were members of the House of Lords on and between the date(s) specified.}
+\title{All peers between two dates}
 \usage{
 mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")

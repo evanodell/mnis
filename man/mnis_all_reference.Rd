@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_all_reference.R
 \name{mnis_all_reference}
 \alias{mnis_all_reference}
-\title{Returns a list of 39 tibbles, with the name and data returned from each respective reference function.}
+\title{All reference datasets}
 \usage{
 mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 }

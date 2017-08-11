@@ -1,5 +1,7 @@
 
 
+#' Party standing on given dates
+#'
 #' A tibble with information on the numbers and gender of MPs, by party, for the given date.
 #' @param house The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.
 #' @param date Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.
@@ -28,7 +30,7 @@ mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE, 
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 

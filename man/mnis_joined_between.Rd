@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_joined_between.R
 \name{mnis_joined_between}
 \alias{mnis_joined_between}
-\title{Function returns all members who took their seats in the house between two given dates.}
+\title{Members who joined between two dates.}
 \usage{
 mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
   house = "all", party = NULL, eligible = "all", tidy = TRUE,

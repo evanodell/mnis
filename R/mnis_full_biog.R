@@ -1,4 +1,6 @@
 
+#' Biographical details
+#'
 #' Requests all available biographical information for a given member, and returns it in the form of a tibble.
 #' @param ID The ID number of the member, using the default MNIS scheme. If \code{ref_dods} is TRUE, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}} with default parameters.
 #' @param ref_dods Request based on the Dods monitoring member ID scheme. Defaults to FALSE. If FALSE, requests using the default MNIS identification scheme.
@@ -39,7 +41,7 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -57,7 +59,7 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
     if (tidy == TRUE) {
 
-      x <- mnis::mnis_tidy(x, tidy_style)
+      x <- mnis_tidy(x, tidy_style)
 
       x
 

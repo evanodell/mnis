@@ -1,9 +1,11 @@
 
-#' A series of basic function for the API lookup. Each function accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.
+#' mnis_additional
+#'
+#' A series of basic function for the API lookup.
 #' @param ID The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.
 #' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.
 #' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
-#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of 'snake_case', 'camelCase' and 'period.case'. Defaults to 'snake_case'.
 #' @keywords mnis
 #' @return A tibble with the data corresponding to the particular function called.
 #' @examples \dontrun{
@@ -13,48 +15,35 @@
 #' }
 #' @export
 #' @rdname mnis_additional
-#' @seealso \code{\link{mnis_full_biog}}
-#' @seealso \code{\link{mnis_extra}}
-#' @section `mnis_additional` functions:
+#' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
 #'
-#' \describe{
-#' \item{`mnis_basic_details()`}{Basic biographical details of a member.}
-#' \item{`mnis_biography_entries()`}{Member biographical information (e.g. countries of interest, policy expertise etc...)}
-#' \item{`mnis_committees()`}{Committees a Member sits or has sat on as well details on committee chairing.}
-#' \item{`mnis_addresses()`}{Member address information (e.g. website, twitter, consituency address etc...)}
-#' \item{`mnis_constituencies()`}{Constituencies a Member has represented.}
-#' \item{`mnis_elections_contested()`}{Elections a Member has contested but not won.}
-#' \item{`mnis_experiences()`}{Non-parliamentary experience of a Member. }
-#' \item{`mnis_government_posts()`}{Government posts a Member currently holds.}
-#' \item{`mnis_honours()`}{Honours (e.g. MBE, OBE etc...) held by a Member.}
-#' \item{`mnis_house_memberships()`}{House membership list of a Member.}
-#' \item{`mnis_interests()`}{Registered interests (financial) of a Member. }
-#' \item{`mnis_known_as()`}{Details of names a Member has chosen to be known as instead of their full title (House of Lords members only).}
-#' \item{`mnis_maiden_speeches()`}{Maiden speech dates for a Member.}
-#' \item{`mnis_opposition_posts()`}{Opposition posts a Member has held.}
-#' \item{`mnis_other_parliaments()`}{Other Parliaments that a Member has held a membership of.}
-#' \item{`mnis_parliamentary_posts()`}{Parliamentary posts a Member has held.}
-#' \item{`mnis_parties()`}{Party affiliations of a Member.}
-#' \item{`mnis_preferred_names()`}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
-#' \item{`mnis_statuses()`}{Status history (e.g. suspensions and disqualifications) for a Member.}
-#' \item{`mnis_staff()`}{The staff employed by a Member. }
+#' @export
+#' @rdname mnis_additional
+#' @examples \dontrun{
+#'
+#' x <- mnis_additional()
+#'
 #' }
 
 mnis_additional <- function() {
 
-  x <- c("mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()", "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()", "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_known_as()", "mnis_maiden_speeches()", "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()", "mnis_parties()", "mnis_preferred_names()")
+  df <- c("mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()", "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()", "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_known_as()", "mnis_maiden_speeches()", "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()", "mnis_parties()", "mnis_preferred_names()")
   message("All Available Additional Information Functions:")
 
-  print(x)
+  print(df)
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -75,33 +64,33 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_st
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+    df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
+    df <- mnis_tidy(df, tidy_style)
 
-    x
+    df
 
   } else {
 
-    x
+    df
 
   }
 
@@ -110,10 +99,14 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_st
 #' @export
 #' @rdname mnis_additional
 
-mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -134,32 +127,32 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
+    df <- mnis_tidy(df, tidy_style)
 
-    x
+    df
 
   } else {
 
-    x
+    df
 
   }
 
@@ -167,10 +160,14 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
 #' @export
 #' @rdname mnis_additional
-mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -191,44 +188,44 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -249,44 +246,44 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -307,43 +304,44 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_s
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
 
+  df
+
 }
+
 #' @export
 #' @rdname mnis_additional
-mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -364,44 +362,44 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -422,44 +420,44 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_styl
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -480,46 +478,45 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
-  } else {
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
 
+    df <- basic_details_list(ID, ref_dods)
+
+  } else {
     ID <- as.character(ID)
 
     if (ref_dods == TRUE) {
@@ -538,44 +535,44 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="s
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -596,44 +593,44 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 #' @export
 #' @rdname mnis_additional
 
-mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -654,45 +651,45 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
 
-mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -713,44 +710,44 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="sna
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -771,43 +768,43 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- as.list(got$Members$Member)
 
-    x <- as.data.frame(x)
+    df <- unlist(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- t(df)
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 #' @export
 #' @rdname mnis_additional
-mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -828,44 +825,44 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -886,45 +883,45 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
 
-mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -945,45 +942,45 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
 
-mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -1004,43 +1001,43 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 #' @export
 #' @rdname mnis_additional
-mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -1061,45 +1058,45 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+    df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 
 #' @export
 #' @rdname mnis_additional
 
-mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -1120,44 +1117,44 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="s
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+    df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }
 #' @export
 #' @rdname mnis_additional
 
-mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="snake_case") {
+mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    x <- mnis_all_members()
+    df <- mnis_all_members()
+  } else if (length(ID) > 1) {
+
+    df <- basic_details_list(ID, ref_dods)
+
   } else {
 
     ID <- as.character(ID)
@@ -1178,34 +1175,30 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
       stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    # got <- jsonlite::fromJSON(httr::content(got, 'text', encoding = 'bytes'), flatten = TRUE)
-
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
+
+df <- lapply(df, as.character)
 
   }
 
   if (tidy == TRUE) {
 
-    x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+  df
 
 }

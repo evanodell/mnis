@@ -1,10 +1,10 @@
 
-#' Retrieve data on the holders of cabinet/shadow cabinet positions.
+#' Holders of cabinet/shadow cabinet positions
 #'
 #' Request data on the holders of cabinet or shadow cabinet positions. Request specific departments by department ID (see \code{\link{mnis_reference}} for the \code{ref_department} function to retrieve departmental IDs).
 #'
 #' @param department_id The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0. For departmental IDs see \code{ref_department()} in \code{\link{mnis_reference}}.
-#' @param bench Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.
+#' @param bench Flag to return either Government or Opposition information. Defaults to 'Government'.
 #' @param former Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.
 #' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
@@ -31,7 +31,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     department_id <- as.character(department_id)
 
-    bench <- utils::URLencode(bench)
+    bench <- utils::URLencode(tools::toTitleCase(tolower(bench)))
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
 
@@ -43,7 +43,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -51,14 +51,10 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
-
-        x
-
-    } else {
-
-        x
+        x <- mnis_tidy(x, tidy_style)
 
     }
+
+    x
 
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_general_election_results.R
 \name{mnis_general_election_results}
 \alias{mnis_general_election_results}
-\title{Retrieve election results for a given area and date.}
+\title{Election results by area and date}
 \usage{
 mnis_general_election_results(location_type = "Country",
   location_name = "Great Britain", start_date = "1900-01-01",

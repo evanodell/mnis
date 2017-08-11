@@ -1,5 +1,5 @@
 
-#' Retrieve election results for a given area and date.
+#' Election results by area and date
 #'
 #' Returns an object containing list with details of the search parameter and a tibble with election results.   Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.
 #' @param location_type The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.
@@ -38,7 +38,7 @@ mnis_general_election_results <- function(location_type = "Country", location_na
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -52,7 +52,7 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 
         names(x)[names(x)=="ElectionResult"] <- "election_result"
 
-        x$election_result <- mnis::mnis_tidy(x$election_result, tidy_style)
+        x$election_result <- mnis_tidy(x$election_result, tidy_style)
 
         x
 

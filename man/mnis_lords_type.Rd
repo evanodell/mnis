@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_lords_type.R
 \name{mnis_lords_type}
 \alias{mnis_lords_type}
-\title{Calls the API to return a tibble with details on the number of Lords and their affiliations.}
+\title{Peers' party affiliations}
 \usage{
 mnis_lords_type(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
 }
@@ -17,7 +17,7 @@ mnis_lords_type(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
 A tibble with information on the numbers of different types of Lords on a given date.
 }
 \description{
-Calls the API to return a tibble with details on the number of Lords and their affiliations.
+Calls the API to return a tibble with details on the number of Lords and their party affiliations.
 }
 \examples{
 \dontrun{

@@ -22,7 +22,7 @@
 \alias{mnis_parliamentary_posts}
 \alias{mnis_parties}
 \alias{mnis_preferred_names}
-\title{A series of basic function for the API lookup. Each function accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.}
+\title{mnis_additional}
 \usage{
 mnis_additional()
 
@@ -93,51 +93,27 @@ mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE,
 
 \item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of 'snake_case', 'camelCase' and 'period.case'. Defaults to 'snake_case'.}
 }
 \value{
 A tibble with the data corresponding to the particular function called.
 }
 \description{
-A series of basic function for the API lookup. Each function accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.
+A series of basic function for the API lookup.
 }
-\section{`mnis_additional` functions}{
-
-
-\describe{
-\item{`mnis_basic_details()`}{Basic biographical details of a member.}
-\item{`mnis_biography_entries()`}{Member biographical information (e.g. countries of interest, policy expertise etc...)}
-\item{`mnis_committees()`}{Committees a Member sits or has sat on as well details on committee chairing.}
-\item{`mnis_addresses()`}{Member address information (e.g. website, twitter, consituency address etc...)}
-\item{`mnis_constituencies()`}{Constituencies a Member has represented.}
-\item{`mnis_elections_contested()`}{Elections a Member has contested but not won.}
-\item{`mnis_experiences()`}{Non-parliamentary experience of a Member. }
-\item{`mnis_government_posts()`}{Government posts a Member currently holds.}
-\item{`mnis_honours()`}{Honours (e.g. MBE, OBE etc...) held by a Member.}
-\item{`mnis_house_memberships()`}{House membership list of a Member.}
-\item{`mnis_interests()`}{Registered interests (financial) of a Member. }
-\item{`mnis_known_as()`}{Details of names a Member has chosen to be known as instead of their full title (House of Lords members only).}
-\item{`mnis_maiden_speeches()`}{Maiden speech dates for a Member.}
-\item{`mnis_opposition_posts()`}{Opposition posts a Member has held.}
-\item{`mnis_other_parliaments()`}{Other Parliaments that a Member has held a membership of.}
-\item{`mnis_parliamentary_posts()`}{Parliamentary posts a Member has held.}
-\item{`mnis_parties()`}{Party affiliations of a Member.}
-\item{`mnis_preferred_names()`}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...).}
-\item{`mnis_statuses()`}{Status history (e.g. suspensions and disqualifications) for a Member.}
-\item{`mnis_staff()`}{The staff employed by a Member. }
-}
-}
-
 \examples{
 \dontrun{
 
 x <- mnis_basic_details(172)
 
 }
+\dontrun{
+
+x <- mnis_additional()
+
+}
 }
 \seealso{
-\code{\link{mnis_full_biog}}
-
-\code{\link{mnis_extra}}
+\code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
 }
 \keyword{mnis}

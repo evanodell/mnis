@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_constituency_results.R
 \name{mnis_constituency_results}
 \alias{mnis_constituency_results}
-\title{Electoral results in a given constituency.}
+\title{mnis_constituency_results}
 \usage{
 mnis_constituency_results(constituency_id = NULL, election_id = 0,
   tidy = TRUE, tidy_style = "snake_case")
@@ -20,16 +20,12 @@ mnis_constituency_results(constituency_id = NULL, election_id = 0,
 A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
 }
 \description{
-Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see \code{\link{ref_constituencies}}.
+Returns a list with details of the constituency and a tibble with election results.
 }
 \examples{
 \dontrun{
-
 x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
 
 }
-}
-\seealso{
-\code{\link{mnis_reference}}
 }
 \keyword{mnis}

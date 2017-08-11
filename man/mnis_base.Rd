@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_base.R
 \name{mnis_base}
 \alias{mnis_base}
-\title{A generic function for the MNIS API lookup.}
+\title{A generic function for the MNIS API}
 \usage{
 mnis_base(request)
 }
