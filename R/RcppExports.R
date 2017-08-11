@@ -6,6 +6,6 @@
 #' @param x The GET return to strip BOM out of
 #' @export
 mnis_bom <- function(x) {
-    .Call(`_mnis_mnis_bom`, x)
+    .Call('_mnis_mnis_bom', PACKAGE = 'mnis', x)
 }
 

@@ -17,6 +17,6 @@
 #' @import dplyr
 #' @import tibble
 #' @import stringi
-#' @useDynLib mnis, .registration = TRUE
+#' @useDynLib mnis
 #' @importFrom Rcpp sourceCpp
 NULL
