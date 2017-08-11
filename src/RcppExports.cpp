@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // mnis_bom
 std::string mnis_bom(std::string x);
-RcppExport SEXP mnis_mnis_bom(SEXP xSEXP) {
+RcppExport SEXP _mnis_mnis_bom(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
