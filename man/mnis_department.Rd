@@ -2,15 +2,15 @@
 % Please edit documentation in R/mnis_department.R
 \name{mnis_department}
 \alias{mnis_department}
-\title{Holders of cabinet/shadow cabinet positions}
+\title{Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{ref_department}})}
 \usage{
 mnis_department(department_id = 0, bench = "Government", former = TRUE,
   tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0. For departmental IDs see \code{ref_department()} in \code{\link{mnis_reference}}.}
+\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.}
 
-\item{bench}{Flag to return either Government or Opposition information. Defaults to 'Government'.}
+\item{bench}{Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.}
 
 \item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to TRUE. If FALSE, only includes current ministers/shadow ministers.}
 
@@ -22,16 +22,17 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
 A tibble with information on departments and ministers/shadow ministers.
 }
 \description{
-Request data on the holders of cabinet or shadow cabinet positions. Request specific departments by department ID (see \code{\link{mnis_reference}} for the \code{ref_department} function to retrieve departmental IDs).
+Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{ref_department}})
 }
 \examples{
 \dontrun{
 
-x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
+x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
 
 }
+
 }
 \seealso{
-\code{\link{mnis_reference}}
+\code{\link{ref_department}}
 }
 \keyword{mnis}

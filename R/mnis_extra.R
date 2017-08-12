@@ -132,13 +132,9 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE, biography_entries
 
       mnis_df <- mnis_tidy(mnis_df, tidy_style)
 
-      mnis_df
-
-    } else {
-
-      mnis_df
-
     }
+
+      mnis_df
 
 }
 

@@ -10,7 +10,7 @@
 #' @export
 #' @examples \dontrun{
 #'
-#' x <- mnis_full_biog(172)
+#' df <- mnis_full_biog(172)
 #'
 #' }
 #' @seealso \code{\link{mnis_basic_details}} \code{\link{mnis_additional}} \code{\link{mnis_extra}}
@@ -19,11 +19,13 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
     if (missing(ID)) {
 
-        x <- mnis_all_members()
+        df <- mnis_all_members()
+
+    }  else if (length(ID) > 1) {
+
+      df <- full_biog_list(ID, ref_dods)
 
     } else {
-
-        ID <- as.character(ID)
 
         if (ref_dods == TRUE) {
             ID_Type <- "refDods="
@@ -47,26 +49,25 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
         dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-        x <- t(dl)
+        df <- t(dl)
 
-        x <- as.data.frame(x)
+        df <- as.data.frame(df)
 
-        x <- x[rownames(x) != "ID", ]
+        df <- df[rownames(df) != "ID", ]
 
-        x <- tibble::as_tibble(x)
+        df <- lapply(df, as.character)
+
+        df <- tibble::as_tibble(df)
 
     }
 
     if (tidy == TRUE) {
 
-      x <- mnis_tidy(x, tidy_style)
-
-      x
-
-    } else {
-
-        x
+      df <- mnis_tidy(df, tidy_style)
 
     }
+
+  df
+
 
 }

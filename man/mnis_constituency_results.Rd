@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_constituency_results.R
 \name{mnis_constituency_results}
 \alias{mnis_constituency_results}
-\title{mnis_constituency_results}
+\title{Constituency election results}
 \usage{
 mnis_constituency_results(constituency_id = NULL, election_id = 0,
   tidy = TRUE, tidy_style = "snake_case")
@@ -10,7 +10,7 @@ mnis_constituency_results(constituency_id = NULL, election_id = 0,
 \arguments{
 \item{constituency_id}{The ID of the constituency to return the data for. This parameter cannot be empty.}
 
-\item{election_id}{The ID of the election to return the data for. Defaults to 0, which calls the most recent result, either the result of the last general election, or the result of the last byelection held since that election.}
+\item{election_id}{The ID of the election to return the data for. Defaults to 0, which returns the result of all elections held in that constituency.}
 
 \item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.}
 
@@ -24,6 +24,7 @@ Returns a list with details of the constituency and a tibble with election resul
 }
 \examples{
 \dontrun{
+
 x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
 
 }

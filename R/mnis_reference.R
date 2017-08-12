@@ -57,8 +57,7 @@
 
 mnis_reference <- function() {
 
-  x <- c("ref_address_types()", "ref_answering_bodies()", "ref_areas()", "ref_area_types()", "ref_biography_categories()", "ref_cabinets()", "ref_committees()", "ref_committee_types()", "ref_constituencies()", "ref_constituency_areas()", "ref_constituency_types()", "ref_countries()", "ref_departments()", "ref_disqualification_types()", "ref_elections()", "ref_election_types()", "ref_end_reasons()", "ref_experience_types()", "ref_government_post_departments()", "ref_government_posts()", "ref_government_ranks()",
-         "ref_honourary_prefixes()", "ref_honour_lists()", "ref_honours()", "ref_interest_categories()", "ref_lords_membership_types()", "ref_lords_ranks()", "ref_opposition_post_departments()", "ref_opposition_posts()", "ref_opposition_ranks()", "ref_other_parliaments()", "ref_parliamentary_posts()", "ref_parliamentary_ranks()", "ref_parliament_types()", "ref_parties()", "ref_party_sub_types()", "ref_photo_outputs()", "ref_statuses()", "ref_titles()")
+  df <- c("ref_address_types()", "ref_answering_bodies()", "ref_areas()", "ref_area_types()", "ref_biography_categories()", "ref_cabinets()", "ref_committees()", "ref_committee_types()", "ref_constituencies()", "ref_constituency_areas()", "ref_constituency_types()", "ref_countries()", "ref_departments()", "ref_disqualification_types()", "ref_elections()", "ref_election_types()", "ref_end_reasons()", "ref_experience_types()", "ref_government_post_departments()", "ref_government_posts()", "ref_government_ranks()", "ref_honourary_prefixes()", "ref_honour_lists()", "ref_honours()", "ref_interest_categories()", "ref_lords_membership_types()", "ref_lords_ranks()", "ref_opposition_post_departments()", "ref_opposition_posts()", "ref_opposition_ranks()", "ref_other_parliaments()", "ref_parliamentary_posts()", "ref_parliamentary_ranks()", "ref_parliament_types()", "ref_parties()", "ref_party_sub_types()", "ref_photo_outputs()", "ref_statuses()", "ref_titles()")
 
   message("All Available Reference Functions:")
 
@@ -82,15 +81,15 @@ ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$AddressTypes))
+  df <- tibble::as_tibble(as.data.frame(got$AddressTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -112,15 +111,15 @@ ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$AnsweringBodies))
+  df <- tibble::as_tibble(as.data.frame(got$AnsweringBodies))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -141,15 +140,15 @@ ref_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Areas))
+  df <- tibble::as_tibble(as.data.frame(got$Areas))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -170,15 +169,15 @@ ref_area_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$AreaTypes))
+  df <- tibble::as_tibble(as.data.frame(got$AreaTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -199,15 +198,15 @@ ref_biography_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$BiographyCategories))
+  df <- tibble::as_tibble(as.data.frame(got$BiographyCategories))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -229,15 +228,15 @@ ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Cabinets))
+  df <- tibble::as_tibble(as.data.frame(got$Cabinets))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -258,15 +257,15 @@ ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Committees))
+  df <- tibble::as_tibble(as.data.frame(got$Committees))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -288,15 +287,15 @@ ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$CommitteeTypes))
+  df <- tibble::as_tibble(as.data.frame(got$CommitteeTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -318,15 +317,15 @@ ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Constituencies))
+  df <- tibble::as_tibble(as.data.frame(got$Constituencies))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -348,15 +347,15 @@ ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ConstituencyAreas))
+  df <- tibble::as_tibble(as.data.frame(got$ConstituencyAreas))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 }
 
 
@@ -377,15 +376,15 @@ ref_constituency_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ConstituencyTypes))
+  df <- tibble::as_tibble(as.data.frame(got$ConstituencyTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -406,15 +405,15 @@ ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Countries))
+  df <- tibble::as_tibble(as.data.frame(got$Countries))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -436,15 +435,15 @@ ref_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Departments))
+  df <- tibble::as_tibble(as.data.frame(got$Departments))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -466,15 +465,15 @@ ref_disqualification_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$DisqualificationTypes))
+  df <- tibble::as_tibble(as.data.frame(got$DisqualificationTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -495,15 +494,15 @@ ref_elections <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Elections))
+  df <- tibble::as_tibble(as.data.frame(got$Elections))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -524,15 +523,15 @@ ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ElectionTypes))
+  df <- tibble::as_tibble(as.data.frame(got$ElectionTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -553,15 +552,15 @@ ref_end_reasons <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$EndReasons))
+  df <- tibble::as_tibble(as.data.frame(got$EndReasons))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -583,15 +582,15 @@ ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ExperienceTypes))
+  df <- tibble::as_tibble(as.data.frame(got$ExperienceTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -613,15 +612,15 @@ ref_government_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$GovernmentPostDepartments))
+  df <- tibble::as_tibble(as.data.frame(got$GovernmentPostDepartments))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -643,15 +642,15 @@ ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$GovernmentPosts))
+  df <- tibble::as_tibble(as.data.frame(got$GovernmentPosts))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -672,15 +671,15 @@ ref_government_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$GovernmentRanks))
+  df <- tibble::as_tibble(as.data.frame(got$GovernmentRanks))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -701,11 +700,11 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$HonouraryPrefixes))
+  df <- tibble::as_tibble(as.data.frame(got$HonouraryPrefixes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
@@ -730,15 +729,15 @@ ref_honour_lists <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$HonourLists))
+  df <- tibble::as_tibble(as.data.frame(got$HonourLists))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -759,15 +758,15 @@ ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Honours))
+  df <- tibble::as_tibble(as.data.frame(got$Honours))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -789,15 +788,15 @@ ref_interest_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$InterestCategories))
+  df <- tibble::as_tibble(as.data.frame(got$InterestCategories))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -819,15 +818,15 @@ ref_lords_membership_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$LordsMembershipTypes))
+  df <- tibble::as_tibble(as.data.frame(got$LordsMembershipTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -848,15 +847,15 @@ ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$LordsRanks))
+  df <- tibble::as_tibble(as.data.frame(got$LordsRanks))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -878,15 +877,15 @@ ref_opposition_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$OppositionPostDepartments))
+  df <- tibble::as_tibble(as.data.frame(got$OppositionPostDepartments))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -908,15 +907,15 @@ ref_opposition_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$OppositionPosts))
+  df <- tibble::as_tibble(as.data.frame(got$OppositionPosts))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -937,15 +936,15 @@ ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$OppositionRanks))
+  df <- tibble::as_tibble(as.data.frame(got$OppositionRanks))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -967,15 +966,15 @@ ref_other_parliaments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$OtherParliaments))
+  df <- tibble::as_tibble(as.data.frame(got$OtherParliaments))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -996,11 +995,11 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ParliamentaryPosts))
+  df <- tibble::as_tibble(as.data.frame(got$ParliamentaryPosts))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
@@ -1024,11 +1023,11 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ParliamentaryRanks))
+  df <- tibble::as_tibble(as.data.frame(got$ParliamentaryRanks))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
@@ -1053,15 +1052,15 @@ ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$ParliamentTypes))
+  df <- tibble::as_tibble(as.data.frame(got$ParliamentTypes))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -1083,11 +1082,11 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Parties))
+  df <- tibble::as_tibble(as.data.frame(got$Parties))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
@@ -1112,21 +1111,21 @@ ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- as.list(got$PartySubTypes$PartySubType)
+  df <- as.list(got$PartySubTypes$PartySubType)
 
-  x <- unlist(x)
+  df <- unlist(x)
 
-  x <- t(x)
+  df <- t(x)
 
-  x <- tibble::as_tibble(as.data.frame(x))
+  df <- tibble::as_tibble(as.data.frame(x))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -1147,15 +1146,15 @@ ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$PhotoOutputs))
+  df <- tibble::as_tibble(as.data.frame(got$PhotoOutputs))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
 
@@ -1176,19 +1175,17 @@ ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Statuses))
+  df <- tibble::as_tibble(as.data.frame(got$Statuses))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }
-
-
 
 
 #' @export
@@ -1207,14 +1204,14 @@ ref_titles <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- tibble::as_tibble(as.data.frame(got$Titles))
+  df <- tibble::as_tibble(as.data.frame(got$Titles))
 
   if (tidy == TRUE) {
 
-    x <- ref_tidy(x, tidy_style)
+    df <- ref_tidy(df, tidy_style)
 
   }
 
-  x
+  df
 
 }

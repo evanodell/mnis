@@ -22,7 +22,7 @@ Requests all available biographical information for a given member, and returns 
 \examples{
 \dontrun{
 
-x <- mnis_full_biog(172)
+df <- mnis_full_biog(172)
 
 }
 }

@@ -52,20 +52,16 @@ mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_styl
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  x <- got$Members$Member
+  df <- got$Members$Member
 
-  x <- tibble::as_tibble(x)
+  df <- tibble::as_tibble(df)
 
   if (tidy == TRUE) {
 
-    x <- mnis_tidy(x, tidy_style)
-
-    x
-
-  } else {
-
-    x
+    df <- mnis_tidy(df, tidy_style)
 
   }
+
+    df
 
 }

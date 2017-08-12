@@ -1,26 +1,23 @@
 
 # mnis 0.2.7.90000
 
-
 ## New Features
 
-
-`mnis_additional()` and `mnis_member_date()` now accept arrays of member IDs.
-
+`mnis_additional()` functions and `mnis_member_date()` now accept arrays of member IDs.
 
 ## Documentation
 
 Improvements to documentation examples and layout.
 
-
-
-## Bug Fixes
+## Bug Fixes and Improvements
 
 `constituency_results_tidy()` not within the `mnis_tidy()` function group.
 
 Fixed test error for `mnis_eligible()`, as the data returned by this function is too dynamic for some of the previously used tests to be effective.
 
-`mnis_department()` parameter `bench` is no longer case sensititve
+`mnis_department()` parameter `bench` is no longer case sensititve.
+
+Variable styles now apply to dataframe names in `mnis_all_reference()`, and the function has been sped up slightly.
 
 # mnis 0.2.7
 

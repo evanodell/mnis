@@ -1,4 +1,23 @@
 
+full_biog_list <- function(ID, ref_dods) {
+
+  id_list <- as.list(ID)
+
+  dat <- vector("list", length(id_list))
+
+  for (i in 1:length(id_list)) {
+
+    dat[[i]] <- mnis::mnis_full_biog(ID=id_list[[i]], ref_dods=ref_dods, tidy=FALSE)
+
+  }
+
+  df <- dplyr::bind_rows(dat)
+
+  df
+
+}
+
+
 
 basic_details_list <- function(ID, ref_dods) {
 

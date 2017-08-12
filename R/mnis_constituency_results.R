@@ -1,14 +1,15 @@
-#' mnis_constituency_results
+#' Constituency election results
 #'
 #' Returns a list with details of the constituency and a tibble with election results.
 #' @param constituency_id The ID of the constituency to return the data for. This parameter cannot be empty.
-#' @param election_id The ID of the election to return the data for. Defaults to 0, which calls the most recent result, either the result of the last general election, or the result of the last byelection held since that election.
+#' @param election_id The ID of the election to return the data for. Defaults to 0, which returns the result of all elections held in that constituency.
 #' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
 #' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @return A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{
+#'
 #' x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
 #'
 #' }
@@ -41,20 +42,18 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
 
     results <- tibble::as_tibble(got$Constituency$Results)
 
-    y <- list()
+    df <- list()
 
     if (tidy == TRUE) {
 
-        y <- mnis::constituency_results_tidy(results, details)
-
-        y
+        df <-constituency_results_tidy(results, details)
 
     } else {
 
-        y <- c(list(results = results), list(details = details))
-
-        y
+        df <- c(list(results = results), list(details = details))
 
     }
+
+    df
 
 }

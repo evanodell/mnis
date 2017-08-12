@@ -1,11 +1,11 @@
 
-#' Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
-#' @param df The tibble to tidy.
-#' @param tidy_style The style to tidy the tibble with.
-#' @rdname mnis_tidy
+# Functions to tidy up the variable names returned from the API, and turn dates and datetimes to POSIXct.
+# @param df The tibble to tidy.
+# @param tidy_style The style to tidy the tibble with.
+
 mnis_tidy <- function(df, tidy_style="snake_case") {
 
-    df <- mnis::date_tidy(df)
+    df <- date_tidy(df)
 
     df <- member_tidy(df)
 
@@ -95,8 +95,7 @@ mnis_tidy <- function(df, tidy_style="snake_case") {
 
 }
 
-#' @export
-#' @rdname mnis_tidy
+
 member_tidy <- function(df){
 
   names(df) <- gsub("^Members\\.Member\\.", "", names(df))
@@ -106,8 +105,7 @@ member_tidy <- function(df){
 }
 
 
-#' @export
-#' @rdname mnis_tidy
+
 ref_tidy <- function(df, tidy_style) {
 
     names(df) <- gsub(".*\\.", "", names(df))
@@ -132,10 +130,7 @@ ref_tidy <- function(df, tidy_style) {
 
 }
 
-#' @param results The tibble to tidy
-#' @param details The list to tidy
-#' @export
-#' @rdname mnis_tidy
+
 constituency_results_tidy <- function(results, details) {
 
     names(results) <- gsub("Candidates\\.Candidate\\.", "", names(results))
@@ -157,10 +152,8 @@ constituency_results_tidy <- function(results, details) {
 }
 
 
-#' A function to strip Byte Order Marks (BOM) out of JSON data returned from the API.
-#'
-#' @param df The GET returned from call to API.
-#' @export
+# A function to strip Byte Order Marks (BOM) out of JSON data returned from the API.
+
 tidy_bom <- function(df) {
 
     got <- as.character(df)
@@ -172,10 +165,8 @@ tidy_bom <- function(df) {
 }
 
 
-#' A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.
-#'
-#' @param df The tibble with the undateable dates.
-#' @export
+# A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.
+
 date_tidy <- function(df) {
 
   date_vars <- grepl('date', colnames(df), ignore.case=TRUE)

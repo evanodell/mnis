@@ -1,5 +1,5 @@
 
-#' All members of the houses.
+#' All members both houses
 #'
 #'  Returns all members who are able to sit in either house, or who are currently ineligible to sit. Members ineligible to sit include but are not necessarily limited to former MPs, members of the judiciary, who are recused from House of Lords duties.
 #' @param eligible If the member is currently eligible to sit. Accepts TRUE or FALSE. Defaults to TRUE.

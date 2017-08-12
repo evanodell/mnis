@@ -1,6 +1,6 @@
 
 
-#' Party standing on given dates
+#' Party standing on a given date
 #'
 #' A tibble with information on the numbers and gender of MPs, by party, for the given date.
 #' @param house The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.
