@@ -10,7 +10,7 @@ mnis_base(request)
 \item{request}{The request query being made to the MNIS URL}
 }
 \description{
-The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined. \code{mnis_base} does not include the option to tidy variable names and data types, but the \code{\link{mnis_tidy}} function can be called on the data returned from the API.
+The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined. \code{mnis_base} does not include the option to tidy variable names and data types.
 }
 \examples{
 \dontrun{

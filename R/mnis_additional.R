@@ -58,7 +58,7 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_st
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -78,7 +78,7 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_st
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -117,7 +117,7 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -136,7 +136,7 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -174,7 +174,7 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -194,7 +194,7 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -232,7 +232,7 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -252,7 +252,7 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -290,7 +290,7 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_s
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -310,7 +310,7 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_s
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -347,7 +347,7 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -367,7 +367,7 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -405,7 +405,7 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_styl
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -425,7 +425,7 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_styl
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -463,7 +463,7 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -483,7 +483,7 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -521,7 +521,7 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="s
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -541,7 +541,7 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="s
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -579,7 +579,7 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -599,7 +599,7 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -637,7 +637,7 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -657,7 +657,7 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -696,7 +696,7 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="sna
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -716,7 +716,7 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="sna
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -754,7 +754,7 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -774,7 +774,7 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style=
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -811,7 +811,7 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -831,7 +831,7 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -869,7 +869,7 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -889,7 +889,7 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -928,7 +928,7 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -948,7 +948,7 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -987,7 +987,7 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1007,7 +1007,7 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -1044,7 +1044,7 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1064,7 +1064,7 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -1103,7 +1103,7 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="s
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1123,7 +1123,7 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style="s
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 
@@ -1161,7 +1161,7 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
             stop("API did not return json", call. = FALSE)
         }
 
-        got <- mnis::tidy_bom(got)
+        got <- tidy_bom(got)
 
         got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -1181,7 +1181,7 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 

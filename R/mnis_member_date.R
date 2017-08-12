@@ -19,7 +19,7 @@
 mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
-    stop("The ID parameter cannot be empty, please specify a Member of Parliament or a Peer.")
+    stop("The ID parameter cannot be empty, please specify an MP or Peer.")
   }
 
   date <- as.Date(date)

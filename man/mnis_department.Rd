@@ -33,6 +33,6 @@ x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
 
 }
 \seealso{
-\code{\link{ref_department}}
+\code{\link{mnis_reference}}
 }
 \keyword{mnis}

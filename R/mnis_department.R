@@ -8,7 +8,7 @@
 #' @return A tibble with information on departments and ministers/shadow ministers.
 #' @keywords mnis
 #' @export
-#' @seealso \code{\link{ref_department}}
+#' @seealso \code{\link{mnis_reference}}
 #' @examples \dontrun{
 #'
 #' x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
@@ -42,7 +42,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
         stop("API did not return json", call. = FALSE)
     }
 
-    got <- mnis::tidy_bom(got)
+    got <- tidy_bom(got)
 
     got <- jsonlite::fromJSON(got, flatten = TRUE)
 
@@ -50,7 +50,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     if (tidy == TRUE) {
 
-        x <- mnis::mnis_tidy(x, tidy_style)
+        x <- mnis_tidy(x, tidy_style)
 
         x
 

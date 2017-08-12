@@ -61,7 +61,7 @@ mnis_reference <- function() {
 
   message("All Available Reference Functions:")
 
-  print(x)
+  print(df)
 
 }
 
@@ -708,7 +708,8 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   }
 
-  x
+  df
+
 }
 
 
@@ -1003,7 +1004,8 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   }
 
-  x
+  df
+
 }
 
 
@@ -1031,7 +1033,8 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   }
 
-  x
+  df
+
 }
 
 
@@ -1090,7 +1093,8 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   }
 
-  x
+  df
+
 }
 
 
@@ -1113,11 +1117,11 @@ ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   df <- as.list(got$PartySubTypes$PartySubType)
 
-  df <- unlist(x)
+  df <- unlist(df)
 
-  df <- t(x)
+  df <- t(df)
 
-  df <- tibble::as_tibble(as.data.frame(x))
+  df <- tibble::as_tibble(as.data.frame(df))
 
   if (tidy == TRUE) {
 
