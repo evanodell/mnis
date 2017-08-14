@@ -10,7 +10,7 @@
 #' @section \code{mnis_reference} functions:
 #'
 #' \describe{
-#' \item{ref_address_types}{The types of addresses available in member's contact details. Includes websites and social media, as well as physical addresses.}
+#' \item{`ref_address_types``}{The types of addresses available in member's contact details. Includes websites and social media, as well as physical addresses.}
 #' \item{`ref_answering_bodies`}{The bodies that members' can address questions to.}
 #' \item{`ref_areas`}{Geographic areas.}
 #' \item{`ref_area_types`}{Identifiers for grouping areas (e.g. borough constituencies).}
