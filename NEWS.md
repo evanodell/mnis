@@ -1,5 +1,5 @@
 
-# mnis 0.2.7.90000
+# mnis 0.2.7.9001
 
 ## New Features
 
@@ -11,13 +11,16 @@ Improvements to documentation examples and layout.
 
 ## Bug Fixes and Improvements
 
-`constituency_results_tidy()` not within the `mnis_tidy()` function group.
+`mnis_tidy()` and related functions are no longer exported.
 
 Fixed test error for `mnis_eligible()`, as the data returned by this function is too dynamic for some of the previously used tests to be effective.
 
-`mnis_department()` parameter `bench` is no longer case sensititve.
+Case sensitivity has been removed from all parameters that were previously case sensitive.
 
 Variable styles now apply to dataframe names in `mnis_all_reference()`, and the function has been sped up slightly.
+
+Calls to the API using `httr` and `jsonlite` have been moved to generic or class-specific helper functions to reduce the total amount of code, make multi-function files easier to navigate and make any changes to the API easier to adjust to.
+
 
 # mnis 0.2.7
 

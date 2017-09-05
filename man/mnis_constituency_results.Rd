@@ -8,25 +8,22 @@ mnis_constituency_results(constituency_id = NULL, election_id = 0,
   tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{constituency_id}{The ID of the constituency to return the data for. This parameter cannot be empty.}
+\item{constituency_id}{The ID of the constituency to return the data for. If \code{NULL}, no data is returned. Defaults to \code{NULL}.}
 
 \item{election_id}{The ID of the election to return the data for. Defaults to 0, which returns the result of all elections held in that constituency.}
 
-\item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
-A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
+A list with details of the constituency, labelled \code{'details'} and a tibble with election results, labelled \code{'results'}. The list and tibble are stored in a single object.
 }
 \description{
 Returns a list with details of the constituency and a tibble with election results.
 }
 \examples{
 \dontrun{
-
 x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
-
 }
 }
-\keyword{mnis}
