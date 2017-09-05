@@ -1,5 +1,5 @@
 
-# mnis 0.2.7.90000
+# mnis 0.2.8
 
 ## New Features
 

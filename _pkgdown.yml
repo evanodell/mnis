@@ -6,9 +6,7 @@ template:
 name:
 navbar:
   left:
-    - text: "evanodell.com"
-      href: http://evanodell.com
-    - text: "docs.evanodell.com"
+    - text: "Docs Home"
       href: http://docs.evanodell.com
     - text: "News"
       href: news/index.html
@@ -48,19 +46,11 @@ reference:
   - mnis_joined_between
   - mnis_mps_on_date
   - mnis_peers_on_date
-  - mnis
 - title: Reference Functions
   desc: Functions to return reference data, which can provide parameters for other function calls. The functions do not accept any arguments aside from the `tidy` argument, which defaults to TRUE, and the `tidy_style` argument, which defaults to 'snake_case'.
   contents:
   - mnis_reference
   - mnis_all_reference
-- title: Tidy Functions
-  desc: Functions to clean up variable names and convert dates and datetimes to POSIXct.
-  contents:
-  - mnis_tidy
-  - constituency_results_tidy
-  - mnis_bom
-  - date_tidy
 - title: Additional Functions
   desc: Functions to return additional information on an MP.
   contents:
