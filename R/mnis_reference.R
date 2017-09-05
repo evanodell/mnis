@@ -110,7 +110,7 @@ ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$AddressTypes)
+  df <- tibble::as_tibble(got$AddressTypes$AddressType)
 
   if (tidy == TRUE) {
 
@@ -132,7 +132,7 @@ ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$AnsweringBodies)
+  df <- tibble::as_tibble(got$AnsweringBodies$AnsweringBody)
 
   if (tidy == TRUE) {
 
@@ -153,7 +153,7 @@ ref_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Areas)
+  df <- tibble::as_tibble(got$Areas$Area)
 
   if (tidy == TRUE) {
 
@@ -195,7 +195,7 @@ ref_biography_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$BiographyCategories)
+  df <- tibble::as_tibble(got$BiographyCategories$BiographyCategory)
 
   if (tidy == TRUE) {
 
@@ -217,7 +217,7 @@ ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Cabinets)
+  df <- tibble::as_tibble(got$Cabinets$Cabinet)
 
   if (tidy == TRUE) {
 
@@ -238,7 +238,7 @@ ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Committees)
+  df <- tibble::as_tibble(got$Committees$Committee)
 
   if (tidy == TRUE) {
 
@@ -260,7 +260,7 @@ ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$CommitteeTypes)
+  df <- tibble::as_tibble(got$CommitteeTypes$CommitteeType)
 
   if (tidy == TRUE) {
 
@@ -282,7 +282,7 @@ ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Constituencies)
+  df <- tibble::as_tibble(got$Constituencies$Constituency)
 
   if (tidy == TRUE) {
 
@@ -304,7 +304,7 @@ ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$ConstituencyAreas)
+  df <- tibble::as_tibble(got$ConstituencyAreas$ConstituencyArea)
 
   if (tidy == TRUE) {
 
@@ -346,7 +346,7 @@ ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Countries)
+  df <- tibble::as_tibble(got$Countries$Country)
 
   if (tidy == TRUE) {
 
@@ -367,7 +367,7 @@ ref_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Departments)
+  df <- tibble::as_tibble(got$Departments$Department)
 
   if (tidy == TRUE) {
 
@@ -388,7 +388,7 @@ ref_disqualification_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$DisqualificationTypes)
+  df <- tibble::as_tibble(got$DisqualificationTypes$DisqualificationType)
 
   if (tidy == TRUE) {
 
@@ -409,7 +409,7 @@ ref_elections <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Elections)
+  df <- tibble::as_tibble(got$Elections$Election)
 
   if (tidy == TRUE) {
 
@@ -430,7 +430,7 @@ ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$ElectionTypes)
+  df <- tibble::as_tibble(got$ElectionTypes$ElectionType)
 
   if (tidy == TRUE) {
 
@@ -451,7 +451,7 @@ ref_end_reasons <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$EndReasons)
+  df <- tibble::as_tibble(got$EndReasons$EndReason)
 
   if (tidy == TRUE) {
 
@@ -472,7 +472,7 @@ ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$ExperienceTypes)
+  df <- tibble::as_tibble(got$ExperienceTypes$ExperienceType)
 
   if (tidy == TRUE) {
 
@@ -493,7 +493,7 @@ ref_government_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$GovernmentPostDepartments)
+  df <- tibble::as_tibble(got$GovernmentPostDepartments$GovernmentPostDepartment)
 
   if (tidy == TRUE) {
 
@@ -515,7 +515,7 @@ ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$GovernmentPosts)
+  df <- tibble::as_tibble(got$GovernmentPosts$GovernmentPost)
 
   if (tidy == TRUE) {
 
@@ -536,7 +536,7 @@ ref_government_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$GovernmentRanks)
+  df <- tibble::as_tibble(got$GovernmentRanks$GovernmentRank)
 
   if (tidy == TRUE) {
 
@@ -557,7 +557,7 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$HonouraryPrefixes)
+  df <- tibble::as_tibble(got$HonouraryPrefixes$HonouraryPrefix)
 
   if (tidy == TRUE) {
 
@@ -578,7 +578,7 @@ ref_honour_lists <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$HonourLists)
+  df <- tibble::as_tibble(got$HonourLists$HonourList)
 
   if (tidy == TRUE) {
 
@@ -599,7 +599,7 @@ ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Honours)
+  df <- tibble::as_tibble(got$Honours$Honour)
 
   if (tidy == TRUE) {
 
@@ -621,7 +621,7 @@ ref_interest_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$InterestCategories)
+  df <- tibble::as_tibble(got$InterestCategories$InterestCategory)
 
   if (tidy == TRUE) {
 
@@ -643,7 +643,7 @@ ref_lords_membership_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$LordsMembershipTypes)
+  df <- tibble::as_tibble(got$LordsMembershipTypes$LordsMembershipType)
 
   if (tidy == TRUE) {
 
@@ -664,7 +664,7 @@ ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$LordsRanks)
+  df <- tibble::as_tibble(got$LordsRanks$LordsRank)
 
   if (tidy == TRUE) {
 
@@ -686,7 +686,7 @@ ref_opposition_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$OppositionPostDepartments)
+  df <- tibble::as_tibble(got$OppositionPostDepartments$OppositionPostDepartment)
 
   if (tidy == TRUE) {
 
@@ -706,7 +706,7 @@ ref_opposition_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$OppositionPosts)
+  df <- tibble::as_tibble(got$OppositionPosts$OppositionPost)
 
   if (tidy == TRUE) {
 
@@ -727,7 +727,7 @@ ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$OppositionRanks)
+  df <- tibble::as_tibble(got$OppositionRanks$OppositionRank)
 
   if (tidy == TRUE) {
 
@@ -749,7 +749,7 @@ ref_other_parliaments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$OtherParliaments)
+  df <- tibble::as_tibble(got$OtherParliaments$OtherParliament)
 
   if (tidy == TRUE) {
 
@@ -770,7 +770,7 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$ParliamentaryPosts)
+  df <- tibble::as_tibble(got$ParliamentaryPosts$ParliamentaryPost)
 
   if (tidy == TRUE) {
 
@@ -791,7 +791,7 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$ParliamentaryRanks)
+  df <- tibble::as_tibble(got$ParliamentaryRanks$ParliamentaryRank)
 
   if (tidy == TRUE) {
 
@@ -813,7 +813,7 @@ ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$ParliamentTypes)
+  df <- tibble::as_tibble(got$ParliamentTypes$ParliamentType)
 
   if (tidy == TRUE) {
 
@@ -835,7 +835,7 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Parties)
+  df <- tibble::as_tibble(got$Parties$Party)
 
   if (tidy == TRUE) {
 
@@ -884,7 +884,7 @@ ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$PhotoOutputs)
+  df <- tibble::as_tibble(got$PhotoOutputs$PhotoOutput)
 
   if (tidy == TRUE) {
 
@@ -905,7 +905,7 @@ ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Statuses)
+  df <- tibble::as_tibble(got$Statuses$Status)
 
   if (tidy == TRUE) {
 
@@ -926,7 +926,7 @@ ref_titles <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   got <- get_reference(baseurl)
 
-  df <- tibble::as_tibble(got$Titles)
+  df <- tibble::as_tibble(got$Titles$Title)
 
   if (tidy == TRUE) {
 
