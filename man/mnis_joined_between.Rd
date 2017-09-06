@@ -9,28 +9,28 @@ mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
   tidy_style = "snake_case")
 }
 \arguments{
-\item{start_date}{The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.}
+\item{start_date}{The start date of the search, Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to \code{'1900-01-01'}.}
 
-\item{end_date}{The end date of the search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current date.}
+\item{end_date}{The end date of the search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.}
 
-\item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.}
+\item{house}{The house to which the member belongs. Accepts one of \code{'all'}, \code{'lords'} and \code{'commons'}. This parameter is not case sensititive. Defaults to \code{'all'}.}
 
-\item{party}{The party to which a member belongs. Defaults to NULL.}
+\item{party}{All members from a given party who joined between the two dates. The party name must be fully spelled out (e.g. \code{'green party'}), the API does not accept searches on this parameter. For a tibble of parties, see \code{ref_parties} in \code{\link{mnis_reference}}. This parameter is not case sensititive. Defaults to \code{NULL}.}
 
-\item{eligible}{If the member is currently eligible to sit. Accepts one of 'all', 'current', 'former', defaults to 'all'.}
+\item{eligible}{If the member is currently eligible to sit. Accepts one of \code{'all'}, \code{'current'}, \code{'former'}. This parameter is not case sensititive. Defaults to \code{'all'}.}
 
-\item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to TRUE.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+}
+\value{
+A tibble with data on all members who joined between the two given dates.
 }
 \description{
 Function returns all members who took their seats in the house between two given dates.
 }
 \examples{
 \dontrun{
-
 x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01', party='labour')
-
 }
 }
-\keyword{mnis}

@@ -1,6 +1,6 @@
 
 
-
+## Helper function for mnis_member_date
 mnis_mp_date <- function(ID, date){
 
   id_list <- as.list(ID)
@@ -12,8 +12,6 @@ mnis_mp_date <- function(ID, date){
     dat[[i]] <- mnis::mnis_member_date(ID=id_list[[i]], date=date, tidy=FALSE)
 
   }
-
-  #dat <- dat[sapply(dat, function(d) is.null(d)==FALSE)]
 
   df <- dplyr::bind_rows(dat)
 

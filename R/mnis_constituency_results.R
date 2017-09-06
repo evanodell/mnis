@@ -1,20 +1,16 @@
 #' Constituency election results
 #'
 #' Returns a list with details of the constituency and a tibble with election results.
-#' @param constituency_id The ID of the constituency to return the data for. This parameter cannot be empty.
+#' @param constituency_id The ID of the constituency to return the data for. If \code{NULL}, no data is returned. Defaults to \code{NULL}.
 #' @param election_id The ID of the election to return the data for. Defaults to 0, which returns the result of all elections held in that constituency.
-#' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to TRUE.
-#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
-#' @return A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.
-#' @keywords mnis
+#' @inheritParams mnis_additional
+#' @return A list with details of the constituency, labelled \code{'details'} and a tibble with election results, labelled \code{'results'}. The list and tibble are stored in a single object.
 #' @export
 #' @examples \dontrun{
-#'
 #' x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
-#'
 #' }
 
-mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, tidy = TRUE, tidy_style="snake_case") {
+mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, tidy = TRUE, tidy_style = "snake_case") {
 
     if (missing(constituency_id)) {
         stop("'constituency_id' cannot be empty", call. = FALSE)
@@ -28,15 +24,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
 
     query <- paste0(baseurl, constituency_id, "/", election_id, "/")
 
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-
-    got <- tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
+    got <- get_generic(query)
 
     details <- got$Constituency$Details
 

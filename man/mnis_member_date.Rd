@@ -10,11 +10,11 @@ mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
 \arguments{
 \item{ID}{The ID of the member, or a vector with the IDs of multiple MPs. If given multiple IDs, the results are combined into a single tibble. Currently only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.}
 
-\item{date}{Accepts character values in 'YYYY-MM-DD' format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Return details on the requested member's status on that date. Defaults to the current system date.}
+\item{date}{Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Return details on the requested member's status on that date. Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of 'snake_case', 'camelCase' and 'period.case'. Defaults to 'snake_case'.}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
 Returns a tibble with the given member's status on the given date.
@@ -24,12 +24,9 @@ Returns a tibble with a member's status on a given date.
 }
 \examples{
 \dontrun{
-
 x <- mnis_member_date(172)
-
 }
 }
 \seealso{
 \code{\link{mnis_mps_on_date}}
 }
-\keyword{mnis}

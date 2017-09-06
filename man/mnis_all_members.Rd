@@ -2,30 +2,28 @@
 % Please edit documentation in R/mnis_all_members.R
 \name{mnis_all_members}
 \alias{mnis_all_members}
-\title{mnis_all_members}
+\title{All Members of Both Parliaments}
 \usage{
 mnis_all_members(house = "all", party = NULL, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{house}{The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the same data.}
+\item{house}{The house to which the member belongs. Accepts one of \code{'all'}, \code{'lords'} and \code{'commons'}. This parameter is not case sensitive, so \code{'commons'}, \code{'Commons'} and \code{'cOmMOnS'} will all return the same data. Defaults to \code{'all'}.}
 
-\item{party}{The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters.}
+\item{party}{The party to which a member belongs. If \code{NULL}, all members are returned, subject to other parameters. Defaults to \code{NULL}.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to TRUE.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
 A tibble with information on all members of the House of Commons and/or the House of Lords that meet the criteria included in the function parameters.
 }
 \description{
-mnis_all_members
+Returns data on all members of the House of Commons and/or the House of Lords, from all parties or from a given party.
 }
 \examples{
 \dontrun{
-x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE, tidy_style="snake_case")
+x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE, tidy_style = "snake_case")
 }
-
 }
-\keyword{mnis}

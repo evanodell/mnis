@@ -1,5 +1,5 @@
 
-full_biog_list <- function(ID, ref_dods) {
+full_biog_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -7,7 +7,7 @@ full_biog_list <- function(ID, ref_dods) {
 
   for (i in 1:length(id_list)) {
 
-    dat[[i]] <- mnis::mnis_full_biog(ID=id_list[[i]], ref_dods=ref_dods, tidy=FALSE)
+    dat[[i]] <- mnis::mnis_full_biog(ID=id_list[[i]], ref_dods=ref_dods, tidy=tidy, tidy_style=tidy_style)
 
   }
 
@@ -19,7 +19,7 @@ full_biog_list <- function(ID, ref_dods) {
 
 
 
-basic_details_list <- function(ID, ref_dods) {
+basic_details_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -37,7 +37,7 @@ basic_details_list <- function(ID, ref_dods) {
 
 }
 
-biography_entries_list <- function(ID, ref_dods) {
+biography_entries_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -55,7 +55,7 @@ biography_entries_list <- function(ID, ref_dods) {
 
 }
 
-committees_list <- function(ID, ref_dods) {
+committees_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -73,7 +73,7 @@ committees_list <- function(ID, ref_dods) {
 
 }
 
-addresses_list <- function(ID, ref_dods) {
+addresses_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -91,7 +91,7 @@ addresses_list <- function(ID, ref_dods) {
 
 }
 
-constituencies_list <- function(ID, ref_dods) {
+constituencies_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -109,7 +109,7 @@ constituencies_list <- function(ID, ref_dods) {
 
 }
 
-elections_contested_list <- function(ID, ref_dods) {
+elections_contested_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -127,7 +127,7 @@ elections_contested_list <- function(ID, ref_dods) {
 
 }
 
-experiences_list <- function(ID, ref_dods) {
+experiences_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -145,7 +145,7 @@ experiences_list <- function(ID, ref_dods) {
 
 }
 
-government_posts_list <- function(ID, ref_dods) {
+government_posts_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -163,7 +163,7 @@ government_posts_list <- function(ID, ref_dods) {
 
 }
 
-honours_list <- function(ID, ref_dods) {
+honours_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -181,7 +181,7 @@ honours_list <- function(ID, ref_dods) {
 
 }
 
-house_memberships_list <- function(ID, ref_dods) {
+house_memberships_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -199,7 +199,7 @@ house_memberships_list <- function(ID, ref_dods) {
 
 }
 
-statuses_list <- function(ID, ref_dods) {
+statuses_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -217,7 +217,7 @@ statuses_list <- function(ID, ref_dods) {
 
 }
 
-staff_list <- function(ID, ref_dods) {
+staff_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -235,7 +235,7 @@ staff_list <- function(ID, ref_dods) {
 
 }
 
-interests_list <- function(ID, ref_dods) {
+interests_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -253,7 +253,7 @@ interests_list <- function(ID, ref_dods) {
 
 }
 
-known_as_list <- function(ID, ref_dods) {
+known_as_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -271,7 +271,7 @@ known_as_list <- function(ID, ref_dods) {
 
 }
 
-maiden_speeches_list <- function(ID, ref_dods) {
+maiden_speeches_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -289,7 +289,7 @@ maiden_speeches_list <- function(ID, ref_dods) {
 
 }
 
-opposition_posts_list <- function(ID, ref_dods) {
+opposition_posts_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -307,7 +307,7 @@ opposition_posts_list <- function(ID, ref_dods) {
 
 }
 
-other_parliaments_list <- function(ID, ref_dods) {
+other_parliaments_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -325,7 +325,7 @@ other_parliaments_list <- function(ID, ref_dods) {
 
 }
 
-parliamentary_posts_list <- function(ID, ref_dods) {
+parliamentary_posts_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -343,7 +343,7 @@ parliamentary_posts_list <- function(ID, ref_dods) {
 
 }
 
-parties_list <- function(ID, ref_dods) {
+parties_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
@@ -361,7 +361,7 @@ parties_list <- function(ID, ref_dods) {
 
 }
 
-preferred_names_list <- function(ID, ref_dods) {
+preferred_names_list <- function(ID, ref_dods, tidy, tidy_style) {
 
   id_list <- as.list(ID)
 
