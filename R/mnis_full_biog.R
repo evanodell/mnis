@@ -2,8 +2,8 @@
 #' Biographical details
 #'
 #' Requests all available biographical information for a given member, and returns it in the form of a tibble.
-#' @param ID The ID number of the member, using the default MNIS scheme. If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}} with default parameters.
-#' @param ref_dods Request based on the Dods monitoring member ID scheme. Defaults to \code{FALSE}. If \code{FALSE}, requests using the default MNIS identification scheme.
+#' @param ID The ID number of the member, using the default MNIS scheme. If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead. If \code{NULL}, returns the same data as \code{\link{mnis_all_members}} with default parameters. Defaults to \code{NULL}.
+#' @param ref_dods Request based on the Dods monitoring member ID scheme. If \code{FALSE}, requests using the default MNIS identification scheme. Defaults to \code{FALSE}.
 #' @inheritParams mnis_additional
 #' @seealso \code{\link{mnis_basic_details}}
 #' @seealso \code{\link{mnis_additional}}
@@ -18,10 +18,6 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style 
     if (missing(ID)) {
 
         df <- mnis_all_members()
-
-    } else if (length(ID) > 1) {
-
-      df <- full_biog_list(ID, ref_dods, tidy, tidy_style)
 
     } else {
 

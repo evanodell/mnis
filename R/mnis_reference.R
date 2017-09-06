@@ -122,8 +122,6 @@ ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -143,7 +141,6 @@ ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -165,7 +162,6 @@ ref_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_area_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -185,7 +181,6 @@ ref_area_types <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -207,8 +202,6 @@ ref_biography_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -228,7 +221,6 @@ ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -250,8 +242,6 @@ ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -271,8 +261,6 @@ ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
-
 
 #' @export
 #' @rdname mnis_reference
@@ -294,8 +282,6 @@ ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -314,8 +300,6 @@ ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
   df
 }
-
-
 
 #' @export
 #' @rdname mnis_reference
@@ -337,7 +321,6 @@ ref_constituency_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -357,7 +340,6 @@ ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -379,7 +361,6 @@ ref_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_disqualification_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -399,7 +380,6 @@ ref_disqualification_types <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -421,7 +401,6 @@ ref_elections <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -441,7 +420,6 @@ ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -463,7 +441,6 @@ ref_end_reasons <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -483,7 +460,6 @@ ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -505,8 +481,6 @@ ref_government_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -526,7 +500,6 @@ ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -548,7 +521,6 @@ ref_government_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -568,7 +540,6 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -590,7 +561,6 @@ ref_honour_lists <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -610,8 +580,6 @@ ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
-
 
 #' @export
 #' @rdname mnis_reference
@@ -633,8 +601,6 @@ ref_interest_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_lords_membership_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -655,7 +621,6 @@ ref_lords_membership_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -675,8 +640,6 @@ ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
-
 
 #' @export
 #' @rdname mnis_reference
@@ -718,7 +681,6 @@ ref_opposition_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -738,8 +700,6 @@ ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
-
 
 #' @export
 #' @rdname mnis_reference
@@ -761,7 +721,6 @@ ref_other_parliaments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -781,7 +740,6 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference
@@ -803,8 +761,6 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -825,8 +781,6 @@ ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
-
 #' @export
 #' @rdname mnis_reference
 ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -846,8 +800,6 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
-
 
 #' @export
 #' @rdname mnis_reference
@@ -875,7 +827,6 @@ ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -896,7 +847,6 @@ ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 }
 
-
 #' @export
 #' @rdname mnis_reference
 ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
@@ -916,7 +866,6 @@ ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
   df
 
 }
-
 
 #' @export
 #' @rdname mnis_reference

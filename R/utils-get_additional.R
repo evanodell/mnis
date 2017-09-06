@@ -1,5 +1,5 @@
 
-## additional data get function to reduce total amount of code in package and make maintenance easier
+## additional function to reduce total amount of code in package and make maintenance easier
 # used in:
 # - mnis_additional
 # - mnis_full_biog
@@ -26,12 +26,36 @@ get_additional <- function(query, tidy, tidy_style) {
 
     x <- tibble::as_tibble(x)
 
-
     if (tidy == TRUE) {
 
       x <- mnis_tidy(x, tidy_style)
 
     }
 
+    x
+
+}
+
+
+## generic to construct mnis_additional queries to reduce code sizes
+additional_generic <- function(ID, ref_dods, tidy, tidy_style, query_type){
+
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+
+  if (ref_dods == TRUE) {
+
+    ID_Type <- "refDods="
+
+  } else {
+
+    ID_Type <- "id="
+
+  }
+
+  query <- paste0(baseurl, ID_Type, ID, query_type)
+
+  df <- get_additional(query, tidy, tidy_style)
+
+  df
 
 }

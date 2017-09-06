@@ -5,7 +5,7 @@
 #'
 #' All functions return basic details about the member (name, date of birth, gender, constituency, party, IDs, current status, etc.), as well as any available additional information requested by the specific function.
 #'
-#' @param ID The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.
+#' @param ID The member ID. If \code{NULL}, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses. Defaults to \code{NULL}.
 #' @param ref_dods If \code{TRUE}, Request based on the DODS membership ID scheme. If \code{FALSE}, requests data based on the default membership ID scheme. Defaults to \code{FALSE}.
 #' @param tidy If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.
 #' @param tidy_style The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.
@@ -74,8 +74,9 @@ mnis_additional <- function() {
 
 
 #' @export
-#' @rdname mnis_additional ### creating external additional_generic function for all of these
-#' ## need to clean this and utils-additional2 all up
+#' @rdname mnis_additional
+#### creating external additional_generic function for all of these
+### need to clean this and utils-additional2 all up
 mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
   if (missing(ID)) {
@@ -84,17 +85,9 @@ mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_st
 
   } else {
 
-  query <- "/BasicDetails"
+  query_type <- "/BasicDetails"
 
-  df <- additional_generic(ID, ref_dods, tidy, tidy_style, query)
-
-  df
-
-# if (length(ID) > 1) {
-#
-#     df <- (ID, ref_dods, tidy, tidy_style)
-#
-#   } else {}
+  df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
@@ -109,29 +102,17 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/BiographyEntries"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
+
+  df
 
 }
 
@@ -142,31 +123,17 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Committees"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Committees")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
+
+  df
 
 }
 
@@ -177,33 +144,19 @@ mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style 
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
-
-  } else {
-
-    ID <- as.character(ID)
-
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
+      df <- mnis_all_members()
 
     } else {
 
-      ID_Type <- "id="
+      query_type <- "/Addresses"
+
+      df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
     }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Addresses")
-
-    df <- get_additional(query, tidy, tidy_style)
 
     df
 
   }
-
-}
 
 
 #' @export
@@ -212,31 +165,17 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_s
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Constituencies"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Constituencies")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
+
+  df
 
 }
 
@@ -247,33 +186,20 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/ElectionsContested"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/ElectionsContested")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 #' @export
 #' @rdname mnis_additional
@@ -281,33 +207,20 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_styl
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Experiences"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Experiences")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 #' @export
 #' @rdname mnis_additional
@@ -315,33 +228,20 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/GovernmentPosts"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/GovernmentPosts")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 #' @export
 #' @rdname mnis_additional
@@ -349,33 +249,20 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = 
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Honours"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Honours")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 #' @export
 #' @rdname mnis_additional
@@ -383,33 +270,22 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/HouseMemberships"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/HouseMemberships")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
+
+
 #' @export
 #' @rdname mnis_additional
 
@@ -417,33 +293,20 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style =
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Statuses"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Statuses")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 #' @export
 #' @rdname mnis_additional
@@ -452,33 +315,20 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "s
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Staff"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Staff")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 
 #' @export
@@ -487,68 +337,43 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style 
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Interests"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Interests")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 
 #' @export
 #' @rdname mnis_additional
 mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
+
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/KnownAs"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/KnownAs")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 
 #' @export
@@ -557,33 +382,20 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/MaidenSpeeches"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/MaidenSpeeches")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 
 #' @export
@@ -593,33 +405,20 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/OppositionPosts"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/OppositionPosts")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 
 #' @export
@@ -629,33 +428,20 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/OtherParliaments"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/OtherParliaments")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
 
+  df
+
 }
+
 
 
 #' @export
@@ -664,31 +450,17 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/ParliamentaryPosts"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/ParliamentaryPosts")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
+
+  df
 
 }
 
@@ -700,31 +472,17 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = 
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/Parties"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/Parties")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
+
+  df
 
 }
 
@@ -735,30 +493,16 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
 
   if (missing(ID)) {
 
-    x <- mnis_all_members()
+    df <- mnis_all_members()
 
   } else {
 
-    ID <- as.character(ID)
+    query_type <- "/PreferredNames"
 
-    if (ref_dods == TRUE) {
-
-      ID_Type <- "refDods="
-
-    } else {
-
-      ID_Type <- "id="
-
-    }
-
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/PreferredNames")
-
-    df <- get_additional(query, tidy, tidy_style)
-
-    df
+    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
   }
+
+  df
 
 }

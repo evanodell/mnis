@@ -2,6 +2,7 @@
 % Please edit documentation in R/mnis_additional.R
 \name{mnis_additional}
 \alias{mnis_additional}
+\alias{mnis_basic_details}
 \alias{mnis_biography_entries}
 \alias{mnis_committees}
 \alias{mnis_addresses}
@@ -24,6 +25,9 @@
 \title{Additional member information}
 \usage{
 mnis_additional()
+
+mnis_basic_details(ID = NULL, ref_dods = FALSE, tidy = TRUE,
+  tidy_style = "snake_case")
 
 mnis_biography_entries(ID = NULL, ref_dods = FALSE, tidy = TRUE,
   tidy_style = "snake_case")
@@ -83,7 +87,7 @@ mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.}
+\item{ID}{The member ID. If \code{NULL}, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses. Defaults to \code{NULL}.}
 
 \item{ref_dods}{If \code{TRUE}, Request based on the DODS membership ID scheme. If \code{FALSE}, requests data based on the default membership ID scheme. Defaults to \code{FALSE}.}
 

@@ -8,9 +8,9 @@ mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The ID number of the member, using the default MNIS scheme. If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead. If left empty, returns the same data as \code{\link{mnis_all_members}} with default parameters.}
+\item{ID}{The ID number of the member, using the default MNIS scheme. If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead. If \code{NULL}, returns the same data as \code{\link{mnis_all_members}} with default parameters. Defaults to \code{NULL}.}
 
-\item{ref_dods}{Request based on the Dods monitoring member ID scheme. Defaults to \code{FALSE}. If \code{FALSE}, requests using the default MNIS identification scheme.}
+\item{ref_dods}{Request based on the Dods monitoring member ID scheme. If \code{FALSE}, requests using the default MNIS identification scheme. Defaults to \code{FALSE}.}
 
 \item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
 

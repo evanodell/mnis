@@ -8,7 +8,7 @@ mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The ID of the member, or a vector with the IDs of multiple MPs. If given multiple IDs, the results are combined into a single tibble. Currently only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.}
+\item{ID}{The ID of the member, or a vector with the IDs of multiple MPs. If given multiple IDs, the results are combined into a single tibble. Currently only accepts IDs from the default membership ID scheme. If \code{NULL} the function stops and no data is returned. Defaults to \code{NULL}.}
 
 \item{date}{Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Return details on the requested member's status on that date. Defaults to the current system date.}
 

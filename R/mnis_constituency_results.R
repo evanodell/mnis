@@ -13,7 +13,7 @@
 mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, tidy = TRUE, tidy_style = "snake_case") {
 
     if (missing(constituency_id)) {
-        stop("'constituency_id' cannot be empty", call. = FALSE)
+        stop("'constituency_id' cannot be NULL", call. = FALSE)
     }
 
     constituency_id <- as.character(constituency_id)
