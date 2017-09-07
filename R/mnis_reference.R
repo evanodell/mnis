@@ -96,9 +96,9 @@ mnis_reference <- function() {
           "ref_statuses()",
           "ref_titles()")
 
-  message("All Available Reference Functions:")
+    message("All Available Reference Functions:")
 
-  print(df)
+    print(df)
 
 }
 
@@ -106,19 +106,17 @@ mnis_reference <- function() {
 #' @rdname mnis_reference
 ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AddressTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AddressTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$AddressTypes$AddressType)
 
-  df <- tibble::as_tibble(got$AddressTypes$AddressType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -126,19 +124,17 @@ ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AnsweringBodies/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AnsweringBodies/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$AnsweringBodies$AnsweringBody)
 
-  df <- tibble::as_tibble(got$AnsweringBodies$AnsweringBody)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -146,19 +142,17 @@ ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Areas/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Areas/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Areas$Area)
 
-  df <- tibble::as_tibble(got$Areas$Area)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -166,19 +160,17 @@ ref_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_area_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AreaTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AreaTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$AreaTypes$AreaType)
 
-  df <- tibble::as_tibble(got$AreaTypes$AreaType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -186,19 +178,17 @@ ref_area_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_biography_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/BiographyCategories/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/BiographyCategories/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$BiographyCategories$BiographyCategory)
 
-  df <- tibble::as_tibble(got$BiographyCategories$BiographyCategory)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -206,19 +196,17 @@ ref_biography_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Cabinets/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Cabinets/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Cabinets$Cabinet)
 
-  df <- tibble::as_tibble(got$Cabinets$Cabinet)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -226,19 +214,17 @@ ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Committees/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Committees/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Committees$Committee)
 
-  df <- tibble::as_tibble(got$Committees$Committee)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -246,19 +232,17 @@ ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/CommitteeTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/CommitteeTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$CommitteeTypes$CommitteeType)
 
-  df <- tibble::as_tibble(got$CommitteeTypes$CommitteeType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -266,19 +250,17 @@ ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Constituencies/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Constituencies/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Constituencies$Constituency)
 
-  df <- tibble::as_tibble(got$Constituencies$Constituency)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -286,38 +268,34 @@ ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyAreas/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyAreas/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ConstituencyAreas$ConstituencyArea)
 
-  df <- tibble::as_tibble(got$ConstituencyAreas$ConstituencyArea)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 }
 
 #' @export
 #' @rdname mnis_reference
 ref_constituency_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ConstituencyTypes$ConstituencyType)
 
-  df <- tibble::as_tibble(got$ConstituencyTypes$ConstituencyType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -325,19 +303,17 @@ ref_constituency_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Countries/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Countries/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Countries$Country)
 
-  df <- tibble::as_tibble(got$Countries$Country)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -345,19 +321,17 @@ ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Departments/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Departments/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Departments$Department)
 
-  df <- tibble::as_tibble(got$Departments$Department)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -365,19 +339,17 @@ ref_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_disqualification_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/DisqualificationTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/DisqualificationTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$DisqualificationTypes$DisqualificationType)
 
-  df <- tibble::as_tibble(got$DisqualificationTypes$DisqualificationType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -385,19 +357,17 @@ ref_disqualification_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_elections <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Elections/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Elections/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Elections$Election)
 
-  df <- tibble::as_tibble(got$Elections$Election)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -405,19 +375,17 @@ ref_elections <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ElectionTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ElectionTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ElectionTypes$ElectionType)
 
-  df <- tibble::as_tibble(got$ElectionTypes$ElectionType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -425,19 +393,17 @@ ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_end_reasons <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/EndReasons/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/EndReasons/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$EndReasons$EndReason)
 
-  df <- tibble::as_tibble(got$EndReasons$EndReason)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -445,19 +411,17 @@ ref_end_reasons <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ExperienceTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ExperienceTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ExperienceTypes$ExperienceType)
 
-  df <- tibble::as_tibble(got$ExperienceTypes$ExperienceType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -465,19 +429,17 @@ ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_government_post_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPostDepartments/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPostDepartments/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$GovernmentPostDepartments$GovernmentPostDepartment)
 
-  df <- tibble::as_tibble(got$GovernmentPostDepartments$GovernmentPostDepartment)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -485,19 +447,17 @@ ref_government_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 #' @rdname mnis_reference
 ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPosts/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPosts/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$GovernmentPosts$GovernmentPost)
 
-  df <- tibble::as_tibble(got$GovernmentPosts$GovernmentPost)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -505,19 +465,17 @@ ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_government_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentRanks/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentRanks/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$GovernmentRanks$GovernmentRank)
 
-  df <- tibble::as_tibble(got$GovernmentRanks$GovernmentRank)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -525,19 +483,17 @@ ref_government_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonouraryPrefixes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonouraryPrefixes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$HonouraryPrefixes$HonouraryPrefix)
 
-  df <- tibble::as_tibble(got$HonouraryPrefixes$HonouraryPrefix)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -545,19 +501,17 @@ ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_honour_lists <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonourLists/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonourLists/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$HonourLists$HonourList)
 
-  df <- tibble::as_tibble(got$HonourLists$HonourList)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -565,19 +519,17 @@ ref_honour_lists <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Honours/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Honours/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Honours$Honour)
 
-  df <- tibble::as_tibble(got$Honours$Honour)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -585,19 +537,17 @@ ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_interest_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/InterestCategories/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/InterestCategories/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$InterestCategories$InterestCategory)
 
-  df <- tibble::as_tibble(got$InterestCategories$InterestCategory)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -605,19 +555,17 @@ ref_interest_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_lords_membership_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsMembershipTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsMembershipTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$LordsMembershipTypes$LordsMembershipType)
 
-  df <- tibble::as_tibble(got$LordsMembershipTypes$LordsMembershipType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -625,19 +573,17 @@ ref_lords_membership_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsRanks/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsRanks/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$LordsRanks$LordsRank)
 
-  df <- tibble::as_tibble(got$LordsRanks$LordsRank)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -645,19 +591,17 @@ ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_opposition_post_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPostDepartments/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPostDepartments/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$OppositionPostDepartments$OppositionPostDepartment)
 
-  df <- tibble::as_tibble(got$OppositionPostDepartments$OppositionPostDepartment)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -665,19 +609,17 @@ ref_opposition_post_departments <- function(tidy = TRUE, tidy_style = "snake_cas
 #' @rdname mnis_reference
 ref_opposition_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPosts/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPosts/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$OppositionPosts$OppositionPost)
 
-  df <- tibble::as_tibble(got$OppositionPosts$OppositionPost)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -685,19 +627,17 @@ ref_opposition_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionRanks/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionRanks/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$OppositionRanks$OppositionRank)
 
-  df <- tibble::as_tibble(got$OppositionRanks$OppositionRank)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -705,19 +645,17 @@ ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_other_parliaments <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OtherParliaments/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OtherParliaments/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$OtherParliaments$OtherParliament)
 
-  df <- tibble::as_tibble(got$OtherParliaments$OtherParliament)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -725,19 +663,17 @@ ref_other_parliaments <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryPosts/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryPosts/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ParliamentaryPosts$ParliamentaryPost)
 
-  df <- tibble::as_tibble(got$ParliamentaryPosts$ParliamentaryPost)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -745,19 +681,17 @@ ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryRanks/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryRanks/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ParliamentaryRanks$ParliamentaryRank)
 
-  df <- tibble::as_tibble(got$ParliamentaryRanks$ParliamentaryRank)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -765,19 +699,17 @@ ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentTypes/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$ParliamentTypes$ParliamentType)
 
-  df <- tibble::as_tibble(got$ParliamentTypes$ParliamentType)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -785,19 +717,17 @@ ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Parties/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Parties/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Parties$Party)
 
-  df <- tibble::as_tibble(got$Parties$Party)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -805,25 +735,23 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PartySubTypes/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PartySubTypes/")
 
-  got <- get_reference(baseurl)
+    df <- as.list(got$PartySubTypes$PartySubType)
 
-  df <- as.list(got$PartySubTypes$PartySubType)
+    df <- unlist(df)
 
-  df <- unlist(df)
+    df <- t(df)
 
-  df <- t(df)
+    df <- tibble::as_tibble(df)
 
-  df <- tibble::as_tibble(df)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -831,19 +759,17 @@ ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PhotoOutputs/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PhotoOutputs/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$PhotoOutputs$PhotoOutput)
 
-  df <- tibble::as_tibble(got$PhotoOutputs$PhotoOutput)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -851,19 +777,17 @@ ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Statuses/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Statuses/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Statuses$Status)
 
-  df <- tibble::as_tibble(got$Statuses$Status)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }
 
@@ -871,18 +795,16 @@ ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @rdname mnis_reference
 ref_titles <- function(tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/"
+    got <- get_reference("http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/")
 
-  got <- get_reference(baseurl)
+    df <- tibble::as_tibble(got$Titles$Title)
 
-  df <- tibble::as_tibble(got$Titles$Title)
+    if (tidy == TRUE) {
 
-  if (tidy == TRUE) {
+        df <- ref_tidy(df, tidy_style)
 
-    df <- ref_tidy(df, tidy_style)
+    }
 
-  }
-
-  df
+    df
 
 }

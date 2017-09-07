@@ -17,7 +17,7 @@
 
 mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(), house = "all", party = NULL, eligible = "all", tidy = TRUE, tidy_style = "snake_case") {
 
-    house <- tolower(as.character(house)) ## Making sure house works
+    house <- tolower(as.character(house))  ## Making sure house works
 
     if (is.na(pmatch(house, c("all", "lords", "commons"))))
         stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
@@ -75,14 +75,14 @@ mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date()
 
     got <- get_generic(query)
 
-    x <- tibble::as_tibble(got$Members$Member)
+    df <- tibble::as_tibble(got$Members$Member)
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        df <- mnis_tidy(df, tidy_style)
 
     }
 
-        x
+    df
 
 }

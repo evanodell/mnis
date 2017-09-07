@@ -1,10 +1,10 @@
 
 
-# mnis 0.2.8.9001
+# mnis 0.2.8
 
 ## New Features
 
-`mnis_additional()` functions and `mnis_member_date()` now accept arrays of member IDs.
+`mnis_member_date()` and `mnis_full_biog()` now accept vectors of member IDs.
 
 ## Documentation
 

@@ -14,11 +14,16 @@ test_that("fixed scope functions returns expected format", {
   expect_true(nrow(xps)==14)
 
   xmd <- mnis_member_date(500)
-
   expect_length(xmd, 21)
   expect_type(xmd, "list")
   expect_true(tibble::is_tibble(xmd))
   expect_true(nrow(xmd)==1)
+
+  xmd2 <- mnis_member_date(c(500,172))
+  expect_length(xmd2, 21)
+  expect_type(xmd2, "list")
+  expect_true(tibble::is_tibble(xmd2))
+  expect_true(nrow(xmd2)==2)
 
   xger<- mnis_general_election_results(location_type = 'Country', location_name = 'England', start_date = '2010-01-01', end_date = '2016-01-01')
   expect_length(xger, 2)

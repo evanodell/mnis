@@ -14,31 +14,31 @@
 #' }
 
 mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
-
+    
     if (missing(ID)) {
-
+        
         df <- mnis_all_members()
-
+        
     } else {
-
+        
         if (ref_dods == TRUE) {
-
+            
             ID_Type <- "refDods="
-
+            
         } else {
-
+            
             ID_Type <- "id="
-
+            
         }
-
+        
         baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
+        
         query <- paste0(baseurl, ID_Type, ID, "/FullBiog")
-
+        
         df <- get_additional(query, tidy, tidy_style)
-
+        
     }
-
-  df
-
+    
+    df
+    
 }

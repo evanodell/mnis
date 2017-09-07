@@ -21,7 +21,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_
 
     got <- get_generic(query)
 
-    x <- tibble::as_tibble(as.data.frame(got$LordsByType))
+    x <- tibble::as_tibble(got$LordsByType)
 
     if (tidy == TRUE) {
 
@@ -29,7 +29,6 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_
 
     }
 
-        x
+    x
 
 }
-

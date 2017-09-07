@@ -16,10 +16,6 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
         stop("'constituency_id' cannot be NULL", call. = FALSE)
     }
 
-    constituency_id <- as.character(constituency_id)
-
-    election_id <- as.character(election_id)
-
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
 
     query <- paste0(baseurl, constituency_id, "/", election_id, "/")
@@ -34,7 +30,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0, t
 
     if (tidy == TRUE) {
 
-        df <-constituency_results_tidy(results, details)
+        df <- constituency_results_tidy(results, details)
 
     } else {
 

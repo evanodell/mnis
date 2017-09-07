@@ -49,8 +49,8 @@ reference:
 - title: Reference Functions
   desc: Functions to return reference data, which can provide parameters for other function calls. The functions do not accept any arguments aside from the `tidy` argument, which defaults to TRUE, and the `tidy_style` argument, which defaults to 'snake_case'.
   contents:
-  - mnis_reference
   - mnis_all_reference
+  - mnis_reference
 - title: Additional Functions
   desc: Functions to return additional information on an MP.
   contents:

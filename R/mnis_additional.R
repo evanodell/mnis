@@ -45,74 +45,71 @@
 
 mnis_additional <- function() {
 
-  x <- c("mnis_basic_details()",
-         "mnis_biography_entries()",
-         "mnis_committees()",
-         "mnis_addresses()",
-         "mnis_constituencies()",
-         "mnis_elections_contested()",
-         "mnis_experiences()",
-         "mnis_government_posts()",
-         "mnis_honours()",
-         "mnis_house_memberships()",
-         "mnis_statuses()",
-         "mnis_staff()",
-         "mnis_interests()",
-         "mnis_known_as()",
-         "mnis_maiden_speeches()",
-         "mnis_opposition_posts()",
-         "mnis_other_parliaments()",
-         "mnis_parliamentary_posts()",
-         "mnis_parties()",
-         "mnis_preferred_names()")
+    x <- c("mnis_basic_details()",
+           "mnis_biography_entries()",
+           "mnis_committees()",
+           "mnis_addresses()",
+           "mnis_constituencies()",
+           "mnis_elections_contested()",
+           "mnis_experiences()",
+           "mnis_government_posts()",
+           "mnis_honours()",
+           "mnis_house_memberships()",
+           "mnis_statuses()",
+           "mnis_staff()",
+           "mnis_interests()",
+           "mnis_known_as()",
+           "mnis_maiden_speeches()",
+           "mnis_opposition_posts()",
+           "mnis_other_parliaments()",
+           "mnis_parliamentary_posts()",
+           "mnis_parties()",
+           "mnis_preferred_names()")
 
-  message("All Available Additional Information Functions:")
+    message("All Available Additional Information Functions:")
 
-  print(x)
+    print(x)
 
 }
 
 
 #' @export
 #' @rdname mnis_additional
-#### creating external additional_generic function for all of these
-### need to clean this and utils-additional2 all up
 mnis_basic_details <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-  query_type <- "/BasicDetails"
+        query_type <- "/BasicDetails"
 
-  df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-
 mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/BiographyEntries"
+        query_type <- "/BiographyEntries"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -121,19 +118,19 @@ mnis_biography_entries <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 #' @rdname mnis_additional
 mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Committees"
+        query_type <- "/Committees"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -142,40 +139,40 @@ mnis_committees <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style
 #' @rdname mnis_additional
 mnis_addresses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-      df <- mnis_all_members()
+        df <- mnis_all_members()
 
     } else {
 
-      query_type <- "/Addresses"
+        query_type <- "/Addresses"
 
-      df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
     }
 
     df
 
-  }
+}
 
 
 #' @export
 #' @rdname mnis_additional
 mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Constituencies"
+        query_type <- "/Constituencies"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -184,19 +181,19 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_s
 #' @rdname mnis_additional
 mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/ElectionsContested"
+        query_type <- "/ElectionsContested"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -205,19 +202,19 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
 #' @rdname mnis_additional
 mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Experiences"
+        query_type <- "/Experiences"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -226,19 +223,19 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_styl
 #' @rdname mnis_additional
 mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/GovernmentPosts"
+        query_type <- "/GovernmentPosts"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -247,19 +244,19 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
 #' @rdname mnis_additional
 mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Honours"
+        query_type <- "/Honours"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -268,19 +265,19 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = 
 #' @rdname mnis_additional
 mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/HouseMemberships"
+        query_type <- "/HouseMemberships"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -288,22 +285,21 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 
 #' @export
 #' @rdname mnis_additional
-
 mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Statuses"
+        query_type <- "/Statuses"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -313,19 +309,19 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style =
 
 mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Staff"
+        query_type <- "/Staff"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -335,19 +331,19 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "s
 #' @rdname mnis_additional
 mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Interests"
+        query_type <- "/Interests"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -358,19 +354,19 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style 
 mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/KnownAs"
+        query_type <- "/KnownAs"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -380,19 +376,19 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style =
 #' @rdname mnis_additional
 mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/MaidenSpeeches"
+        query_type <- "/MaidenSpeeches"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -400,22 +396,21 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_
 
 #' @export
 #' @rdname mnis_additional
-
 mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/OppositionPosts"
+        query_type <- "/OppositionPosts"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -426,19 +421,19 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy
 
 mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/OtherParliaments"
+        query_type <- "/OtherParliaments"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -448,19 +443,19 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tid
 #' @rdname mnis_additional
 mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/ParliamentaryPosts"
+        query_type <- "/ParliamentaryPosts"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
@@ -470,39 +465,38 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, t
 
 mnis_parties <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/Parties"
+        query_type <- "/Parties"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }
 
 #' @export
 #' @rdname mnis_additional
-
 mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
+    if (missing(ID)) {
 
-    df <- mnis_all_members()
+        df <- mnis_all_members()
 
-  } else {
+    } else {
 
-    query_type <- "/PreferredNames"
+        query_type <- "/PreferredNames"
 
-    df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
+        df <- additional_generic(ID, ref_dods, tidy, tidy_style, query_type)
 
-  }
+    }
 
-  df
+    df
 
 }

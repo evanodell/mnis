@@ -25,6 +25,8 @@ Returns a tibble with a member's status on a given date.
 \examples{
 \dontrun{
 x <- mnis_member_date(172)
+
+y <- mnis_member_date(c(172,500))
 }
 }
 \seealso{

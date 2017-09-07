@@ -31,20 +31,20 @@ mnis_general_election_results <- function(location_type = "Country", location_na
 
     got <- get_generic(query)
 
-    x <- got$ElectionResults
+    df <- got$ElectionResults
 
-    x$ElectionResult <- as.tibble(x$ElectionResult)
+    df$ElectionResult <- as.tibble(df$ElectionResult)
 
     if (tidy == TRUE) {
 
-        names(x)[names(x)=="LocationInfo"] <- "location_info"
+        names(df)[names(df) == "LocationInfo"] <- "location_info"
 
-        names(x)[names(x)=="ElectionResult"] <- "election_result"
+        names(df)[names(df) == "ElectionResult"] <- "election_result"
 
-        x$election_result <- mnis_tidy(x$election_result, tidy_style)
+        df$election_result <- mnis_tidy(df$election_result, tidy_style)
 
     }
 
-        x
+    df
 
 }

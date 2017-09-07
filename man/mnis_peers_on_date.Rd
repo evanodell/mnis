@@ -24,7 +24,7 @@ Requests data on all peers who were members of the House of Lords on the date sp
 }
 \examples{
 \dontrun{
-x <- mnis_peers_on_date(date1="2017-01-01")
+x <- mnis_peers_on_date(date1='2017-01-01')
 }
 }
 \seealso{

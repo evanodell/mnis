@@ -22,12 +22,10 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     } else {
 
-      query_former <- "current"
+        query_former <- "current"
     }
 
-    department_id <- as.character(department_id)
-
-    bench <- utils::URLencode(stringr::str_to_title(bench))
+    bench <- utils::URLencode(stringi::stri_trans_totitle(bench))
 
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
 
@@ -35,14 +33,14 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     got <- get_generic(query)
 
-    x <- tibble::as_tibble(as.data.frame(got$Department$Posts))
+    df <- tibble::as_tibble(got$Department$Posts)
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        df <- mnis_tidy(df, tidy_style)
 
     }
 
-        x
+    df
 
 }

@@ -10,51 +10,51 @@
 #' @seealso \code{\link{mnis_party_state}}
 #' @seealso \code{\link{mnis_peers_on_date}}
 #' @examples \dontrun{
-#' x <- mnis_peers_on_date(date1="2017-01-01")
+#' x <- mnis_peers_on_date(date1='2017-01-01')
 #' }
 
-mnis_peers_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE, tidy_style = "snake_case"){
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Lords|Membership=all|lordsmemberbetween="
-
-  date1 <- as.Date(date1)
-
-  if(is.null(date2)==FALSE) {
-
-    date2 <- as.Date(date2)
-
-  }
-
-  if(is.null(date2)==TRUE) {
-
-    date2 <- date1
-
-  } else if (date1 > date2) {
-
-    date3 <- date1
-
-    date1 <- date2
-
-    date2 <- date3
-
-    rm(date3)
-
-  }
-
-  query <- paste0(baseurl,date1,"and",date2,"/")
-
-  got <- get_generic(query)
-
-  lords <- got$Members$Member
-
-  lords <- tibble::as_tibble(lords)
-
-  if (tidy == TRUE) {
-
-    lords <- mnis_tidy(lords, tidy_style)
-
-  }
-
+mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL, tidy = TRUE, tidy_style = "snake_case") {
+    
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Lords|Membership=all|lordsmemberbetween="
+    
+    date1 <- as.Date(date1)
+    
+    if (is.null(date2) == FALSE) {
+        
+        date2 <- as.Date(date2)
+        
+    }
+    
+    if (is.null(date2) == TRUE) {
+        
+        date2 <- date1
+        
+    } else if (date1 > date2) {
+        
+        date3 <- date1
+        
+        date1 <- date2
+        
+        date2 <- date3
+        
+        rm(date3)
+        
+    }
+    
+    query <- paste0(baseurl, date1, "and", date2, "/")
+    
+    got <- get_generic(query)
+    
+    lords <- got$Members$Member
+    
+    lords <- tibble::as_tibble(lords)
+    
+    if (tidy == TRUE) {
+        
+        lords <- mnis_tidy(lords, tidy_style)
+        
+    }
+    
     lords
-
+    
 }

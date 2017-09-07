@@ -6,6 +6,9 @@ test_that("mnis_additional returns expected format", {
 
     skip_on_cran()
 
+    xall <- mnis_additional()
+    expect_length(xall, 20)
+
     xbdnu <- mnis_basic_details(172)
     expect_length(xbdnu, 33)
     expect_type(xbdnu, "list")

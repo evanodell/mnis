@@ -11,58 +11,58 @@
 #' @seealso \code{\link{mnis_peers_on_date}}
 #'
 #' @examples \dontrun{
-#' x <- mnis_mps_on_date(date1="2017-01-01", date2="2014-02-04")
+#' x <- mnis_mps_on_date(date1='2017-01-01', date2='2014-02-04')
 #' }
 
-mnis_mps_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE, tidy_style = "snake_case"){
+mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL, tidy = TRUE, tidy_style = "snake_case") {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons|Membership=all|commonsmemberbetween="
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons|Membership=all|commonsmemberbetween="
 
-  date1 <- as.Date(date1)
+    date1 <- as.Date(date1)
 
-  if(is.null(date2)==FALSE) {
+    if (is.null(date2) == FALSE) {
 
-    date2 <- as.Date(date2)
+        date2 <- as.Date(date2)
 
-  }
+    }
 
-  if(is.null(date2)==TRUE) {
+    if (is.null(date2) == TRUE) {
 
-    date2 <- date1
+        date2 <- date1
 
-  } else if (date1 > date2) {
+    } else if (date1 > date2) {
 
-    date3 <- date1
+        date3 <- date1
 
-    date1 <- date2
+        date1 <- date2
 
-    date2 <- date3
+        date2 <- date3
 
-    rm(date3)
+        rm(date3)
 
-  }
+    }
 
-  query <- paste0(baseurl,date1,"and",date2,"/")
+    query <- paste0(baseurl, date1, "and", date2, "/")
 
-  got <- get_generic(query)
+    got <- get_generic(query)
 
-  mps <- got$Members$Member
+    mps <- got$Members$Member
 
-  mps <- tibble::as_tibble(mps)
+    mps <- tibble::as_tibble(mps)
 
-  if(.Platform$OS.type=="windows"){
+    if (.Platform$OS.type == "windows") {
 
-    mps$MemberFrom <- stringi::stri_trans_general(mps$MemberFrom, "latin-ascii")
+        mps$MemberFrom <- stringi::stri_trans_general(mps$MemberFrom, "latin-ascii")
 
-    mps$MemberFrom <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", mps$MemberFrom)
+        mps$MemberFrom <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", mps$MemberFrom)
 
-  }
+    }
 
-  if (tidy == TRUE) {
+    if (tidy == TRUE) {
 
-    mps <- mnis_tidy(mps, tidy_style)
+        mps <- mnis_tidy(mps, tidy_style)
 
-  }
+    }
 
     mps
 

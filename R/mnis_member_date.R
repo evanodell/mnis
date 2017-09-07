@@ -10,43 +10,45 @@
 #' @seealso \code{\link{mnis_mps_on_date}}
 #' @examples \dontrun{
 #' x <- mnis_member_date(172)
+#'
+#' y <- mnis_member_date(c(172,500))
 #' }
 
 mnis_member_date <- function(ID = NULL, date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case") {
 
-  if (missing(ID)) {
-    stop("The ID parameter cannot be NULL, please specify an MP or Peer.")
-  }
+    if (missing(ID)) {
+        stop("The ID parameter cannot be NULL, please specify an MP or Peer.")
+    }
 
-  date <- as.Date(date)
+    date <- as.Date(date)
 
-  if (length(ID) > 1) {
+    if (length(ID) > 1) {
 
-    df <- mnis_mp_date(ID, date)
+        df <- mnis_mp_date(ID, date)
 
-  } else {
+    } else {
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
+        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
 
-    query <- paste0(baseurl, ID, "/", date, "/")
+        query <- paste0(baseurl, ID, "/", date, "/")
 
-    got <- get_generic(query)
+        got <- get_generic(query)
 
-    df <- as.list(got$Member)
+        df <- as.list(got$Member)
 
-    df <- unlist(df)
+        df <- unlist(df)
 
-    df <- t(df)
+        df <- t(df)
 
-    df <- tibble::as_tibble(df)
+        df <- tibble::as_tibble(df)
 
-  }
+    }
 
-  if (tidy == TRUE) {
+    if (tidy == TRUE) {
 
-    df <- mnis_tidy(df, tidy_style)
+        df <- mnis_tidy(df, tidy_style)
 
-  }
+    }
 
     df
 

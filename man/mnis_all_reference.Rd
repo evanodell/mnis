@@ -2,12 +2,12 @@
 % Please edit documentation in R/mnis_all_reference.R
 \name{mnis_all_reference}
 \alias{mnis_all_reference}
-\title{All reference datasets}
+\title{All reference tables in a list}
 \usage{
 mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in each reference tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Also applies a consistent style to each tibble name in the list. If \code{FALSE}, tibble names will be in \code{snake_case} style, and the variable names in each tibble will not be altered. Defaults to \code{TRUE}.}
 
 \item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }

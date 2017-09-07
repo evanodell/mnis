@@ -10,54 +10,56 @@
 #' @export
 #'
 #' @examples \dontrun{
-#' x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE, tidy_style = "snake_case")
+#' x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE, tidy_style = 'snake_case')
 #' }
 
 mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_style = "snake_case") {
 
-  house <- tolower(house)
+    house <- tolower(house)
 
-  if (is.na(pmatch(house, c("all", "lords", "commons"))))
-    stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
+    if (is.na(pmatch(house, c("all", "lords", "commons"))))
+        stop("Please select one of 'all', 'lords' or 'commons' for the parameter `house`")
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/Membership=all"
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/Membership=all"
 
-  if (is.null(party) == FALSE)
-    party <- utils::URLencode(party)
+    if (is.null(party) == FALSE)
+        party <- utils::URLencode(party)
 
-  if (house == "lords") {
+    if (house == "lords") {
 
-    house <- "|house=lords"
+        house <- "|house=lords"
 
-  } else if (house == "commons") {
+    } else if (house == "commons") {
 
-    house <- "|house=commons"
+        house <- "|house=commons"
 
-  } else if (house == "all") {
+    } else if (house == "all") {
 
-    house <- ""
+        house <- ""
 
-  }
+    }
 
-  if (is.null(party) == FALSE) {
-    party <- paste0("|party*", party)
-  }
+    if (is.null(party) == FALSE) {
 
-  message("Connecting to API")
+        party <- paste0("|party*", party)
 
-  query <- paste0(baseurl, house, party, "/HouseMemberships/")
+    }
 
-  got <- get_generic(query)
+    message("Connecting to API")
 
-  df <- got$Members$Member
+    query <- paste0(baseurl, house, party, "/HouseMemberships/")
 
-  df <- tibble::as_tibble(df)
+    got <- get_generic(query)
 
-  if (tidy == TRUE) {
+    df <- got$Members$Member
 
-    df <- mnis_tidy(df, tidy_style)
+    df <- tibble::as_tibble(df)
 
-  }
+    if (tidy == TRUE) {
+
+        df <- mnis_tidy(df, tidy_style)
+
+    }
 
     df
 

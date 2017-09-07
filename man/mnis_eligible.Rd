@@ -27,6 +27,6 @@ x <- mnis_eligible(eligible=FALSE, house='all', party='labour')
 
 x <- mnis_eligible(eligible=TRUE, house='all', party='green party')
 
-x <- mnis_eligible(house="commons")
+x <- mnis_eligible(house='commons')
 }
 }

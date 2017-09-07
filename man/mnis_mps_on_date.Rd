@@ -24,7 +24,7 @@ Requests data on all MPs who were members of the House of Commons on the date sp
 }
 \examples{
 \dontrun{
-x <- mnis_mps_on_date(date1="2017-01-01", date2="2014-02-04")
+x <- mnis_mps_on_date(date1='2017-01-01', date2='2014-02-04')
 }
 }
 \seealso{

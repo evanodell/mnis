@@ -1,15 +1,12 @@
 
-## additional function to reduce total amount of code in package and make maintenance easier
-# used in:
-# - mnis_additional
-# - mnis_full_biog
+## additional function to reduce total amount of code in package and make maintenance easier used in: - mnis_additional - mnis_full_biog
 
 get_additional <- function(query, tidy, tidy_style) {
 
     got <- httr::GET(query, httr::accept_json())
 
     if (httr::http_type(got) != "application/json") {
-      stop("API did not return json", call. = FALSE)
+        stop("API did not return json", call. = FALSE)
     }
 
     got <- tidy_bom(got)
@@ -18,44 +15,44 @@ get_additional <- function(query, tidy, tidy_style) {
 
     dl <- data.frame(ID = rep(names(got), sapply(got, length)), Obs = unlist(got))
 
-    x <- t(dl)
+    df <- t(dl)
 
-    x <- as.data.frame(x)
+    df <- as.data.frame(df)
 
-    x <- x[rownames(x) != "ID", ]
+    df <- df[rownames(df) != "ID", ]
 
-    x <- tibble::as_tibble(x)
+    df <- tibble::as_tibble(df)
 
     if (tidy == TRUE) {
 
-      x <- mnis_tidy(x, tidy_style)
+        df <- mnis_tidy(df, tidy_style)
 
     }
 
-    x
+    df
 
 }
 
 
 ## generic to construct mnis_additional queries to reduce code sizes
-additional_generic <- function(ID, ref_dods, tidy, tidy_style, query_type){
+additional_generic <- function(ID, ref_dods, tidy, tidy_style, query_type) {
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
-  if (ref_dods == TRUE) {
+    if (ref_dods == TRUE) {
 
-    ID_Type <- "refDods="
+        ID_Type <- "refDods="
 
-  } else {
+    } else {
 
-    ID_Type <- "id="
+        ID_Type <- "id="
 
-  }
+    }
 
-  query <- paste0(baseurl, ID_Type, ID, query_type)
+    query <- paste0(baseurl, ID_Type, ID, query_type)
 
-  df <- get_additional(query, tidy, tidy_style)
+    df <- get_additional(query, tidy, tidy_style)
 
-  df
+    df
 
 }
