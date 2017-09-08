@@ -33,7 +33,7 @@ mnis_department <- function(department_id = 0, bench = "Government", former = TR
 
     got <- get_generic(query)
 
-    df <- tibble::as_tibble(got$Department$Posts)
+    df <- tibble::as_tibble(as.data.frame(got$Department$Posts))
 
     if (tidy == TRUE) {
 
