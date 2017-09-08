@@ -21,14 +21,14 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_
 
     got <- get_generic(query)
 
-    x <- tibble::as_tibble(got$LordsByType)
+    df <- tibble::as_tibble(got$LordsByType$Party)
 
     if (tidy == TRUE) {
 
-        x <- mnis_tidy(x, tidy_style)
+        df <- mnis_tidy(df, tidy_style)
 
     }
 
-    x
+    df
 
 }
