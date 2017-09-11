@@ -17,7 +17,7 @@ mnis_lords_type(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
 A tibble with information on the numbers of different types of Lords on a given date.
 }
 \description{
-Calls the API to return a tibble with details on the number of Lords and their party affiliations.
+Calls the API to return a tibble with details on the number of Lords and their party affiliations. Defaults to the current date, but can also return the number of Lords and their affiliations on a given date.
 }
 \examples{
 \dontrun{

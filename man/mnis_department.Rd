@@ -8,7 +8,7 @@ mnis_department(department_id = 0, bench = "Government", former = TRUE,
   tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{department_id}{The department to look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0. For departmental IDs, see the \code{ref_departments} function in \code{\link{mnis_reference}}.}
+\item{department_id}{The department to look up. \code{0} returns the cabinet/shadow cabinet, \code{-1} returns a list of all ministers. For departmental IDs, see the \code{ref_departments} function in \code{\link{mnis_reference}}. Defaults to \code{0}.}
 
 \item{bench}{Flag to return either Government or Opposition information. This parameter is case insensitive, so both \code{'Opposition'} and \code{'opposition'} will return the same data. Defaults to \code{'Government'}.}
 

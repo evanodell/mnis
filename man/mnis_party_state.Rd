@@ -20,7 +20,7 @@ mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
 A tibble with information on the total numbers and gender of MPs, by party, for the given date and house.
 }
 \description{
-Requests data on the numbers and gender of MPs, by party, for the given date, in either the House of Commons or the House of Lords.
+Returns data on the numbers and gender of MPs, by party, for the given date, in either the House of Commons or the House of Lords.
 }
 \examples{
 \dontrun{

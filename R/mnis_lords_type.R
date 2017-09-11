@@ -1,7 +1,7 @@
 
 #' Peers' party affiliations
 #'
-#' Calls the API to return a tibble with details on the number of Lords and their party affiliations.
+#' Calls the API to return a tibble with details on the number of Lords and their party affiliations. Defaults to the current date, but can also return the number of Lords and their affiliations on a given date.
 #' @param date Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.
 #' @inheritParams mnis_additional
 #' @return A tibble with information on the numbers of different types of Lords on a given date.

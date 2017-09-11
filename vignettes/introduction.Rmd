@@ -15,9 +15,7 @@ vignette: >
 
 All functions requests data in JSON format and parse it to a tibble, except for `mnis_constituency_results()` which returns a list (with constituency details) and a tibble (with constituency election results).
 
-Functions are divided into four main types:
-
-* General Functions
+Functions are divided into three main types:
 
 * Reference Functions
 
@@ -27,28 +25,28 @@ Functions are divided into four main types:
 
 There is also the `mnis_base()` function that allows for fully flexibility in all API requests, by allowing you to fully specify the URL you want to call data from.
 
-##Installing `mnis`
+## Installing `mnis`
 
-###From CRAN
+### From CRAN
 
 ```
 install.packages("mnis")
 ```
 
-###From GitHub (Development Version)
+### From GitHub (Development Version)
 
 ```
-install.packages("devtools")
+#install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")
 ```
 
-###Load `mnis`
+### Load `mnis`
 
 ```
 library(mnis)
 ```
 
-##Using `mnis`
+## Using `mnis`
 
 All `mnis` functions contain two parameters, `tidy` and `tidy_style`:
 
@@ -57,7 +55,7 @@ All `mnis` functions contain two parameters, `tidy` and `tidy_style`:
 * The naming convention for variables used if `tidy`==TRUE is indicated by `tidy_style`. `tidy_style` accepts one of `"snake_case"`, `"camelCase"` and `"period.case"`, defaulting to `"snake_case"`. All variable names will be converted to match the given naming convention.
 
 
-### mnis_base function
+### `mnis_base` function
 
 The `mnis_base()` function accepts requests to the mnis API. The full list of request options is available on the mnis website: http://data.parliament.uk/membersdataplatform/memberquery.aspx
 
@@ -159,9 +157,9 @@ x
 ```
 
 
-###Additional Information Functions
+### Additional Information Functions
 
-`mnis_additional()`
+The following functions are part of the `mnis_additional` family. The `mnis_full_biog()` function returns all available information for a given MP, `mnis_extra()` returns data from some or all of the `mnis_additional` functions, based on the parameters it receives.
 
 `mnis_addresses()`
 
@@ -207,7 +205,16 @@ x
 
 `mnis_peers_on_date()`
 
-#### mnis_extra()
+### `mnis_additional` examples
+
+```{r eval=TRUE}
+library(mnis)
+x <- mnis_full_biog(172)
+x
+```
+
+
+#### `mnis_extra()`
 
 The `mnis_extra()` function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to `mnis_full_biog()`.
 
@@ -237,8 +244,6 @@ Fixed scope example, returning the state of all parties in the House of Commons,
 library(mnis)
 x <- mnis_party_state("2017-04-04")
 x
-
-
 ```
 
 The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.
@@ -246,7 +251,6 @@ The same fixed scope function, returning the state of all parties in the House o
 ```{r eval=TRUE}
  y <- mnis_party_state("Lords", "2017-04-04")
  y
-
 ```
 
 

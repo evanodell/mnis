@@ -9,11 +9,11 @@ mnis_general_election_results(location_type = "Country",
   end_date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{location_type}{The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}
+\item{location_type}{The type of area to return information for. Accepts \code{'Country'}, \code{'Region'}, \code{'County'}, and \code{'Constituency'}. Defaults to \code{'Country'}.}
 
 \item{location_name}{The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.}
 
-\item{start_date}{Start date of search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to \code{'1900-01-01'} if no date is selected.}
+\item{start_date}{Start date of search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to \code{'1900-01-01'}.}
 
 \item{end_date}{End date of search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current system date.}
 

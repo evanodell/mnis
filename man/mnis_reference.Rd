@@ -129,10 +129,7 @@ ref_titles(tidy = TRUE, tidy_style = "snake_case")
 \item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \description{
-Reference data on various aspects of parliament.
-}
-\details{
-This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the \code{tidy} and \code{tidy_style} parameters, which default to \code{TRUE} and \code{'snake_case'} respectively.
+Reference data on various aspects of parliament. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the \code{tidy} and \code{tidy_style} parameters, which default to \code{TRUE} and \code{'snake_case'}, respectively. To return all a list with tibbles of all reference data, see \code{\link{mnis_all_reference}}.
 }
 \section{\code{mnis_reference} functions}{
 

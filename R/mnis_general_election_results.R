@@ -2,9 +2,9 @@
 #' Election results by area and date
 #'
 #' Returns an object containing list with details of the search parameter and a tibble with election results.   Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.
-#' @param location_type The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.
+#' @param location_type The type of area to return information for. Accepts \code{'Country'}, \code{'Region'}, \code{'County'}, and \code{'Constituency'}. Defaults to \code{'Country'}.
 #' @param location_name The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.
-#' @param start_date Start date of search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to \code{'1900-01-01'} if no date is selected.
+#' @param start_date Start date of search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to \code{'1900-01-01'}.
 #' @param end_date End date of search. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current system date.
 #' @inheritParams mnis_additional
 #' @return Returns a list with details of the search parameter and a tibble with election results.
@@ -17,17 +17,9 @@
 
 mnis_general_election_results <- function(location_type = "Country", location_name = "Great Britain", start_date = "1900-01-01", end_date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case") {
 
-    location_type <- utils::URLencode(location_type)
-
-    location_name <- utils::URLencode(location_name)
-
-    start_date <- as.Date(start_date)
-
-    end_date <- as.Date(end_date)
-
     baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/GeneralElectionResults/"
 
-    query <- paste0(baseurl, location_type, "/", location_name, "/", start_date, "/", end_date, "/")
+    query <- paste0(baseurl, utils::URLencode(location_type), "/", utils::URLencode(location_name), "/", as.Date(start_date), "/",  as.Date(end_date), "/")
 
     got <- get_generic(query)
 

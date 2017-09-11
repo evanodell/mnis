@@ -2,7 +2,7 @@
 #'
 #' Request the holders of posts in specific departments by department ID (see \code{\link{mnis_reference}}), or all current and former minister/shadow minister positions.
 #'
-#' @param department_id The department to look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0. For departmental IDs, see the \code{ref_departments} function in \code{\link{mnis_reference}}.
+#' @param department_id The department to look up. \code{0} returns the cabinet/shadow cabinet, \code{-1} returns a list of all ministers. For departmental IDs, see the \code{ref_departments} function in \code{\link{mnis_reference}}. Defaults to \code{0}.
 #' @param bench Flag to return either Government or Opposition information. This parameter is case insensitive, so both \code{'Opposition'} and \code{'opposition'} will return the same data. Defaults to \code{'Government'}.
 #' @param former Logical parameter to include both current and former ministers/shadow ministers. If \code{FALSE}, only includes current ministers/shadow ministers. Defaults to \code{TRUE}.
 #' @inheritParams mnis_additional
