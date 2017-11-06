@@ -13,7 +13,8 @@ knitr::opts_chunk$set(
 ```
 
 # mnis
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/evanodell/mnis/blob/master/LICENSE)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/mnis)](https://cran.r-project.org/package=mnis)
 [![GitHub tag](https://img.shields.io/github/tag/evanodell/mnis.svg)](https://github.com/evanodell/mnis)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/mnis)](https://dgrtwo.shinyapps.io/cranview/)
