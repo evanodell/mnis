@@ -1,4 +1,8 @@
 
+# mnis 0.2.9
+
+Documentation improvements, some code tweaks.
+
 
 # mnis 0.2.8
 
