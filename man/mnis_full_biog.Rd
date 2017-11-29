@@ -8,16 +8,26 @@ mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The ID number of the member, using the default MNIS scheme. If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead. If \code{NULL}, returns the same data as \code{\link{mnis_all_members}} with default parameters. Defaults to \code{NULL}.}
+\item{ID}{The ID number of the member, using the default MNIS scheme.
+If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead.
+If \code{NULL}, returns the same data as \code{\link{mnis_all_members}}
+with default parameters. Defaults to \code{NULL}.}
 
-\item{ref_dods}{Request based on the Dods monitoring member ID scheme. If \code{FALSE}, requests using the default MNIS identification scheme. Defaults to \code{FALSE}.}
+\item{ref_dods}{Request based on the Dods monitoring member ID scheme.
+If \code{FALSE}, requests using the default MNIS identification scheme.
+Defaults to \code{FALSE}.}
 
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
+and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \description{
-Requests all available biographical information for a given member, and returns it in the form of a tibble.
+Requests all available biographical information for a given member, and
+returns it in the form of a tibble.
 }
 \examples{
 \dontrun{

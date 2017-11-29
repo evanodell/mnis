@@ -7,12 +7,20 @@
 mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{tidy}{If \code{TRUE}, fixes the variable names in each reference tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Also applies a consistent style to each tibble name in the list. If \code{FALSE}, tibble names will be in \code{snake_case} style, and the variable names in each tibble will not be altered. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in each reference
+tibble to remove non-alphanumeric characters and superfluous text, and
+convert to a consistent style. Also applies a consistent style to each
+tibble name in the list. If \code{FALSE}, tibble names will be in
+\code{snake_case} style, and the variable names in each tibble will not
+be altered. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
+and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
-Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
+Returns a list of 39 tibbles, with the name and data returned from
+each respective reference function.
 }
 \description{
 All 39 reference functions, presented as a list of tibbles.

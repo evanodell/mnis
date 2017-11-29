@@ -10,10 +10,13 @@ mnis_base(request)
 \item{request}{The request query being made to the MNIS URL.}
 }
 \description{
-The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined. \code{mnis_base} does not include the option to tidy variable names and data types.
+The function requests data in JSON format, but the type of object,
+and all URLs, paths and parameters are user-defined. \code{mnis_base}
+does not include the option to tidy variable names and data types.
 }
 \details{
-See the \href{http://data.parliament.uk/membersdataplatform/memberquery.aspx}{API documentation} for details and limits on requests made to MNIS:
+See the \href{http://data.parliament.uk/membersdataplatform/memberquery.aspx}{API documentation}
+for details and limits on requests made to MNIS.
 }
 \examples{
 \dontrun{

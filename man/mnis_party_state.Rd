@@ -8,19 +8,32 @@ mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{house}{The house of parliament. Accepts either \code{'Lords'} or \code{'Commons'}. This parameter is not case sensitive, so both \code{'lords'} and \code{'Lords'} return the same result. Defaults to \code{'Commons'}.}
+\item{house}{The house of parliament. Accepts either \code{'Lords'} or
+\code{'Commons'}. This parameter is not case sensitive, so both
+\code{'lords'} and \code{'Lords'} return the same result.
+Defaults to \code{'Commons'}.}
 
-\item{date}{The date to query party standing on. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.}
+\item{date}{The date to query party standing on. Accepts character values
+in \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
+\code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
+be coerced to a date with \code{as.Date()}.
+Defaults to the current system date.}
 
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
+and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
-A tibble with information on the total numbers and gender of MPs, by party, for the given date and house.
+A tibble with information on the total numbers and gender of
+MPs, by party, for the given date and house.
 }
 \description{
-Returns data on the numbers and gender of MPs, by party, for the given date, in either the House of Commons or the House of Lords.
+Returns data on the numbers and gender of MPs, by party, for the given
+date, in either the House of Commons or the House of Lords.
 }
 \examples{
 \dontrun{

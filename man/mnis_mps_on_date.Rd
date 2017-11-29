@@ -8,19 +8,38 @@ mnis_mps_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{date1}{The date to return the list of mps from. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current system date.}
+\item{date1}{The date to return the list of mps from. Accepts character
+values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
+\code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
+be coerced to a date with \code{as.Date()}. Defaults to current system date.}
 
-\item{date2}{An optional query parameter. Accepts character values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date with \code{as.Date()}. If not \code{NULL}, the function returns a list of all MPs who were members between \code{date1} and \code{date2}. Defaults to \code{NULL}.}
+\item{date2}{An optional query parameter. Accepts character values in
+\code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt},
+\code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date
+with \code{as.Date()}. If not \code{NULL}, the function returns a list of
+all MPs who were members between \code{date1} and \code{date2}.
+Defaults to \code{NULL}.}
 
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'} and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
+and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
-A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only \code{date1} is included as a parameter), or on or between the two dates if both \code{date1} and \code{date2} are specified.
+A tibble with information on all MPs who were members of the
+House of Commons on the date specificed (if only \code{date1} is included
+as a parameter), or on or between the two dates if both \code{date1} and
+\code{date2} are specified.
 }
 \description{
-Requests data on all MPs who were members of the House of Commons on the date specified, (if only \code{date1} is included as a parameter), or on or between the two dates if both \code{date1} and \code{date2} are specified. Either \code{date1} or \code{date2} can be the latter of the two dates.
+Requests data on all MPs who were members of the House of Commons on the
+date specified, (if only \code{date1} is included as a parameter), or
+on or between the two dates if both \code{date1} and \code{date2} are
+specified. Either \code{date1} or \code{date2} can be the latter of
+the two dates.
 }
 \examples{
 \dontrun{
