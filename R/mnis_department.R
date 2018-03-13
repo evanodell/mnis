@@ -26,34 +26,28 @@
 #' }
 
 
-mnis_department <- function(department_id = 0, bench = "Government", former = TRUE,
-                            tidy = TRUE, tidy_style = "snake_case") {
+mnis_department <- function(department_id = 0, bench = "Government",
+                            former = TRUE, tidy = TRUE,
+                            tidy_style = "snake_case") {
+  if (former == TRUE) {
+    query_former <- "former"
+  } else {
+    query_former <- "current"
+  }
 
-    if (former == TRUE) {
+  bench <- utils::URLencode(stringi::stri_trans_totitle(bench))
 
-        query_former <- "former"
+  q_url <- paste0(base_url, "Department/")
 
-    } else {
+  query <- paste0(q_url, department_id, "/", bench, "/", query_former, "/")
 
-        query_former <- "current"
-    }
+  got <- get_generic(query)
 
-    bench <- utils::URLencode(stringi::stri_trans_totitle(bench))
+  df <- tibble::as_tibble(as.data.frame(got$Department$Posts))
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
+  }
 
-    query <- paste0(baseurl, department_id, "/", bench, "/", query_former, "/")
-
-    got <- get_generic(query)
-
-    df <- tibble::as_tibble(as.data.frame(got$Department$Posts))
-
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-    }
-
-    df
-
+  df
 }

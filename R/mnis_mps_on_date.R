@@ -31,55 +31,49 @@
 
 mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                              tidy = TRUE, tidy_style = "snake_case") {
+  q_url <- paste0(base_url, "members/query/House=Commons|Membership=all|commonsmemberbetween=")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons|Membership=all|commonsmemberbetween="
+  date1 <- as.Date(date1)
 
-    date1 <- as.Date(date1)
+  if (is.null(date2) == FALSE) {
+    date2 <- as.Date(date2)
+  }
 
-    if (is.null(date2) == FALSE) {
+  if (is.null(date2) == TRUE) {
+    date2 <- date1
+  } else if (date1 > date2) {
+    date3 <- date1
 
-        date2 <- as.Date(date2)
+    date1 <- date2
 
-    }
+    date2 <- date3
 
-    if (is.null(date2) == TRUE) {
+    rm(date3)
+  }
 
-        date2 <- date1
+  query <- paste0(q_url, date1, "and", date2, "/")
 
-    } else if (date1 > date2) {
+  got <- get_generic(query)
 
-        date3 <- date1
+  mps <- got$Members$Member
 
-        date1 <- date2
+  mps <- tibble::as_tibble(mps)
 
-        date2 <- date3
+  if (.Platform$OS.type == "windows") {
+    mps$MemberFrom <- stringi::stri_trans_general(
+      mps$MemberFrom,
+      "latin-ascii"
+    )
 
-        rm(date3)
+    mps$MemberFrom <- gsub(
+      "Ynys MA\U00B4n", "Ynys M\U00F4n",
+      mps$MemberFrom
+    )
+  }
 
-    }
+  if (tidy == TRUE) {
+    mps <- mnis_tidy(mps, tidy_style)
+  }
 
-    query <- paste0(baseurl, date1, "and", date2, "/")
-
-    got <- get_generic(query)
-
-    mps <- got$Members$Member
-
-    mps <- tibble::as_tibble(mps)
-
-    if (.Platform$OS.type == "windows") {
-
-        mps$MemberFrom <- stringi::stri_trans_general(mps$MemberFrom, "latin-ascii")
-
-        mps$MemberFrom <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", mps$MemberFrom)
-
-    }
-
-    if (tidy == TRUE) {
-
-        mps <- mnis_tidy(mps, tidy_style)
-
-    }
-
-    mps
-
+  mps
 }

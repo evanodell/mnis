@@ -17,33 +17,27 @@
 
 mnis_constituency_results <- function(constituency_id = NULL, election_id = 0,
                                       tidy = TRUE, tidy_style = "snake_case") {
+  if (missing(constituency_id)) {
+    stop("'constituency_id' cannot be NULL", call. = FALSE)
+  }
 
-    if (missing(constituency_id)) {
-        stop("'constituency_id' cannot be NULL", call. = FALSE)
-    }
+  q_url <- paste0(base_url, "ConstituencyResults/")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
+  query <- paste0(q_url, constituency_id, "/", election_id, "/")
 
-    query <- paste0(baseurl, constituency_id, "/", election_id, "/")
+  got <- get_generic(query)
 
-    got <- get_generic(query)
+  details <- got$Constituency$Details
 
-    details <- got$Constituency$Details
+  results <- tibble::as_tibble(got$Constituency$Results)
 
-    results <- tibble::as_tibble(got$Constituency$Results)
+  df <- list()
 
-    df <- list()
+  if (tidy == TRUE) {
+    df <- constituency_results_tidy(results, details)
+  } else {
+    df <- c(list(results = results), list(details = details))
+  }
 
-    if (tidy == TRUE) {
-
-        df <- constituency_results_tidy(results, details)
-
-    } else {
-
-        df <- c(list(results = results), list(details = details))
-
-    }
-
-    df
-
+  df
 }

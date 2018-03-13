@@ -5,17 +5,15 @@
 ## mnis_mps_on_date - mnis_party_state - mnis_peers_on_date
 
 get_generic <- function(query) {
-    
-    got <- httr::GET(query, httr::accept_json(), encoding = "UTF-8")
-    
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
-    
-    got <- tidy_bom(got)
-    
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-    
-    got
-    
+  got <- httr::GET(query, httr::accept_json(), encoding = "UTF-8")
+
+  if (httr::http_type(got) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+
+  got <- tidy_bom(got)
+
+  got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+  got
 }

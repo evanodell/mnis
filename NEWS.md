@@ -1,14 +1,18 @@
 
-# mnis 0.2.9
-
-Documentation improvements, some code tweaks.
-
-
 # mnis 0.2.8
+
+## New Functions
+
+Introduction of new `mnis_political_interests()` function.
 
 ## New Features
 
 `mnis_member_date()` and `mnis_full_biog()` now accept vectors of member IDs.
+
+## Bug fixes
+
+Changing approach of `mnis_full_biog()` to fix issue where some tibbles 
+lacked column names.
 
 ## Documentation
 

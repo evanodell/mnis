@@ -32,31 +32,30 @@ mnis_general_election_results <- function(location_type = "Country",
                                           location_name = "Great Britain",
                                           start_date = "1900-01-01",
                                           end_date = Sys.Date(),
-                                          tidy = TRUE, tidy_style = "snake_case") {
+                                          tidy = TRUE,
+                                          tidy_style = "snake_case") {
+  q_url <- paste0(base_url, "GeneralElectionResults/")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/GeneralElectionResults/"
+  query <- paste0(
+    q_url, utils::URLencode(location_type), "/",
+    utils::URLencode(location_name), "/",
+    as.Date(start_date), "/",
+    as.Date(end_date), "/"
+  )
 
-    query <- paste0(baseurl, utils::URLencode(location_type), "/",
-                    utils::URLencode(location_name), "/",
-                    as.Date(start_date), "/",
-                    as.Date(end_date), "/")
+  got <- get_generic(query)
 
-    got <- get_generic(query)
+  df <- got$ElectionResults
 
-    df <- got$ElectionResults
+  df$ElectionResult <- as.tibble(df$ElectionResult)
 
-    df$ElectionResult <- as.tibble(df$ElectionResult)
+  if (tidy == TRUE) {
+    names(df)[names(df) == "LocationInfo"] <- "location_info"
 
-    if (tidy == TRUE) {
+    names(df)[names(df) == "ElectionResult"] <- "election_result"
 
-        names(df)[names(df) == "LocationInfo"] <- "location_info"
+    df$election_result <- mnis_tidy(df$election_result, tidy_style)
+  }
 
-        names(df)[names(df) == "ElectionResult"] <- "election_result"
-
-        df$election_result <- mnis_tidy(df$election_result, tidy_style)
-
-    }
-
-    df
-
+  df
 }

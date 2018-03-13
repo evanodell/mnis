@@ -32,6 +32,8 @@ returns it in the form of a tibble.
 \examples{
 \dontrun{
 df <- mnis_full_biog(172)
+
+df <- mnis_full_biog(500)
 }
 }
 \seealso{

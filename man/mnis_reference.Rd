@@ -189,16 +189,20 @@ of the House of Lords}
 posts and the government department they shadow}
 \item{\code{ref_opposition_posts()}}{Opposition posts}
 \item{\code{ref_opposition_ranks()}}{How opposition posts are ranked}
-\item{\code{ref_other_parliaments()}}{Other parliaments that a member may have sat in}
-\item{\code{ref_parliamentary_posts()}}{The different parliamentary posts available}
-\item{\code{ref_parliamentary_ranks()}}{How those parliamentary posts are ranked}
+\item{\code{ref_other_parliaments()}}{Other parliaments that a member
+may have sat in}
+\item{\code{ref_parliamentary_posts()}}{The different parliamentary posts
+available}
+\item{\code{ref_parliamentary_ranks()}}{How those parliamentary posts are
+ranked}
 \item{\code{ref_parliament_types()}}{Types of parliaments that
 parliamentary data may link to}
 \item{\code{ref_parties()}}{All parties that members can be affiliated with}
 \item{\code{ref_party_sub_types()}}{Sub-types of parties}
 \item{\code{ref_photo_outputs()}}{Outputs that a photo of a member
 may be linked to}
-\item{\code{ref_statuses()}}{A member's possible current status in the House}
+\item{\code{ref_statuses()}}{A member's possible current status in the
+House}
 \item{\code{ref_titles()}}{Salutory titles}
 }
 }

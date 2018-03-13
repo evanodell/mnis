@@ -4,7 +4,7 @@ library(mnis)
 context("fixed_scope")
 test_that("fixed scope functions returns expected format", {
 
-  skip_on_cran()
+  #skip_on_cran()
 
   xps <- mnis_party_state('2012-01-12')
 
@@ -25,7 +25,10 @@ test_that("fixed scope functions returns expected format", {
   expect_true(tibble::is_tibble(xmd2))
   expect_true(nrow(xmd2)==2)
 
-  xger<- mnis_general_election_results(location_type = 'Country', location_name = 'England', start_date = '2010-01-01', end_date = '2016-01-01')
+  xger<- mnis_general_election_results(location_type = 'Country',
+                                       location_name = 'England',
+                                       start_date = '2010-01-01',
+                                       end_date = '2016-01-01')
   expect_length(xger, 2)
   expect_type(xger, "list")
   expect_true(nrow(xger$election_result)==2)
@@ -37,8 +40,9 @@ test_that("fixed scope functions returns expected format", {
   expect_true(tibble::is_tibble(xlt))
   expect_true(nrow(xlt)==15)
 
-  xmdepart <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
-  expect_length(xmdepart, 31)
+  xmdepart <- mnis_department(department_id = 0, bench = 'Government',
+                              former = TRUE)
+  expect_length(xmdepart, 32)
   expect_type(xmdepart, "list")
   expect_true(tibble::is_tibble(xmdepart))
 

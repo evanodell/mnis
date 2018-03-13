@@ -25,23 +25,19 @@
 
 mnis_party_state <- function(house = "Commons", date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
+  q_url <- paste0(base_url, "houseOverview/")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/"
+  house <- utils::URLencode(stringi::stri_trans_totitle(house))
 
-    house <- utils::URLencode(stringi::stri_trans_totitle(house))
+  query <- paste0(q_url, house, "/", date, "/")
 
-    query <- paste0(baseurl, house, "/", date, "/")
+  got <- get_generic(query)
 
-    got <- get_generic(query)
+  df <- tibble::as_tibble(got$HouseOverview$Party)
 
-    df <- tibble::as_tibble(got$HouseOverview$Party)
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
+  }
 
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-    }
-
-    df
-
+  df
 }

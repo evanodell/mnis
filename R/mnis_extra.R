@@ -88,193 +88,229 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
                        parties = TRUE, preferred_names = TRUE,
                        staff = TRUE, statuses = TRUE,
                        tidy = TRUE, tidy_style = "snake_case") {
+  ID <- as.character(ID)
 
-    ID <- as.character(ID)
+  if (is.null(ID) == TRUE) {
+    stop("ID cannot be null", call. = FALSE)
+  }
 
-    if (is.null(ID) == TRUE) {
-        stop("ID cannot be null", call. = FALSE)
-    }
+  mnis_df <- tibble::tibble(member_id = ID)
 
-    mnis_df <- tibble::tibble(member_id = ID)
 
+  if (addresses == TRUE) {
+    addresses_df <- mnis_addresses(ID, ref_dods)
 
-    if (addresses == TRUE) {
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, addresses_df)
+      )
+    )
+  }
 
-        addresses_df <- mnis_addresses(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
 
-        suppressMessages(suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, addresses_df))))
+  if (biography_entries == TRUE) {
+    biography_entries_df <- mnis_biography_entries(ID, ref_dods)
 
-    }
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, biography_entries_df)
+      )
+    )
+  }
 
 
-    if (biography_entries == TRUE) {
+  if (committees == TRUE) {
+    committees_df <- mnis_committees(ID, ref_dods)
 
-        biography_entries_df <- mnis_biography_entries(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, committees_df)
+      )
+    )
+  }
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, biography_entries_df)))
 
-    }
+  if (constituencies == TRUE) {
+    constituencies_df <- mnis_constituencies(ID, ref_dods)
 
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, constituencies_df)
+      )
+    )
+  }
 
-    if (committees == TRUE) {
 
-        committees_df <- mnis_committees(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+  if (elections_contested == TRUE) {
+    elections_contested_df <- mnis_elections_contested(ID, ref_dods)
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, committees_df)))
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, elections_contested_df)
+      )
+    )
+  }
 
-    }
 
+  if (experiences == TRUE) {
+    experiences_df <- mnis_experiences(ID, ref_dods)
 
-    if (constituencies == TRUE) {
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, experiences_df)
+      )
+    )
+  }
 
-        constituencies_df <- mnis_constituencies(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, constituencies_df)))
+  if (government_posts == TRUE) {
+    government_posts_df <- mnis_government_posts(ID, ref_dods)
 
-    }
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, government_posts_df)
+      )
+    )
+  }
 
 
-    if (elections_contested == TRUE) {
+  if (honours == TRUE) {
+    honours_df <- mnis_honours(ID, ref_dods)
 
-        elections_contested_df <- mnis_elections_contested(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, honours_df)
+      )
+    )
+  }
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, elections_contested_df)))
 
-    }
+  if (house_memberships == TRUE) {
+    house_memberships_df <- mnis_house_memberships(ID, ref_dods)
 
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, house_memberships_df)
+      )
+    )
+  }
 
-    if (experiences == TRUE) {
 
-        experiences_df <- mnis_experiences(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+  if (interests == TRUE) {
+    interests_df <- mnis_interests(ID, ref_dods)
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, experiences_df)))
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, interests_df)
+      )
+    )
+  }
 
-    }
 
+  if (known_as == TRUE) {
+    known_as_df <- mnis_known_as(ID, ref_dods)
 
-    if (government_posts == TRUE) {
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, known_as_df)
+      )
+    )
+  }
 
-        government_posts_df <- mnis_government_posts(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, government_posts_df)))
+  if (maiden_speeches == TRUE) {
+    maiden_speeches_df <- mnis_maiden_speeches(ID, ref_dods)
 
-    }
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, maiden_speeches_df)
+      )
+    )
+  }
 
 
-    if (honours == TRUE) {
+  if (opposition_posts == TRUE) {
+    opposition_posts_df <- mnis_opposition_posts(ID, ref_dods)
 
-        honours_df <- mnis_honours(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, opposition_posts_df)
+      )
+    )
+  }
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, honours_df)))
 
-    }
+  if (other_parliaments == TRUE) {
+    other_parliaments_df <-
+      mnis_other_parliaments(ID, ref_dods)
 
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, other_parliaments_df)
+      )
+    )
+  }
 
-    if (house_memberships == TRUE) {
 
-        house_memberships_df <- mnis_house_memberships(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+  if (parliamentary_posts == TRUE) {
+    parliamentary_posts_df <-
+      mnis_parliamentary_posts(ID, ref_dods)
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, house_memberships_df)))
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, parliamentary_posts_df)
+      )
+    )
+  }
 
-    }
 
+  if (parties == TRUE) {
+    parties_df <- mnis_parties(ID, ref_dods)
 
-    if (interests == TRUE) {
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, parties_df)
+      )
+    )
+  }
 
-        interests_df <- mnis_interests(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, interests_df)))
+  if (preferred_names == TRUE) {
+    preferred_names_df <- mnis_preferred_names(ID, ref_dods)
 
-    }
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, preferred_names_df)
+      )
+    )
+  }
 
 
-    if (known_as == TRUE) {
+  if (staff == TRUE) {
+    staff_df <- mnis_staff(ID, ref_dods)
 
-        known_as_df <- mnis_known_as(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, staff_df)
+      )
+    )
+  }
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, known_as_df)))
 
-    }
+  if (statuses == TRUE) {
+    statuses_df <- mnis_statuses(ID, ref_dods)
 
+    suppressMessages(
+      suppressWarnings(
+        mnis_df <- dplyr::inner_join(mnis_df, statuses_df)
+      )
+    )
+  }
 
-    if (maiden_speeches == TRUE) {
 
-        maiden_speeches_df <- mnis_maiden_speeches(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
+  if (tidy == TRUE) {
+    mnis_df <- mnis_tidy(mnis_df, tidy_style)
+  }
 
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, maiden_speeches_df)))
-
-    }
-
-
-    if (opposition_posts == TRUE) {
-
-        opposition_posts_df <- mnis_opposition_posts(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, opposition_posts_df)))
-
-    }
-
-
-    if (other_parliaments == TRUE) {
-
-        other_parliaments_df <- mnis_other_parliaments(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, other_parliaments_df)))
-
-    }
-
-
-    if (parliamentary_posts == TRUE) {
-
-        parliamentary_posts_df <- mnis_parliamentary_posts(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, parliamentary_posts_df)))
-
-    }
-
-
-    if (parties == TRUE) {
-
-        parties_df <- mnis_parties(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, parties_df)))
-
-    }
-
-
-    if (preferred_names == TRUE) {
-
-        preferred_names_df <- mnis_preferred_names(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, preferred_names_df)))
-
-    }
-
-
-    if (staff == TRUE) {
-
-        staff_df <- mnis_staff(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, staff_df)))
-
-    }
-
-
-    if (statuses == TRUE) {
-
-        statuses_df <- mnis_statuses(ID, ref_dods, tidy = TRUE, tidy_style = "snake_case")
-
-        suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, statuses_df)))
-
-    }
-
-
-    if (tidy == TRUE) {
-
-        mnis_df <- mnis_tidy(mnis_df, tidy_style)
-
-    }
-
-    mnis_df
-
+  mnis_df
 }

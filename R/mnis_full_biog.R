@@ -17,35 +17,27 @@
 #' @export
 #' @examples \dontrun{
 #' df <- mnis_full_biog(172)
+#'
+#' df <- mnis_full_biog(500)
 #' }
 
 mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
                            tidy = TRUE, tidy_style = "snake_case") {
-
-    if (missing(ID)) {
-
-        df <- mnis_all_members()
-
+  if (missing(ID)) {
+    df <- mnis_all_members()
+  } else {
+    if (ref_dods == TRUE) {
+      ID_Type <- "refDods="
     } else {
-
-        if (ref_dods == TRUE) {
-
-            ID_Type <- "refDods="
-
-        } else {
-
-            ID_Type <- "id="
-
-        }
-
-        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-        query <- paste0(baseurl, ID_Type, ID, "/FullBiog")
-
-        df <- get_additional(query, tidy, tidy_style)
-
+      ID_Type <- "id="
     }
 
-    df
+    q_url <- paste0(base_url, "members/query/")
 
+    query <- paste0(q_url, ID_Type, ID, "/FullBiog")
+
+    df <- get_additional(query, tidy, tidy_style)
+  }
+
+  df
 }

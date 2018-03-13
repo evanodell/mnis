@@ -5,25 +5,27 @@
 #' and all URLs, paths and parameters are user-defined. \code{mnis_base}
 #' does not include the option to tidy variable names and data types.
 #'
-#' See the \href{http://data.parliament.uk/membersdataplatform/memberquery.aspx}{API documentation}
-#' for details and limits on requests made to MNIS.
+#' See the
+#' \href{http://data.parliament.uk/membersdataplatform/
+#' memberquery.aspx}{API documentation} for details and limits on requests made to MNIS.
 #'
 #' @param request The request query being made to the MNIS URL.
 #' @export
 #' @examples \dontrun{
+#'
 #' x <- mnis_base('House=Commons|IsEligible=true/')
+#'
 #' }
 
 mnis_base <- function(request) {
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
+  q_url <- paste0(base_url, "members/query/")
 
-    request <- utils::URLencode(request)
+  request <- utils::URLencode(request)
 
-    query <- paste0(baseurl, request)
+  query <- paste0(q_url, request)
 
-    got <- get_generic(query)
+  got <- get_generic(query)
 
-    x <- do.call(rbind, got$Members$Member)
-
+  x <- do.call(rbind, got$Members$Member)
 }

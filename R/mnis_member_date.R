@@ -24,41 +24,33 @@
 
 mnis_member_date <- function(ID = NULL, date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
+  if (missing(ID)) {
+    stop("The ID parameter cannot be NULL, please specify an MP or Peer.")
+  }
 
-    if (missing(ID)) {
-        stop("The ID parameter cannot be NULL, please specify an MP or Peer.")
-    }
+  date <- as.Date(date)
 
-    date <- as.Date(date)
+  if (length(ID) > 1) {
+    df <- mnis_mp_date(ID, date)
+  } else {
+    q_url <- paste0(base_url, "member/historical/")
 
-    if (length(ID) > 1) {
+    query <- paste0(q_url, ID, "/", date, "/")
 
-        df <- mnis_mp_date(ID, date)
+    got <- get_generic(query)
 
-    } else {
+    df <- as.list(got$Member)
 
-        baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
+    df <- unlist(df)
 
-        query <- paste0(baseurl, ID, "/", date, "/")
+    df <- t(df)
 
-        got <- get_generic(query)
+    df <- tibble::as_tibble(df)
+  }
 
-        df <- as.list(got$Member)
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
+  }
 
-        df <- unlist(df)
-
-        df <- t(df)
-
-        df <- tibble::as_tibble(df)
-
-    }
-
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-    }
-
-    df
-
+  df
 }

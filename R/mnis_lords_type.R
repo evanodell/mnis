@@ -18,24 +18,21 @@
 #' x <- mnis_lords_type()
 #' }
 
-mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case") {
+mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE,
+                            tidy_style = "snake_case") {
+  q_url <- paste0(base_url, "LordsByType/")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/LordsByType/"
+  date <- as.Date(date)
 
-    date <- as.Date(date)
+  query <- paste0(q_url, date, "/")
 
-    query <- paste0(baseurl, date, "/")
+  got <- get_generic(query)
 
-    got <- get_generic(query)
+  df <- tibble::as_tibble(got$LordsByType$Party)
 
-    df <- tibble::as_tibble(got$LordsByType$Party)
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
+  }
 
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-    }
-
-    df
-
+  df
 }

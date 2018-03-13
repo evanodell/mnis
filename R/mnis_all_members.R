@@ -23,51 +23,42 @@
 
 mnis_all_members <- function(house = "all", party = NULL,
                              tidy = TRUE, tidy_style = "snake_case") {
+  house <- tolower(house)
 
-    house <- tolower(house)
+  if (is.na(pmatch(house, c("all", "lords", "commons")))) {
+    stop("Please select one of 'all', 'lords' or
+             'commons' for the parameter `house`")
+  }
 
-    if (is.na(pmatch(house, c("all", "lords", "commons"))))
-        stop("Please select one of 'all', 'lords' or 'commons' for the parameter `house`")
+  q_url <- paste0(base_url, "members/query/Membership=all")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/Membership=all"
+  if (is.null(party) == FALSE) {
+    party <- utils::URLencode(party)
+  }
 
-    if (is.null(party) == FALSE)
-        party <- utils::URLencode(party)
+  if (house == "lords") {
+    house <- "|house=lords"
+  } else if (house == "commons") {
+    house <- "|house=commons"
+  } else if (house == "all") {
+    house <- NULL
+  }
 
-    if (house == "lords") {
+  if (is.null(party) == FALSE) {
+    party <- paste0("|party*", party)
+  }
 
-        house <- "|house=lords"
+  message("Connecting to API")
 
-    } else if (house == "commons") {
+  query <- paste0(q_url, house, party, "/HouseMemberships/")
 
-        house <- "|house=commons"
+  got <- get_generic(query)
 
-    } else if (house == "all") {
+  df <- tibble::as_tibble(got$Members$Member)
 
-        house <- NULL
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
+  }
 
-    }
-
-    if (is.null(party) == FALSE) {
-
-        party <- paste0("|party*", party)
-
-    }
-
-    message("Connecting to API")
-
-    query <- paste0(baseurl, house, party, "/HouseMemberships/")
-
-    got <- get_generic(query)
-
-    df <- tibble::as_tibble(got$Members$Member)
-
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-    }
-
-    df
-
+  df
 }

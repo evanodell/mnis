@@ -31,76 +31,66 @@
 #' }
 
 
-mnis_joined_between <- function(start_date = "1900-01-01", end_date = Sys.Date(),
-                                house = "all", party = NULL, eligible = "all",
+mnis_joined_between <- function(start_date = "1900-01-01",
+                                end_date = Sys.Date(), house = "all",
+                                party = NULL, eligible = "all",
                                 tidy = TRUE, tidy_style = "snake_case") {
+  house <- tolower(as.character(house)) ## Making sure house works
 
-    house <- tolower(as.character(house))  ## Making sure house works
+  if (is.na(pmatch(house, c("all", "lords", "commons")))) {
+    stop("Please select one of 'all', 'lords' or 'commons'
+             for the parameter 'house'")
+  }
 
-    if (is.na(pmatch(house, c("all", "lords", "commons"))))
-        stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
+  if (is.na(pmatch(eligible, c("all", "current", "former")))) {
+    stop("Please select one of 'all', 'current' or 'former'
+             for the parameter 'eligible'")
+  }
 
-    if (is.na(pmatch(eligible, c("all", "current", "former"))))
-        stop("Please select one of 'all', 'current' or 'former' for the parameter 'eligible'")
+  q_url <- paste0(base_url, "members/query/joinedbetween=")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/joinedbetween="
+  start_date <- as.Date(start_date)
 
-    start_date <- as.Date(start_date)
+  end_date <- as.Date(end_date)
 
-    end_date <- as.Date(end_date)
+  if (is.null(party) == FALSE) {
+    party <- utils::URLencode(tolower(as.character(party)))
+  }
 
-    if (is.null(party) == FALSE) {
+  eligible <- tolower(as.character(eligible))
 
-        party <- utils::URLencode(tolower(as.character(party)))
+  if (house == "lords") {
+    house <- "|house=lords"
+  } else if (house == "commons") {
+    house <- "|house=commons"
+  } else if (house == "all") {
+    house <- "|house=all"
+  }
 
-    }
+  if (is.null(party) == FALSE) {
+    party <- paste0("|party*", party)
+  }
 
-    eligible <- tolower(as.character(eligible))
+  if (eligible == "all") {
+    eligible <- NULL
+  } else if (eligible == "current") {
+    eligible <- "|iseligible=TRUE"
+  } else if (eligible == "former") {
+    eligible <- "|iseligible=FALSE"
+  }
 
-    if (house == "lords") {
+  query <- paste0(
+    q_url, start_date, "and",
+    end_date, house, party, eligible
+  )
 
-        house <- "|house=lords"
+  got <- get_generic(query)
 
-    } else if (house == "commons") {
+  df <- tibble::as_tibble(got$Members$Member)
 
-        house <- "|house=commons"
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
+  }
 
-    } else if (house == "all") {
-
-        house <- "|house=all"
-
-    }
-
-    if (is.null(party) == FALSE) {
-        party <- paste0("|party*", party)
-    }
-
-    if (eligible == "all") {
-
-        eligible <- NULL
-
-    } else if (eligible == "current") {
-
-        eligible <- "|iseligible=TRUE"
-
-    } else if (eligible == "former") {
-
-        eligible <- "|iseligible=FALSE"
-
-    }
-
-    query <- paste0(baseurl, start_date, "and", end_date, house, party, eligible)
-
-    got <- get_generic(query)
-
-    df <- tibble::as_tibble(got$Members$Member)
-
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-    }
-
-    df
-
+  df
 }

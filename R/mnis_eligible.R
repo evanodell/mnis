@@ -32,54 +32,48 @@
 
 mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
                           tidy = TRUE, tidy_style = "snake_case") {
+  if (is.na(pmatch(house, c("all", "lords", "commons")))) {
+    stop("Please select one of 'all', 'lords' or
+             'commons' for the parameter `house`")
+  }
 
-    if (is.na(pmatch(house, c("all", "lords", "commons"))))
-        stop("Please select one of 'all', 'lords' or 'commons' for the parameter `house`")
+  q_url <- paste0(base_url, "members/query/iseligible=")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/iseligible="
+  house <- as.character(tolower(house))
 
-    house <- as.character(tolower(house))
+  if (house == "lords") {
+    house <- "|house=lords"
+  } else if (house == "commons") {
+    house <- "|house=commons"
+  } else if (house == "all") {
+    house <- "|house=all"
+  }
 
-    if (house == "lords") {
+  if (is.null(party) == FALSE) {
+    party <- utils::URLencode(paste0("|party=", party))
+  }
 
-        house <- "|house=lords"
+  query <- paste0(q_url, eligible, house, party)
 
-    } else if (house == "commons") {
+  got <- get_generic(query)
 
-        house <- "|house=commons"
+  df <- tibble::as_tibble(got$Members$Member)
 
-    } else if (house == "all") {
+  if (tidy == TRUE) {
+    df <- mnis_tidy(df, tidy_style)
 
-        house <- "|house=all"
+    if (.Platform$OS.type == "windows") {
+      df$member_from <- stringi::stri_trans_general(
+        df$member_from,
+        "latin-ascii"
+      )
 
+      df$member_from <- gsub(
+        "Ynys MA\U00B4n", "Ynys M\U00F4n",
+        df$member_from
+      )
     }
+  }
 
-    if (is.null(party) == FALSE) {
-
-        party <- utils::URLencode(paste0("|party=", party))
-
-    }
-
-    query <- paste0(baseurl, eligible, house, party)
-
-    got <- get_generic(query)
-
-    df <- tibble::as_tibble(got$Members$Member)
-
-    if (tidy == TRUE) {
-
-        df <- mnis_tidy(df, tidy_style)
-
-        if (.Platform$OS.type == "windows") {
-
-            df$member_from <- stringi::stri_trans_general(df$member_from, "latin-ascii")
-
-            df$member_from <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", df$member_from)
-
-        }
-
-    }
-
-    df
-
+  df
 }

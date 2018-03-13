@@ -30,47 +30,37 @@
 
 mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                                tidy = TRUE, tidy_style = "snake_case") {
+  q_url <- paste0(base_url, "members/query/House=Lords|Membership=all|lordsmemberbetween=")
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Lords|Membership=all|lordsmemberbetween="
+  date1 <- as.Date(date1)
 
-    date1 <- as.Date(date1)
+  if (is.null(date2) == FALSE) {
+    date2 <- as.Date(date2)
+  }
 
-    if (is.null(date2) == FALSE) {
+  if (is.null(date2) == TRUE) {
+    date2 <- date1
+  } else if (date1 > date2) {
+    date3 <- date1
 
-        date2 <- as.Date(date2)
+    date1 <- date2
 
-    }
+    date2 <- date3
 
-    if (is.null(date2) == TRUE) {
+    rm(date3)
+  }
 
-        date2 <- date1
+  query <- paste0(q_url, date1, "and", date2, "/")
 
-    } else if (date1 > date2) {
+  got <- get_generic(query)
 
-        date3 <- date1
+  lords <- got$Members$Member
 
-        date1 <- date2
+  lords <- tibble::as_tibble(lords)
 
-        date2 <- date3
+  if (tidy == TRUE) {
+    lords <- mnis_tidy(lords, tidy_style)
+  }
 
-        rm(date3)
-
-    }
-
-    query <- paste0(baseurl, date1, "and", date2, "/")
-
-    got <- get_generic(query)
-
-    lords <- got$Members$Member
-
-    lords <- tibble::as_tibble(lords)
-
-    if (tidy == TRUE) {
-
-        lords <- mnis_tidy(lords, tidy_style)
-
-    }
-
-    lords
-
+  lords
 }
