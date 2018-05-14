@@ -20,12 +20,11 @@
 #' API rate limit, although there may be restrictions to custom requests,
 #' which allow a maximum of three parameters.
 #'
-#'
 #' @docType package
 #' @name mnis
 #' @import utils
-#' @import httr
-#' @import jsonlite
+#' @importFrom httr status_code GET http_type
+#' @importFrom jsonlite fromJSON
 #' @import dplyr
 #' @import tibble
 #' @import stringi

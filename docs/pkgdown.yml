@@ -1,8 +1,6 @@
-pandoc: 2.1.2
-pkgdown: 0.1.0.9000
-pkgdown_sha: 0314a93d176d5c391924e2e88e02d1b0043bf97b
+pandoc: '2.2'
+pkgdown: 1.0.0
+pkgdown_sha: d43ca38c74827d1d6babc3a80d48cd3a8e8fad8c
 articles:
-  introduction.R: introduction.R
   introduction: introduction.html
-  introduction.html: introduction.html
 

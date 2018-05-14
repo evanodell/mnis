@@ -7,13 +7,19 @@ get_additional <- function(query, tidy, tidy_style) {
 
   if (httr::http_type(got) != "application/json") {
     stop("API did not return json", call. = FALSE)
-  }
+  } else if (httr::status_code(got) != 200)
 
   got <- tidy_bom(got)
 
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  #got2 <- httr::content(got)
 
-  q <- as.data.frame(enframe(unlist(got$Members$Member)))
+  got2 <- jsonlite::fromJSON(got, flatten = TRUE)
+
+  x <- got2$Members$Member
+
+  ##Need to sort this out, use listcols, etc
+
+  q <- as.data.frame(tibble::enframe(unlist(got2$Members$Member)))
 
   df <- tibble::as_tibble(t(q))
 

@@ -32,9 +32,7 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
       ID_Type <- "id="
     }
 
-    q_url <- paste0(base_url, "members/query/")
-
-    query <- paste0(q_url, ID_Type, ID, "/FullBiog")
+    query <- paste0(base_url, "members/query/", ID_Type, ID, "/FullBiog")
 
     df <- get_additional(query, tidy, tidy_style)
   }
