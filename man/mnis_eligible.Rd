@@ -2,41 +2,41 @@
 % Please edit documentation in R/mnis_eligible.R
 \name{mnis_eligible}
 \alias{mnis_eligible}
-\title{All eligible members of both houses}
+\title{Returns all members who are able to sit in either house, or who are currently
+ ineligible to sit. Members ineligible to sit include but are not necessarily
+  limited to former MPs, members of the judiciary, who are recused from
+  House of Lords duties.}
 \usage{
-mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_eligible(eligible = TRUE, house = "all", party = NULL,
+  tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{eligible}{Logical parameter. If \code{TRUE} returns all members
-currently eligible to sit, if \code{FALSE} returns all ineligible members.
-Defaults to \code{TRUE}.}
+\item{eligible}{If the member is currently eligible to sit. Accepts
+\code{TRUE} or \code{FALSE}. Defaults to \code{TRUE}.}
 
-\item{house}{The house to which the member belongs. Accepts one of
-\code{'all'}, \code{'lords'} and \code{'commons'}. This parameter is not
-case sensitive, so \code{'commons'}, \code{'Commons'} and \code{'cOmMOnS'}
-will all return the same data. Defaults to \code{'all'}.}
+\item{house}{The house to which the member belongs. Accepts one of 'all',
+'lords' and 'commons', defaults to 'all'. This parameter is not case
+sensitive, so 'commons', 'Commons' and 'cOmMOnS' will all return the
+same data.}
 
-\item{party}{The party to which a member belongs. If \code{NULL} members
-of all parties are returned subject to other parameters. The party must
-be fully spelled out (e.g. \code{'green party'}), the API does not accept
-searches on this parameter. For a tibble of parties, see \code{ref_parties}
-in \code{\link{mnis_reference}}. This parameter is not case sensititive.
-Defaults to \code{NULL}.}
+\item{party}{The party to which a member belongs. Defaults to NULL. The
+party must be fully spelled out (e.g. 'green party'), the API does not
+accept searches on this parameter. For a tibble of parties,
+see \code{\link{ref_parties}}. This parameter is not case sensititive.}
 
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
-remove non-alphanumeric characters and superfluous text, and convert to
-a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{Fix the variable names in the tibble to remove special
+characters and superfluous text, and converts the variable names to a
+consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
-and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE.
+Accepts one of "snake_case", "camelCase" and "period.case".
+Defaults to "snake_case"}
 }
 \description{
-Returns all members who are able to sit in either house, or who are
- currently ineligible to sit. Members ineligible to sit include but are
- not necessarily limited to former MPs and members of the judiciary, who
- are recused from House of Lords duties.
+Returns all members who are able to sit in either house, or who are currently
+ ineligible to sit. Members ineligible to sit include but are not necessarily
+  limited to former MPs, members of the judiciary, who are recused from
+  House of Lords duties.
 }
 \examples{
 \dontrun{
@@ -44,6 +44,8 @@ x <- mnis_eligible(eligible=FALSE, house='all', party='labour')
 
 x <- mnis_eligible(eligible=TRUE, house='all', party='green party')
 
-x <- mnis_eligible(house='commons')
+x <- mnis_eligible(house="commons")
+
 }
 }
+\keyword{mnis}

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Evan Odell" />
 
-<meta name="date" content="2017-11-26" />
+<meta name="date" content="2017-06-07" />
 
 <title>Introduction to mnis</title>
 
@@ -20,244 +20,46 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource div.sourceLine, .numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em; }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; color = initial; }
-}
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
-code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 
 
-<style type="text/css">body {
-background-color: #fff;
-margin: 1em auto;
-max-width: 700px;
-overflow: visible;
-padding-left: 2em;
-padding-right: 2em;
-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.35;
-}
-#header {
-text-align: center;
-}
-#TOC {
-clear: both;
-margin: 0 0 10px 10px;
-padding: 4px;
-width: 400px;
-border: 1px solid #CCCCCC;
-border-radius: 5px;
-background-color: #f6f6f6;
-font-size: 13px;
-line-height: 1.3;
-}
-#TOC .toctitle {
-font-weight: bold;
-font-size: 15px;
-margin-left: 5px;
-}
-#TOC ul {
-padding-left: 40px;
-margin-left: -1.5em;
-margin-top: 5px;
-margin-bottom: 5px;
-}
-#TOC ul ul {
-margin-left: -2em;
-}
-#TOC li {
-line-height: 16px;
-}
-table {
-margin: 1em auto;
-border-width: 1px;
-border-color: #DDDDDD;
-border-style: outset;
-border-collapse: collapse;
-}
-table th {
-border-width: 2px;
-padding: 5px;
-border-style: inset;
-}
-table td {
-border-width: 1px;
-border-style: inset;
-line-height: 18px;
-padding: 5px 5px;
-}
-table, table th, table td {
-border-left-style: none;
-border-right-style: none;
-}
-table thead, table tr.even {
-background-color: #f7f7f7;
-}
-p {
-margin: 0.5em 0;
-}
-blockquote {
-background-color: #f6f6f6;
-padding: 0.25em 0.75em;
-}
-hr {
-border-style: solid;
-border: none;
-border-top: 1px solid #777;
-margin: 28px 0;
-}
-dl {
-margin-left: 0;
-}
-dl dd {
-margin-bottom: 13px;
-margin-left: 13px;
-}
-dl dt {
-font-weight: bold;
-}
-ul {
-margin-top: 0;
-}
-ul li {
-list-style: circle outside;
-}
-ul ul {
-margin-bottom: 0;
-}
-pre, code {
-background-color: #f7f7f7;
-border-radius: 3px;
-color: #333;
-white-space: pre-wrap; 
-}
-pre {
-border-radius: 3px;
-margin: 5px 0px 10px 0px;
-padding: 10px;
-}
-pre:not([class]) {
-background-color: #f7f7f7;
-}
-code {
-font-family: Consolas, Monaco, 'Courier New', monospace;
-font-size: 85%;
-}
-p > code, li > code {
-padding: 2px 0px;
-}
-div.figure {
-text-align: center;
-}
-img {
-background-color: #FFFFFF;
-padding: 2px;
-border: 1px solid #DDDDDD;
-border-radius: 3px;
-border: 1px solid #CCCCCC;
-margin: 0 5px;
-}
-h1 {
-margin-top: 0;
-font-size: 35px;
-line-height: 40px;
-}
-h2 {
-border-bottom: 4px solid #f7f7f7;
-padding-top: 10px;
-padding-bottom: 2px;
-font-size: 145%;
-}
-h3 {
-border-bottom: 2px solid #f7f7f7;
-padding-top: 10px;
-font-size: 120%;
-}
-h4 {
-border-bottom: 1px solid #f7f7f7;
-margin-left: 8px;
-font-size: 105%;
-}
-h5, h6 {
-border-bottom: 1px solid #ccc;
-font-size: 105%;
-}
-a {
-color: #0033dd;
-text-decoration: none;
-}
-a:hover {
-color: #6666ff; }
-a:visited {
-color: #800080; }
-a:visited:hover {
-color: #BB00BB; }
-a[href^="http:"] {
-text-decoration: underline; }
-a[href^="https:"] {
-text-decoration: underline; }
-
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
-</style>
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -268,48 +70,49 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Introduction to mnis</h1>
 <h4 class="author"><em>Evan Odell</em></h4>
-<h4 class="date"><em>2017-11-26</em></h4>
+<h4 class="date"><em>2017-06-07</em></h4>
 
 
 
 <p><code>mnis</code> is an R package to pull data from the UK parliament through the Members’ Name Information Service API, with the ability to tidy that data into object classes that are easy to work with in R. It emphasises simplicity and ease of use, so that users unfamiliar with APIs can easily retrieve large volumes of high quality data. The Members’ Name Information Service API does not require registration or a token, and is very generous with the number of requests allowed (it is unclear what limits are applied to the API, but I have yet to hit the limit, aside from custom requests using <code>mnis_base()</code>.)</p>
 <p><code>mnis</code> is for researchers, journalists and developers who follow the UK parliament for work, pleasure or some combination thereof. It has a sister package called <a href="https://cran.r-project.org/package=hansard"><code>hansard</code></a> that retrieves data from a different API, and while there is some overlap in function between the two packages, <code>mnis</code> is focused on retrieving data on individual MPs and Peers, government departments, cabinet and shadow cabinet positions, other parliamentary and political roles, and parliamentary reference data.</p>
 <p>All functions requests data in JSON format and parse it to a tibble, except for <code>mnis_constituency_results()</code> which returns a list (with constituency details) and a tibble (with constituency election results).</p>
-<p>Functions are divided into three main types:</p>
+<p>Functions are divided into four main types:</p>
 <ul>
+<li><p>General Functions</p></li>
 <li><p>Reference Functions</p></li>
 <li><p>Additional Information Functions</p></li>
 <li><p>Fixed Scope Functions</p></li>
 </ul>
 <p>There is also the <code>mnis_base()</code> function that allows for fully flexibility in all API requests, by allowing you to fully specify the URL you want to call data from.</p>
-<section id="installing-mnis" class="level2">
+<div id="installing-mnis" class="section level2">
 <h2>Installing <code>mnis</code></h2>
-<section id="from-cran" class="level3">
+<div id="from-cran" class="section level3">
 <h3>From CRAN</h3>
 <pre><code>install.packages(&quot;mnis&quot;)</code></pre>
-</section>
-<section id="from-github-development-version" class="level3">
+</div>
+<div id="from-github-development-version" class="section level3">
 <h3>From GitHub (Development Version)</h3>
-<pre><code>#install.packages(&quot;devtools&quot;)
+<pre><code>install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
-</section>
-<section id="load-mnis" class="level3">
+</div>
+<div id="load-mnis" class="section level3">
 <h3>Load <code>mnis</code></h3>
 <pre><code>library(mnis)</code></pre>
-</section>
-</section>
-<section id="using-mnis" class="level2">
+</div>
+</div>
+<div id="using-mnis" class="section level2">
 <h2>Using <code>mnis</code></h2>
 <p>All <code>mnis</code> functions contain two parameters, <code>tidy</code> and <code>tidy_style</code>:</p>
 <ul>
 <li><p><code>tidy</code> is a logical parameter accepting either TRUE or FALSE, defaulting to TRUE. If TRUE, <code>mnis</code> will fix variable names, which by default contain non alpha-numeric characters and appear to use an inconsistent/idiosyncratic naming convention, at least by the standards of the various naming conventions used in R. Dates and datetimes are converted to POSIXct class. The default variable names are unnecessarily lengthy and repeat the same piece of information several times in a row and contain non-alphanumeric characters. <code>tidy</code> fixes this, and defaults to TRUE, so you won’t have to deal with the clunky and over-complicated default variable names unless you really want to. It transforms names like <code>&quot;Members.Member.BasicDetails.Gender&quot;</code> into <code>&quot;gender&quot;</code>.</p></li>
 <li><p>The naming convention for variables used if <code>tidy</code>==TRUE is indicated by <code>tidy_style</code>. <code>tidy_style</code> accepts one of <code>&quot;snake_case&quot;</code>, <code>&quot;camelCase&quot;</code> and <code>&quot;period.case&quot;</code>, defaulting to <code>&quot;snake_case&quot;</code>. All variable names will be converted to match the given naming convention.</p></li>
 </ul>
-<section id="mnis_base-function" class="level3">
-<h3><code>mnis_base</code> function</h3>
+<div id="mnis_base-function" class="section level3">
+<h3>mnis_base function</h3>
 <p>The <code>mnis_base()</code> function accepts requests to the mnis API. The full list of request options is available on the mnis website: <a href="http://data.parliament.uk/membersdataplatform/memberquery.aspx" class="uri">http://data.parliament.uk/membersdataplatform/memberquery.aspx</a></p>
-</section>
-<section id="reference-functions" class="level3">
+</div>
+<div id="reference-functions" class="section level3">
 <h3>Reference Functions</h3>
 <p>A series of functions to return reference data. This data is useful for providing parameters for other function calls. These functions do not accept any arguments.</p>
 <p><code>ref_address_types()</code></p>
@@ -351,27 +154,27 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 <p><code>ref_photo_outputs()</code></p>
 <p><code>ref_statuses()</code></p>
 <p><code>ref_titles()</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">library</span>(mnis)</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>(<span class="dt">tidy =</span> <span class="ot">FALSE</span>)</div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">x</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
+x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>(<span class="dt">tidy =</span> <span class="ot">FALSE</span>)
+x</code></pre></div>
 <pre><code>## # A tibble: 22 x 2
-##    Title_Id   Name
-##  *    &lt;chr&gt;  &lt;chr&gt;
-##  1       22  Canon
-##  2        1   Dame
-##  3        2     Dr
-##  4        3    Hon
-##  5        4   Lady
-##  6        5   Lord
-##  7        6 Lt Col
-##  8       21 Lt Gen
-##  9        7   Miss
-## 10        8     Mr
+##    Title.Title_Id Title.Name
+##  *          &lt;chr&gt;      &lt;chr&gt;
+##  1             22      Canon
+##  2              1       Dame
+##  3              2         Dr
+##  4              3        Hon
+##  5              4       Lady
+##  6              5       Lord
+##  7              6     Lt Col
+##  8             21     Lt Gen
+##  9              7       Miss
+## 10              8         Mr
 ## # ... with 12 more rows</code></pre>
 <p>With the <code>tidy</code> parameter</p>
-<pre class="sourceCode r"><code class="sourceCode r"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">library</span>(mnis)</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>(<span class="dt">tidy =</span> <span class="ot">TRUE</span>)</div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">x</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
+x &lt;-<span class="st"> </span><span class="kw">ref_titles</span>(<span class="dt">tidy =</span> <span class="ot">TRUE</span>)
+x</code></pre></div>
 <pre><code>## # A tibble: 22 x 2
 ##    title_id   name
 ##  *    &lt;chr&gt;  &lt;chr&gt;
@@ -386,10 +189,10 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 ##  9        7   Miss
 ## 10        8     Mr
 ## # ... with 12 more rows</code></pre>
-</section>
-<section id="additional-information-functions" class="level3">
+</div>
+<div id="additional-information-functions" class="section level3">
 <h3>Additional Information Functions</h3>
-<p>The following functions are part of the <code>mnis_additional</code> family. The <code>mnis_full_biog()</code> function returns all available information for a given MP, <code>mnis_extra()</code> returns data from some or all of the <code>mnis_additional</code> functions, based on the parameters it receives.</p>
+<p><code>mnis_additional()</code></p>
 <p><code>mnis_addresses()</code></p>
 <p><code>mnis_basic_details()</code></p>
 <p><code>mnis_biography_entries()</code></p>
@@ -412,72 +215,12 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 <p><code>mnis_staff()</code></p>
 <p><code>mnis_statuses()</code></p>
 <p><code>mnis_peers_on_date()</code></p>
-</section>
-<section id="mnis_additional-examples" class="level3">
-<h3><code>mnis_additional</code> examples</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">library</span>(mnis)</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">mnis_full_biog</span>(<span class="dv">172</span>)</div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">x</div></code></pre>
-<pre><code>## # A tibble: 1 x 393
-##   member_id dods_id pims_id      display_as          list_as
-## *    &lt;fctr&gt;  &lt;fctr&gt;  &lt;fctr&gt;          &lt;fctr&gt;           &lt;fctr&gt;
-## 1       172   25790    3572 Ms Diane Abbott Abbott, Ms Diane
-## # ... with 388 more variables: full_title &lt;fctr&gt;, date_of_birth &lt;dttm&gt;,
-## #   date_of_death_nil &lt;dttm&gt;, date_of_death_label &lt;dttm&gt;, gender &lt;fctr&gt;,
-## #   party_id &lt;fctr&gt;, party_text &lt;fctr&gt;, house &lt;fctr&gt;, member_from &lt;fctr&gt;,
-## #   house_start_date &lt;dttm&gt;, house_end_date_nil &lt;dttm&gt;,
-## #   house_end_date_label &lt;dttm&gt;, current_status_id &lt;fctr&gt;,
-## #   current_status_is_active &lt;fctr&gt;, current_status_name &lt;fctr&gt;,
-## #   current_status_start_date &lt;dttm&gt;, given_surname &lt;fctr&gt;,
-## #   given_middle_names &lt;fctr&gt;, given_forename &lt;fctr&gt;,
-## #   town_of_birth &lt;fctr&gt;, country_of_birth &lt;fctr&gt;, gender &lt;fctr&gt;,
-## #   date_of_birth_nil &lt;dttm&gt;, date_of_birth_label &lt;dttm&gt;,
-## #   date_of_retirement_nil &lt;dttm&gt;, date_of_retirement_label &lt;dttm&gt;,
-## #   date_of_death_nil &lt;dttm&gt;, date_of_death_label &lt;dttm&gt;,
-## #   preferred_name_title1 &lt;fctr&gt;, preferred_name_title2 &lt;fctr&gt;,
-## #   preferred_name_surname1 &lt;fctr&gt;, preferred_name_surname2 &lt;fctr&gt;,
-## #   preferred_name_middle_names1 &lt;fctr&gt;,
-## #   preferred_name_middle_names2 &lt;fctr&gt;, preferred_name_forename1 &lt;fctr&gt;,
-## #   preferred_name_forename2 &lt;fctr&gt;, preferred_name_suffix1 &lt;fctr&gt;,
-## #   preferred_name_suffix2 &lt;fctr&gt;, preferred_name_address_as1 &lt;fctr&gt;,
-## #   preferred_name_address_as2 &lt;fctr&gt;, preferred_name_note1 &lt;fctr&gt;,
-## #   preferred_name_note2 &lt;fctr&gt;, preferred_name_start_date1 &lt;dttm&gt;,
-## #   preferred_name_start_date2 &lt;dttm&gt;, preferred_name_end_date_nil &lt;dttm&gt;,
-## #   preferred_name_end_date_label &lt;dttm&gt;, preferred_name_end_date &lt;dttm&gt;,
-## #   preferred_name_list_as1 &lt;fctr&gt;, preferred_name_list_as2 &lt;fctr&gt;,
-## #   preferred_name_display_as1 &lt;fctr&gt;, preferred_name_display_as2 &lt;fctr&gt;,
-## #   preferred_name_full_title1 &lt;fctr&gt;, preferred_name_full_title2 &lt;fctr&gt;,
-## #   preferred_name_honourary_prefixes_honourary_prefix_name1 &lt;fctr&gt;,
-## #   preferred_name_honourary_prefixes_honourary_prefix_name2 &lt;fctr&gt;,
-## #   house_membership_house &lt;fctr&gt;, house_membership_start_date &lt;dttm&gt;,
-## #   house_membership_end_date_nil &lt;dttm&gt;,
-## #   house_membership_end_date_label &lt;dttm&gt;, constituency_id1 &lt;fctr&gt;,
-## #   constituency_id2 &lt;fctr&gt;, constituency_id3 &lt;fctr&gt;,
-## #   constituency_id4 &lt;fctr&gt;, constituency_id5 &lt;fctr&gt;,
-## #   constituency_id6 &lt;fctr&gt;, constituency_id7 &lt;fctr&gt;,
-## #   constituency_id8 &lt;fctr&gt;, constituency_name1 &lt;fctr&gt;,
-## #   constituency_name2 &lt;fctr&gt;, constituency_name3 &lt;fctr&gt;,
-## #   constituency_name4 &lt;fctr&gt;, constituency_name5 &lt;fctr&gt;,
-## #   constituency_name6 &lt;fctr&gt;, constituency_name7 &lt;fctr&gt;,
-## #   constituency_name8 &lt;fctr&gt;, constituency_start_date1 &lt;dttm&gt;,
-## #   constituency_start_date2 &lt;dttm&gt;, constituency_start_date3 &lt;dttm&gt;,
-## #   constituency_start_date4 &lt;dttm&gt;, constituency_start_date5 &lt;dttm&gt;,
-## #   constituency_start_date6 &lt;dttm&gt;, constituency_start_date7 &lt;dttm&gt;,
-## #   constituency_start_date8 &lt;dttm&gt;, constituency_end_date_nil &lt;dttm&gt;,
-## #   constituency_end_date_label &lt;dttm&gt;, constituency_end_date3 &lt;dttm&gt;,
-## #   constituency_end_date4 &lt;dttm&gt;, constituency_end_date5 &lt;dttm&gt;,
-## #   constituency_end_date6 &lt;dttm&gt;, constituency_end_date7 &lt;dttm&gt;,
-## #   constituency_end_date8 &lt;dttm&gt;, constituency_end_date9 &lt;dttm&gt;,
-## #   constituency_end_reason1 &lt;fctr&gt;, constituency_end_reason2 &lt;fctr&gt;,
-## #   constituency_end_reason3 &lt;fctr&gt;, constituency_end_reason4 &lt;fctr&gt;,
-## #   constituency_end_reason5 &lt;fctr&gt;, constituency_end_reason6 &lt;fctr&gt;,
-## #   constituency_end_reason7 &lt;fctr&gt;, constituency_end_reason8 &lt;fctr&gt;, ...</code></pre>
-<section id="mnis_extra" class="level4">
-<h4><code>mnis_extra()</code></h4>
+<div id="mnis_extra" class="section level4">
+<h4>mnis_extra()</h4>
 <p>The <code>mnis_extra()</code> function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to <code>mnis_full_biog()</code>.</p>
-</section>
-</section>
-<section id="fixed-scope-functions" class="level3">
+</div>
+</div>
+<div id="fixed-scope-functions" class="section level3">
 <h3>Fixed Scope Functions</h3>
 <p>There are seven fixed scope functions that return ready-made datasets. They are:</p>
 <p><code>mnis_party_state()</code></p>
@@ -487,21 +230,21 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 <p><code>mnis_lords_type()</code></p>
 <p><code>mnis_member_date()</code></p>
 <p><code>mnis_party_state()</code></p>
-<section id="fixed-scope-example" class="level4">
+<div id="fixed-scope-example" class="section level4">
 <h4>Fixed Scope Example</h4>
 <p>Fixed scope example, returning the state of all parties in the House of Commons, as reported on 2017-04-04.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><div class="sourceLine" id="1" href="#1" data-line-number="1"><span class="kw">library</span>(mnis)</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;2017-04-04&quot;</span>)</div>
-<div class="sourceLine" id="3" href="#3" data-line-number="3">x</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mnis)
+x &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;2017-04-04&quot;</span>)
+x</code></pre></div>
 <pre><code>## # A tibble: 14 x 5
 ##       id                        name male_count female_count total_count
 ##  * &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;
-##  1     4                Conservative        188           62         250
-##  2    15                      Labour        135           64         199
-##  3     6                  Crossbench        143           41         184
-##  4    17            Liberal Democrat         66           34         100
-##  5    49              Non-affiliated         24            4          28
-##  6     3                     Bishops         22            2          24
+##  1     4                Conservative        191           62         253
+##  2    15                      Labour        137           64         201
+##  3     6                  Crossbench        135           40         175
+##  4    17            Liberal Democrat         68           34         102
+##  5    49              Non-affiliated         26            4          30
+##  6     3                     Bishops         23            2          25
 ##  7     7   Democratic Unionist Party          3            0           3
 ##  8    35       UK Independence Party          3            0           3
 ##  9    10          Independent Labour          2            0           2
@@ -511,8 +254,8 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 ## 13    52 Independent Ulster Unionist          1            0           1
 ## 14    22                 Plaid Cymru          1            0           1</code></pre>
 <p>The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><div class="sourceLine" id="1" href="#1" data-line-number="1"> y &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;Lords&quot;</span>, <span class="st">&quot;2017-04-04&quot;</span>)</div>
-<div class="sourceLine" id="2" href="#2" data-line-number="2"> y</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> y &lt;-<span class="st"> </span><span class="kw">mnis_party_state</span>(<span class="st">&quot;Lords&quot;</span>, <span class="st">&quot;2017-04-04&quot;</span>)
+ y</code></pre></div>
 <pre><code>## # A tibble: 14 x 5
 ##       id                        name male_count female_count total_count
 ##  * &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;
@@ -530,9 +273,9 @@ devtools::install_github(&quot;EvanOdell/mnis&quot;)</code></pre>
 ## 12    53 Independent Social Democrat          1            0           1
 ## 13    52 Independent Ulster Unionist          1            0           1
 ## 14    22                 Plaid Cymru          1            0           1</code></pre>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
 

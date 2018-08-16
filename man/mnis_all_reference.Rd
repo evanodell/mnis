@@ -2,32 +2,26 @@
 % Please edit documentation in R/mnis_all_reference.R
 \name{mnis_all_reference}
 \alias{mnis_all_reference}
-\title{All reference tables in a list}
+\title{Returns a list of 39 tibbles, with the name and data returned from each respective reference function.}
 \usage{
 mnis_all_reference(tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
-\item{tidy}{If \code{TRUE}, fixes the variable names in each reference
-tibble to remove non-alphanumeric characters and superfluous text, and
-convert to a consistent style. Also applies a consistent style to each
-tibble name in the list. If \code{FALSE}, tibble names will be in
-\code{snake_case} style, and the variable names in each tibble will not
-be altered. Defaults to \code{TRUE}.}
+\item{tidy}{Fix the variable names in each tibble to remove special characters and superfluous text, and convert all the variable names to snake_case. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
-and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
-Returns a list of 39 tibbles, with the name and data returned from
-each respective reference function.
+Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
 }
 \description{
-All 39 reference functions, presented as a list of tibbles.
+Returns a list of 39 tibbles, with the name and data returned from each respective reference function.
 }
 \examples{
 \dontrun{
+
 z <- mnis_all_reference()
+
 }
 }
 \seealso{

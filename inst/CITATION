@@ -6,7 +6,7 @@ note <- sprintf("R package version %s", meta$Version)
 bibentry(bibtype = "Manual",
          title = "{mnis}: Easy Downloading Capabilities for the Members' Name Information Service",
          author = c(person("Evan", "Odell")),
-         year = 2017,
+         year = year,
          note = note,
-         doi = "10.5281/zenodo.822424",
+         doi = "10.5281/zenodo.591287",
          url = "https://cran.r-project.org/package=mnis")

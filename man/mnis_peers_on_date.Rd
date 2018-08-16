@@ -2,52 +2,33 @@
 % Please edit documentation in R/mnis_peers_on_date.R
 \name{mnis_peers_on_date}
 \alias{mnis_peers_on_date}
-\title{All peers between two dates}
+\title{A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.}
 \usage{
 mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{date1}{The date to return the list of peers from. Defaults to current
-system date. Accepts character values in \code{'YYYY-MM-DD'} format, and
-objects of class \code{Date}, \code{POSIXt}, \code{POSIXct}, \code{POSIXlt}
-or anything else than can be coerced to a date with \code{as.Date()}.}
+\item{date1}{The date to return the list of peers from. Defaults to current system date. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}.}
 
-\item{date2}{An optional query parameter. Accepts character values in
-\code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt},
-\code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a
-date with \code{as.Date()}. If not \code{NULL}, the function returns a
-list of all peers in the House of Lords between \code{date1} and
-\code{date2}. Defaults to \code{NULL}.}
+\item{date2}{An optional query parameter. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. If not NULL, the function returns a list of all peers in the House of Lords between date2 and date1. Defaults to NULL.}
 
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
-remove non-alphanumeric characters and superfluous text, and convert to
-a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
-and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
-A tibble with information on all peers who were members of the
-House of Lords on the date specified, (if only \code{date1} is included
-as a parameter), or on or between the two dates if both \code{date1}
-and \code{date2} are specified.
+A tibble with information on all Peers who were members of the House of Lords on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \description{
-Requests data on all peers who were members of the House of Lords on the
-date specified, (if only \code{date1} is included as a parameter), or on
-or between the two dates if both \code{date1} and \code{date2} are
-specified. Either \code{date1} or \code{date2} can be the latter of the
-two dates.
+A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 }
 \examples{
 \dontrun{
-x <- mnis_peers_on_date(date1='2017-01-01')
+
+x <- mnis_peers_on_date("2017-01-01")
+
 }
 }
 \seealso{
-\code{\link{mnis_party_state}}
-
-\code{\link{mnis_peers_on_date}}
+\code{\link{mnis_party_state}} \code{\link{mnis_peers_on_date}}
 }

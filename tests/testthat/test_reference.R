@@ -3,7 +3,7 @@ library(mnis)
 context("reference")
 test_that("mnis_reference returns expected format", {
 
-  #skip_on_cran()
+  skip_on_cran()
 
   refallreferences <- mnis_all_reference()
   expect_length(refallreferences, 39)
@@ -16,7 +16,7 @@ test_that("mnis_reference returns expected format", {
   expect_true(tibble::is_tibble(refa))
 
   refb <- ref_answering_bodies(tidy_style = "camelCase")
-  expect_length(refb, 18)
+  expect_length(refb, 17)
   expect_type(refb, "list")
   expect_true(tibble::is_tibble(refb))
 
@@ -51,7 +51,7 @@ test_that("mnis_reference returns expected format", {
   expect_true(tibble::is_tibble(refh))
 
   refi <- ref_constituencies()
-  expect_length(refi, 21)
+  expect_length(refi, 20)
   expect_type(refi, "list")
   expect_true(tibble::is_tibble(refi))
 

@@ -4,8 +4,8 @@
 #include <R_ext/Rdynload.h>
 
 /* FIXME:
- Check these declarations against the C/Fortran source code.
- */
+Check these declarations against the C/Fortran source code.
+*/
 
 /* .Call calls */
 extern SEXP _mnis_mnis_bom(SEXP);

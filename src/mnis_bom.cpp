@@ -2,10 +2,10 @@
 using namespace Rcpp;
 
 // mnis_bom
-// Strip out BOM from JSON data
-//
-// @param x The GET return to strip BOM out of
-
+//' Strip out BOM from JSON data
+//'
+//' @param x The GET return to strip BOM out of
+//' @export
 // [[Rcpp::export]]
 std::string mnis_bom(std::string x) {
   if (x.size() < 3)

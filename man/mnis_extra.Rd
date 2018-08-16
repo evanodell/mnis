@@ -6,120 +6,75 @@
 \usage{
 mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
   biography_entries = TRUE, committees = TRUE, constituencies = TRUE,
-  elections_contested = TRUE, experiences = TRUE, government_posts = TRUE,
-  honours = TRUE, house_memberships = TRUE, interests = TRUE,
-  known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE,
-  other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE,
-  preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE,
+  elections_contested = TRUE, experiences = TRUE,
+  government_posts = TRUE, honours = TRUE, house_memberships = TRUE,
+  interests = TRUE, known_as = TRUE, maiden_speeches = TRUE,
+  opposition_posts = TRUE, other_parliaments = TRUE,
+  parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE,
+  staff = TRUE, statuses = TRUE, tidy = TRUE,
   tidy_style = "snake_case")
 }
 \arguments{
-\item{ID}{The ID number of the member. If \code{NULL}, does not return any
-data. Defaults to \code{NULL}.}
+\item{ID}{The ID number of the member. Defaults to NULL. If NULL, returns}
 
-\item{ref_dods}{Request based on the DODS membership ID scheme.
-Defaults to \code{FALSE}. If \code{FALSE}, requests data based on the
-default membership ID scheme. Defaults to \code{TRUE}.}
+\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE. If FALSE, requests data based on the default membership ID scheme.}
 
-\item{addresses}{Member address information (e.g. website, twitter,
-consituency address etc...). If \code{TRUE}, address details are included
-in the tibble. Defaults to \code{TRUE}.}
+\item{addresses}{Member address information (e.g. website, twitter, consituency address etc...). Defaults to \code{TRUE}. If TRUE, address details are included in the tibble.}
 
-\item{biography_entries}{Member biographical information (e.g. countries
-of interest, policy expertise etc...) If \code{TRUE}, biographical
-details are included in the tibble. Defaults to \code{TRUE}.}
+\item{biography_entries}{Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to \code{TRUE}. If TRUE, biographical details are included in the tibble.}
 
-\item{committees}{Committees a Member sits or has sat on as well
-details on committee chairing. If \code{TRUE}, committee details are
-included in the tibble. Defaults to \code{TRUE}.}
+\item{committees}{Committees a Member sits or has sat on as well details on committee chairing. Defaults to \code{TRUE}. If TRUE, committee details are included in the tibble.}
 
-\item{constituencies}{Constituencies a Member has represented.
-If \code{TRUE}, constituency details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{constituencies}{constituencies a Member has represented. Defaults to \code{TRUE}. If TRUE, constituency details are included in the tibble.}
 
-\item{elections_contested}{Elections a Member has contested but not won.
-If \code{TRUE}, details of unsuccessful election contests are included
-in the tibble. Defaults to \code{TRUE}.}
+\item{elections_contested}{Elections a Member has contested but not won. Defaults to \code{TRUE}. If TRUE, details of unsuccessful election contests are included in the tibble.}
 
-\item{experiences}{Non-parliamentary experience of a Member. If
-\code{TRUE}, extra-parliamentary experience details are included in the
-tibble. Defaults to \code{TRUE}.}
+\item{experiences}{Non-parliamentary experience of a Member. Defaults to \code{TRUE}. If TRUE, extra-parliamentary experience details are included in the tibble.}
 
-\item{government_posts}{Government posts a member has held. If
-\code{TRUE}, government posts details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{government_posts}{Government posts a Member currently holds. Defaults to \code{TRUE}. If TRUE, government posts details are included in the tibble.}
 
-\item{honours}{Honours (e.g. MBE, OBE etc...) held by a Member.
-If \code{TRUE}, honours details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{honours}{Honours (e.g. MBE, OBE etc...) held by a Member. Defaults to \code{TRUE}. If TRUE, honours details are included in the tibble.}
 
-\item{house_memberships}{House membership list of a Member.
-If \code{TRUE}, house membership details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{house_memberships}{House membership list of a Member. Defaults to \code{TRUE}. If TRUE, house membership details are included in the tibble.}
 
-\item{interests}{Registered interests (financial) of a Member.
-If \code{TRUE}, interest details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{interests}{Registered interests (financial) of a Member. Defaults to \code{TRUE}. If TRUE, interest details are included in the tibble.}
 
-\item{known_as}{Details of names a Member has chosen to be known as instead
-of their full title (House of Lords members only). If \code{TRUE}, known as
-details are included in the tibble. Defaults to \code{TRUE}.}
+\item{known_as}{Details of names a Member has chosen to be known as instead of their full title (House of Lords members only). Defaults to \code{TRUE}. If TRUE, known as details are included in the tibble.}
 
-\item{maiden_speeches}{Maiden speech dates for a Member. If \code{TRUE},
-maiden speech details are included in the tibble. Defaults to \code{TRUE}.}
+\item{maiden_speeches}{Maiden speech dates for a Member. Defaults to \code{TRUE}. If TRUE, maiden speech details are included in the tibble.}
 
-\item{opposition_posts}{Opposition posts a Member has held. If \code{TRUE},
-opposition post details are included in the tibble. Defaults to \code{TRUE}.}
+\item{opposition_posts}{Opposition posts a Member has held. Defaults to \code{TRUE}. If TRUE, opposition post details are included in the tibble.}
 
-\item{other_parliaments}{Other Parliaments that a Member has held a
-membership of. If \code{TRUE}, details of other parliaments are included
-in the tibble. Defaults to \code{TRUE}.}
+\item{other_parliaments}{Other Parliaments that a Member has held a membership of. Defaults to \code{TRUE}. If TRUE, details of other parliaments are included in the tibble.}
 
-\item{parliamentary_posts}{Parliamentary posts a Member has held. If
-\code{TRUE}, parliamentary posts details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{parliamentary_posts}{Parliamentary posts a Member has held. Defaults to \code{TRUE}. If TRUE, parliamentary posts details are included in the tibble.}
 
-\item{parties}{Party affiliations of a Member. If \code{TRUE}, party
-details are included in the tibble. Defaults to \code{TRUE}.}
+\item{parties}{Party affiliations of a Member. Defaults to \code{TRUE}. If TRUE, address details are included in the tibble.}
 
-\item{preferred_names}{Full set of data about a Members' name (e.g.
-surname, forename, Honorary prefixes, full details of HoL title and
-rank etc...). If \code{TRUE}, preferred names details are included in the
-tibble. Defaults to \code{TRUE}.}
+\item{preferred_names}{Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...). Defaults to \code{TRUE}. If TRUE, preferred names details are included in the tibble.}
 
-\item{staff}{The staff employed by a Member. If \code{TRUE}, staff details
-are included in the tibble. Defaults to \code{TRUE}.}
+\item{staff}{The staff employed by a Member. Defaults to \code{TRUE}. If TRUE, staff details are included in the tibble.}
 
-\item{statuses}{Status history (e.g. suspensions and disqualifications)
-for a Member. If \code{TRUE}, status details are included in the tibble.
-Defaults to \code{TRUE}.}
+\item{statuses}{Status history (e.g. suspensions and disqualifications) for a Member. Defaults to \code{TRUE}. If TRUE, status details are included in the tibble.}
 
-\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
-remove non-alphanumeric characters and superfluous text, and convert to
-a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of \code{'snake_case'}, \code{'camelCase'}
-and \code{'period.case'}. Defaults to \code{'snake_case'}.}
+\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 A tibble with the requested data on a given MP.
 }
 \description{
-It combines the various options of mnis_additional into one dataframe,
-and the default is similar to \code{\link{mnis_full_biog}}. Variable
-descriptions are taken from the mnis website:
-<\url{http://data.parliament.uk/membersdataplatform/memberquery.aspx}>.
+It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
 }
 \examples{
 \dontrun{
+
 x <- mnis_extra(172)
+
 }
 }
 \seealso{
-\code{\link{mnis_full_biog}}
-
-\code{\link{mnis_basic_details}}
-
-\code{\link{mnis_additional}}
+\code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
 }
+\keyword{mnis}

@@ -1,78 +1,131 @@
 
 
-#' Reference data
+#' A series of 39 functions that return tibbles of reference data. This data is useful for providing parameters for other function calls. The functions do not accept any arguments aside from the 'tidy' argument, which Defaults to \code{TRUE}.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
+#' @keywords mnis
+#' @export
+#' @examples \dontrun{
+#' ref_address_types()
+#' # The types of addresses available in member's contact details.
+#' # Includes websites and social media, as well as physical addresses.
 #'
-#' Reference data on various aspects of parliament. This data is useful for
-#' providing parameters for other function calls. The functions do not accept
-#' any arguments aside from the \code{tidy} and \code{tidy_style} parameters,
-#' which default to \code{TRUE} and \code{'snake_case'}, respectively. To
-#' return all a list with tibbles of all reference data,
-#' see \code{\link{mnis_all_reference}}.
-#' @inheritParams mnis_additional
+#' ref_answering_bodies()
+#' # The bodies that members' can address questions to.
 #'
-#' @section \code{mnis_reference} functions:
-#' \describe{
-#' \item{\code{ref_address_types}}{The types of addresses available in
-#' member's contact details. Includes websites and social media, as well
-#' as physical addresses}
-#' \item{\code{ref_answering_bodies}}{The bodies that members' can address
-#' questions to}
-#' \item{\code{ref_areas}}{Geographic areas}
-#' \item{\code{ref_area_types}}{Identifiers for grouping areas (e.g. borough
-#' constituencies)}
-#' \item{\code{ref_biography_categories}}{Member biography categories}
-#' \item{\code{ref_cabinets}}{Connections that a member has to the cabinet or
-#' shadow cabinet}
-#' \item{\code{ref_committees}}{Identifier for parliamentary committees}
-#' \item{\code{ref_committee_types}}{Types of parliamentary committees}
-#' \item{\code{ref_constituencies()}}{All constituencies}
-#' \item{\code{ref_constituency_areas()}}{The links between constituencies and
-#' constituency areas}
-#' \item{\code{ref_constituency_types()}}{Constituency categories}
-#' \item{\code{ref_countries()}}{List of countries that could be listed as
-#' members' birthplace}
-#' \item{\code{ref_departments()}}{Government and opposition departments}
-#' \item{\code{ref_disqualification_types()}}{Types of ways members can be
-#' disqualified from sitting in the House}
-#' \item{\code{ref_elections()}}{Codes of general and by-elections}
-#' \item{\code{ref_election_types()}}{Election categories}
-#' \item{\code{ref_end_reasons()}}{Reasons a member may leave the House of
-#' Lords or the House of Commons}
-#' \item{\code{ref_experience_types()}}{Types of non-parliamentary experience
-#' members can list}
-#' \item{\code{ref_government_post_departments()}}{All deparments that can
-#' contain government posts}
-#' \item{\code{ref_government_posts()}}{All government posts}
-#' \item{\code{ref_government_ranks()}}{All government post ranks}
-#' \item{\code{ref_honourary_prefixes()}}{The types of honourary prefixes
-#' for members}
-#' \item{\code{ref_honour_lists()}}{The types of honour lists that a member
-#' may be honoured in}
-#' \item{\code{ref_honours()}}{The different honours available to members}
-#' \item{\code{ref_interest_categories()}}{The categories available for
-#' reporting financial interests}
-#' \item{\code{ref_lords_membership_types()}}{Different types of membership
-#' of the House of Lords}
-#' \item{\code{ref_lords_ranks()}}{Ranks that peers may hold}
-#' \item{\code{ref_opposition_post_departments()}}{The link between opposition
-#' posts and the government department they shadow}
-#' \item{\code{ref_opposition_posts()}}{Opposition posts}
-#' \item{\code{ref_opposition_ranks()}}{How opposition posts are ranked}
-#' \item{\code{ref_other_parliaments()}}{Other parliaments that a member
-#' may have sat in}
-#' \item{\code{ref_parliamentary_posts()}}{The different parliamentary posts
-#' available}
-#' \item{\code{ref_parliamentary_ranks()}}{How those parliamentary posts are
-#' ranked}
-#' \item{\code{ref_parliament_types()}}{Types of parliaments that
-#' parliamentary data may link to}
-#' \item{\code{ref_parties()}}{All parties that members can be affiliated with}
-#' \item{\code{ref_party_sub_types()}}{Sub-types of parties}
-#' \item{\code{ref_photo_outputs()}}{Outputs that a photo of a member
-#' may be linked to}
-#' \item{\code{ref_statuses()}}{A member's possible current status in the
-#' House}
-#' \item{\code{ref_titles()}}{Salutory titles}
+#' ref_areas()
+#' # Geographic areas.
+#'
+#' ref_area_types()
+#' # Identifiers for grouping areas (e.g. borough constituencies).
+#'
+#' ref_biography_categories()
+#' # Member biography categories.
+#'
+#' ref_cabinets()
+#' # Connections that a member has to the cabinet or shadow cabinet.
+#'
+#' ref_committees()
+#' # Identifier for parliamentary committees.
+#'
+#' ref_committee_types()
+#' # Types of parliamentary committees.
+#'
+#' ref_constituencies()
+#' # All constituencies.
+#'
+#' ref_constituency_areas()
+#' # The links between constituencies and constituency areas.
+#'
+#' ref_constituency_types()
+#' # Constituency categories.
+#'
+#' ref_countries()
+#' # List of countries that could be listed as members' birthplace.
+#'
+#' ref_departments()
+#' # Government and opposition departments.
+#'
+#' ref_disqualification_types()
+#' # Types of ways members can be disqualified from sitting in the House.
+#'
+#' ref_elections()
+#' # Codes of general and by-elections.
+#'
+#' ref_election_types()
+#' # Election categories.
+#'
+#' ref_end_reasons()
+#' # Reasons a member may leave the House of Lords or the House of Commons.
+#'
+#' ref_experience_types()
+#' # Types of non-parliamentary experience members can list.
+#'
+#' ref_government_post_departments()
+#' # All deparments that can contain government posts.
+#'
+#' ref_government_posts()
+#' # All government posts.
+#'
+#' ref_government_ranks()
+#' # All government post ranks.
+#'
+#' ref_honourary_prefixes()
+#' # The types of honourary prefixes for members.
+#'
+#' ref_honour_lists()
+#' # The types of honour lists that a member may be honoured in.
+#'
+#' ref_honours()
+#' # The different honours available to members.
+#'
+#' ref_interest_categories()
+#' # The categories available for reporting financial interests.
+#'
+#' ref_lords_membership_types()
+#' # Different types of membership of the House of Lords.
+#'
+#' ref_lords_ranks()
+#' # Ranks that peers may hold.
+#'
+#' ref_opposition_post_departments()
+#' # The link between opposition posts and the government department they shadow.
+#'
+#' ref_opposition_posts()
+#' # Opposition posts.
+#'
+#' ref_opposition_ranks()
+#' # How opposition posts are ranked.
+#'
+#' ref_other_parliaments()
+#' # Other parliaments that a member may have sat in.
+#'
+#' ref_parliamentary_posts()
+#' # The different parliamentary posts available.
+#'
+#' ref_parliamentary_ranks()
+#' # How those parliamentary posts are ranked.
+#'
+#' ref_parliament_types()
+#' # Types of parliaments that parliamentary data may link to.
+#'
+#' ref_parties()
+#' # All parties that members can be affiliated with.
+#'
+#' ref_party_sub_types()
+#' # Sub-types of parties.
+#'
+#' ref_photo_outputs()
+#' # Outputs that a photo of a member may be linked to.
+#'
+#' ref_statuses()
+#' # A member's possible current status in the House.
+#'
+#' ref_titles()
+#' # Salutory titles.
+#'
+#' mnis_reference()
+#' # Returns a list of all possible reference functions.
 #' }
 #'
 #' @export
@@ -80,609 +133,1328 @@
 #' @rdname mnis_reference
 
 mnis_reference <- function() {
-  df <- c(
-    "ref_address_types()",
-    "ref_answering_bodies()",
-    "ref_areas()",
-    "ref_area_types()",
-    "ref_biography_categories()",
-    "ref_cabinets()",
-    "ref_committees()",
-    "ref_committee_types()",
-    "ref_constituencies()",
-    "ref_constituency_areas()",
-    "ref_constituency_types()",
-    "ref_countries()",
-    "ref_departments()",
-    "ref_disqualification_types()",
-    "ref_elections()",
-    "ref_election_types()",
-    "ref_end_reasons()",
-    "ref_experience_types()",
-    "ref_government_post_departments()",
-    "ref_government_posts()",
-    "ref_government_ranks()",
-    "ref_honourary_prefixes()",
-    "ref_honour_lists()",
-    "ref_honours()",
-    "ref_interest_categories()",
-    "ref_lords_membership_types()",
-    "ref_lords_ranks()",
-    "ref_opposition_post_departments()",
-    "ref_opposition_posts()",
-    "ref_opposition_ranks()",
-    "ref_other_parliaments()",
-    "ref_parliamentary_posts()",
-    "ref_parliamentary_ranks()",
-    "ref_parliament_types()",
-    "ref_parties()",
-    "ref_party_sub_types()",
-    "ref_photo_outputs()",
-    "ref_statuses()",
-    "ref_titles()"
-  )
 
-  message("All Available Reference Functions:")
+    x <- c("ref_address_types()", "ref_answering_bodies()", "ref_areas()", "ref_area_types()", "ref_biography_categories()", "ref_cabinets()", "ref_committees()", "ref_committee_types()", "ref_constituencies()", "ref_constituency_areas()", "ref_constituency_types()", "ref_countries()", "ref_departments()", "ref_disqualification_types()", "ref_elections()", "ref_election_types()", "ref_end_reasons()", "ref_experience_types()", "ref_government_post_departments()", "ref_government_posts()", "ref_government_ranks()", "ref_honourary_prefixes()", "ref_honour_lists()", "ref_honours()", "ref_interest_categories()", "ref_lords_membership_types()", "ref_lords_ranks()", "ref_opposition_post_departments()", "ref_opposition_posts()", "ref_opposition_ranks()", "ref_other_parliaments()", "ref_parliamentary_posts()", "ref_parliamentary_ranks()", "ref_parliament_types()", "ref_parties()", "ref_party_sub_types()", "ref_photo_outputs()", "ref_statuses()", "ref_titles()")
 
-  print(df)
+    message("All Available Reference Functions:")
+
+    print(x)
+
 }
 
 #' @export
 #' @rdname mnis_reference
-ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("AddressTypes")
+ref_address_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$AddressTypes$AddressType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AddressTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$AddressTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_answering_bodies <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("AnsweringBodies/")
+ref_answering_bodies <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$AnsweringBodies$AnsweringBody)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AnsweringBodies/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$AnsweringBodies))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Areas/")
+ref_areas <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Areas$Area)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Areas/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Areas))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_area_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("AreaTypes/")
+ref_area_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$AreaTypes$AreaType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/AreaTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$AreaTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_biography_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("BiographyCategories/")
+ref_biography_categories <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$BiographyCategories$BiographyCategory)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/BiographyCategories/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$BiographyCategories))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Cabinets/")
+ref_cabinets <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Cabinets$Cabinet)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Cabinets/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Cabinets))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Committees/")
+ref_committees <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Committees$Committee)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Committees/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Committees))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("CommitteeTypes/")
+ref_committee_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$CommitteeTypes$CommitteeType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/CommitteeTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$CommitteeTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Constituencies/")
+ref_constituencies <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Constituencies$Constituency)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Constituencies/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Constituencies))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ConstituencyAreas/")
+ref_constituency_areas <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ConstituencyAreas$ConstituencyArea)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyAreas/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ConstituencyAreas))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_constituency_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ConstituencyTypes/")
+ref_constituency_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ConstituencyTypes$ConstituencyType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ConstituencyTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ConstituencyTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_countries <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Countries/")
+ref_countries <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Countries$Country)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Countries/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Countries))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Departments/")
+ref_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Departments$Department)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Departments/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Departments))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_disqualification_types <- function(tidy = TRUE,
-                                       tidy_style = "snake_case") {
-  got <- get_reference("DisqualificationTypes/")
+ref_disqualification_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$DisqualificationTypes$DisqualificationType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/DisqualificationTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$DisqualificationTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_elections <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Elections/")
+ref_elections <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Elections$Election)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Elections/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Elections))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_election_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ElectionTypes/")
+ref_election_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ElectionTypes$ElectionType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ElectionTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ElectionTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_end_reasons <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("EndReasons/")
+ref_end_reasons <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$EndReasons$EndReason)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/EndReasons/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$EndReasons))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ExperienceTypes/")
+ref_experience_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ExperienceTypes$ExperienceType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ExperienceTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ExperienceTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_government_post_departments <- function(tidy = TRUE,
-                                            tidy_style = "snake_case") {
-  got <- get_reference("GovernmentPostDepartments/")
+ref_government_post_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(
-    got$GovernmentPostDepartments$GovernmentPostDepartment
-  )
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPostDepartments/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$GovernmentPostDepartments))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_government_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("GovernmentPosts/")
+ref_government_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$GovernmentPosts$GovernmentPost)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentPosts/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$GovernmentPosts))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_government_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("GovernmentRanks/")
+ref_government_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$GovernmentRanks$GovernmentRank)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/GovernmentRanks/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$GovernmentRanks))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_honourary_prefixes <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("HonouraryPrefixes/")
+ref_honourary_prefixes <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$HonouraryPrefixes$HonouraryPrefix)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonouraryPrefixes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$HonouraryPrefixes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_honour_lists <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("HonourLists/")
+ref_honour_lists <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$HonourLists$HonourList)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/HonourLists/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$HonourLists))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_honours <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Honours/")
+ref_honours <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Honours$Honour)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Honours/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Honours))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_interest_categories <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("InterestCategories/")
+ref_interest_categories <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$InterestCategories$InterestCategory)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/InterestCategories/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$InterestCategories))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_membership_types <- function(tidy = TRUE,
-                                       tidy_style = "snake_case") {
-  got <- get_reference("LordsMembershipTypes/")
+ref_lords_membership_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$LordsMembershipTypes$LordsMembershipType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsMembershipTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$LordsMembershipTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_lords_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("LordsRanks/")
+ref_lords_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$LordsRanks$LordsRank)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/LordsRanks/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$LordsRanks))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_post_departments <- function(tidy = TRUE,
-                                            tidy_style = "snake_case") {
-  got <- get_reference("OppositionPostDepartments/")
+ref_opposition_post_departments <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(
-    got$OppositionPostDepartments$OppositionPostDepartment
-  )
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPostDepartments/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$OppositionPostDepartments))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("OppositionPosts/")
+ref_opposition_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$OppositionPosts$OppositionPost)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionPosts/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$OppositionPosts))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_opposition_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("OppositionRanks/")
+ref_opposition_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$OppositionRanks$OppositionRank)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OppositionRanks/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$OppositionRanks))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_other_parliaments <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("OtherParliaments/")
+ref_other_parliaments <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$OtherParliaments$OtherParliament)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/OtherParliaments/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$OtherParliaments))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_posts <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ParliamentaryPosts/")
+ref_parliamentary_posts <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ParliamentaryPosts$ParliamentaryPost)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryPosts/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ParliamentaryPosts))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ParliamentaryRanks/")
+ref_parliamentary_ranks <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ParliamentaryRanks$ParliamentaryRank)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentaryRanks/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ParliamentaryRanks))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_parliament_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("ParliamentTypes/")
+ref_parliament_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$ParliamentTypes$ParliamentType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/ParliamentTypes/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$ParliamentTypes))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Parties/")
+ref_parties <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Parties$Party)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Parties/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Parties))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+
+
+        x
+
+    } else {
+
+        x
+
+    }
 }
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("PartySubTypes/")
+ref_party_sub_types <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- as.list(got$PartySubTypes$PartySubType)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PartySubTypes/"
 
-  df <- unlist(df)
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df <- t(df)
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
 
-  df <- tibble::as_tibble(df)
+    got <- mnis::tidy_bom(got)
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  df
+    x <- as.list(got$PartySubTypes$PartySubType)
+
+    x <- unlist(x)
+
+    x <- t(x)
+
+    x <- tibble::as_tibble(as.data.frame(x))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_photo_outputs <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("PhotoOutputs/")
+ref_photo_outputs <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$PhotoOutputs$PhotoOutput)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/PhotoOutputs/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$PhotoOutputs))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
 
 #' @export
 #' @rdname mnis_reference
-ref_statuses <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Statuses/")
+ref_statuses <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Statuses$Status)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Statuses/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Statuses))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
+
 }
+
+
+
 
 #' @export
 #' @rdname mnis_reference
-ref_titles <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- get_reference("Titles/")
+ref_titles <- function(tidy = TRUE, tidy_style="snake_case") {
 
-  df <- tibble::as_tibble(got$Titles$Title)
+    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ReferenceData/Titles/"
 
-  if (tidy == TRUE) {
-    df <- ref_tidy(df, tidy_style)
-  }
+    got <- httr::GET(baseurl, httr::accept_json())
 
-  df
+    if (httr::http_type(got) != "application/json") {
+        stop("API did not return json", call. = FALSE)
+    }
+
+    got <- mnis::tidy_bom(got)
+
+    got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+    x <- tibble::as_tibble(as.data.frame(got$Titles))
+
+    if (tidy == TRUE) {
+
+        x <- mnis::ref_tidy(x, tidy_style)
+
+        x
+
+    } else {
+
+        x
+
+    }
 }

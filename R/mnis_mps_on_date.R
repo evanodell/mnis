@@ -1,79 +1,72 @@
-#' All MPs between two dates
+
+#' A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
+#' @param date1 The date to return the list of mps from. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to current system date.
+#' @param date2 An optional query parameter. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. If not NULL, the function returns a list of all MPs who were members between date2 and date1. Defaults to NULL.
+#' @param tidy Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to a consistent style. Defaults to \code{TRUE}.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #'
-#' Requests data on all MPs who were members of the House of Commons on the
-#' date specified, (if only \code{date1} is included as a parameter), or
-#' on or between the two dates if both \code{date1} and \code{date2} are
-#' specified. Either \code{date1} or \code{date2} can be the latter of
-#' the two dates.
-#' @param date1 The date to return the list of mps from. Accepts character
-#' values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
-#' \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
-#' be coerced to a date with \code{as.Date()}. Defaults to current system date.
-#' @param date2 An optional query parameter. Accepts character values in
-#' \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt},
-#' \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date
-#' with \code{as.Date()}. If not \code{NULL}, the function returns a list of
-#' all MPs who were members between \code{date1} and \code{date2}.
-#' Defaults to \code{NULL}.
-#' @inheritParams mnis_additional
-#'
-#' @return A tibble with information on all MPs who were members of the
-#' House of Commons on the date specificed (if only \code{date1} is included
-#' as a parameter), or on or between the two dates if both \code{date1} and
-#' \code{date2} are specified.
+#' @return A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
 #' @export
-#' @seealso \code{\link{mnis_party_state}}
-#' @seealso \code{\link{mnis_peers_on_date}}
 #'
 #' @examples \dontrun{
-#' x <- mnis_mps_on_date(date1='2017-01-01', date2='2014-02-04')
+#'
+#' x <- mnis_mps_on_date()
+#'
 #' }
 
-mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL,
-                             tidy = TRUE, tidy_style = "snake_case") {
-  q_url <- paste0(base_url, "members/query/House=Commons|Membership=all|commonsmemberbetween=")
+mnis_mps_on_date <- function(date1 = Sys.Date(), date2=NULL, tidy = TRUE, tidy_style="snake_case"){
+
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Commons|Membership=all|commonsmemberbetween="
 
   date1 <- as.Date(date1)
 
-  if (is.null(date2) == FALSE) {
+  if(is.null(date2)==FALSE) {
     date2 <- as.Date(date2)
   }
 
-  if (is.null(date2) == TRUE) {
+  if(is.null(date2)==TRUE) {
     date2 <- date1
   } else if (date1 > date2) {
     date3 <- date1
-
     date1 <- date2
-
     date2 <- date3
-
     rm(date3)
   }
 
-  query <- paste0(q_url, date1, "and", date2, "/")
+  query <- paste0(baseurl,date1,"and",date2,"/")
 
-  got <- get_generic(query)
+  got <- httr::GET(query, httr::accept_json())
+
+  if (httr::http_type(got) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
+
+  got <- mnis::tidy_bom(got)
+
+  got <- jsonlite::fromJSON(got, flatten = TRUE)
 
   mps <- got$Members$Member
 
   mps <- tibble::as_tibble(mps)
 
-  if (.Platform$OS.type == "windows") {
-    mps$MemberFrom <- stringi::stri_trans_general(
-      mps$MemberFrom,
-      "latin-ascii"
-    )
+  if(.Platform$OS.type=="windows"){
 
-    mps$MemberFrom <- gsub(
-      "Ynys MA\U00B4n", "Ynys M\U00F4n",
-      mps$MemberFrom
-    )
+    mps$MemberFrom <- stringi::stri_trans_general(mps$MemberFrom, "latin-ascii")
+
+    mps$MemberFrom <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", mps$MemberFrom)
+
   }
 
   if (tidy == TRUE) {
-    mps <- mnis_tidy(mps, tidy_style)
+
+    mps <- mnis::mnis_tidy(mps, tidy_style)
+
+    mps
+
+  } else {
+
+    mps
+
   }
 
-  mps
 }

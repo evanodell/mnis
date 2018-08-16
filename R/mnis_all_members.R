@@ -1,47 +1,37 @@
 
-#' All Members of Both Parliaments
+#' Returns a tibble with information on al members of both houses or a given house.
 #'
-#' Returns data on all members of the House of Commons and/or the
-#' House of Lords, from all parties or from a given party.
-#'
-#' @param house The house to which the member belongs. Accepts one of
-#' \code{'all'}, \code{'lords'} and \code{'commons'}. This parameter
-#' is not case sensitive, so \code{'commons'}, \code{'Commons'} and
-#' \code{'cOmMOnS'} will all return the same data. Defaults to \code{'all'}.
-#' @param party The party to which a member belongs. If \code{NULL}, all
-#' members are returned, subject to other parameters. Defaults to \code{NULL}.
-#' @inheritParams mnis_additional
-#' @return A tibble with information on all members of the House of Commons
-#' and/or the House of Lords that meet the criteria included in the
-#' function parameters.
+#' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'. This parameter is not case sensitive, so using 'commons', 'Commons' or 'cOmMOnS' will result in the same data being returned.
+#' @param party The party to which a member belongs. Defaults to NULL, in which case all members are returned, subject to other parameters. The party names are not case sensitive, but must be the complete string of the party name, searching and wildcard options are not accepted by the API, e.g. 'green party'.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.
+#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
+#' @keywords mnis
+#' @return A tibble with information on all members of the House of Commons and/or the House of Lords that meet the criteria included in the function parameters.
 #' @export
 #'
 #' @examples \dontrun{
-#' x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE,
-#'                       tidy_style = 'snake_case')
+#' x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE, tidy_style="snake_case")
 #' }
+#'
 
-mnis_all_members <- function(house = "all", party = NULL,
-                             tidy = TRUE, tidy_style = "snake_case") {
+mnis_all_members <- function(house = "all", party = NULL, tidy = TRUE, tidy_style="snake_case") {
+
   house <- tolower(house)
 
-  if (is.na(pmatch(house, c("all", "lords", "commons")))) {
-    stop("Please select one of 'all', 'lords' or
-             'commons' for the parameter `house`")
-  }
+  if (is.na(pmatch(house, c("all", "lords", "commons"))))
+    stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
 
-  q_url <- paste0(base_url, "members/query/Membership=all")
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/Membership=all"
 
-  if (is.null(party) == FALSE) {
+  if (is.null(party) == FALSE)
     party <- utils::URLencode(party)
-  }
 
   if (house == "lords") {
     house <- "|house=lords"
   } else if (house == "commons") {
     house <- "|house=commons"
   } else if (house == "all") {
-    house <- NULL
+    house <- ""
   }
 
   if (is.null(party) == FALSE) {
@@ -50,15 +40,32 @@ mnis_all_members <- function(house = "all", party = NULL,
 
   message("Connecting to API")
 
-  query <- paste0(q_url, house, party, "/HouseMemberships/")
+  query <- paste0(baseurl, house, party, "/HouseMemberships/")
 
-  got <- get_generic(query)
+  got <- httr::GET(query, httr::accept_json())
 
-  df <- tibble::as_tibble(got$Members$Member)
-
-  if (tidy == TRUE) {
-    df <- mnis_tidy(df, tidy_style)
+  if (httr::http_type(got) != "application/json") {
+    stop("API did not return json", call. = FALSE)
   }
 
-  df
+  got <- mnis::tidy_bom(got)
+
+  got <- jsonlite::fromJSON(got, flatten = TRUE)
+
+  x <- got$Members$Member
+
+  x <- tibble::as_tibble(x)
+
+  if (tidy == TRUE) {
+
+    x <- mnis::mnis_tidy(x, tidy_style)
+
+    x
+
+  } else {
+
+    x
+
+  }
+
 }
