@@ -4,7 +4,7 @@
 #' @param bench Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.
 #' @param former Flag to include both current and former ministers/shadow ministers. Defaults to \code{TRUE}. If FALSE, only includes current ministers/shadow ministers.
 #' @param tidy If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.
-#' @param tidy_style The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
+#' @param tidy_style The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @return A tibble with information on departments and ministers/shadow ministers.
 #' @keywords mnis
 #' @export
@@ -17,47 +17,38 @@
 #'
 
 
-mnis_department <- function(department_id = 0, bench = "Government", former = TRUE, tidy = TRUE, tidy_style="snake_case") {
+mnis_department <- function(department_id = 0, bench = "Government", former = TRUE, tidy = TRUE, tidy_style = "snake_case") {
+  if (former == TRUE) {
+    query_former <- "former"
+  } else {
+    query_former <- "current"
+  }
 
-    if (former == TRUE) {
+  department_id <- as.character(department_id)
 
-        query_former <- "former"
+  bench <- utils::URLencode(bench)
 
-    } else {
+  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
 
-      query_former <- "current"
-    }
+  query <- paste0(baseurl, department_id, "/", bench, "/", query_former, "/")
 
-    department_id <- as.character(department_id)
+  got <- httr::GET(query, httr::accept_json())
 
-    bench <- utils::URLencode(bench)
+  if (httr::http_type(got) != "application/json") {
+    stop("API did not return json", call. = FALSE)
+  }
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
+  got <- mnis::tidy_bom(got)
 
-    query <- paste0(baseurl, department_id, "/", bench, "/", query_former, "/")
+  got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-    got <- httr::GET(query, httr::accept_json())
+  x <- tibble::as_tibble(as.data.frame(got$Department$Posts))
 
-    if (httr::http_type(got) != "application/json") {
-        stop("API did not return json", call. = FALSE)
-    }
+  if (tidy == TRUE) {
+    x <- mnis::mnis_tidy(x, tidy_style)
 
-    got <- mnis::tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    x <- tibble::as_tibble(as.data.frame(got$Department$Posts))
-
-    if (tidy == TRUE) {
-
-        x <- mnis::mnis_tidy(x, tidy_style)
-
-        x
-
-    } else {
-
-        x
-
-    }
-
+    x
+  } else {
+    x
+  }
 }

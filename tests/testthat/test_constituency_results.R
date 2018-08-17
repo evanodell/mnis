@@ -2,7 +2,6 @@
 library(mnis)
 context("mnis_constituency_results")
 test_that("mnis_constituency_results returns expected format", {
-
   skip_on_cran()
 
   xmniscons <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
@@ -15,7 +14,4 @@ test_that("mnis_constituency_results returns expected format", {
   expect_length(xmniscons$details, 20)
   expect_type(xmniscons$details, "list")
   expect_true(is.list(xmniscons$details))
-
-
-
 })
