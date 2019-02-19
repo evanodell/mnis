@@ -3,7 +3,7 @@ library(mnis)
 context("reference")
 test_that("mnis_reference returns expected format", {
 
-  #skip_on_cran()
+  # skip_on_cran()
 
   refallreferences <- mnis_all_reference()
   expect_length(refallreferences, 39)
@@ -181,7 +181,7 @@ test_that("mnis_reference returns expected format", {
   expect_true(tibble::is_tibble(refhh))
 
   refii <- ref_parties()
-  expect_length(refii,16)
+  expect_length(refii, 16)
   expect_type(refii, "list")
   expect_true(tibble::is_tibble(refii))
 
@@ -204,6 +204,4 @@ test_that("mnis_reference returns expected format", {
   expect_length(refmm, 2)
   expect_type(refmm, "list")
   expect_true(tibble::is_tibble(refmm))
-
-
 })

@@ -66,10 +66,11 @@
 #' }
 #' @seealso [mnis_full_biog()]
 #' @seealso [mnis_extra()]
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' x <- mnis_basic_details(172)
 #' }
-
+#' 
 mnis_additional <- function() {
   x <- c(
     "mnis_basic_details()",

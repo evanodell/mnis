@@ -16,12 +16,13 @@
 #' @return Returns a tibble with the given member's status on the given date.
 #' @export
 #' @seealso [mnis_mps_on_date()]
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' x <- mnis_member_date(172)
-#'
-#' y <- mnis_member_date(c(172,500))
+#' 
+#' y <- mnis_member_date(c(172, 500))
 #' }
-
+#' 
 mnis_member_date <- function(ID = NULL, date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
   if (missing(ID)) {

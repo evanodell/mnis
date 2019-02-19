@@ -24,15 +24,16 @@
 #' @export
 #' @seealso [mnis_party_state()]
 #' @seealso [mnis_peers_on_date()]
-#' @examples \dontrun{
-#' x <- mnis_peers_on_date(date1='2017-01-01')
+#' @examples
+#' \dontrun{
+#' x <- mnis_peers_on_date(date1 = "2017-01-01")
 #' }
-
+#' 
 mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                                tidy = TRUE, tidy_style = "snake_case") {
   q_url <- paste0(
     base_url, "members/query/House=Lords|Membership=all|lordsmemberbetween="
-    )
+  )
 
   date1 <- as.Date(date1)
 

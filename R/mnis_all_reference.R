@@ -14,10 +14,11 @@
 #' @seealso [mnis_reference()]
 #' @rdname mnis_all_reference
 #' @export
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' z <- mnis_all_reference()
 #' }
-
+#' 
 mnis_all_reference <- function(tidy = TRUE, tidy_style = "snake_case") {
   ref_list <- list(
     address_types = mnis::ref_address_types(tidy, tidy_style),

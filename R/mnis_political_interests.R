@@ -17,17 +17,16 @@
 #' @return A data frame of members with given interest(s).
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' x <- mnis_political_interests(c("Africa", "Jamaica"))
-#'
+#' 
 #' y <- mnis_political_interests(c("Africa", "Europe"))
-#'
+#' 
 #' z <- mnis_political_interests(c("Africa", "Education"))
-#'
-#'
 #' }
-
-mnis_political_interests <- function(interest, house = NULL, current=TRUE,
+#' 
+mnis_political_interests <- function(interest, house = NULL, current = TRUE,
                                      tidy = TRUE, tidy_style = "snake_case") {
   house_query <- dplyr::if_else(
     is.character(house),

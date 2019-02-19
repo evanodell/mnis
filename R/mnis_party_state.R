@@ -19,10 +19,11 @@
 #' @seealso [mnis_mps_on_date()]
 #' @seealso [mnis_peers_on_date()]
 #' @export
-#' @examples \dontrun{
-#' x <- mnis_party_state('2012-01-12')
+#' @examples
+#' \dontrun{
+#' x <- mnis_party_state("2012-01-12")
 #' }
-
+#' 
 mnis_party_state <- function(house = "Commons", date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
   q_url <- paste0(base_url, "houseOverview/")

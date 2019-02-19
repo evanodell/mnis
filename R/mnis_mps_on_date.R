@@ -25,10 +25,11 @@
 #' @seealso [mnis_party_state()]
 #' @seealso [mnis_peers_on_date()]
 #'
-#' @examples \dontrun{
-#' x <- mnis_mps_on_date(date1='2017-01-01', date2='2014-02-04')
+#' @examples
+#' \dontrun{
+#' x <- mnis_mps_on_date(date1 = "2017-01-01", date2 = "2014-02-04")
 #' }
-
+#' 
 mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                              tidy = TRUE, tidy_style = "snake_case") {
   q_url <- paste0(base_url, "members/query/House=Commons|Membership=all|commonsmemberbetween=")

@@ -4,10 +4,12 @@ context("mnis_constituency_results")
 
 test_that("mnis_constituency_results returns expected format", {
 
-  #skip_on_cran()
+  # skip_on_cran()
 
-  xmniscons <- mnis_constituency_results(constituency_id = 3709,
-                                         election_id = 0)
+  xmniscons <- mnis_constituency_results(
+    constituency_id = 3709,
+    election_id = 0
+  )
   expect_length(xmniscons, 2)
   expect_type(xmniscons, "list")
   expect_true(is.list(xmniscons))
@@ -17,7 +19,4 @@ test_that("mnis_constituency_results returns expected format", {
   expect_length(xmniscons$details, 21)
   expect_type(xmniscons$details, "list")
   expect_true(is.list(xmniscons$details))
-
-
-
 })

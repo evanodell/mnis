@@ -11,14 +11,13 @@
 #'
 #' @param request The request query being made to the MNIS URL.
 #' @export
-#' @examples \dontrun{
-#'
-#' x <- mnis_base('House=Commons|IsEligible=true/')
-#'
+#' @examples
+#' \dontrun{
+#' 
+#' x <- mnis_base("House=Commons|IsEligible=true/")
 #' }
-
+#' 
 mnis_base <- function(request) {
-
   q_url <- paste0(base_url, "members/query/")
 
   request <- utils::URLencode(request)

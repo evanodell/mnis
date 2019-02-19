@@ -27,13 +27,6 @@ The package is available on CRAN. To install from CRAN run:
 install.packages("mnis")
 ```
 
-Or, if using the [`pacman`](https://CRAN.R-project.org/package=pacman)
-package:
-
-``` r
-pacman::p_load(mnis)
-```
-
 The most recent version on GitHub can be installed by running:
 
 ``` r
@@ -42,7 +35,7 @@ devtools::install_github("EvanOdell/mnis")
 ```
 
 The most up to date documentation for the development version will
-always be available at <https://docs.evanodell.com/mnis/>
+always be available at <https://docs.evanodell.com/mnis/>.
 
 For an introduction to `mnis`, the vignette `vignette("introduction",
 package = "mnis")` is the best place to start. If you are unfamiliar

@@ -21,11 +21,11 @@
 #' ministers/shadow ministers.
 #' @export
 #' @seealso [mnis_reference()]
-#' @examples \dontrun{
-#' x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
+#' @examples
+#' \dontrun{
+#' x <- mnis_department(department_id = 0, bench = "Government", former = TRUE)
 #' }
-
-
+#' 
 mnis_department <- function(department_id = 0, bench = "Government",
                             former = TRUE, tidy = TRUE,
                             tidy_style = "snake_case") {

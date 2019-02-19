@@ -15,12 +15,13 @@
 #' @seealso [mnis_additional()]
 #' @seealso [mnis_extra()]
 #' @export
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' df <- mnis_full_biog(172)
-#'
+#' 
 #' df <- mnis_full_biog(500)
 #' }
-
+#' 
 mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
                            tidy = TRUE, tidy_style = "snake_case") {
   if (missing(ID)) {

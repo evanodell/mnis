@@ -26,12 +26,14 @@
 #' @return A tibble with data on all members who joined
 #' between the two given dates.
 #' @export
-#' @examples \dontrun{
-#' x <- mnis_joined_between(start_date = '2015-01-01',
-#'                          end_date ='2017-01-01', party='labour')
+#' @examples
+#' \dontrun{
+#' x <- mnis_joined_between(
+#'   start_date = "2015-01-01",
+#'   end_date = "2017-01-01", party = "labour"
+#' )
 #' }
-
-
+#' 
 mnis_joined_between <- function(start_date = "1900-01-01",
                                 end_date = Sys.Date(), house = "all",
                                 party = NULL, eligible = "all",

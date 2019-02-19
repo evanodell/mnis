@@ -4,9 +4,9 @@ library(mnis)
 context("fixed_scope")
 test_that("fixed scope functions returns expected format", {
 
-  #skip_on_cran()
+  # skip_on_cran()
 
-  xps <- mnis_party_state('2012-01-12')
+  xps <- mnis_party_state("2012-01-12")
 
   expect_length(xps, 5)
   expect_type(xps, "list")
@@ -17,34 +17,36 @@ test_that("fixed scope functions returns expected format", {
   expect_length(xmd, 21)
   expect_type(xmd, "list")
   expect_true(tibble::is_tibble(xmd))
-  expect_true(nrow(xmd)==1)
+  expect_true(nrow(xmd) == 1)
 
-  xmd2 <- mnis_member_date(c(500,172))
+  xmd2 <- mnis_member_date(c(500, 172))
   expect_length(xmd2, 21)
   expect_type(xmd2, "list")
   expect_true(tibble::is_tibble(xmd2))
-  expect_true(nrow(xmd2)==2)
+  expect_true(nrow(xmd2) == 2)
 
-  xger<- mnis_general_election_results(location_type = 'Country',
-                                       location_name = 'England',
-                                       start_date = '2010-01-01',
-                                       end_date = '2016-01-01')
+  xger <- mnis_general_election_results(
+    location_type = "Country",
+    location_name = "England",
+    start_date = "2010-01-01",
+    end_date = "2016-01-01"
+  )
   expect_length(xger, 2)
   expect_type(xger, "list")
-  expect_true(nrow(xger$election_result)==2)
+  expect_true(nrow(xger$election_result) == 2)
   expect_true(tibble::is_tibble(xger$election_result))
 
-  xlt <- mnis_lords_type(date= "2015-01-01")
+  xlt <- mnis_lords_type(date = "2015-01-01")
   expect_length(xlt, 6)
   expect_type(xlt, "list")
   expect_true(tibble::is_tibble(xlt))
-  expect_true(nrow(xlt)==15)
+  expect_true(nrow(xlt) == 15)
 
-  xmdepart <- mnis_department(department_id = 0, bench = 'Government',
-                              former = TRUE)
+  xmdepart <- mnis_department(
+    department_id = 0, bench = "Government",
+    former = TRUE
+  )
   expect_length(xmdepart, 32)
   expect_type(xmdepart, "list")
   expect_true(tibble::is_tibble(xmdepart))
-
-
 })

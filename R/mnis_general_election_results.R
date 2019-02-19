@@ -23,11 +23,14 @@
 #' a tibble with election results.
 #' @export
 #' @seealso [mnis_reference()]
-#' @examples \dontrun{
-#' x <- mnis_general_election_results(location_type = 'Country', location_name = 'England',
-#'                                  start_date = '2010-01-01', end_date = '2016-01-01')
+#' @examples
+#' \dontrun{
+#' x <- mnis_general_election_results(
+#'   location_type = "Country", location_name = "England",
+#'   start_date = "2010-01-01", end_date = "2016-01-01"
+#' )
 #' }
-
+#' 
 mnis_general_election_results <- function(location_type = "Country",
                                           location_name = "Great Britain",
                                           start_date = "1900-01-01",

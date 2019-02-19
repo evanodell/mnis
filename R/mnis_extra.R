@@ -73,10 +73,11 @@
 #' @seealso [mnis_full_biog()]
 #' @seealso [mnis_basic_details()]
 #' @seealso [mnis_additional()]
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #' x <- mnis_extra(172)
 #' }
-
+#' 
 mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
                        biography_entries = TRUE, committees = TRUE,
                        constituencies = TRUE, elections_contested = TRUE,
@@ -119,8 +120,10 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
   }
 
   if (biography_entries == TRUE) {
-    biography_entries_df <- mnis_biography_entries(ID, ref_dods,
-                                                   tidy, tidy_style)
+    biography_entries_df <- mnis_biography_entries(
+      ID, ref_dods,
+      tidy, tidy_style
+    )
   }
 
   if (committees == TRUE) {
@@ -132,8 +135,10 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
   }
 
   if (elections_contested == TRUE) {
-    elections_contested_df <- mnis_elections_contested(ID, ref_dods,
-                                                       tidy, tidy_style)
+    elections_contested_df <- mnis_elections_contested(
+      ID, ref_dods,
+      tidy, tidy_style
+    )
   }
 
 
@@ -144,7 +149,6 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
 
   if (government_posts == TRUE) {
     government_posts_df <- mnis_government_posts(ID, ref_dods, tidy, tidy_style)
-
   }
 
   if (honours == TRUE) {
@@ -152,8 +156,10 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
   }
 
   if (house_memberships == TRUE) {
-    house_memberships_df <- mnis_house_memberships(ID, ref_dods,
-                                                   tidy, tidy_style)
+    house_memberships_df <- mnis_house_memberships(
+      ID, ref_dods,
+      tidy, tidy_style
+    )
   }
 
   if (interests == TRUE) {
@@ -177,14 +183,17 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
 
 
   if (other_parliaments == TRUE) {
-    other_parliaments_df <- mnis_other_parliaments(ID, ref_dods,
-                                                   tidy, tidy_style)
-
+    other_parliaments_df <- mnis_other_parliaments(
+      ID, ref_dods,
+      tidy, tidy_style
+    )
   }
 
   if (parliamentary_posts == TRUE) {
-    parliamentary_posts_df <- mnis_parliamentary_posts(ID, ref_dods,
-                                                       tidy, tidy_style)
+    parliamentary_posts_df <- mnis_parliamentary_posts(
+      ID, ref_dods,
+      tidy, tidy_style
+    )
   }
 
   if (parties == TRUE) {
@@ -207,45 +216,49 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
   }
 
 
-  mnis_df <- list(addresses_df,
-                  biography_entries_df,
-                  committees_df,
-                  constituencies_df,
-                  elections_contested_df,
-                  experiences_df,
-                  government_posts_df,
-                  honours_df,
-                  house_memberships_df,
-                  interests_df,
-                  known_as_df,
-                  maiden_speeches_df,
-                  opposition_posts_df,
-                  other_parliaments_df,
-                  parliamentary_posts_df,
-                  parties_df,
-                  preferred_names_df,
-                  staff_df,
-                  statuses_df)
+  mnis_df <- list(
+    addresses_df,
+    biography_entries_df,
+    committees_df,
+    constituencies_df,
+    elections_contested_df,
+    experiences_df,
+    government_posts_df,
+    honours_df,
+    house_memberships_df,
+    interests_df,
+    known_as_df,
+    maiden_speeches_df,
+    opposition_posts_df,
+    other_parliaments_df,
+    parliamentary_posts_df,
+    parties_df,
+    preferred_names_df,
+    staff_df,
+    statuses_df
+  )
 
-  names(mnis_df) <- c("addresses",
-                      "biography_entries",
-                      "committees",
-                      "constituencies",
-                      "elections_contested",
-                      "experiences",
-                      "government_posts",
-                      "honours",
-                      "house_memberships",
-                      "interests",
-                      "known_as",
-                      "maiden_speeches",
-                      "opposition_posts",
-                      "other_parliaments",
-                      "parliamentary_posts",
-                      "parties",
-                      "preferred_names",
-                      "staff",
-                      "statuses")
+  names(mnis_df) <- c(
+    "addresses",
+    "biography_entries",
+    "committees",
+    "constituencies",
+    "elections_contested",
+    "experiences",
+    "government_posts",
+    "honours",
+    "house_memberships",
+    "interests",
+    "known_as",
+    "maiden_speeches",
+    "opposition_posts",
+    "other_parliaments",
+    "parliamentary_posts",
+    "parties",
+    "preferred_names",
+    "staff",
+    "statuses"
+  )
 
   mnis_df
 }
