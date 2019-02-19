@@ -27,7 +27,8 @@
 #' between the two given dates.
 #' @export
 #' @examples \dontrun{
-#' x <- mnis_joined_between(start_date = '2015-01-01', end_date ='2017-01-01', party='labour')
+#' x <- mnis_joined_between(start_date = '2015-01-01',
+#'                          end_date ='2017-01-01', party='labour')
 #' }
 
 

@@ -30,7 +30,9 @@
 
 mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                                tidy = TRUE, tidy_style = "snake_case") {
-  q_url <- paste0(base_url, "members/query/House=Lords|Membership=all|lordsmemberbetween=")
+  q_url <- paste0(
+    base_url, "members/query/House=Lords|Membership=all|lordsmemberbetween="
+    )
 
   date1 <- as.Date(date1)
 

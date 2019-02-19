@@ -67,7 +67,7 @@
 #' for a Member. If `TRUE`, status details are included in the tibble.
 #' Defaults to `TRUE`.
 #' @inheritParams mnis_additional
-#' @return A tibble with the requested data on a given MP.
+#' @return A list with named elements for all the requested data on a given MP.
 #' @export
 #' @rdname mnis_extra
 #' @seealso [mnis_full_biog()]
@@ -226,6 +226,26 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
                   preferred_names_df,
                   staff_df,
                   statuses_df)
+
+  names(mnis_df) <- c("addresses",
+                      "biography_entries",
+                      "committees",
+                      "constituencies",
+                      "elections_contested",
+                      "experiences",
+                      "government_posts",
+                      "honours",
+                      "house_memberships",
+                      "interests",
+                      "known_as",
+                      "maiden_speeches",
+                      "opposition_posts",
+                      "other_parliaments",
+                      "parliamentary_posts",
+                      "parties",
+                      "preferred_names",
+                      "staff",
+                      "statuses")
 
   mnis_df
 }

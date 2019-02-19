@@ -7,7 +7,7 @@
 #' @param date Accepts character values in `'YYYY-MM-DD'` format,
 #' and objects of class `Date`, `POSIXt`, `POSIXct`,
 #' `POSIXlt` or anything else than can be coerced to a date with
-#' `as.Date()`. The API will return data on the state of the
+#' `as.Date()`. The API will return data on the composition of the
 #' House of Lords on that date. Defaults to the current system date.
 #' @inheritParams mnis_additional
 #' @return A tibble with information on the numbers of different types

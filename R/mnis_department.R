@@ -22,7 +22,7 @@
 #' @export
 #' @seealso [mnis_reference()]
 #' @examples \dontrun{
-#' x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
+#' x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
 #' }
 
 
