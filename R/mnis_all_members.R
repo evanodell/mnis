@@ -5,11 +5,11 @@
 #' House of Lords, from all parties or from a given party.
 #'
 #' @param house The house to which the member belongs. Accepts one of
-#' \code{'all'}, \code{'lords'} and \code{'commons'}. This parameter
-#' is not case sensitive, so \code{'commons'}, \code{'Commons'} and
-#' \code{'cOmMOnS'} will all return the same data. Defaults to \code{'all'}.
-#' @param party The party to which a member belongs. If \code{NULL}, all
-#' members are returned, subject to other parameters. Defaults to \code{NULL}.
+#' `'all'`, `'lords'` and `'commons'`. This parameter
+#' is not case sensitive, so `'commons'`, `'Commons'` and
+#' `'cOmMOnS'` will all return the same data. Defaults to `'all'`.
+#' @param party The party to which a member belongs. If `NULL`, all
+#' members are returned, subject to other parameters. Defaults to `NULL`.
 #' @inheritParams mnis_additional
 #' @return A tibble with information on all members of the House of Commons
 #' and/or the House of Lords that meet the criteria included in the

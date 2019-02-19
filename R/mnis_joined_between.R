@@ -4,24 +4,24 @@
 #' Function returns all members who took their seats in the house between
 #' two given dates.
 #' @param start_date The start date of the search, Accepts character values in
-#' \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
-#' \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
-#' be coerced to a date with \code{as.Date()}. Defaults to \code{'1900-01-01'}.
+#' `'YYYY-MM-DD'` format, and objects of class `Date`,
+#' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can
+#' be coerced to a date with `as.Date()`. Defaults to `'1900-01-01'`.
 #' @param end_date The end date of the search. Accepts character values in
-#' \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
-#' \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can be
-#' coerced to a date with \code{as.Date()}. Defaults to the current system date.
+#' `'YYYY-MM-DD'` format, and objects of class `Date`,
+#' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can be
+#' coerced to a date with `as.Date()`. Defaults to the current system date.
 #' @param house The house to which the member belongs. Accepts one of
-#' \code{'all'}, \code{'lords'} and \code{'commons'}. This parameter is
-#' not case sensititive. Defaults to \code{'all'}.
+#' `'all'`, `'lords'` and `'commons'`. This parameter is
+#' not case sensititive. Defaults to `'all'`.
 #' @param party All members from a given party who joined between the two
-#' dates. The party name must be fully spelled out (e.g. \code{'green party'}),
+#' dates. The party name must be fully spelled out (e.g. `'green party'`),
 #' the API does not accept searches on this parameter. For a tibble of
-#' parties, see \code{ref_parties} in \code{\link{mnis_reference}}.
-#' This parameter is not case sensititive. Defaults to \code{NULL}.
+#' parties, see `ref_parties` in [mnis_reference()].
+#' This parameter is not case sensititive. Defaults to `NULL`.
 #' @param eligible If the member is currently eligible to sit. Accepts
-#' one of \code{'all'}, \code{'current'}, \code{'former'}. This parameter
-#' is not case sensititive. Defaults to \code{'all'}.
+#' one of `'all'`, `'current'`, `'former'`. This parameter
+#' is not case sensititive. Defaults to `'all'`.
 #' @inheritParams mnis_additional
 #' @return A tibble with data on all members who joined
 #' between the two given dates.

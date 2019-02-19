@@ -4,14 +4,14 @@
 #' All 39 reference functions, presented as a list of tibbles.
 #' @return Returns a list of 39 tibbles, with the name and data returned from
 #' each respective reference function.
-#' @param tidy If \code{TRUE}, fixes the variable names in each reference
+#' @param tidy If `TRUE`, fixes the variable names in each reference
 #' tibble to remove non-alphanumeric characters and superfluous text, and
 #' convert to a consistent style. Also applies a consistent style to each
-#' tibble name in the list. If \code{FALSE}, tibble names will be in
-#' \code{snake_case} style, and the variable names in each tibble will not
-#' be altered. Defaults to \code{TRUE}.
+#' tibble name in the list. If `FALSE`, tibble names will be in
+#' `snake_case` style, and the variable names in each tibble will not
+#' be altered. Defaults to `TRUE`.
 #' @inheritParams mnis_additional
-#' @seealso \code{\link{mnis_reference}}
+#' @seealso [mnis_reference()]
 #' @rdname mnis_all_reference
 #' @export
 #' @examples \dontrun{

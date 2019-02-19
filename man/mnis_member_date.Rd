@@ -42,5 +42,5 @@ y <- mnis_member_date(c(172,500))
 }
 }
 \seealso{
-\code{\link{mnis_mps_on_date}}
+\code{\link[=mnis_mps_on_date]{mnis_mps_on_date()}}
 }

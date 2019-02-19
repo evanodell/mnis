@@ -2,7 +2,7 @@
 #' A generic function for the MNIS API
 #'
 #' The function requests data in JSON format, but the type of object,
-#' and all URLs, paths and parameters are user-defined. \code{mnis_base}
+#' and all URLs, paths and parameters are user-defined. `mnis_base`
 #' does not include the option to tidy variable names and data types.
 #'
 #' See the API documentation at

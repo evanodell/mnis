@@ -13,13 +13,7 @@ get_additional <- function(query, tidy, tidy_style) {
 
   got <- jsonlite::fromJSON(got, flatten = TRUE)
 
-  q <- as.data.frame(enframe(unlist(got$Members$Member)))
-
-  df <- tibble::as_tibble(t(q))
-
-  colnames(df) <- q$name # the first row will be the header
-
-  df <- df[2, ]
+  df <- got$Members$Member
 
   if (tidy == TRUE) {
     df <- mnis_tidy(df, tidy_style)

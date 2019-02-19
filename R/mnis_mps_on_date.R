@@ -1,29 +1,29 @@
 #' All MPs between two dates
 #'
 #' Requests data on all MPs who were members of the House of Commons on the
-#' date specified, (if only \code{date1} is included as a parameter), or
-#' on or between the two dates if both \code{date1} and \code{date2} are
-#' specified. Either \code{date1} or \code{date2} can be the latter of
+#' date specified, (if only `date1` is included as a parameter), or
+#' on or between the two dates if both `date1` and `date2` are
+#' specified. Either `date1` or `date2` can be the latter of
 #' the two dates.
 #' @param date1 The date to return the list of mps from. Accepts character
-#' values in \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
-#' \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
-#' be coerced to a date with \code{as.Date()}. Defaults to current system date.
+#' values in `'YYYY-MM-DD'` format, and objects of class `Date`,
+#' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can
+#' be coerced to a date with `as.Date()`. Defaults to current system date.
 #' @param date2 An optional query parameter. Accepts character values in
-#' \code{'YYYY-MM-DD'} format, and objects of class \code{Date}, \code{POSIXt},
-#' \code{POSIXct}, \code{POSIXlt} or anything else than can be coerced to a date
-#' with \code{as.Date()}. If not \code{NULL}, the function returns a list of
-#' all MPs who were members between \code{date1} and \code{date2}.
-#' Defaults to \code{NULL}.
+#' `'YYYY-MM-DD'` format, and objects of class `Date`, `POSIXt`,
+#' `POSIXct`, `POSIXlt` or anything else than can be coerced to a date
+#' with `as.Date()`. If not `NULL`, the function returns a list of
+#' all MPs who were members between `date1` and `date2`.
+#' Defaults to `NULL`.
 #' @inheritParams mnis_additional
 #'
 #' @return A tibble with information on all MPs who were members of the
-#' House of Commons on the date specificed (if only \code{date1} is included
-#' as a parameter), or on or between the two dates if both \code{date1} and
-#' \code{date2} are specified.
+#' House of Commons on the date specificed (if only `date1` is included
+#' as a parameter), or on or between the two dates if both `date1` and
+#' `date2` are specified.
 #' @export
-#' @seealso \code{\link{mnis_party_state}}
-#' @seealso \code{\link{mnis_peers_on_date}}
+#' @seealso [mnis_party_state()]
+#' @seealso [mnis_peers_on_date()]
 #'
 #' @examples \dontrun{
 #' x <- mnis_mps_on_date(date1='2017-01-01', date2='2014-02-04')

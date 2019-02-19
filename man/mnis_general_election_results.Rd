@@ -51,5 +51,5 @@ x <- mnis_general_election_results(location_type = 'Country', location_name = 'E
 }
 }
 \seealso{
-\code{\link{mnis_reference}}
+\code{\link[=mnis_reference]{mnis_reference()}}
 }

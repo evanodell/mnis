@@ -4,14 +4,14 @@
 \alias{mnis_department}
 \title{Minister/shadow minister posts}
 \usage{
-mnis_department(department_id = 0, bench = "Government", former = TRUE,
-  tidy = TRUE, tidy_style = "snake_case")
+mnis_department(department_id = 0, bench = "Government",
+  former = TRUE, tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
 \item{department_id}{The department to look up. \code{0} returns the
 cabinet/shadow cabinet, \code{-1} returns a list of all ministers.
 For departmental IDs, see the \code{ref_departments} function in
-\code{\link{mnis_reference}}.
+\code{\link[=mnis_reference]{mnis_reference()}}.
 Defaults to \code{0}.}
 
 \item{bench}{Flag to return either Government or Opposition information.
@@ -37,7 +37,7 @@ ministers/shadow ministers.
 }
 \description{
 Request the holders of posts in specific departments by department ID
-(see \code{\link{mnis_reference}}), or all current and former
+(see \code{\link[=mnis_reference]{mnis_reference()}}), or all current and former
 minister/shadow minister positions.
 }
 \examples{
@@ -46,5 +46,5 @@ x <- mnis_department(departmentId = 0, bench = 'Government', former=TRUE)
 }
 }
 \seealso{
-\code{\link{mnis_reference}}
+\code{\link[=mnis_reference]{mnis_reference()}}
 }

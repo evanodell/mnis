@@ -4,7 +4,8 @@
 \alias{mnis_lords_type}
 \title{Peers' party affiliations}
 \usage{
-mnis_lords_type(date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
+mnis_lords_type(date = Sys.Date(), tidy = TRUE,
+  tidy_style = "snake_case")
 }
 \arguments{
 \item{date}{Accepts character values in \code{'YYYY-MM-DD'} format,
@@ -36,5 +37,5 @@ x <- mnis_lords_type()
 }
 }
 \seealso{
-\code{\link{mnis_reference}}
+\code{\link[=mnis_reference]{mnis_reference()}}
 }

@@ -19,7 +19,7 @@ characters and converting to snake_case when equal to \code{TRUE},
 its default value.
 
 All functions requests data in JSON format and parse it to a tibble. The
-exception is \code{\link{mnis_constituency_results}} which returns a
+exception is \code{\link[=mnis_constituency_results]{mnis_constituency_results()}} which returns a
 single object containing a list (with constituency details) and a
 tibble (with election results).
 

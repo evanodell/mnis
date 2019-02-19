@@ -4,20 +4,20 @@
 #'
 #' Returns data on the numbers and gender of MPs, by party, for the given
 #' date, in either the House of Commons or the House of Lords.
-#' @param house The house of parliament. Accepts either \code{'Lords'} or
-#' \code{'Commons'}. This parameter is not case sensitive, so both
-#' \code{'lords'} and \code{'Lords'} return the same result.
-#' Defaults to \code{'Commons'}.
+#' @param house The house of parliament. Accepts either `'Lords'` or
+#' `'Commons'`. This parameter is not case sensitive, so both
+#' `'lords'` and `'Lords'` return the same result.
+#' Defaults to `'Commons'`.
 #' @param date The date to query party standing on. Accepts character values
-#' in \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
-#' \code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
-#' be coerced to a date with \code{as.Date()}.
+#' in `'YYYY-MM-DD'` format, and objects of class `Date`,
+#' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can
+#' be coerced to a date with `as.Date()`.
 #' Defaults to the current system date.
 #' @inheritParams mnis_additional
 #' @return A tibble with information on the total numbers and gender of
 #' MPs, by party, for the given date and house.
-#' @seealso \code{\link{mnis_mps_on_date}}
-#' @seealso \code{\link{mnis_peers_on_date}}
+#' @seealso [mnis_mps_on_date()]
+#' @seealso [mnis_peers_on_date()]
 #' @export
 #' @examples \dontrun{
 #' x <- mnis_party_state('2012-01-12')

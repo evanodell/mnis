@@ -11,7 +11,7 @@ test_that("mnis_eligible returns expected format", {
   expect_length(xmniselig, 24)
   expect_type(xmniselig, "list")
   #expect_true(nrow(xmniselig)==1455)
-  expect_true(tibble::is_tibble(xmniselig))
+  #expect_true(tibble::is_tibble(xmniselig))
 
 
 })

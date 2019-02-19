@@ -26,7 +26,7 @@ not case sensititive. Defaults to \code{'all'}.}
 \item{party}{All members from a given party who joined between the two
 dates. The party name must be fully spelled out (e.g. \code{'green party'}),
 the API does not accept searches on this parameter. For a tibble of
-parties, see \code{ref_parties} in \code{\link{mnis_reference}}.
+parties, see \code{ref_parties} in \code{\link[=mnis_reference]{mnis_reference()}}.
 This parameter is not case sensititive. Defaults to \code{NULL}.}
 
 \item{eligible}{If the member is currently eligible to sit. Accepts

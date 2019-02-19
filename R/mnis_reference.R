@@ -4,79 +4,79 @@
 #'
 #' Reference data on various aspects of parliament. This data is useful for
 #' providing parameters for other function calls. The functions do not accept
-#' any arguments aside from the \code{tidy} and \code{tidy_style} parameters,
-#' which default to \code{TRUE} and \code{'snake_case'}, respectively. To
+#' any arguments aside from the `tidy` and `tidy_style` parameters,
+#' which default to `TRUE` and `'snake_case'`, respectively. To
 #' return all a list with tibbles of all reference data,
-#' see \code{\link{mnis_all_reference}}.
+#' see [mnis_all_reference()].
 #' @inheritParams mnis_additional
 #'
-#' @section \code{mnis_reference} functions:
+#' @section `mnis_reference` functions:
 #' \describe{
-#' \item{\code{ref_address_types}}{The types of addresses available in
+#' \item{`ref_address_types`}{The types of addresses available in
 #' member's contact details. Includes websites and social media, as well
 #' as physical addresses}
-#' \item{\code{ref_answering_bodies}}{The bodies that members' can address
+#' \item{`ref_answering_bodies`}{The bodies that members' can address
 #' questions to}
-#' \item{\code{ref_areas}}{Geographic areas}
-#' \item{\code{ref_area_types}}{Identifiers for grouping areas (e.g. borough
+#' \item{`ref_areas`}{Geographic areas}
+#' \item{`ref_area_types`}{Identifiers for grouping areas (e.g. borough
 #' constituencies)}
-#' \item{\code{ref_biography_categories}}{Member biography categories}
-#' \item{\code{ref_cabinets}}{Connections that a member has to the cabinet or
+#' \item{`ref_biography_categories`}{Member biography categories}
+#' \item{`ref_cabinets`}{Connections that a member has to the cabinet or
 #' shadow cabinet}
-#' \item{\code{ref_committees}}{Identifier for parliamentary committees}
-#' \item{\code{ref_committee_types}}{Types of parliamentary committees}
-#' \item{\code{ref_constituencies()}}{All constituencies}
-#' \item{\code{ref_constituency_areas()}}{The links between constituencies and
+#' \item{`ref_committees`}{Identifier for parliamentary committees}
+#' \item{`ref_committee_types`}{Types of parliamentary committees}
+#' \item{`ref_constituencies()`}{All constituencies}
+#' \item{`ref_constituency_areas()`}{The links between constituencies and
 #' constituency areas}
-#' \item{\code{ref_constituency_types()}}{Constituency categories}
-#' \item{\code{ref_countries()}}{List of countries that could be listed as
+#' \item{`ref_constituency_types()`}{Constituency categories}
+#' \item{`ref_countries()`}{List of countries that could be listed as
 #' members' birthplace}
-#' \item{\code{ref_departments()}}{Government and opposition departments}
-#' \item{\code{ref_disqualification_types()}}{Types of ways members can be
+#' \item{`ref_departments()`}{Government and opposition departments}
+#' \item{`ref_disqualification_types()`}{Types of ways members can be
 #' disqualified from sitting in the House}
-#' \item{\code{ref_elections()}}{Codes of general and by-elections}
-#' \item{\code{ref_election_types()}}{Election categories}
-#' \item{\code{ref_end_reasons()}}{Reasons a member may leave the House of
+#' \item{`ref_elections()`}{Codes of general and by-elections}
+#' \item{`ref_election_types()`}{Election categories}
+#' \item{`ref_end_reasons()`}{Reasons a member may leave the House of
 #' Lords or the House of Commons}
-#' \item{\code{ref_experience_types()}}{Types of non-parliamentary experience
+#' \item{`ref_experience_types()`}{Types of non-parliamentary experience
 #' members can list}
-#' \item{\code{ref_government_post_departments()}}{All deparments that can
+#' \item{`ref_government_post_departments()`}{All deparments that can
 #' contain government posts}
-#' \item{\code{ref_government_posts()}}{All government posts}
-#' \item{\code{ref_government_ranks()}}{All government post ranks}
-#' \item{\code{ref_honourary_prefixes()}}{The types of honourary prefixes
+#' \item{`ref_government_posts()`}{All government posts}
+#' \item{`ref_government_ranks()`}{All government post ranks}
+#' \item{`ref_honourary_prefixes()`}{The types of honourary prefixes
 #' for members}
-#' \item{\code{ref_honour_lists()}}{The types of honour lists that a member
+#' \item{`ref_honour_lists()`}{The types of honour lists that a member
 #' may be honoured in}
-#' \item{\code{ref_honours()}}{The different honours available to members}
-#' \item{\code{ref_interest_categories()}}{The categories available for
+#' \item{`ref_honours()`}{The different honours available to members}
+#' \item{`ref_interest_categories()`}{The categories available for
 #' reporting financial interests}
-#' \item{\code{ref_lords_membership_types()}}{Different types of membership
+#' \item{`ref_lords_membership_types()`}{Different types of membership
 #' of the House of Lords}
-#' \item{\code{ref_lords_ranks()}}{Ranks that peers may hold}
-#' \item{\code{ref_opposition_post_departments()}}{The link between opposition
+#' \item{`ref_lords_ranks()`}{Ranks that peers may hold}
+#' \item{`ref_opposition_post_departments()`}{The link between opposition
 #' posts and the government department they shadow}
-#' \item{\code{ref_opposition_posts()}}{Opposition posts}
-#' \item{\code{ref_opposition_ranks()}}{How opposition posts are ranked}
-#' \item{\code{ref_other_parliaments()}}{Other parliaments that a member
+#' \item{`ref_opposition_posts()`}{Opposition posts}
+#' \item{`ref_opposition_ranks()`}{How opposition posts are ranked}
+#' \item{`ref_other_parliaments()`}{Other parliaments that a member
 #' may have sat in}
-#' \item{\code{ref_parliamentary_posts()}}{The different parliamentary posts
+#' \item{`ref_parliamentary_posts()`}{The different parliamentary posts
 #' available}
-#' \item{\code{ref_parliamentary_ranks()}}{How those parliamentary posts are
+#' \item{`ref_parliamentary_ranks()`}{How those parliamentary posts are
 #' ranked}
-#' \item{\code{ref_parliament_types()}}{Types of parliaments that
+#' \item{`ref_parliament_types()`}{Types of parliaments that
 #' parliamentary data may link to}
-#' \item{\code{ref_parties()}}{All parties that members can be affiliated with}
-#' \item{\code{ref_party_sub_types()}}{Sub-types of parties}
-#' \item{\code{ref_photo_outputs()}}{Outputs that a photo of a member
+#' \item{`ref_parties()`}{All parties that members can be affiliated with}
+#' \item{`ref_party_sub_types()`}{Sub-types of parties}
+#' \item{`ref_photo_outputs()`}{Outputs that a photo of a member
 #' may be linked to}
-#' \item{\code{ref_statuses()}}{A member's possible current status in the
+#' \item{`ref_statuses()`}{A member's possible current status in the
 #' House}
-#' \item{\code{ref_titles()}}{Salutory titles}
+#' \item{`ref_titles()`}{Salutory titles}
 #' }
 #'
 #' @export
-#' @seealso \code{\link{mnis_all_reference}}
+#' @seealso [mnis_all_reference()]
 #' @rdname mnis_reference
 
 mnis_reference <- function() {

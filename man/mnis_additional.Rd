@@ -88,7 +88,7 @@ mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE,
 }
 \arguments{
 \item{ID}{The member ID. If \code{NULL}, function calls
-\code{\link{mnis_all_members}} and returns basic information on all
+\code{\link[=mnis_all_members]{mnis_all_members()}} and returns basic information on all
 members of both houses. Defaults to \code{NULL}.}
 
 \item{ref_dods}{If \code{TRUE}, Request based on the DODS membership ID
@@ -104,7 +104,7 @@ a consistent style. Defaults to \code{TRUE}.}
 and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \value{
-A tibble with the data corresponding to the
+A list with the data corresponding to the
 particular function called.
 }
 \description{
@@ -125,7 +125,7 @@ options for \code{mnis_additional}}
 \item{\code{mnis_basic_details}}{Basic biographical details
 on a given Member}
 \item{\code{mnis_biography_entries}}{Member biographical information (e.g.
- countries of interest, policy expertise etc...)}
+countries of interest, policy expertise etc...)}
 \item{\code{mnis_committees}}{Committees a Member sits or has sat on as
 well details on committee chairing}
 \item{\code{mnis_addresses}}{Member address information (e.g. website,
@@ -164,7 +164,7 @@ x <- mnis_basic_details(172)
 }
 }
 \seealso{
-\code{\link{mnis_full_biog}}
+\code{\link[=mnis_full_biog]{mnis_full_biog()}}
 
-\code{\link{mnis_extra}}
+\code{\link[=mnis_extra]{mnis_extra()}}
 }

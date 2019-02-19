@@ -10,7 +10,7 @@ mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE,
 \arguments{
 \item{ID}{The ID number of the member, using the default MNIS scheme.
 If \code{ref_dods=TRUE}, accepts the Dods monitoring scheme instead.
-If \code{NULL}, returns the same data as \code{\link{mnis_all_members}}
+If \code{NULL}, returns the same data as \code{\link[=mnis_all_members]{mnis_all_members()}}
 with default parameters. Defaults to \code{NULL}.}
 
 \item{ref_dods}{Request based on the Dods monitoring member ID scheme.
@@ -37,9 +37,9 @@ df <- mnis_full_biog(500)
 }
 }
 \seealso{
-\code{\link{mnis_basic_details}}
+\code{\link[=mnis_basic_details]{mnis_basic_details()}}
 
-\code{\link{mnis_additional}}
+\code{\link[=mnis_additional]{mnis_additional()}}
 
-\code{\link{mnis_extra}}
+\code{\link[=mnis_extra]{mnis_extra()}}
 }

@@ -29,7 +29,7 @@ tibble are stored in a single object.
 }
 \description{
 Returns a list with details of the constituency and a tibble
- with election results.
+with election results.
 }
 \examples{
 \dontrun{

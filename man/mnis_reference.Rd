@@ -138,7 +138,7 @@ providing parameters for other function calls. The functions do not accept
 any arguments aside from the \code{tidy} and \code{tidy_style} parameters,
 which default to \code{TRUE} and \code{'snake_case'}, respectively. To
 return all a list with tibbles of all reference data,
-see \code{\link{mnis_all_reference}}.
+see \code{\link[=mnis_all_reference]{mnis_all_reference()}}.
 }
 \section{\code{mnis_reference} functions}{
 
@@ -208,5 +208,5 @@ House}
 }
 
 \seealso{
-\code{\link{mnis_all_reference}}
+\code{\link[=mnis_all_reference]{mnis_all_reference()}}
 }

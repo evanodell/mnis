@@ -8,10 +8,10 @@
 #' vector of interests. If a vector of multiple interests, returns all members
 #' who list all of those interests.
 #' @param house The house the member belongs to. Accepts 'commons', 'lords'
-#' and \code{NULL}. This variable is not case sensitive. If \code{NULL},
-#' returns members from both houses. Defaults to \code{NULL}.
-#' @param current Logical. If \code{TRUE}, returns all current and
-#' former members of both houses. Defaults to \code{TRUE}.
+#' and `NULL`. This variable is not case sensitive. If `NULL`,
+#' returns members from both houses. Defaults to `NULL`.
+#' @param current Logical. If `TRUE`, returns all current and
+#' former members of both houses. Defaults to `TRUE`.
 #' @inheritParams mnis_additional
 #'
 #' @return A data frame of members with given interest(s).

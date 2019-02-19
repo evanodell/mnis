@@ -5,17 +5,17 @@
 #' @param ID The ID of the member, or a vector with the IDs of multiple MPs.
 #' If given multiple IDs, the results are combined into a single tibble.
 #' Currently only accepts IDs from the default membership ID scheme. If
-#' \code{NULL} the function stops and no data is returned.
-#' Defaults to \code{NULL}.
-#' @param date Accepts character values in \code{'YYYY-MM-DD'} format, and
-#' objects of class \code{Date}, \code{POSIXt}, \code{POSIXct},
-#' \code{POSIXlt} or anything else than can be coerced to a date with
-#' \code{as.Date()}. Return details on the requested member's status on
+#' `NULL` the function stops and no data is returned.
+#' Defaults to `NULL`.
+#' @param date Accepts character values in `'YYYY-MM-DD'` format, and
+#' objects of class `Date`, `POSIXt`, `POSIXct`,
+#' `POSIXlt` or anything else than can be coerced to a date with
+#' `as.Date()`. Return details on the requested member's status on
 #' that date. Defaults to the current system date.
 #' @inheritParams mnis_additional
 #' @return Returns a tibble with the given member's status on the given date.
 #' @export
-#' @seealso \code{\link{mnis_mps_on_date}}
+#' @seealso [mnis_mps_on_date()]
 #' @examples \dontrun{
 #' x <- mnis_member_date(172)
 #'

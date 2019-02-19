@@ -3,12 +3,12 @@
 #' Returns a list with details of the constituency and a tibble
 #'  with election results.
 #' @param constituency_id The ID of the constituency to return the data for.
-#' If \code{NULL}, no data is returned. Defaults to \code{NULL}.
+#' If `NULL`, no data is returned. Defaults to `NULL`.
 #' @param election_id The ID of the election to return the data for. Defaults
 #' to 0, which returns the result of all elections held in that constituency.
 #' @inheritParams mnis_additional
-#' @return A list with details of the constituency, labelled \code{'details'}
-#' and a tibble with election results, labelled \code{'results'}. The list and
+#' @return A list with details of the constituency, labelled `'details'`
+#' and a tibble with election results, labelled `'results'`. The list and
 #' tibble are stored in a single object.
 #' @export
 #' @examples \dontrun{

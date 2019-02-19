@@ -47,7 +47,7 @@ x <- mnis_peers_on_date(date1='2017-01-01')
 }
 }
 \seealso{
-\code{\link{mnis_party_state}}
+\code{\link[=mnis_party_state]{mnis_party_state()}}
 
-\code{\link{mnis_peers_on_date}}
+\code{\link[=mnis_peers_on_date]{mnis_peers_on_date()}}
 }

@@ -6,13 +6,13 @@
 #' here: \url{http://data.parliament.uk/membersdataplatform/default.aspx}.
 #'
 #' The package includes a built in function to remove a byte-order mark from
-#' the API data, and a parameter \code{tidy} with each function that converts
+#' the API data, and a parameter `tidy` with each function that converts
 #' variable names into an R friendly style, removing non-alphanumeric
-#' characters and converting to snake_case when equal to \code{TRUE},
+#' characters and converting to snake_case when equal to `TRUE`,
 #' its default value.
 #'
 #' All functions requests data in JSON format and parse it to a tibble. The
-#' exception is \code{\link{mnis_constituency_results}} which returns a
+#' exception is [mnis_constituency_results()] which returns a
 #' single object containing a list (with constituency details) and a
 #' tibble (with election results).
 #'

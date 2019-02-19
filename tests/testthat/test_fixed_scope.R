@@ -11,7 +11,7 @@ test_that("fixed scope functions returns expected format", {
   expect_length(xps, 5)
   expect_type(xps, "list")
   expect_true(tibble::is_tibble(xps))
-  expect_true(nrow(xps)==14)
+  expect_true("Bishops" %in% xps$name)
 
   xmd <- mnis_member_date(500)
   expect_length(xmd, 21)

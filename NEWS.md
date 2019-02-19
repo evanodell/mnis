@@ -1,4 +1,12 @@
 
+# mnis 0.2.8.9000
+
+## Breaking changes
+
+Instead of returning some weirdly formatted tibbles, many functions now 
+return lists.
+
+
 # mnis 0.2.8
 
 ## New Functions

@@ -4,8 +4,8 @@
 \alias{mnis_eligible}
 \title{All eligible members of both houses}
 \usage{
-mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_eligible(eligible = TRUE, house = "all", party = NULL,
+  tidy = TRUE, tidy_style = "snake_case")
 }
 \arguments{
 \item{eligible}{Logical parameter. If \code{TRUE} returns all members
@@ -21,7 +21,7 @@ will all return the same data. Defaults to \code{'all'}.}
 of all parties are returned subject to other parameters. The party must
 be fully spelled out (e.g. \code{'green party'}), the API does not accept
 searches on this parameter. For a tibble of parties, see \code{ref_parties}
-in \code{\link{mnis_reference}}. This parameter is not case sensititive.
+in \code{\link[=mnis_reference]{mnis_reference()}}. This parameter is not case sensititive.
 Defaults to \code{NULL}.}
 
 \item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
@@ -34,9 +34,9 @@ and \code{'period.case'}. Defaults to \code{'snake_case'}.}
 }
 \description{
 Returns all members who are able to sit in either house, or who are
- currently ineligible to sit. Members ineligible to sit include but are
- not necessarily limited to former MPs and members of the judiciary, who
- are recused from House of Lords duties.
+currently ineligible to sit. Members ineligible to sit include but are
+not necessarily limited to former MPs and members of the judiciary, who
+are recused from House of Lords duties.
 }
 \examples{
 \dontrun{

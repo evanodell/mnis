@@ -1,8 +1,10 @@
 Package: mnis
 Type: Package
 Title: Easy Downloading Capabilities for the Members' Name Information Service
-Version: 0.2.8.9000
-Authors@R: person("Evan Odell", email="evanodell91@gmail.com", role=c("aut", "cre"))
+Version: 0.2.8.9001
+Authors@R: person(
+    "Evan Odell", email="evanodell91@gmail.com", role=c("aut", "cre")
+    )
 Description: An API package for the Members' Name Information Service operated 
     by the UK parliament. Documentation for the API itself can be found here: 
     <http://data.parliament.uk/membersdataplatform/default.aspx>.
@@ -19,8 +21,11 @@ Imports:
     tibble,
     stringi,
     Rcpp (>= 0.12.10)
-RoxygenNote: 6.0.1
-Suggests: knitr,
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+Suggests: 
+    knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
