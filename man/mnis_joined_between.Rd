@@ -4,9 +4,15 @@
 \alias{mnis_joined_between}
 \title{Members who joined between two dates.}
 \usage{
-mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
-  house = "all", party = NULL, eligible = "all", tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_joined_between(
+  start_date = "1900-01-01",
+  end_date = Sys.Date(),
+  house = "all",
+  party = NULL,
+  eligible = "all",
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{start_date}{The start date of the search, Accepts character values in

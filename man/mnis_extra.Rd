@@ -4,14 +4,31 @@
 \alias{mnis_extra}
 \title{A wrapper for \code{\link{mnis_additional}} functions.}
 \usage{
-mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
-  biography_entries = TRUE, committees = TRUE, constituencies = TRUE,
-  elections_contested = TRUE, experiences = TRUE, government_posts = TRUE,
-  honours = TRUE, house_memberships = TRUE, interests = TRUE,
-  known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE,
-  other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE,
-  preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_extra(
+  ID,
+  ref_dods = FALSE,
+  addresses = TRUE,
+  biography_entries = TRUE,
+  committees = TRUE,
+  constituencies = TRUE,
+  elections_contested = TRUE,
+  experiences = TRUE,
+  government_posts = TRUE,
+  honours = TRUE,
+  house_memberships = TRUE,
+  interests = TRUE,
+  known_as = TRUE,
+  maiden_speeches = TRUE,
+  opposition_posts = TRUE,
+  other_parliaments = TRUE,
+  parliamentary_posts = TRUE,
+  parties = TRUE,
+  preferred_names = TRUE,
+  staff = TRUE,
+  statuses = TRUE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{ID}{The ID number of the member. If \code{NULL}, does not return any

@@ -4,8 +4,12 @@
 \alias{mnis_member_date}
 \title{Member status on given date}
 \usage{
-mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_member_date(
+  ID = NULL,
+  date = Sys.Date(),
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{ID}{The ID of the member, or a vector with the IDs of multiple MPs.

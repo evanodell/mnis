@@ -26,65 +26,140 @@
 \usage{
 mnis_additional()
 
-mnis_basic_details(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_basic_details(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_biography_entries(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_biography_entries(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_committees(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_committees(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_addresses(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_addresses(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_constituencies(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_constituencies(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_elections_contested(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_elections_contested(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_experiences(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_experiences(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_government_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_government_posts(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_honours(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_honours(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_house_memberships(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_house_memberships(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_statuses(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_statuses(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_staff(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_staff(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case")
 
-mnis_interests(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_interests(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_known_as(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_known_as(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_maiden_speeches(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_maiden_speeches(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_opposition_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_opposition_posts(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_other_parliaments(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_other_parliaments(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_parliamentary_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_parliamentary_posts(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_parties(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_parties(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_preferred_names(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{ID}{The member ID. If \code{NULL}, function calls

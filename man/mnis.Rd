@@ -3,7 +3,6 @@
 \docType{package}
 \name{mnis}
 \alias{mnis}
-\alias{mnis-package}
 \title{mnis: Easy Downloading Capabilities for the Member Name Information Service}
 \description{
 An API package for the Members' Name Information Service operated by the UK

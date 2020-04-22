@@ -4,8 +4,13 @@
 \alias{mnis_eligible}
 \title{All eligible members of both houses}
 \usage{
-mnis_eligible(eligible = TRUE, house = "all", party = NULL, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_eligible(
+  eligible = TRUE,
+  house = "all",
+  party = NULL,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{eligible}{Logical parameter. If \code{TRUE} returns all members

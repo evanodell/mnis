@@ -4,8 +4,12 @@
 \alias{mnis_mps_on_date}
 \title{All MPs between two dates}
 \usage{
-mnis_mps_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_mps_on_date(
+  date1 = Sys.Date(),
+  date2 = NULL,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{date1}{The date to return the list of mps from. Accepts character

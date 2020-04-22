@@ -4,8 +4,12 @@
 \alias{mnis_full_biog}
 \title{Biographical details}
 \usage{
-mnis_full_biog(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_full_biog(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{ID}{The ID number of the member, using the default MNIS scheme.

@@ -4,8 +4,13 @@
 \alias{mnis_department}
 \title{Minister/shadow minister posts}
 \usage{
-mnis_department(department_id = 0, bench = "Government", former = TRUE,
-  tidy = TRUE, tidy_style = "snake_case")
+mnis_department(
+  department_id = 0,
+  bench = "Government",
+  former = TRUE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{department_id}{The department to look up. \code{0} returns the

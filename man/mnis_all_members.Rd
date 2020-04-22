@@ -4,8 +4,12 @@
 \alias{mnis_all_members}
 \title{All Members of Both Parliaments}
 \usage{
-mnis_all_members(house = "all", party = NULL, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_all_members(
+  house = "all",
+  party = NULL,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{house}{The house to which the member belongs. Accepts one of

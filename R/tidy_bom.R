@@ -3,7 +3,7 @@
 tidy_bom <- function(df) {
   got <- as.character(df)
 
-  got <- mnis_bom(got)
+  got <- mnis:::mnis_bom(got)
 
   got
 }

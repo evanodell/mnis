@@ -4,8 +4,13 @@
 \alias{mnis_political_interests}
 \title{Political and Geographical Interests}
 \usage{
-mnis_political_interests(interest, house = NULL, current = TRUE,
-  tidy = TRUE, tidy_style = "snake_case")
+mnis_political_interests(
+  interest,
+  house = NULL,
+  current = TRUE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{interest}{A single interest in the form of a string, or a character

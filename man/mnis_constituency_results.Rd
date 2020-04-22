@@ -4,8 +4,12 @@
 \alias{mnis_constituency_results}
 \title{Constituency election results}
 \usage{
-mnis_constituency_results(constituency_id = NULL, election_id = 0,
-  tidy = TRUE, tidy_style = "snake_case")
+mnis_constituency_results(
+  constituency_id = NULL,
+  election_id = 0,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{constituency_id}{The ID of the constituency to return the data for.

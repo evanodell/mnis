@@ -4,9 +4,14 @@
 \alias{mnis_general_election_results}
 \title{Election results by area and date}
 \usage{
-mnis_general_election_results(location_type = "Country",
-  location_name = "Great Britain", start_date = "1900-01-01",
-  end_date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
+mnis_general_election_results(
+  location_type = "Country",
+  location_name = "Great Britain",
+  start_date = "1900-01-01",
+  end_date = Sys.Date(),
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{location_type}{The type of area to return information for. Accepts

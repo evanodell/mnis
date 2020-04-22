@@ -4,8 +4,12 @@
 \alias{mnis_party_state}
 \title{Party standing on a given date}
 \usage{
-mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_party_state(
+  house = "Commons",
+  date = Sys.Date(),
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{house}{The house of parliament. Accepts either \code{'Lords'} or

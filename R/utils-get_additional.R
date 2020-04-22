@@ -7,13 +7,13 @@ get_additional <- function(query, tidy, tidy_style) {
 
   if (httr::http_type(got) != "application/json") {
     stop("API did not return json", call. = FALSE)
-  } else if (httr::status_code(got) != 200)
+  }
 
-  got <- tidy_bom(got)
+  got2 <- tidy_bom(got)
 
   #got2 <- httr::content(got)
 
-  got2 <- jsonlite::fromJSON(got, flatten = TRUE)
+  got2 <- jsonlite::fromJSON(got2, flatten = TRUE)
 
   x <- got2$Members$Member
 
