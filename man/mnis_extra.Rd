@@ -126,7 +126,7 @@ A list with named elements for all the requested data on a given MP.
 It combines the various options of mnis_additional into one dataframe,
 and the default is similar to \code{\link[=mnis_full_biog]{mnis_full_biog()}}. Variable
 descriptions are taken from the mnis website:
-<\url{http://data.parliament.uk/membersdataplatform/memberquery.aspx}>.
+\url{http://data.parliament.uk/membersdataplatform/memberquery.aspx}.
 }
 \examples{
 \dontrun{

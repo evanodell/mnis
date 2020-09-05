@@ -6,14 +6,6 @@ test_that("mnis_constituency_results returns expected format", {
 
 
   xmniscons <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
-=======
-  # skip_on_cran()
-
-  xmniscons <- mnis_constituency_results(
-    constituency_id = 3709,
-    election_id = 0
-  )
->>>>>>> d69faae026f5de73933256c2acc4b29740d5157c
   expect_length(xmniscons, 2)
   expect_type(xmniscons, "list")
   expect_true(is.list(xmniscons))

@@ -5,7 +5,7 @@
 #' It combines the various options of mnis_additional into one dataframe,
 #' and the default is similar to [mnis_full_biog()]. Variable
 #' descriptions are taken from the mnis website:
-#' <\url{http://data.parliament.uk/membersdataplatform/memberquery.aspx}>.
+#' [http://data.parliament.uk/membersdataplatform/memberquery.aspx](http://data.parliament.uk/membersdataplatform/memberquery.aspx).
 #'
 #' @param ID The ID number of the member. If `NULL`, does not return any
 #' data. Defaults to `NULL`.
