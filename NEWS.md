@@ -1,3 +1,8 @@
+# mnis 0.2.7.90000
+
+Stops messing around with making very wide data frames and instead returns a list.
+
+
 # mnis 0.2.7
 
 ## Bug Fixes

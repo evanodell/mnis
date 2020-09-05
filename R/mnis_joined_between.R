@@ -1,12 +1,12 @@
 
 #' Function returns all members who took their seats in the house between two given dates.
-#' @param start_date The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.
-#' @param end_date The end date of the search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current date.
+#' @param start_date The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with `as.Date()`. Defaults to '1900-01-01'.
+#' @param end_date The end date of the search. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with `as.Date()`. Defaults to the current date.
 #' @param house The house to which the member belongs. Accepts one of 'all', 'lords' and 'commons', defaults to 'all'.
 #' @param party The party to which a member belongs. Defaults to NULL.
 #' @param eligible If the member is currently eligible to sit. Accepts one of 'all', 'current', 'former', defaults to 'all'.
-#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to \code{TRUE}.
-#' @param tidy_style The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
+#' @param tidy Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to `TRUE`.
+#' @param tidy_style The style to convert variable names to, if `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
 #' @keywords mnis
 #' @export
 #' @examples \dontrun{

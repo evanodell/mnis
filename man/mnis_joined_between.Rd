@@ -4,9 +4,15 @@
 \alias{mnis_joined_between}
 \title{Function returns all members who took their seats in the house between two given dates.}
 \usage{
-mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
-  house = "all", party = NULL, eligible = "all", tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_joined_between(
+  start_date = "1900-01-01",
+  end_date = Sys.Date(),
+  house = "all",
+  party = NULL,
+  eligible = "all",
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{start_date}{The start date of the search, Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to '1900-01-01'.}
@@ -21,7 +27,7 @@ mnis_joined_between(start_date = "1900-01-01", end_date = Sys.Date(),
 
 \item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \description{
 Function returns all members who took their seats in the house between two given dates.

@@ -6,13 +6,13 @@
 #' found here: http://data.parliament.uk/membersdataplatform/default.aspx.
 #'
 #' The package includes a built in function to remove a byte-order mark from
-#' the API data, and a parameter \code{tidy} with each function that converts
+#' the API data, and a parameter `tidy` with each function that converts
 #' variable names into an R friendly style, removing non-alphanumeric
-#' characters and converting to snake_case when equal to \code{TRUE},
+#' characters and converting to snake_case when equal to `TRUE`,
 #' its default value.
 #'
 #' All functions requests data in JSON format and parse it to a tibble. The
-#' exception is \code{\link{mnis_constituency_results}} which returns a
+#' exception is [mnis_constituency_results()] which returns a
 #' single object containing a list (with constituency details) and a
 #' tibble (with election results).
 #'
@@ -23,33 +23,33 @@
 #'
 #' @section mnis functions:
 #'
-#' \code{\link{mnis_additional}}
+#' [mnis_additional()]
 #'
-#' \code{\link{mnis_all_members}}
+#' [mnis_all_members()]
 #'
-#' \code{\link{mnis_base}}
+#' [mnis_base()]
 #'
-#' \code{\link{mnis_constituency_results}}
+#' [mnis_constituency_results()]
 #'
-#' \code{\link{mnis_department}}
+#' [mnis_department()]
 #'
-#' \code{\link{mnis_eligible}}
+#' [mnis_eligible()]
 #'
-#' \code{\link{mnis_extra}}
+#' [mnis_extra()]
 #'
-#' \code{\link{mnis_full_biog}}
+#' [mnis_full_biog()]
 #'
-#' \code{\link{mnis_general_election_results}}
+#' [mnis_general_election_results()]
 #'
-#' \code{\link{mnis_joined_between}}
+#' [mnis_joined_between()]
 #'
-#' \code{\link{mnis_lords_type}}
+#' [mnis_lords_type()]
 #'
-#' \code{\link{mnis_member_date}}
+#' [mnis_member_date()]
 #'
-#' \code{\link{mnis_party_state}}
+#' [mnis_party_state()]
 #'
-#' \code{\link{mnis_reference}}
+#' [mnis_reference()]
 #'
 #' @docType package
 #' @name mnis
@@ -59,6 +59,8 @@
 #' @import dplyr
 #' @import tibble
 #' @import stringi
+#' @importFrom janitor make_clean_names
+#' @importFrom purrr discard
 #' @useDynLib mnis, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
 NULL

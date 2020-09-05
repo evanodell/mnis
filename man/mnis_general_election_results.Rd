@@ -2,14 +2,23 @@
 % Please edit documentation in R/mnis_general_election_results.R
 \name{mnis_general_election_results}
 \alias{mnis_general_election_results}
-\title{Returns an object containing list with details of the search parameter and a tibble with election results. Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.}
+\title{Returns an object containing list with details of the search parameter and
+a tibble with election results. Accepts queries on location type and name,
+and the start and end date to return general elections between. The API does
+not contain data for Norther Ireland.}
 \usage{
-mnis_general_election_results(location_type = "Country",
-  location_name = "Great Britain", start_date = "1900-01-01",
-  end_date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case")
+mnis_general_election_results(
+  location_type = "Country",
+  location_name = "Great Britain",
+  start_date = "1900-01-01",
+  end_date = Sys.Date(),
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
-\item{location_type}{The type of area to return information for. Accepts 'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}
+\item{location_type}{The type of area to return information for. Accepts
+'Country', 'Region', 'County', and 'Constituency'. Defaults to 'Country'.}
 
 \item{location_name}{The location to return data for. It can be the name of any Country, Region, County or Constituency. Defaults to 'Great Britain'.}
 
@@ -19,13 +28,16 @@ mnis_general_election_results(location_type = "Country",
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 Returns a list with details of the search parameter and a tibble with election results.
 }
 \description{
-Returns an object containing list with details of the search parameter and a tibble with election results. Accepts queries on location type and name, and the start and end date to return general elections between. The API does not contain data for Norther Ireland.
+Returns an object containing list with details of the search parameter and
+a tibble with election results. Accepts queries on location type and name,
+and the start and end date to return general elections between. The API does
+not contain data for Norther Ireland.
 }
 \examples{
 \dontrun{
@@ -34,6 +46,6 @@ x <- mnis_general_election_results(location_type = 'Country', location_name = 'E
 }
 }
 \seealso{
-\code{\link{mnis_reference}}
+\code{\link[=mnis_reference]{mnis_reference()}}
 }
 \keyword{mnis}

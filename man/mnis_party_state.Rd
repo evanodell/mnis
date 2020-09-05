@@ -4,8 +4,12 @@
 \alias{mnis_party_state}
 \title{A tibble with information on the numbers and gender of MPs, by party, for the given date.}
 \usage{
-mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_party_state(
+  house = "Commons",
+  date = Sys.Date(),
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{house}{The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.}
@@ -14,7 +18,7 @@ mnis_party_state(house = "Commons", date = Sys.Date(), tidy = TRUE,
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
 A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.
@@ -30,6 +34,6 @@ x <- mnis_party_state('2012-01-12')
 }
 }
 \seealso{
-\code{\link{mnis_mps_on_date}} \code{\link{mnis_peers_on_date}}
+\code{\link[=mnis_mps_on_date]{mnis_mps_on_date()}} \code{\link[=mnis_peers_on_date]{mnis_peers_on_date()}}
 }
 \keyword{mnis}

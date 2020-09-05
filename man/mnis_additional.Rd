@@ -22,84 +22,172 @@
 \alias{mnis_parliamentary_posts}
 \alias{mnis_parties}
 \alias{mnis_preferred_names}
-\title{A series of basic function for the API lookup. Each function accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.}
+\title{A series of basic function for the API lookup. Each function accepts a
+member's ID and returns information; if no ID is given basic information
+on all members of both houses is returned.}
 \usage{
 mnis_additional()
 
-mnis_basic_details(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_basic_details(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_biography_entries(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_biography_entries(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_committees(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_committees(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_addresses(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_addresses(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_constituencies(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_constituencies(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_elections_contested(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_elections_contested(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_experiences(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_experiences(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_government_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_government_posts(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_honours(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_honours(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_house_memberships(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_house_memberships(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_statuses(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_statuses(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_staff(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_staff(ID = NULL, ref_dods = FALSE, tidy = TRUE, tidy_style = "snake_case")
 
-mnis_interests(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_interests(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_known_as(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_known_as(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_maiden_speeches(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_maiden_speeches(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_opposition_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_opposition_posts(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_other_parliaments(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_other_parliaments(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_parliamentary_posts(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_parliamentary_posts(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_parties(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_parties(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 
-mnis_preferred_names(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_preferred_names(
+  ID = NULL,
+  ref_dods = FALSE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
-\item{ID}{The member ID value. If empty, function calls \code{\link{mnis_all_members}} and returns basic information on all members of both houses.}
+\item{ID}{The member ID value. If empty, function calls
+\code{\link[=mnis_all_members]{mnis_all_members()}} and returns basic information on all
+members of both houses.}
 
-\item{ref_dods}{Request based on the DODS membership ID scheme. Defaults to FALSE, where it requests data based on the default membership ID scheme.}
+\item{ref_dods}{Request based on the DODS membership ID scheme.
+Defaults to \code{FALSE}, where it requests data based on the default
+membership ID scheme.}
 
-\item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
+"period.case". Defaults to "snake_case".}
 }
 \value{
-A tibble with the data corresponding to the particular function called.
+A tibble with the data corresponding to the particular function
+called.
 }
 \description{
-A series of basic function for the API lookup. Each function accepts a member's ID and returns information; if no ID is given basic information on all members of both houses is returned.
+A series of basic function for the API lookup. Each function accepts a
+member's ID and returns information; if no ID is given basic information
+on all members of both houses is returned.
 }
 \examples{
 \dontrun{
@@ -114,6 +202,6 @@ x <- mnis_additional()
 }
 }
 \seealso{
-\code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
+\code{\link[=mnis_full_biog]{mnis_full_biog()}} \code{\link[=mnis_extra]{mnis_extra()}}
 }
 \keyword{mnis}

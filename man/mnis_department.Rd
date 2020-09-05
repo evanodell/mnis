@@ -2,10 +2,15 @@
 % Please edit documentation in R/mnis_department.R
 \name{mnis_department}
 \alias{mnis_department}
-\title{Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{mnis_reference}} for the \code{ref_department} function to retrieve departmental IDs).}
+\title{Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link[=mnis_reference]{mnis_reference()}} for the \code{ref_department} function to retrieve departmental IDs).}
 \usage{
-mnis_department(department_id = 0, bench = "Government",
-  former = TRUE, tidy = TRUE, tidy_style = "snake_case")
+mnis_department(
+  department_id = 0,
+  bench = "Government",
+  former = TRUE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.}
@@ -16,13 +21,13 @@ mnis_department(department_id = 0, bench = "Government",
 
 \item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
 A tibble with information on departments and ministers/shadow ministers.
 }
 \description{
-Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link{mnis_reference}} for the \code{ref_department} function to retrieve departmental IDs).
+Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link[=mnis_reference]{mnis_reference()}} for the \code{ref_department} function to retrieve departmental IDs).
 }
 \examples{
 \dontrun{
@@ -33,6 +38,6 @@ x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
 
 }
 \seealso{
-\code{\link{mnis_reference}}
+\code{\link[=mnis_reference]{mnis_reference()}}
 }
 \keyword{mnis}

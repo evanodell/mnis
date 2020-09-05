@@ -3,16 +3,16 @@
 #' member's ID and returns information; if no ID is given basic information
 #' on all members of both houses is returned.
 #' @param ID The member ID value. If empty, function calls
-#' \code{\link{mnis_all_members}} and returns basic information on all
+#' [mnis_all_members()] and returns basic information on all
 #' members of both houses.
 #' @param ref_dods Request based on the DODS membership ID scheme.
-#' Defaults to \code{FALSE}, where it requests data based on the default
+#' Defaults to `FALSE`, where it requests data based on the default
 #' membership ID scheme.
-#' @param tidy If \code{TRUE}, fixes the variable names in the tibble to
+#' @param tidy If `TRUE`, fixes the variable names in the tibble to
 #' remove non-alphanumeric characters and superfluous text, and convert to
-#' a consistent style. Defaults to \code{TRUE}.
+#' a consistent style. Defaults to `TRUE`.
 #' @param tidy_style The style to convert variable names to, if
-#' \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
+#' `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and
 #' "period.case". Defaults to "snake_case".
 #' @keywords mnis
 #' @return A tibble with the data corresponding to the particular function
@@ -24,10 +24,8 @@
 #' }
 #' @export
 #' @rdname mnis_additional
-#' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_extra}}
+#' @seealso [mnis_full_biog()] [mnis_extra()]
 #'
-#' @export
-#' @rdname mnis_additional
 #' @examples \dontrun{
 #'
 #' x <- mnis_additional()

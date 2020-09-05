@@ -4,8 +4,12 @@
 \alias{mnis_peers_on_date}
 \title{A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.}
 \usage{
-mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_peers_on_date(
+  date1 = Sys.Date(),
+  date2 = NULL,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{date1}{The date to return the list of peers from. Defaults to current system date. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}.}
@@ -14,7 +18,7 @@ mnis_peers_on_date(date1 = Sys.Date(), date2 = NULL, tidy = TRUE,
 
 \item{tidy}{Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
 }
 \value{
 A tibble with information on all Peers who were members of the House of Lords on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.
@@ -30,5 +34,5 @@ x <- mnis_peers_on_date("2017-01-01")
 }
 }
 \seealso{
-\code{\link{mnis_party_state}} \code{\link{mnis_peers_on_date}}
+\code{\link[=mnis_party_state]{mnis_party_state()}} \code{\link[=mnis_peers_on_date]{mnis_peers_on_date()}}
 }

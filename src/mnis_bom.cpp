@@ -1,6 +1,8 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+
+
 // mnis_bom
 //' Strip out BOM from JSON data
 //'

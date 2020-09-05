@@ -2,17 +2,33 @@
 % Please edit documentation in R/mnis_extra.R
 \name{mnis_extra}
 \alias{mnis_extra}
-\title{A wrapper for \code{\link{mnis_additional}} functions.}
+\title{A wrapper for \code{\link[=mnis_additional]{mnis_additional()}} functions.}
 \usage{
-mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
-  biography_entries = TRUE, committees = TRUE, constituencies = TRUE,
-  elections_contested = TRUE, experiences = TRUE,
-  government_posts = TRUE, honours = TRUE, house_memberships = TRUE,
-  interests = TRUE, known_as = TRUE, maiden_speeches = TRUE,
-  opposition_posts = TRUE, other_parliaments = TRUE,
-  parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE,
-  staff = TRUE, statuses = TRUE, tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_extra(
+  ID,
+  ref_dods = FALSE,
+  addresses = TRUE,
+  biography_entries = TRUE,
+  committees = TRUE,
+  constituencies = TRUE,
+  elections_contested = TRUE,
+  experiences = TRUE,
+  government_posts = TRUE,
+  honours = TRUE,
+  house_memberships = TRUE,
+  interests = TRUE,
+  known_as = TRUE,
+  maiden_speeches = TRUE,
+  opposition_posts = TRUE,
+  other_parliaments = TRUE,
+  parliamentary_posts = TRUE,
+  parties = TRUE,
+  preferred_names = TRUE,
+  staff = TRUE,
+  statuses = TRUE,
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{ID}{The ID number of the member. Defaults to NULL. If NULL, returns}
@@ -59,13 +75,13 @@ mnis_extra(ID, ref_dods = FALSE, addresses = TRUE,
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 A tibble with the requested data on a given MP.
 }
 \description{
-It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
+It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link[=mnis_full_biog]{mnis_full_biog()}}. Variable descriptions are taken from the mnis website: \url{http://data.parliament.uk/membersdataplatform/memberquery.aspx}.
 }
 \examples{
 \dontrun{
@@ -75,6 +91,6 @@ x <- mnis_extra(172)
 }
 }
 \seealso{
-\code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+\code{\link[=mnis_full_biog]{mnis_full_biog()}} \code{\link[=mnis_basic_details]{mnis_basic_details()}} \code{\link[=mnis_additional]{mnis_additional()}}
 }
 \keyword{mnis}

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calls the API to return a tibble with details on the number of Lords and their affiliations. — mnis_lords_type • mnis</title>
+<title>A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes. — date_tidy • mnis</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Calls the API to return a tibble with details on the number of Lords and their affiliations. — mnis_lords_type" />
-<meta property="og:description" content="Calls the API to return a tibble with details on the number of Lords and their affiliations." />
+<meta property="og:title" content="A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes. — date_tidy" />
+<meta property="og:description" content="A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes." />
 
 
 
@@ -161,47 +161,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Calls the API to return a tibble with details on the number of Lords and their affiliations.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/mnis/blob/master/R/mnis_lords_type.R'><code>R/mnis_lords_type.R</code></a></small>
-    <div class="hidden name"><code>mnis_lords_type.Rd</code></div>
+    <h1>A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/EvanOdell/mnis/blob/master/R/mnis_tidy.R'><code>R/mnis_tidy.R</code></a></small>
+    <div class="hidden name"><code>date_tidy.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Calls the API to return a tibble with details on the number of Lords and their affiliations.</p>
+    <p>A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mnis_lords_type</span>(<span class='kw'>date</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>(), <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)</pre>
+    <pre class="usage"><span class='fu'>date_tidy</span>(<span class='no'>df</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>date</th>
-      <td><p>Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>. The API will return data on the state of the House of Lords on that date. Defaults to the current system date.</p></td>
-    </tr>
-    <tr>
-      <th>tidy</th>
-      <td><p>If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to <code>TRUE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>tidy_style</th>
-      <td><p>The style to convert variable names to, if <code>tidy=TRUE</code>. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".</p></td>
+      <th>df</th>
+      <td><p>The tibble with the undateable dates.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble with information on the numbers of different types of Lords on a given date.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='mnis_reference.html'>mnis_reference</a></code></p></div>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>mnis_lords_type</span>()
-
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

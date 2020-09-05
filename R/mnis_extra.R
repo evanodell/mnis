@@ -1,32 +1,32 @@
 
 
-#' A wrapper for \code{\link{mnis_additional}} functions.
+#' A wrapper for [mnis_additional()] functions.
 #'
-#' It combines the various options of mnis_additional into one dataframe, and the default is similar to \code{\link{mnis_full_biog}}. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
+#' It combines the various options of mnis_additional into one dataframe, and the default is similar to [mnis_full_biog()]. Variable descriptions are taken from the mnis website: <http://data.parliament.uk/membersdataplatform/memberquery.aspx>.
 #'
 #' @param ID The ID number of the member. Defaults to NULL. If NULL, returns
 #' @param ref_dods Request based on the DODS membership ID scheme. Defaults to FALSE. If FALSE, requests data based on the default membership ID scheme.
-#' @param addresses Member address information (e.g. website, twitter, consituency address etc...). Defaults to \code{TRUE}. If TRUE, address details are included in the tibble.
-#' @param biography_entries Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to \code{TRUE}. If TRUE, biographical details are included in the tibble.
-#' @param committees Committees a Member sits or has sat on as well details on committee chairing. Defaults to \code{TRUE}. If TRUE, committee details are included in the tibble.
-#' @param constituencies constituencies a Member has represented. Defaults to \code{TRUE}. If TRUE, constituency details are included in the tibble.
-#' @param elections_contested Elections a Member has contested but not won. Defaults to \code{TRUE}. If TRUE, details of unsuccessful election contests are included in the tibble.
-#' @param experiences Non-parliamentary experience of a Member. Defaults to \code{TRUE}. If TRUE, extra-parliamentary experience details are included in the tibble.
-#' @param government_posts Government posts a Member currently holds. Defaults to \code{TRUE}. If TRUE, government posts details are included in the tibble.
-#' @param honours Honours (e.g. MBE, OBE etc...) held by a Member. Defaults to \code{TRUE}. If TRUE, honours details are included in the tibble.
-#' @param house_memberships House membership list of a Member. Defaults to \code{TRUE}. If TRUE, house membership details are included in the tibble.
-#' @param interests Registered interests (financial) of a Member. Defaults to \code{TRUE}. If TRUE, interest details are included in the tibble.
-#' @param known_as Details of names a Member has chosen to be known as instead of their full title (House of Lords members only). Defaults to \code{TRUE}. If TRUE, known as details are included in the tibble.
-#' @param maiden_speeches Maiden speech dates for a Member. Defaults to \code{TRUE}. If TRUE, maiden speech details are included in the tibble.
-#' @param opposition_posts Opposition posts a Member has held. Defaults to \code{TRUE}. If TRUE, opposition post details are included in the tibble.
-#' @param other_parliaments Other Parliaments that a Member has held a membership of. Defaults to \code{TRUE}. If TRUE, details of other parliaments are included in the tibble.
-#' @param parliamentary_posts Parliamentary posts a Member has held. Defaults to \code{TRUE}. If TRUE, parliamentary posts details are included in the tibble.
-#' @param parties Party affiliations of a Member. Defaults to \code{TRUE}. If TRUE, address details are included in the tibble.
-#' @param preferred_names Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...). Defaults to \code{TRUE}. If TRUE, preferred names details are included in the tibble.
-#' @param staff The staff employed by a Member. Defaults to \code{TRUE}. If TRUE, staff details are included in the tibble.
-#' @param statuses Status history (e.g. suspensions and disqualifications) for a Member. Defaults to \code{TRUE}. If TRUE, status details are included in the tibble.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.
-#' @param tidy_style The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
+#' @param addresses Member address information (e.g. website, twitter, consituency address etc...). Defaults to `TRUE`. If TRUE, address details are included in the tibble.
+#' @param biography_entries Member biographical information (e.g. countries of interest, policy expertise etc...) Defaults to `TRUE`. If TRUE, biographical details are included in the tibble.
+#' @param committees Committees a Member sits or has sat on as well details on committee chairing. Defaults to `TRUE`. If TRUE, committee details are included in the tibble.
+#' @param constituencies constituencies a Member has represented. Defaults to `TRUE`. If TRUE, constituency details are included in the tibble.
+#' @param elections_contested Elections a Member has contested but not won. Defaults to `TRUE`. If TRUE, details of unsuccessful election contests are included in the tibble.
+#' @param experiences Non-parliamentary experience of a Member. Defaults to `TRUE`. If TRUE, extra-parliamentary experience details are included in the tibble.
+#' @param government_posts Government posts a Member currently holds. Defaults to `TRUE`. If TRUE, government posts details are included in the tibble.
+#' @param honours Honours (e.g. MBE, OBE etc...) held by a Member. Defaults to `TRUE`. If TRUE, honours details are included in the tibble.
+#' @param house_memberships House membership list of a Member. Defaults to `TRUE`. If TRUE, house membership details are included in the tibble.
+#' @param interests Registered interests (financial) of a Member. Defaults to `TRUE`. If TRUE, interest details are included in the tibble.
+#' @param known_as Details of names a Member has chosen to be known as instead of their full title (House of Lords members only). Defaults to `TRUE`. If TRUE, known as details are included in the tibble.
+#' @param maiden_speeches Maiden speech dates for a Member. Defaults to `TRUE`. If TRUE, maiden speech details are included in the tibble.
+#' @param opposition_posts Opposition posts a Member has held. Defaults to `TRUE`. If TRUE, opposition post details are included in the tibble.
+#' @param other_parliaments Other Parliaments that a Member has held a membership of. Defaults to `TRUE`. If TRUE, details of other parliaments are included in the tibble.
+#' @param parliamentary_posts Parliamentary posts a Member has held. Defaults to `TRUE`. If TRUE, parliamentary posts details are included in the tibble.
+#' @param parties Party affiliations of a Member. Defaults to `TRUE`. If TRUE, address details are included in the tibble.
+#' @param preferred_names Full set of data about a Members' name (e.g. surname, forename, Honorary prefixes, full details of HoL title and rank etc...). Defaults to `TRUE`. If TRUE, preferred names details are included in the tibble.
+#' @param staff The staff employed by a Member. Defaults to `TRUE`. If TRUE, staff details are included in the tibble.
+#' @param statuses Status history (e.g. suspensions and disqualifications) for a Member. Defaults to `TRUE`. If TRUE, status details are included in the tibble.
+#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to `TRUE`.
+#' @param tidy_style The style to convert variable names to, if `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"
 #' @keywords mnis
 #' @return A tibble with the requested data on a given MP.
 #' @examples \dontrun{
@@ -36,7 +36,7 @@
 #' }
 #' @export
 #' @rdname mnis_extra
-#' @seealso \code{\link{mnis_full_biog}} \code{\link{mnis_basic_details}} \code{\link{mnis_additional}}
+#' @seealso [mnis_full_biog()] [mnis_basic_details()] [mnis_additional()]
 
 mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE, biography_entries = TRUE, committees = TRUE, constituencies = TRUE, elections_contested = TRUE, experiences = TRUE, government_posts = TRUE, honours = TRUE, house_memberships = TRUE, interests = TRUE, known_as = TRUE, maiden_speeches = TRUE, opposition_posts = TRUE, other_parliaments = TRUE, parliamentary_posts = TRUE, parties = TRUE, preferred_names = TRUE, staff = TRUE, statuses = TRUE, tidy = TRUE, tidy_style = "snake_case") {
   ID <- as.character(ID)

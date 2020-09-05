@@ -1,7 +1,7 @@
 Package: mnis
 Type: Package
 Title: Easy Downloading Capabilities for the Members' Name Information Service
-Version: 0.2.7.9000
+Version: 0.3.0
 Authors@R: person("Evan Odell", 
     email="evanodell91@gmail.com", 
     role=c("aut", "cre"))
@@ -21,10 +21,13 @@ Imports:
     dplyr,
     tibble,
     stringi,
-    Rcpp (>= 0.12.10)
-RoxygenNote: 6.1.0
+    Rcpp,
+    janitor,
+    purrr
+RoxygenNote: 7.1.1
 Suggests: knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
 Encoding: UTF-8
+Roxygen: list(markdown = TRUE)

@@ -4,8 +4,12 @@
 \alias{mnis_member_date}
 \title{Returns a tibble with a member's status on a given date.}
 \usage{
-mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
-  tidy_style = "snake_case")
+mnis_member_date(
+  ID = NULL,
+  date = Sys.Date(),
+  tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 \arguments{
 \item{ID}{The ID of the member. Currently this only accepts IDs from the default membership ID scheme. If empty, the function stops and no data is returned.}
@@ -14,7 +18,7 @@ mnis_member_date(ID = NULL, date = Sys.Date(), tidy = TRUE,
 
 \item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if tidy=TRUE. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
+\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case"}
 }
 \value{
 Returns a tibble with the given member's status on the given date.
@@ -30,6 +34,6 @@ x <- mnis_member_date(172)
 }
 }
 \seealso{
-\code{\link{mnis_mps_on_date}}
+\code{\link[=mnis_mps_on_date]{mnis_mps_on_date()}}
 }
 \keyword{mnis}
