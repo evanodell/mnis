@@ -120,4 +120,5 @@ test_that("mnis_additional returns expected format", {
   expect_type(xpn, "list")
   expect_true(tibble::is_tibble(xpn))
   expect_true(nrow(xpn) == 1)
+
 })

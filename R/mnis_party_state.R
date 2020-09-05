@@ -1,24 +1,32 @@
 
-
-#' A tibble with information on the numbers and gender of MPs, by party, for the given date.
-#' @param house The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.
-#' @param date Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with `as.Date()`. Defaults to the current system date.
-#' @param tidy Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to `TRUE`.
-#' @param tidy_style The style to convert variable names to, if `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".
-#' @return A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.
-#' @keywords mnis
-#' @seealso [mnis_mps_on_date()] [mnis_peers_on_date()]
+#' Party standing on a given date
+#'
+#' Returns data on the numbers and gender of MPs, by party, for the given
+#' date, in either the House of Commons or the House of Lords.
+#' @param house The house of parliament. Accepts either `'Lords'` or
+#' `'Commons'`. This parameter is not case sensitive, so both
+#' `'lords'` and `'Lords'` return the same result.
+#' Defaults to `'Commons'`.
+#' @param date The date to query party standing on. Accepts character values
+#' in `'YYYY-MM-DD'` format, and objects of class `Date`,
+#' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can
+#' be coerced to a date with `as.Date()`.
+#' Defaults to the current system date.
+#' @inheritParams mnis_additional
+#' @return A tibble with information on the total numbers and gender of
+#' MPs, by party, for the given date and house.
+#' @seealso [mnis_mps_on_date()]
+#' @seealso [mnis_peers_on_date()]
 #' @export
-#' @examples \dontrun{
-#'
-#' x <- mnis_party_state('2012-01-12')
-#'
+#' @examples
+#' \dontrun{
+#' x <- mnis_party_state("2012-01-12")
 #' }
+#'
+mnis_party_state <- function(house = "Commons", date = Sys.Date(),
+                             tidy = TRUE, tidy_style = "snake_case") {
 
-mnis_party_state <- function(house = "Commons", date = Sys.Date(), tidy = TRUE, tidy_style = "snake_case") {
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/"
-
-  query <- paste0(baseurl, house, "/", date, "/")
+  query <- paste0("http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/", "houseOverview/", house, "/", date, "/")
 
   got <- httr::GET(query, httr::accept_json())
 

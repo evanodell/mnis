@@ -26,6 +26,7 @@ The package is available on CRAN. To install from CRAN run:
 install.packages("mnis")
 ```
 
+<<<<<<< HEAD
 Or, if using the [`pacman`](https://CRAN.R-project.org/package=pacman) package:
 
 
@@ -34,6 +35,8 @@ pacman::p_load(mnis)
 ```
 
 
+=======
+>>>>>>> d69faae026f5de73933256c2acc4b29740d5157c
 The most recent version on GitHub can be installed by running:
 
 
@@ -42,7 +45,12 @@ install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")
 ```
 
+<<<<<<< HEAD
 The most up to date documentation for the development version will always be available at https://docs.evanodell.com/mnis/
+=======
+The most up to date documentation for the development version will
+always be available at <https://docs.evanodell.com/mnis/>.
+>>>>>>> d69faae026f5de73933256c2acc4b29740d5157c
 
 For an introduction to `mnis`, the vignette `vignette("introduction", package = "mnis")` is the best place to start. If you are unfamiliar with APIs https://zapier.com/learn/apis/ is a helpful introduction.
 

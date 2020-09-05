@@ -2,7 +2,9 @@
 % Please edit documentation in R/mnis_department.R
 \name{mnis_department}
 \alias{mnis_department}
-\title{Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link[=mnis_reference]{mnis_reference()}} for the \code{ref_department} function to retrieve departmental IDs).}
+\title{Request the holders of posts in specific departments by department ID
+(see \code{\link[=mnis_reference]{mnis_reference()}}), or all current and former
+minister/shadow minister positions.}
 \usage{
 mnis_department(
   department_id = 0,
@@ -13,31 +15,44 @@ mnis_department(
 )
 }
 \arguments{
-\item{department_id}{The department look up. 0 returns the cabinet/shadow cabinet, -1 returns a list of all ministers. Defaults to 0.}
+\item{department_id}{The department to look up. \code{0} returns the
+cabinet/shadow cabinet, \code{-1} returns a list of all ministers.
+For departmental IDs, see the \code{ref_departments} function in
+\code{\link[=mnis_reference]{mnis_reference()}}.
+Defaults to \code{0}.}
 
-\item{bench}{Flag to return either Government or Opposition information. Defaults to 'Government'. The API is case sensitive on this parameter, so 'Government' or 'Opposition' will work, but 'government' and 'opposition' will not.}
+\item{bench}{Flag to return either Government or Opposition information.
+This parameter is case insensitive, so both \code{'Opposition'} and
+\code{'opposition'} will return the same data.
+Defaults to \code{'Government'}.}
 
-\item{former}{Flag to include both current and former ministers/shadow ministers. Defaults to \code{TRUE}. If FALSE, only includes current ministers/shadow ministers.}
+\item{former}{Logical parameter to include both current and
+former ministers/shadow ministers. If \code{FALSE}, only includes
+current ministers/shadow ministers. Defaults to \code{TRUE}.}
 
-\item{tidy}{If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
+"period.case". Defaults to "snake_case".}
 }
 \value{
-A tibble with information on departments and ministers/shadow ministers.
+A tibble with information on departments and
+ministers/shadow ministers.
 }
 \description{
-Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see \code{\link[=mnis_reference]{mnis_reference()}} for the \code{ref_department} function to retrieve departmental IDs).
+Request the holders of posts in specific departments by department ID
+(see \code{\link[=mnis_reference]{mnis_reference()}}), or all current and former
+minister/shadow minister positions.
 }
 \examples{
 \dontrun{
-
-x <- mnis_department(department_id = 0, bench = 'Government', former=TRUE)
-
+x <- mnis_department(department_id = 0, bench = "Government", former = TRUE)
 }
 
 }
 \seealso{
 \code{\link[=mnis_reference]{mnis_reference()}}
 }
-\keyword{mnis}

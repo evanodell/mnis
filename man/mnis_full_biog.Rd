@@ -23,11 +23,9 @@ scheme.}
 
 \item{tidy}{Fix the variable names in the tibble to remove non-alphanumeric
 characters and superfluous text, and convert variable names to a consistent
-style. Defaults to \code{TRUE}.}
+style. Defaults to \code{TRUE}. Currently does not work.}
 
-\item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
-"period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if}
 }
 \description{
 Requests all available biographical information for a given member, and
@@ -35,10 +33,11 @@ returns it in a list
 }
 \examples{
 \dontrun{
+df <- mnis_full_biog(172)
 
-x <- mnis_full_biog(172)
-
+df <- mnis_full_biog(500)
 }
+
 }
 \seealso{
 \code{\link[=mnis_basic_details]{mnis_basic_details()}}
@@ -47,4 +46,3 @@ x <- mnis_full_biog(172)
 
 \code{\link[=mnis_extra]{mnis_extra()}}
 }
-\keyword{mnis}

@@ -1,6 +1,47 @@
 # mnis 0.2.7.90000
 
+<<<<<<< HEAD
 Stops messing around with making very wide data frames and instead returns a list.
+=======
+# mnis 0.2.8.9000
+
+## Breaking changes
+
+Instead of returning some weirdly formatted tibbles, many functions now 
+return lists.
+
+
+# mnis 0.2.8
+
+## New Functions
+
+Introduction of new `mnis_political_interests()` function.
+
+## New Features
+
+`mnis_member_date()` and `mnis_full_biog()` now accept vectors of member IDs.
+
+## Bug fixes
+
+Changing approach of `mnis_full_biog()` to fix issue where some tibbles 
+lacked column names.
+
+## Documentation
+
+Improvements to documentation examples and layout.
+
+## Bug Fixes and Improvements
+
+`mnis_tidy()` and related functions are no longer exported.
+
+Fixed test error for `mnis_eligible()`, as the data returned by this function is too dynamic for some of the previously used tests to be effective.
+
+Case sensitivity has been removed from all parameters that were previously case sensitive.
+
+Variable styles now apply to dataframe names in `mnis_all_reference()`, and the function has been sped up slightly.
+
+Calls to the API using `httr` and `jsonlite` have been moved to generic or class-specific helper functions to reduce the total amount of code, make multi-function files easier to navigate and make any changes to the API easier to adjust to.
+>>>>>>> d69faae026f5de73933256c2acc4b29740d5157c
 
 
 # mnis 0.2.7

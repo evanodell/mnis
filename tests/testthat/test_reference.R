@@ -2,7 +2,12 @@
 library(mnis)
 context("reference")
 test_that("mnis_reference returns expected format", {
+<<<<<<< HEAD
   skip_on_cran()
+=======
+
+  # skip_on_cran()
+>>>>>>> d69faae026f5de73933256c2acc4b29740d5157c
 
   refallreferences <- mnis_all_reference()
   expect_length(refallreferences, 39)

@@ -20,6 +20,12 @@
 #' `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and
 #' "period.case". Defaults to "snake_case"
 #' @keywords mnis
+#' @param house The house to which the member belongs. Accepts one of
+#' `'all'`, `'lords'` and `'commons'`. This parameter
+#' is not case sensitive, so `'commons'`, `'Commons'` and
+#' `'cOmMOnS'` will all return the same data. Defaults to `'all'`.
+#' @param party The party to which a member belongs. If `NULL`, all
+#' members are returned, subject to other parameters. Defaults to `NULL`.
 #' @return A tibble with information on all members of the House of Commons
 #' and/or the House of Lords that meet the criteria included in the
 #' function parameters.
@@ -30,7 +36,14 @@
 #'                        tidy_style="snake_case")
 #' }
 #'
-
+#' @examples
+#' \dontrun{
+#' x <- mnis_all_members(
+#'   house = "all", party = NULL, tidy = TRUE,
+#'   tidy_style = "snake_case"
+#' )
+#' }
+#'
 mnis_all_members <- function(house = "all", party = NULL,
                              tidy = TRUE, tidy_style = "snake_case") {
   house <- tolower(house)

@@ -31,8 +31,10 @@
 #' }
 
 
-mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL, tidy = TRUE, tidy_style = "snake_case") {
-  if (is.na(pmatch(house, c("all", "lords", "commons")))) {
+mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
+                          tidy = TRUE, tidy_style = "snake_case") {
+
+    if (is.na(pmatch(house, c("all", "lords", "commons")))) {
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
   }
 

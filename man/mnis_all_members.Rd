@@ -12,16 +12,13 @@ mnis_all_members(
 )
 }
 \arguments{
-\item{house}{The house to which the member belongs. Accepts one of 'all',
-'lords' and 'commons', defaults to 'all'. This parameter is not case
-sensitive, so using 'commons', 'Commons' or 'cOmMOnS' will result in the
-same data being returned.}
+\item{house}{The house to which the member belongs. Accepts one of
+\code{'all'}, \code{'lords'} and \code{'commons'}. This parameter
+is not case sensitive, so \code{'commons'}, \code{'Commons'} and
+\code{'cOmMOnS'} will all return the same data. Defaults to \code{'all'}.}
 
-\item{party}{The party to which a member belongs. Defaults to NULL, in
-which case all members are returned, subject to other parameters. The party
-names are not case sensitive, but must be the complete string of the party
-name, searching and wildcard options are not accepted by the API, e.g.
-'green party'.}
+\item{party}{The party to which a member belongs. If \code{NULL}, all
+members are returned, subject to other parameters. Defaults to \code{NULL}.}
 
 \item{tidy}{Fix the variable names in the tibble to remove special
 characters and superfluous text, and converts the variable names to a
@@ -44,6 +41,13 @@ or a given house.
 \dontrun{
 x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE,
                        tidy_style="snake_case")
+}
+
+\dontrun{
+x <- mnis_all_members(
+  house = "all", party = NULL, tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 
 }

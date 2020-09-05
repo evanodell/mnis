@@ -14,23 +14,21 @@
 #'  characters and superfluous text, and convert variable names to a consistent
 #'   style. Defaults to `TRUE`. Currently does not work.
 #' @param tidy_style The style to convert variable names to, if
-#' `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and
-#' "period.case". Defaults to "snake_case". Currently does not work.
-#' @keywords mnis
-#' @export
-#' @examples \dontrun{
-#'
-#' x <- mnis_full_biog(172)
-#'
-#' }
 #' @seealso [mnis_basic_details()]
 #' @seealso [mnis_additional()]
-#' @seealso  [mnis_extra()]
-
-mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE,
-                           tidy_style = "snake_case") {
+#' @seealso [mnis_extra()]
+#' @export
+#' @examples
+#' \dontrun{
+#' df <- mnis_full_biog(172)
+#'
+#' df <- mnis_full_biog(500)
+#' }
+#'
+mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
+                           tidy = TRUE, tidy_style = "snake_case") {
   if (missing(ID)) {
-    x <- mnis_all_members()
+    mem <- mnis_all_members()
   } else {
     ID <- as.character(ID)
 
@@ -44,20 +42,9 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE, tidy = TRUE,
 
     query <- paste0(baseurl, ID_Type, ID, "/FullBiog")
 
-    got <- httr::GET(query, httr::accept_json())
-
-    if (httr::http_type(got) != "application/json") {
-      stop("API did not return json", call. = FALSE)
-    }
-
-    got <- mnis::tidy_bom(got)
-
-    got <- jsonlite::fromJSON(got, flatten = TRUE)
-
-    mem <- purrr::discard(got$Members$Member, is.null)
-
-    names(mem) <- janitor::make_clean_names(names(mem))
+    mem <- mnis_additional_utility(query)
 
   }
-    mem
+
+  mem
 }

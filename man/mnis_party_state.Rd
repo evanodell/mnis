@@ -2,7 +2,7 @@
 % Please edit documentation in R/mnis_party_state.R
 \name{mnis_party_state}
 \alias{mnis_party_state}
-\title{A tibble with information on the numbers and gender of MPs, by party, for the given date.}
+\title{Party standing on a given date}
 \usage{
 mnis_party_state(
   house = "Commons",
@@ -12,28 +12,41 @@ mnis_party_state(
 )
 }
 \arguments{
-\item{house}{The house of parliament. Accepts either 'Lords' or 'Commons'. Defaults to 'Commons'.}
+\item{house}{The house of parliament. Accepts either \code{'Lords'} or
+\code{'Commons'}. This parameter is not case sensitive, so both
+\code{'lords'} and \code{'Lords'} return the same result.
+Defaults to \code{'Commons'}.}
 
-\item{date}{Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with \code{as.Date()}. Defaults to the current system date.}
+\item{date}{The date to query party standing on. Accepts character values
+in \code{'YYYY-MM-DD'} format, and objects of class \code{Date},
+\code{POSIXt}, \code{POSIXct}, \code{POSIXlt} or anything else than can
+be coerced to a date with \code{as.Date()}.
+Defaults to the current system date.}
 
-\item{tidy}{Fix the variable names in the tibble to remove special characters and superfluous text, and converts the variable names to a consistent style. Defaults to \code{TRUE}.}
+\item{tidy}{If \code{TRUE}, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to \code{TRUE}.}
 
-\item{tidy_style}{The style to convert variable names to, if \code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".}
+\item{tidy_style}{The style to convert variable names to, if
+\code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
+"period.case". Defaults to "snake_case".}
 }
 \value{
-A tibble with information on the numbers and gender of MPs, by party, by party, for the given date.
+A tibble with information on the total numbers and gender of
+MPs, by party, for the given date and house.
 }
 \description{
-A tibble with information on the numbers and gender of MPs, by party, for the given date.
+Returns data on the numbers and gender of MPs, by party, for the given
+date, in either the House of Commons or the House of Lords.
 }
 \examples{
 \dontrun{
-
-x <- mnis_party_state('2012-01-12')
-
+x <- mnis_party_state("2012-01-12")
 }
+
 }
 \seealso{
-\code{\link[=mnis_mps_on_date]{mnis_mps_on_date()}} \code{\link[=mnis_peers_on_date]{mnis_peers_on_date()}}
+\code{\link[=mnis_mps_on_date]{mnis_mps_on_date()}}
+
+\code{\link[=mnis_peers_on_date]{mnis_peers_on_date()}}
 }
-\keyword{mnis}

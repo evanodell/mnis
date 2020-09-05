@@ -9,15 +9,16 @@
 #' @param tidy_style The style to convert variable names to, if
 #' `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and "period.case".
 #' Defaults to "snake_case".
+#' @export
+#'
 #' @seealso [mnis_reference()]
 #' @rdname mnis_all_reference
-#' @export
-#' @examples \dontrun{
-#'
+#' @examples
+#' \dontrun{
 #' z <- mnis_all_reference()
 #'
 #' }
-
+#'
 mnis_all_reference <- function(tidy = TRUE, tidy_style = "snake_case") {
   address_types <- ref_address_types(tidy = tidy, tidy_style = "snake_case")
 
