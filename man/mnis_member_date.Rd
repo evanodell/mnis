@@ -42,8 +42,8 @@ Returns a tibble with a member's status on a given date.
 \dontrun{
 
 x <- mnis_member_date(172)
-
 }
+
 }
 \seealso{
 \code{\link[=mnis_mps_on_date]{mnis_mps_on_date()}}

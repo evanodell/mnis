@@ -10,5 +10,4 @@ test_that("mnis_mps_on_date return expected format", {
   expect_type(xmpon, "list")
   expect_true(tibble::is_tibble(xmpon))
   expect_true(nrow(xmpon) == 649)
-
 })

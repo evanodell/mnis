@@ -33,8 +33,8 @@ also return the number of Lords and their affiliations on a given date.
 \examples{
 \dontrun{
 x <- mnis_lords_type()
-
 }
+
 }
 \seealso{
 \code{\link[=mnis_reference]{mnis_reference()}}

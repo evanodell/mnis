@@ -21,20 +21,18 @@
 #' Defaults to "snake_case"
 #' @keywords mnis
 #' @export
-#' @examples \dontrun{
-#' x <- mnis_eligible(eligible=FALSE, house='all', party='labour')
+#' @examples
+#' \dontrun{
+#' x <- mnis_eligible(eligible = FALSE, house = "all", party = "labour")
 #'
-#' x <- mnis_eligible(eligible=TRUE, house='all', party='green party')
+#' x <- mnis_eligible(eligible = TRUE, house = "all", party = "green party")
 #'
-#' x <- mnis_eligible(house="commons")
-#'
+#' x <- mnis_eligible(house = "commons")
 #' }
-
-
+#'
 mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
                           tidy = TRUE, tidy_style = "snake_case") {
-
-    if (is.na(pmatch(house, c("all", "lords", "commons")))) {
+  if (is.na(pmatch(house, c("all", "lords", "commons")))) {
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
   }
 

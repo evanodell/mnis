@@ -15,10 +15,8 @@
 #' @examples
 #' \dontrun{
 #' x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
-#'
 #' }
-
-
+#'
 mnis_constituency_results <- function(constituency_id = NULL, election_id = 0,
                                       tidy = TRUE, tidy_style = "snake_case") {
   if (missing(constituency_id)) {

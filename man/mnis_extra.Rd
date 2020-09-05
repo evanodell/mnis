@@ -131,8 +131,8 @@ descriptions are taken from the mnis website:
 \examples{
 \dontrun{
 x <- mnis_extra(172)
-
 }
+
 }
 \seealso{
 \code{\link[=mnis_full_biog]{mnis_full_biog()}}

@@ -27,7 +27,6 @@ respective reference function.
 \examples{
 \dontrun{
 z <- mnis_all_reference()
-
 }
 
 }

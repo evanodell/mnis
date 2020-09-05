@@ -17,9 +17,8 @@
 #' @examples
 #' \dontrun{
 #' x <- mnis_lords_type()
-#'
 #' }
-
+#'
 mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE,
                             tidy_style = "snake_case") {
   q_url <- paste0(base_url, "LordsByType/")

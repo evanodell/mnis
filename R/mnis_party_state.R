@@ -25,7 +25,6 @@
 #'
 mnis_party_state <- function(house = "Commons", date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
-
   query <- paste0("http://data.parliament.uk/membersdataplatform/services/mnis/houseOverview/", "houseOverview/", house, "/", date, "/")
 
   got <- httr::GET(query, httr::accept_json())

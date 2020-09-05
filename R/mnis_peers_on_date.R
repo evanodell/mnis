@@ -32,7 +32,6 @@
 #'
 mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                                tidy = TRUE, tidy_style = "snake_case") {
-
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Lords|Membership=all|lordsmemberbetween="
 
   q_url <- paste0(

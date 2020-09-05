@@ -38,6 +38,6 @@ with election results.
 \examples{
 \dontrun{
 x <- mnis_constituency_results(constituency_id = 3709, election_id = 0)
-
 }
+
 }

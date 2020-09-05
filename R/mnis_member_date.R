@@ -17,12 +17,12 @@
 #' @keywords mnis
 #' @export
 #' @seealso [mnis_mps_on_date()]
-#' @examples \dontrun{
+#' @examples
+#' \dontrun{
 #'
 #' x <- mnis_member_date(172)
-#'
 #' }
-
+#'
 mnis_member_date <- function(ID = NULL, date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
   if (missing(ID)) {

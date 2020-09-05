@@ -39,8 +39,10 @@ or a given house.
 }
 \examples{
 \dontrun{
-x <- mnis_all_members(house = 'all', party = NULL, tidy = TRUE,
-                       tidy_style="snake_case")
+x <- mnis_all_members(
+  house = "all", party = NULL, tidy = TRUE,
+  tidy_style = "snake_case"
+)
 }
 
 \dontrun{

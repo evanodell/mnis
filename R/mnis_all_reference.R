@@ -16,7 +16,6 @@
 #' @examples
 #' \dontrun{
 #' z <- mnis_all_reference()
-#'
 #' }
 #'
 mnis_all_reference <- function(tidy = TRUE, tidy_style = "snake_case") {

@@ -179,7 +179,7 @@ a consistent style. Defaults to \code{TRUE}.}
 "period.case". Defaults to "snake_case".}
 }
 \value{
-A tibble with the data corresponding to the particular function
+A list with the data corresponding to the particular function
 called.
 }
 \description{
@@ -202,7 +202,7 @@ countries of interest, policy expertise etc...)}
 \item{\code{mnis_committees}}{Committees a Member sits or has sat on as
 well details on committee chairing}
 \item{\code{mnis_addresses}}{Member address information (e.g. website,
-twitter, consituency address etc...)}
+twitter, constituency address etc...)}
 \item{\code{mnis_constituencies}}{Constituencies a Member has represented}
 \item{\code{mnis_elections_contested}}{Elections a Member has
 contested but not won}
@@ -232,11 +232,6 @@ details of House of Lords title and rank if applicable, etc...)}
 }
 
 \examples{
-\dontrun{
-
-x <- mnis_basic_details(172)
-
-}
 \dontrun{
 x <- mnis_basic_details(172)
 }

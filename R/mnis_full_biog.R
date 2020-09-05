@@ -43,7 +43,6 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
     query <- paste0(baseurl, ID_Type, ID, "/FullBiog")
 
     mem <- mnis_additional_utility(query)
-
   }
 
   mem

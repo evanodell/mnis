@@ -49,8 +49,7 @@ mnis_joined_between <- function(start_date = "1900-01-01",
     stop("Please select one of 'all', 'current' or 'former' for the parameter 'eligible'")
   }
 
-
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/joinedbetween="
+  baseurl <- paste0(base_url, "/members/query/joinedbetween=")
 
   start_date <- as.Date(start_date)
 

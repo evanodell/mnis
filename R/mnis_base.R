@@ -18,7 +18,6 @@
 #' }
 #'
 mnis_base <- function(request) {
-
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
 
   q_url <- paste0(base_url, "members/query/")
