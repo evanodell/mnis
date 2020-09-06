@@ -79,11 +79,9 @@ mnis_additional <- function() {
 #' @rdname mnis_additional
 mnis_basic_details <- function(ID = NULL, ref_dods = FALSE,
                                tidy = TRUE, tidy_style = "snake_case") {
-
   type <- "/BasicDetails"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -121,7 +119,6 @@ mnis_constituencies <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Constituencies"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 
@@ -132,7 +129,6 @@ mnis_elections_contested <- function(ID = NULL, ref_dods = FALSE,
   type <- "/ElectionsContested"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -142,7 +138,6 @@ mnis_experiences <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Experiences"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -152,7 +147,6 @@ mnis_government_posts <- function(ID = NULL, ref_dods = FALSE,
   type <- "/GovernmentPosts"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -162,7 +156,6 @@ mnis_honours <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Honours"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -172,7 +165,6 @@ mnis_house_memberships <- function(ID = NULL, ref_dods = FALSE,
   type <- "/HouseMemberships"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 
@@ -185,7 +177,6 @@ mnis_statuses <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Statuses"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -196,7 +187,6 @@ mnis_staff <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Staff"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -206,7 +196,6 @@ mnis_interests <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Interests"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -216,7 +205,6 @@ mnis_known_as <- function(ID = NULL, ref_dods = FALSE,
   type <- "/KnownAs"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -226,7 +214,6 @@ mnis_maiden_speeches <- function(ID = NULL, ref_dods = FALSE,
   type <- "/MaidenSpeeches"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -237,7 +224,6 @@ mnis_opposition_posts <- function(ID = NULL, ref_dods = FALSE,
   type <- "/OppositionPosts"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -248,7 +234,6 @@ mnis_other_parliaments <- function(ID = NULL, ref_dods = FALSE,
   type <- "/OtherParliaments"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 #' @export
 #' @rdname mnis_additional
@@ -257,7 +242,6 @@ mnis_parliamentary_posts <- function(ID = NULL, ref_dods = FALSE,
   type <- "/ParliamentaryPosts"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 
 #' @export
@@ -268,7 +252,6 @@ mnis_parties <- function(ID = NULL, ref_dods = FALSE,
   type <- "/Parties"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }
 #' @export
 #' @rdname mnis_additional
@@ -278,5 +261,4 @@ mnis_preferred_names <- function(ID = NULL, ref_dods = FALSE,
   type <- "/PreferredNames"
 
   mnis_additional_engine(ID, ref_dods, tidy, tidy_style, type)
-
 }

@@ -21,11 +21,9 @@
 #'
 mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE,
                             tidy_style = "snake_case") {
-  q_url <- paste0(base_url, "LordsByType/")
-
   date <- as.Date(date)
 
-  query <- paste0(baseurl, date, "/")
+  query <- paste0(base_url, "LordsByType/", date, "/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -41,9 +39,6 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE,
 
   if (tidy == TRUE) {
     x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-  } else {
-    x
   }
+    x
 }

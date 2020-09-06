@@ -1,14 +1,12 @@
-# mnis 0.2.7.90000
 
-<<<<<<< HEAD
-Stops messing around with making very wide data frames and instead returns a list.
-=======
 # mnis 0.2.8.9000
 
 ## Breaking changes
 
 Instead of returning some weirdly formatted tibbles, many functions now 
 return lists.
+
+mnis_extra is now defunct due to change towards using lists
 
 
 # mnis 0.2.8

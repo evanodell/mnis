@@ -1,83 +1,83 @@
 
-#'
-#' Extra function
-#'
-#' It combines the various options of mnis_additional into one dataframe,
-#' and the default is similar to [mnis_full_biog()]. Variable
-#' descriptions are taken from the mnis website:
-#' [http://data.parliament.uk/membersdataplatform/memberquery.aspx](http://data.parliament.uk/membersdataplatform/memberquery.aspx).
-#'
-#' @param ID The ID number of the member. If `NULL`, does not return any
-#' data. Defaults to `NULL`.
-#' @param ref_dods Request based on the DODS membership ID scheme.
-#' Defaults to `FALSE`. If `FALSE`, requests data based on the
-#' default membership ID scheme. Defaults to `TRUE`.
-#' @param addresses Member address information (e.g. website, twitter,
-#' consituency address etc...). If `TRUE`, address details are included
-#' in the tibble. Defaults to `TRUE`.
-#' @param biography_entries Member biographical information (e.g. countries
-#' of interest, policy expertise etc...) If `TRUE`, biographical
-#' details are included in the tibble. Defaults to `TRUE`.
-#' @param committees Committees a Member sits or has sat on as well
-#' details on committee chairing. If `TRUE`, committee details are
-#' included in the tibble. Defaults to `TRUE`.
-#' @param constituencies Constituencies a Member has represented.
-#' If `TRUE`, constituency details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @param elections_contested Elections a Member has contested but not won.
-#' If `TRUE`, details of unsuccessful election contests are included
-#' in the tibble. Defaults to `TRUE`.
-#' @param experiences Non-parliamentary experience of a Member. If
-#' `TRUE`, extra-parliamentary experience details are included in the
-#' tibble. Defaults to `TRUE`.
-#' @param government_posts Government posts a member has held. If
-#' `TRUE`, government posts details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @param honours Honours (e.g. MBE, OBE etc...) held by a Member.
-#' If `TRUE`, honours details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @param house_memberships House membership list of a Member.
-#' If `TRUE`, house membership details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @param interests Registered interests (financial) of a Member.
-#' If `TRUE`, interest details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @param known_as Details of names a Member has chosen to be known as instead
-#' of their full title (House of Lords members only). If `TRUE`, known as
-#' details are included in the tibble. Defaults to `TRUE`.
-#' @param maiden_speeches Maiden speech dates for a Member. If `TRUE`,
-#' maiden speech details are included in the tibble. Defaults to `TRUE`.
-#' @param opposition_posts Opposition posts a Member has held. If `TRUE`,
-#' opposition post details are included in the tibble. Defaults to `TRUE`.
-#' @param other_parliaments Other Parliaments that a Member has held a
-#' membership of. If `TRUE`, details of other parliaments are included
-#' in the tibble. Defaults to `TRUE`.
-#' @param parliamentary_posts Parliamentary posts a Member has held. If
-#' `TRUE`, parliamentary posts details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @param parties Party affiliations of a Member. If `TRUE`, party
-#' details are included in the tibble. Defaults to `TRUE`.
-#' @param preferred_names Full set of data about a Members' name (e.g.
-#' surname, forename, Honorary prefixes, full details of HoL title and
-#' rank etc...). If `TRUE`, preferred names details are included in the
-#' tibble. Defaults to `TRUE`.
-#' @param staff The staff employed by a Member. If `TRUE`, staff details
-#' are included in the tibble. Defaults to `TRUE`.
-#' @param statuses Status history (e.g. suspensions and disqualifications)
-#' for a Member. If `TRUE`, status details are included in the tibble.
-#' Defaults to `TRUE`.
-#' @inheritParams mnis_additional
-#' @return A list with named elements for all the requested data on a given MP.
-#' @export
-#' @rdname mnis_extra
-#' @seealso [mnis_full_biog()]
-#' @seealso [mnis_basic_details()]
-#' @seealso [mnis_additional()]
-#' @examples
-#' \dontrun{
-#' x <- mnis_extra(172)
-#' }
-#'
+
+# Extra function
+#
+# It combines the various options of mnis_additional into one dataframe,
+# and the default is similar to [mnis_full_biog()]. Variable
+# descriptions are taken from the mnis website:
+# [http://data.parliament.uk/membersdataplatform/memberquery.aspx](http://data.parliament.uk/membersdataplatform/memberquery.aspx).
+#
+# @param ID The ID number of the member. If `NULL`, does not return any
+# data. Defaults to `NULL`.
+# @param ref_dods Request based on the DODS membership ID scheme.
+# Defaults to `FALSE`. If `FALSE`, requests data based on the
+# default membership ID scheme. Defaults to `TRUE`.
+# @param addresses Member address information (e.g. website, twitter,
+# consituency address etc...). If `TRUE`, address details are included
+# in the tibble. Defaults to `TRUE`.
+# @param biography_entries Member biographical information (e.g. countries
+# of interest, policy expertise etc...) If `TRUE`, biographical
+# details are included in the tibble. Defaults to `TRUE`.
+# @param committees Committees a Member sits or has sat on as well
+# details on committee chairing. If `TRUE`, committee details are
+# included in the tibble. Defaults to `TRUE`.
+# @param constituencies Constituencies a Member has represented.
+# If `TRUE`, constituency details are included in the tibble.
+# Defaults to `TRUE`.
+# @param elections_contested Elections a Member has contested but not won.
+# If `TRUE`, details of unsuccessful election contests are included
+# in the tibble. Defaults to `TRUE`.
+# @param experiences Non-parliamentary experience of a Member. If
+# `TRUE`, extra-parliamentary experience details are included in the
+# tibble. Defaults to `TRUE`.
+# @param government_posts Government posts a member has held. If
+# `TRUE`, government posts details are included in the tibble.
+# Defaults to `TRUE`.
+# @param honours Honours (e.g. MBE, OBE etc...) held by a Member.
+# If `TRUE`, honours details are included in the tibble.
+# Defaults to `TRUE`.
+# @param house_memberships House membership list of a Member.
+# If `TRUE`, house membership details are included in the tibble.
+# Defaults to `TRUE`.
+# @param interests Registered interests (financial) of a Member.
+# If `TRUE`, interest details are included in the tibble.
+# Defaults to `TRUE`.
+# @param known_as Details of names a Member has chosen to be known as instead
+# of their full title (House of Lords members only). If `TRUE`, known as
+# details are included in the tibble. Defaults to `TRUE`.
+# @param maiden_speeches Maiden speech dates for a Member. If `TRUE`,
+# maiden speech details are included in the tibble. Defaults to `TRUE`.
+# @param opposition_posts Opposition posts a Member has held. If `TRUE`,
+# opposition post details are included in the tibble. Defaults to `TRUE`.
+# @param other_parliaments Other Parliaments that a Member has held a
+# membership of. If `TRUE`, details of other parliaments are included
+# in the tibble. Defaults to `TRUE`.
+# @param parliamentary_posts Parliamentary posts a Member has held. If
+# `TRUE`, parliamentary posts details are included in the tibble.
+# Defaults to `TRUE`.
+# @param parties Party affiliations of a Member. If `TRUE`, party
+# details are included in the tibble. Defaults to `TRUE`.
+# @param preferred_names Full set of data about a Members' name (e.g.
+# surname, forename, Honorary prefixes, full details of HoL title and
+# rank etc...). If `TRUE`, preferred names details are included in the
+# tibble. Defaults to `TRUE`.
+# @param staff The staff employed by a Member. If `TRUE`, staff details
+# are included in the tibble. Defaults to `TRUE`.
+# @param statuses Status history (e.g. suspensions and disqualifications)
+# for a Member. If `TRUE`, status details are included in the tibble.
+# Defaults to `TRUE`.
+# @inheritParams mnis_additional
+# @return A list with named elements for all the requested data on a given MP.
+# @export
+# @rdname mnis_extra
+# @seealso [mnis_full_biog()]
+# @seealso [mnis_basic_details()]
+# @seealso [mnis_additional()]
+# @examples
+# \dontrun{
+# x <- mnis_extra(172)
+# }
+#
 mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
                        biography_entries = TRUE, committees = TRUE,
                        constituencies = TRUE, elections_contested = TRUE,
@@ -89,6 +89,9 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
                        parties = TRUE, preferred_names = TRUE,
                        staff = TRUE, statuses = TRUE,
                        tidy = TRUE, tidy_style = "snake_case") {
+
+  .Defunct("mnis_additional", msg = "mnis_extra is defunct")
+
   ID <- as.character(ID)
 
   if (is.null(ID) == TRUE) {
@@ -98,12 +101,16 @@ mnis_extra <- function(ID, ref_dods = FALSE, addresses = TRUE,
   mnis_df <- tibble::tibble(member_id = ID)
 
   if (addresses == TRUE) {
-    addresses_df <- mnis_addresses(ID = ID, ref_dods = ref_dods, tidy = TRUE, tidy_style = "snake_case")
-    suppressMessages(suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, addresses_df))))
+    addresses_df <- mnis_addresses(ID = ID, ref_dods = ref_dods,
+                                   tidy = TRUE, tidy_style = "snake_case")
+    suppressMessages(
+      suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, addresses_df))
+      )
   }
 
   if (biography_entries == TRUE) {
-    biography_entries_df <- mnis_biography_entries(ID = ID, ref_dods = ref_dods, tidy = TRUE, tidy_style = "snake_case")
+    biography_entries_df <- mnis_biography_entries(ID = ID, ref_dods = ref_dods,
+                                                   tidy = TRUE, tidy_style = "snake_case")
     suppressMessages(suppressWarnings(mnis_df <- dplyr::inner_join(mnis_df, biography_entries_df)))
   }
 

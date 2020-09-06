@@ -49,7 +49,8 @@ mnis_general_election_results <- function(location_type = "Country",
 
   baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/GeneralElectionResults/"
 
-  query <- paste0(baseurl, location_type, "/", location_name, "/", start_date, "/", end_date, "/")
+  query <- paste0(baseurl, location_type, "/", location_name, "/",
+                  start_date, "/", end_date, "/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -63,7 +64,7 @@ mnis_general_election_results <- function(location_type = "Country",
 
   x <- got$ElectionResults
 
-  x$ElectionResult <- as.tibble(x$ElectionResult)
+  x$ElectionResult <- as_tibble(x$ElectionResult)
 
   if (tidy == TRUE) {
     names(x)[names(x) == "LocationInfo"] <- "location_info"

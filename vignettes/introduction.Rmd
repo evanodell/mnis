@@ -237,8 +237,6 @@ Fixed scope example, returning the state of all parties in the House of Commons,
 library(mnis)
 x <- mnis_party_state("2017-04-04")
 x
-
-
 ```
 
 The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.

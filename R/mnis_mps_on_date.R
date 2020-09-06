@@ -50,7 +50,7 @@ mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL,
     rm(date3)
   }
 
-  query <- paste0(baseurl, date1, "and", date2, "/")
+  query <- paste0(q_url, date1, "and", date2, "/")
 
   got <- httr::GET(query, httr::accept_json())
 
