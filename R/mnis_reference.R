@@ -131,10 +131,7 @@ ref_cabinets <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @export
 #' @rdname mnis_reference
 ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- httr::GET(
-    paste0(base_url, "ReferenceData/Committees/"),
-    httr::accept_json()
-  )
+  type = "Committees"
 
   mnis_reference_utils(type, tidy, tidy_style)
 }
@@ -142,11 +139,6 @@ ref_committees <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @export
 #' @rdname mnis_reference
 ref_committee_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- httr::GET(
-    paste0(base_url, "ReferenceData//"),
-    httr::accept_json()
-  )
-
   type <- "CommitteeTypes"
 
   mnis_reference_utils(type, tidy, tidy_style)
@@ -163,8 +155,6 @@ ref_constituencies <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @export
 #' @rdname mnis_reference
 ref_constituency_areas <- function(tidy = TRUE, tidy_style = "snake_case") {
-  type <- ""
-
   type <- "ConstituencyAreas"
 
   mnis_reference_utils(type, tidy, tidy_style)
@@ -234,7 +224,8 @@ ref_experience_types <- function(tidy = TRUE, tidy_style = "snake_case") {
 
 #' @export
 #' @rdname mnis_reference
-ref_government_post_departments <- function(tidy = TRUE, tidy_style = "snake_case") {
+ref_government_post_departments <- function(tidy = TRUE,
+                                            tidy_style = "snake_case") {
   type <- "GovernmentPostDepartments"
 
   mnis_reference_utils(type, tidy, tidy_style)
@@ -362,14 +353,6 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
   type <- "Parties"
 
   mnis_reference_utils(type, tidy, tidy_style)
-
-  if (tidy == TRUE) {
-    x <- mnis::ref_tidy(x, tidy_style)
-
-    x
-  } else {
-    x
-  }
 }
 
 #' @export
