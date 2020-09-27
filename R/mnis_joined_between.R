@@ -49,8 +49,6 @@ mnis_joined_between <- function(start_date = "1900-01-01",
     stop("Please select one of 'all', 'current' or 'former' for the parameter 'eligible'")
   }
 
-  baseurl <- paste0(base_url, "/members/query/joinedbetween=")
-
   start_date <- as.Date(start_date)
 
   end_date <- as.Date(end_date)
@@ -81,7 +79,8 @@ mnis_joined_between <- function(start_date = "1900-01-01",
     eligible <- "|iseligible=FALSE"
   }
 
-  query <- paste0(baseurl, start_date, "and", end_date, house, party, eligible)
+  query <- paste0(base_url, "/members/query/joinedbetween=", start_date,
+                  "and", end_date, house, party, eligible)
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -96,9 +95,6 @@ mnis_joined_between <- function(start_date = "1900-01-01",
 
   if (tidy == TRUE) {
     x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-  } else {
-    x
   }
+    x
 }

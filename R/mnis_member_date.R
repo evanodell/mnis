@@ -33,9 +33,7 @@ mnis_member_date <- function(ID = NULL, date = Sys.Date(),
 
   date <- as.Date(date)
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/member/historical/"
-
-  query <- paste0(baseurl, ID, "/", date, "/")
+  query <- paste0(base_url, "member/historical/", ID, "/", date, "/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -57,9 +55,6 @@ mnis_member_date <- function(ID = NULL, date = Sys.Date(),
 
   if (tidy == TRUE) {
     x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-  } else {
-    x
   }
+    x
 }

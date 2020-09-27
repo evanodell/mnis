@@ -32,11 +32,6 @@
 #'
 mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                                tidy = TRUE, tidy_style = "snake_case") {
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/House=Lords|Membership=all|lordsmemberbetween="
-
-  q_url <- paste0(
-    base_url, "members/query/House=Lords|Membership=all|lordsmemberbetween="
-  )
 
   date1 <- as.Date(date1)
 
@@ -53,7 +48,8 @@ mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
     rm(date3)
   }
 
-  query <- paste0(baseurl, date1, "and", date2, "/")
+  query <- paste0(base_url, "members/query/House=Lords|Membership=all|",
+                  "lordsmemberbetween=", date1, "and", date2, "/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -71,9 +67,6 @@ mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
 
   if (tidy == TRUE) {
     lords <- mnis::mnis_tidy(lords, tidy_style)
-
-    lords
-  } else {
-    lords
   }
+    lords
 }

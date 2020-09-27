@@ -28,13 +28,13 @@
 #'
 mnis_political_interests <- function(interest, house = NULL, current = TRUE,
                                      tidy = TRUE, tidy_style = "snake_case") {
-  house_query <- dplyr::if_else(
+  house_query <- ifelse(
     is.character(house),
     paste0("House=", tolower(house), "|"),
     ""
   )
 
-  current_query <- dplyr::if_else(
+  current_query <- ifelse(
     current == FALSE,
     "membership=all|",
     ""
@@ -51,9 +51,7 @@ mnis_political_interests <- function(interest, house = NULL, current = TRUE,
 
   interest_query <- paste0(interest, collapse = "")
 
-  q_url <- paste0(base_url, "members/query/")
-
-  query <- paste0(q_url, interest_query, house_query)
+  query <- paste0(base_url, "members/query/", interest_query, house_query)
 
   got <- httr::GET(query, httr::accept_json())
 

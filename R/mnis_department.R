@@ -38,9 +38,8 @@ mnis_department <- function(department_id = 0, bench = "Government",
 
   bench <- utils::URLencode(bench)
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/Department/"
-
-  query <- paste0(baseurl, department_id, "/", bench, "/", query_former, "/")
+  query <- paste0(base_url, "Department/", department_id, "/", bench,
+                  "/", query_former, "/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -56,9 +55,6 @@ mnis_department <- function(department_id = 0, bench = "Government",
 
   if (tidy == TRUE) {
     x <- mnis::mnis_tidy(x, tidy_style)
-
-    x
-  } else {
-    x
   }
+  x
 }

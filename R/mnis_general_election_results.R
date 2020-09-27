@@ -47,10 +47,8 @@ mnis_general_election_results <- function(location_type = "Country",
 
   end_date <- as.Date(end_date)
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/GeneralElectionResults/"
-
-  query <- paste0(baseurl, location_type, "/", location_name, "/",
-                  start_date, "/", end_date, "/")
+  query <- paste0(base_url, "GeneralElectionResults/", location_type, "/",
+                  location_name, "/", start_date, "/", end_date, "/")
 
   got <- httr::GET(query, httr::accept_json())
 

@@ -38,9 +38,7 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
       ID_Type <- "id="
     }
 
-    baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/"
-
-    query <- paste0(baseurl, ID_Type, ID, "/FullBiog")
+    query <- paste0(base_url, "members/query/", ID_Type, ID, "/FullBiog")
 
     mem <- mnis_additional_utility(query)
   }

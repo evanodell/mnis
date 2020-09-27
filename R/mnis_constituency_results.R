@@ -27,9 +27,8 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0,
 
   election_id <- as.character(election_id)
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/ConstituencyResults/"
-
-  query <- paste0(baseurl, constituency_id, "/", election_id, "/")
+  query <- paste0(base_url, "ConstituencyResults/", constituency_id,
+                  "/", election_id, "/")
 
   got <- httr::GET(query, httr::accept_json())
 

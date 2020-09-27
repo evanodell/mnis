@@ -36,10 +36,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
   }
 
-  baseurl <- "http://data.parliament.uk/membersdataplatform/services/mnis/members/query/iseligible="
-
-  house <- as.character(house)
-  house <- tolower(house)
+  house <- tolower(as.character(house))
 
   if (house == "lords") {
     house <- "|house=lords"
@@ -50,11 +47,10 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
   }
 
   if (is.null(party) == FALSE) {
-    party <- utils::URLencode(party)
-    party <- paste0("|party=", party)
+    party <- paste0("|party=", utils::URLencode(party))
   }
 
-  query <- paste0(baseurl, eligible, house, party)
+  query <- paste0(base_url, "members/query/iseligible=", eligible, house, party)
 
   got <- httr::GET(query, httr::accept_json(), encoding = "UTF-8")
 
@@ -76,9 +72,6 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
 
       x$member_from <- gsub("Ynys MA\U00B4n", "Ynys M\U00F4n", x$member_from)
     }
-
-    x
-  } else {
-    x
   }
+    x
 }
