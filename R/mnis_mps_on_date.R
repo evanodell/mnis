@@ -16,7 +16,7 @@
 #' with `as.Date()`. If not `NULL`, the function returns a list of
 #' all MPs who were members between `date1` and `date2`.
 #' Defaults to `NULL`.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #'
 #' @return A tibble with information on all MPs who were members of the
 #' House of Commons on the date specificed (if only `date1` is included
@@ -42,15 +42,13 @@ mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL,
 
   if (is.null(date2) == TRUE) {
     date2 <- date1
-  } else if (date1 > date2) {
-    date3 <- date1
-    date1 <- date2
-    date2 <- date3
-    rm(date3)
   }
 
+  date_vec <- c(date1, date2)
+
   query <- paste0(base_url, "members/query/House=Commons|Membership=all|",
-                  "commonsmemberbetween=", date1, "and", date2, "/")
+                  "commonsmemberbetween=", min(date_vec), "and",
+                  max(date_vec), "/")
 
   got <- httr::GET(query, httr::accept_json())
 

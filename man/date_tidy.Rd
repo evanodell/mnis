@@ -2,7 +2,8 @@
 % Please edit documentation in R/mnis_tidy.R
 \name{date_tidy}
 \alias{date_tidy}
-\title{A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.}
+\title{A function that makes date variables returned from the API datable,
+ie by converting them to POSIXct. Does the same thing for datetimes.}
 \usage{
 date_tidy(df)
 }
@@ -10,5 +11,6 @@ date_tidy(df)
 \item{df}{The tibble with the undateable dates.}
 }
 \description{
-A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.
+A function that makes date variables returned from the API datable,
+ie by converting them to POSIXct. Does the same thing for datetimes.
 }

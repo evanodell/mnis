@@ -2,9 +2,7 @@
 % Please edit documentation in R/mnis_department.R
 \name{mnis_department}
 \alias{mnis_department}
-\title{Request the holders of posts in specific departments by department ID
-(see \code{\link[=mnis_reference]{mnis_reference()}}), or all current and former
-minister/shadow minister positions.}
+\title{mnis_department}
 \usage{
 mnis_department(
   department_id = 0,
@@ -18,8 +16,7 @@ mnis_department(
 \item{department_id}{The department to look up. \code{0} returns the
 cabinet/shadow cabinet, \code{-1} returns a list of all ministers.
 For departmental IDs, see the \code{ref_departments} function in
-\code{\link[=mnis_reference]{mnis_reference()}}.
-Defaults to \code{0}.}
+\code{\link[=mnis_reference]{mnis_reference()}}. Defaults to \code{0}.}
 
 \item{bench}{Flag to return either Government or Opposition information.
 This parameter is case insensitive, so both \code{'Opposition'} and
@@ -35,8 +32,8 @@ remove non-alphanumeric characters and superfluous text, and convert to
 a consistent style. Defaults to \code{TRUE}.}
 
 \item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
-"period.case". Defaults to "snake_case".}
+\code{tidy=TRUE}. Accepts one of \code{"snake_case"}, \code{"camelCase"} and
+\code{"period.case"}. Defaults to \code{"snake_case"}.}
 }
 \value{
 A tibble with information on departments and

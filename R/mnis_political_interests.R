@@ -12,7 +12,7 @@
 #' returns members from both houses. Defaults to `NULL`.
 #' @param current Logical. If `TRUE`, returns all current and
 #' former members of both houses. Defaults to `TRUE`.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #'
 #' @return A data frame of members with given interest(s).
 #' @export
@@ -28,28 +28,29 @@
 #'
 mnis_political_interests <- function(interest, house = NULL, current = TRUE,
                                      tidy = TRUE, tidy_style = "snake_case") {
-  house_query <- ifelse(
-    is.character(house),
-    paste0("House=", tolower(house), "|"),
-    ""
-  )
 
-  current_query <- ifelse(
-    current == FALSE,
-    "membership=all|",
-    ""
-  )
+  if ( is.character(house)) {
+    house_query <- paste0("House=", tolower(house), "|")
+  } else {
+    house_query <-   ""
+  }
+
+  if (!current) {
+    current_query <-  "membership=all|"
+  } else {
+    current_query <-   ""
+  }
 
   interest <- as.character(interest)
 
-  if (length(interest) > 0) { # deals with multiple interests
+  # if (length(interest) > 0) { # deals with multiple interests
+  #
+  #   for (i in 1:length(interest)) {
+  #     interest[i] <- paste0("biographyinterest=", interest[i], "|")
+  #   }
+  # }
 
-    for (i in 1:length(interest)) {
-      interest[i] <- paste0("biographyinterest=", interest[i], "|")
-    }
-  }
-
-  interest_query <- paste0(interest, collapse = "")
+  interest_query <- paste0(interest, collapse = "|")
 
   query <- paste0(base_url, "members/query/", interest_query, house_query)
 

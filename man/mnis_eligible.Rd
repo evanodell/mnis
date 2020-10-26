@@ -2,10 +2,7 @@
 % Please edit documentation in R/mnis_eligible.R
 \name{mnis_eligible}
 \alias{mnis_eligible}
-\title{Returns all members who are able to sit in either house, or who are currently
-ineligible to sit. Members ineligible to sit include but are not necessarily
-limited to former MPs, members of the judiciary, who are recused from
-House of Lords duties.}
+\title{mnis_eligible}
 \usage{
 mnis_eligible(
   eligible = TRUE,
@@ -38,18 +35,18 @@ Accepts one of "snake_case", "camelCase" and "period.case".
 Defaults to "snake_case"}
 }
 \description{
-Returns all members who are able to sit in either house, or who are currently
-ineligible to sit. Members ineligible to sit include but are not necessarily
-limited to former MPs, members of the judiciary, who are recused from
-House of Lords duties.
+Returns all members who are able to sit in either house, or who are
+currently ineligible to sit. Members ineligible to sit include but are
+not necessarily limited to former MPs, members of the judiciary, who are
+recused from House of Lords duties.
 }
 \examples{
 \dontrun{
 x <- mnis_eligible(eligible = FALSE, house = "all", party = "labour")
 
-x <- mnis_eligible(eligible = TRUE, house = "all", party = "green party")
+y <- mnis_eligible(eligible = TRUE, house = "all", party = "green party")
 
-x <- mnis_eligible(house = "commons")
+z <- mnis_eligible(house = "commons")
 }
 
 }

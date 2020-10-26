@@ -17,7 +17,7 @@
 #' date with `as.Date()`. If not `NULL`, the function returns a
 #' list of all peers in the House of Lords between `date1` and
 #' `date2`. Defaults to `NULL`.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #' @return A tibble with information on all peers who were members of the
 #' House of Lords on the date specified, (if only `date1` is included
 #' as a parameter), or on or between the two dates if both `date1`

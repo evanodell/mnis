@@ -6,7 +6,11 @@
 Instead of returning some weirdly formatted tibbles, many functions now 
 return lists.
 
-mnis_extra is now defunct due to change towards using lists
+`mnis_extra` is now defunct due to change towards using lists
+
+`mnis_additional` and `mnis_reference` functions are now deprecated.
+The function has no use, merely printing a list of functions in a 
+particular category.
 
 
 # mnis 0.2.8

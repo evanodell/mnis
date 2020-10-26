@@ -9,7 +9,7 @@
 #' `POSIXlt` or anything else than can be coerced to a date with
 #' `as.Date()`. The API will return data on the composition of the
 #' House of Lords on that date. Defaults to the current system date.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #' @return A tibble with information on the numbers of different types
 #' of Lords on a given date.
 #' @export
@@ -21,9 +21,8 @@
 #'
 mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE,
                             tidy_style = "snake_case") {
-  date <- as.Date(date)
 
-  query <- paste0(base_url, "LordsByType/", date, "/")
+  query <- paste0(base_url, "LordsByType/", as.Date(date), "/")
 
   got <- httr::GET(query, httr::accept_json())
 

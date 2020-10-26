@@ -1,8 +1,11 @@
 
-#' Returns all members who are able to sit in either house, or who are currently
-#'  ineligible to sit. Members ineligible to sit include but are not necessarily
-#'   limited to former MPs, members of the judiciary, who are recused from
-#'   House of Lords duties.
+#' mnis_eligible
+#'
+#' Returns all members who are able to sit in either house, or who are
+#' currently ineligible to sit. Members ineligible to sit include but are
+#' not necessarily limited to former MPs, members of the judiciary, who are
+#' recused from House of Lords duties.
+#'
 #' @param eligible If the member is currently eligible to sit. Accepts
 #' `TRUE` or `FALSE`. Defaults to `TRUE`.
 #' @param house The house to which the member belongs. Accepts one of 'all',
@@ -25,32 +28,33 @@
 #' \dontrun{
 #' x <- mnis_eligible(eligible = FALSE, house = "all", party = "labour")
 #'
-#' x <- mnis_eligible(eligible = TRUE, house = "all", party = "green party")
+#' y <- mnis_eligible(eligible = TRUE, house = "all", party = "green party")
 #'
-#' x <- mnis_eligible(house = "commons")
+#' z <- mnis_eligible(house = "commons")
 #' }
 #'
 mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
                           tidy = TRUE, tidy_style = "snake_case") {
+  house <- tolower(as.character(house))
+
   if (is.na(pmatch(house, c("all", "lords", "commons")))) {
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
   }
 
-  house <- tolower(as.character(house))
-
   if (house == "lords") {
-    house <- "|house=lords"
+    house_query <- "|house=lords"
   } else if (house == "commons") {
-    house <- "|house=commons"
+    house_query <- "|house=commons"
   } else if (house == "all") {
-    house <- "|house=all"
+    house_query <- "|house=all"
   }
 
   if (is.null(party) == FALSE) {
     party <- paste0("|party=", utils::URLencode(party))
   }
 
-  query <- paste0(base_url, "members/query/iseligible=", eligible, house, party)
+  query <- paste0(base_url, "members/query/iseligible=", eligible,
+                  house_query, party)
 
   got <- httr::GET(query, httr::accept_json(), encoding = "UTF-8")
 

@@ -29,8 +29,8 @@ remove non-alphanumeric characters and superfluous text, and convert to
 a consistent style. Defaults to \code{TRUE}.}
 
 \item{tidy_style}{The style to convert variable names to, if
-\code{tidy=TRUE}. Accepts one of "snake_case", "camelCase" and
-"period.case". Defaults to "snake_case".}
+\code{tidy=TRUE}. Accepts one of \code{"snake_case"}, \code{"camelCase"} and
+\code{"period.case"}. Defaults to \code{"snake_case"}.}
 }
 \value{
 Returns a tibble with the given member's status on the given date.
@@ -40,7 +40,6 @@ Returns a tibble with a member's status on a given date.
 }
 \examples{
 \dontrun{
-
 x <- mnis_member_date(172)
 }
 

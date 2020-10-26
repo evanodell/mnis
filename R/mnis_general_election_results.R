@@ -6,7 +6,6 @@
 #' and the start and end date to return general elections between. The API does
 #' not contain data for Norther Ireland.
 #'
-#'
 #' @param location_type The type of area to return information for. Accepts
 #' `'Country'`, `'Region'`, `'County'`, and
 #' `'Constituency'`. Defaults to `'Country'`.
@@ -20,7 +19,7 @@
 #' `'YYYY-MM-DD'` format, and objects of class `Date`,
 #' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can
 #' be coerced to a date with `as.Date()`. Defaults to current system date.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #' @return Returns a list with details of the search parameter and
 #' a tibble with election results.
 #' @export
@@ -39,16 +38,9 @@ mnis_general_election_results <- function(location_type = "Country",
                                           end_date = Sys.Date(),
                                           tidy = TRUE,
                                           tidy_style = "snake_case") {
-  q_url <- paste0(base_url, "GeneralElectionResults/")
-
-  location_name <- utils::URLencode(location_name)
-
-  start_date <- as.Date(start_date)
-
-  end_date <- as.Date(end_date)
-
   query <- paste0(base_url, "GeneralElectionResults/", location_type, "/",
-                  location_name, "/", start_date, "/", end_date, "/")
+                  utils::URLencode(location_name), "/", as.Date(start_date),
+                  "/", as.Date(end_date), "/")
 
   got <- httr::GET(query, httr::accept_json())
 
@@ -70,9 +62,6 @@ mnis_general_election_results <- function(location_type = "Country",
     names(x)[names(x) == "ElectionResult"] <- "election_result"
 
     x$election_result <- mnis::mnis_tidy(x$election_result, tidy_style)
-
-    x
-  } else {
-    x
   }
+    x
 }

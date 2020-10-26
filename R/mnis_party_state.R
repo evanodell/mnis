@@ -12,7 +12,7 @@
 #' `POSIXt`, `POSIXct`, `POSIXlt` or anything else than can
 #' be coerced to a date with `as.Date()`.
 #' Defaults to the current system date.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #' @return A tibble with information on the total numbers and gender of
 #' MPs, by party, for the given date and house.
 #' @seealso [mnis_mps_on_date()]

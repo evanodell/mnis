@@ -23,7 +23,7 @@
 #' @param eligible If the member is currently eligible to sit. Accepts
 #' one of `'all'`, `'current'`, `'former'`. This parameter
 #' is not case sensititive. Defaults to `'all'`.
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #' @return A tibble with data on all members who joined
 #' between the two given dates.
 #' @export
@@ -45,42 +45,37 @@ mnis_joined_between <- function(start_date = "1900-01-01",
     stop("Please select one of 'all', 'lords' or 'commons' for the parameter 'house'")
   }
 
+  eligible <- tolower(as.character(eligible)) ## Making sure house works
+
   if (is.na(pmatch(eligible, c("all", "current", "former")))) {
     stop("Please select one of 'all', 'current' or 'former' for the parameter 'eligible'")
   }
 
-  start_date <- as.Date(start_date)
-
-  end_date <- as.Date(end_date)
-
-  if (is.null(party) == FALSE) {
-    party <- utils::URLencode(party)
-  }
-
-  eligible <- as.character(eligible)
-
   if (house == "lords") {
-    house <- "|house=lords"
+    house_query <- "|house=lords"
   } else if (house == "commons") {
-    house <- "|house=commons"
-  } else if (house == "all") {
-    house <- "|house=all"
+    house_query <- "|house=commons"
+  } else {
+    house_query <- "|house=all"
+  }
+
+  if (eligible == "current") {
+    eligible_query <- "|iseligible=TRUE"
+  } else if (eligible == "former") {
+    eligible_query <- "|iseligible=FALSE"
+  } else {
+    eligible_query <- NULL
   }
 
   if (is.null(party) == FALSE) {
-    party <- paste0("|party*", party)
+    party_q <- paste0("|party*", utils::URLencode(party))
+  } else {
+    party_q <- NULL
   }
 
-  if (eligible == "all") {
-    eligible <- NULL
-  } else if (eligible == "current") {
-    eligible <- "|iseligible=TRUE"
-  } else if (eligible == "former") {
-    eligible <- "|iseligible=FALSE"
-  }
-
-  query <- paste0(base_url, "/members/query/joinedbetween=", start_date,
-                  "and", end_date, house, party, eligible)
+  query <- paste0(base_url, "/members/query/joinedbetween=",
+                  as.Date(start_date), "and", as.Date(end_date), house_query,
+                  party_q, eligible_query)
 
   got <- httr::GET(query, httr::accept_json())
 

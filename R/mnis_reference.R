@@ -7,7 +7,7 @@
 #' which default to `TRUE` and `'snake_case'`, respectively. To
 #' return all a list with tibbles of all reference data,
 #' see [mnis_all_reference()].
-#' @inheritParams mnis_additional
+#' @inheritParams mnis_basic_details
 #'
 #' @section `mnis_reference` functions:
 #' \describe{
@@ -77,15 +77,7 @@
 #' @export
 #' @seealso [mnis_all_reference()]
 #' @rdname mnis_reference
-
-mnis_reference <- function() {
-  message("All Available Reference Functions:")
-
-  print(c("ref_address_types()", "ref_answering_bodies()", "ref_areas()", "ref_area_types()", "ref_biography_categories()", "ref_cabinets()", "ref_committees()", "ref_committee_types()", "ref_constituencies()", "ref_constituency_areas()", "ref_constituency_types()", "ref_countries()", "ref_departments()", "ref_disqualification_types()", "ref_elections()", "ref_election_types()", "ref_end_reasons()", "ref_experience_types()", "ref_government_post_departments()", "ref_government_posts()", "ref_government_ranks()", "ref_honourary_prefixes()", "ref_honour_lists()", "ref_honours()", "ref_interest_categories()", "ref_lords_membership_types()", "ref_lords_ranks()", "ref_opposition_post_departments()", "ref_opposition_posts()", "ref_opposition_ranks()", "ref_other_parliaments()", "ref_parliamentary_posts()", "ref_parliamentary_ranks()", "ref_parliament_types()", "ref_parties()", "ref_party_sub_types()", "ref_photo_outputs()", "ref_statuses()", "ref_titles()"))
-}
-
 #' @export
-#' @rdname mnis_reference
 ref_address_types <- function(tidy = TRUE, tidy_style = "snake_case") {
   type <- "AddressTypes"
 

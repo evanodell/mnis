@@ -162,7 +162,8 @@ tidy_bom <- function(df) {
 }
 
 
-#' A function that makes date variables returned from the API datable, ie by converting them to POSIXct. Does the same thing for datetimes.
+#' A function that makes date variables returned from the API datable,
+#' ie by converting them to POSIXct. Does the same thing for datetimes.
 #'
 #' @param df The tibble with the undateable dates.
 #' @export

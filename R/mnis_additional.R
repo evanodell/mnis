@@ -18,15 +18,11 @@
 #' remove non-alphanumeric characters and superfluous text, and convert to
 #' a consistent style. Defaults to `TRUE`.
 #' @param tidy_style The style to convert variable names to, if
-#' `tidy=TRUE`. Accepts one of "snake_case", "camelCase" and
-#' "period.case". Defaults to "snake_case".
-#' @keywords mnis
+#' `tidy=TRUE`. Accepts one of `"snake_case"`, `"camelCase"` and
+#' `"period.case"`. Defaults to `"snake_case"`.
 #' @return A list with the data corresponding to the particular function
 #' called.
 #' @section `mnis_additional` functions:
-#' \describe{
-#' \item{`mnis_additional`}{Returns a character vector listing all function
-#' options for `mnis_additional`}
 #' \item{`mnis_basic_details`}{Basic biographical details
 #' on a given Member}
 #' \item{`mnis_biography_entries`}{Member biographical information (e.g.
@@ -52,8 +48,8 @@
 #' of the House of Lords}
 #' \item{`mnis_maiden_speeches`}{Maiden speech dates for a Member}
 #' \item{`mnis_opposition_posts`}{Opposition posts a Member has held}
-#' \item{`mnis_other_parliaments`}{Other Parliaments that a Member
-#' has held a membership of}
+#' \item{`mnis_other_parliaments`}{Other Parliaments that a Member has held
+#' a membership of (e.g. members of the Welsh Assembly)}
 #' \item{`mnis_parliamentary_posts`}{Parliamentary posts
 #' a Member has held}
 #' \item{`mnis_parties`}{Party affiliations of a Member}
@@ -68,13 +64,6 @@
 #' x <- mnis_basic_details(172)
 #' }
 #'
-mnis_additional <- function() {
-  x <- c("mnis_full_biog()", "mnis_basic_details()", "mnis_biography_entries()", "mnis_committees()", "mnis_addresses()", "mnis_constituencies()", "mnis_elections_contested()", "mnis_experiences()", "mnis_government_posts()", "mnis_honours()", "mnis_house_memberships()", "mnis_statuses()", "mnis_staff()", "mnis_interests()", "mnis_known_as()", "mnis_maiden_speeches()", "mnis_opposition_posts()", "mnis_other_parliaments()", "mnis_parliamentary_posts()", "mnis_parties()", "mnis_preferred_names()")
-  message("All Available Additional Information Functions:")
-
-  print(x)
-}
-
 #' @export
 #' @rdname mnis_additional
 mnis_basic_details <- function(ID = NULL, ref_dods = FALSE,

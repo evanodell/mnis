@@ -13,16 +13,16 @@
 #' @param tidy Fix the variable names in the tibble to remove non-alphanumeric
 #'  characters and superfluous text, and convert variable names to a consistent
 #'   style. Defaults to `TRUE`. Currently does not work.
-#' @param tidy_style The style to convert variable names to, if
+#' @param tidy_style The style to convert variable names to, if `tidy==TRUE`.
 #' @seealso [mnis_basic_details()]
 #' @seealso [mnis_additional()]
 #' @seealso [mnis_extra()]
 #' @export
 #' @examples
 #' \dontrun{
-#' df <- mnis_full_biog(172)
+#' df172 <- mnis_full_biog(172)
 #'
-#' df <- mnis_full_biog(500)
+#' df500 <- mnis_full_biog(500)
 #' }
 #'
 mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
@@ -33,15 +33,14 @@ mnis_full_biog <- function(ID = NULL, ref_dods = FALSE,
     ID <- as.character(ID)
 
     if (ref_dods == TRUE) {
-      ID_Type <- "refDods="
+      id_type <- "refDods="
     } else {
-      ID_Type <- "id="
+      id_type <- "id="
     }
 
-    query <- paste0(base_url, "members/query/", ID_Type, ID, "/FullBiog")
+    query <- paste0(base_url, "members/query/", id_type, ID, "/FullBiog")
 
     mem <- mnis_additional_utility(query)
   }
-
   mem
 }
