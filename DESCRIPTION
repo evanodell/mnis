@@ -2,9 +2,12 @@ Package: mnis
 Type: Package
 Title: Easy Downloading Capabilities for the Members' Name Information Service
 Version: 0.2.7.9000
-Authors@R: person("Evan Odell", email="evanodell91@gmail.com",
-  role=c("aut", "cre"),
-  comment = c(ORCID='0000-0003-1845-808X'))
+Authors@R: 
+    person(given = "Evan",
+           family = "Odell",
+           role = c("aut", "cre"),
+           email = "evanodell91@gmail.com",
+           comment = c(ORCID = "0000-0003-1845-808X")
 Description: An API package for the Members' Name Information Service operated 
     by the UK parliament. Documentation for the API itself can be found 
     here: <http://data.parliament.uk/membersdataplatform/default.aspx>.
@@ -29,5 +32,6 @@ Encoding: UTF-8
 Suggests: 
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    covr
 VignetteBuilder: knitr
