@@ -23,40 +23,39 @@
 #' @return A list with the data corresponding to the particular function
 #' called.
 #' @section `mnis_additional` functions:
-#' \item{`mnis_basic_details`}{Basic biographical details
-#' on a given Member}
-#' \item{`mnis_biography_entries`}{Member biographical information (e.g.
-#'  countries of interest, policy expertise etc...)}
-#' \item{`mnis_committees`}{Committees a Member sits or has sat on as
-#' well details on committee chairing}
-#' \item{`mnis_addresses`}{Member address information (e.g. website,
-#' twitter, constituency address etc...)}
-#' \item{`mnis_constituencies`}{Constituencies a Member has represented}
-#' \item{`mnis_elections_contested`}{Elections a Member has
-#' contested but not won}
-#' \item{`mnis_experiences`}{Non-parliamentary experience of a Member}
-#' \item{`mnis_government_posts`}{Government posts a Member has held}
-#' \item{`mnis_honours`}{Honours (e.g. MBE, OBE etc...) held by a Member}
-#' \item{`mnis_house_memberships`}{House membership list of a Member}
-#' \item{`mnis_statuses`}{Status history (e.g. suspensions and
-#' disqualifications) for a Member}
-#' \item{`mnis_staff`}{The staff employed by a Member}
-#' \item{`mnis_interests`}{Registered (financial) interests
-#' of a Member}
-#' \item{`mnis_known_as`}{Details of names a Member has chosen to
+#' * `mnis_basic_details` Basic biographical details
+#' on a given Member
+#' * `mnis_biography_entries` Member biographical information (e.g.
+#'  countries of interest, policy expertise etc...)
+#' * `mnis_committees` Committees a Member sits or has sat on as
+#' well details on committee chairing
+#' * `mnis_addresses` Member address information (e.g. website,
+#' twitter, constituency address etc...)
+#' * `mnis_constituencies` Constituencies a Member has represented
+#' * `mnis_elections_contested` Elections a Member has
+#' contested but not won
+#' * `mnis_experiences` Non-parliamentary experience of a Member
+#' * `mnis_government_posts` Government posts a Member has held
+#' * `mnis_honours` Honours (e.g. MBE, OBE etc...) held by a Member
+#' * `mnis_house_memberships` House membership list of a Member
+#' * `mnis_statuses` Status history (e.g. suspensions and
+#' disqualifications) for a Member
+#' * `mnis_staff` The staff employed by a Member
+#' * `mnis_interests` Registered (financial) interests
+#' of a Member
+#' * `mnis_known_as` Details of names a Member has chosen to
 #' be known as instead of their full title, only applicable to members
-#' of the House of Lords}
-#' \item{`mnis_maiden_speeches`}{Maiden speech dates for a Member}
-#' \item{`mnis_opposition_posts`}{Opposition posts a Member has held}
-#' \item{`mnis_other_parliaments`}{Other Parliaments that a Member has held
-#' a membership of (e.g. members of the Welsh Assembly)}
-#' \item{`mnis_parliamentary_posts`}{Parliamentary posts
-#' a Member has held}
-#' \item{`mnis_parties`}{Party affiliations of a Member}
-#' \item{`mnis_preferred_names`}{Full set of data about a
+#' of the House of Lords
+#' * `mnis_maiden_speeches` Maiden speech dates for a Member
+#' * `mnis_opposition_posts` Opposition posts a Member has held
+#' * `mnis_other_parliaments` Other Parliaments that a Member has held
+#' a membership of (e.g. members of the Welsh Assembly)
+#' * `mnis_parliamentary_posts` Parliamentary posts
+#' a Member has held
+#' * `mnis_parties` Party affiliations of a Member
+#' * `mnis_preferred_names` Full set of data about a
 #' Members' name (e.g. surname, forename, Honorary prefixes, full
-#' details of House of Lords title and rank if applicable, etc...)}
-#' }
+#' details of House of Lords title and rank if applicable, etc...)
 #' @seealso [mnis_full_biog()]
 #' @seealso [mnis_extra()]
 #' @examples
