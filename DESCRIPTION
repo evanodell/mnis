@@ -7,7 +7,7 @@ Authors@R:
            family = "Odell",
            role = c("aut", "cre"),
            email = "evanodell91@gmail.com",
-           comment = c(ORCID = "0000-0003-1845-808X")
+           comment = c(ORCID = "0000-0003-1845-808X"))
 Description: An API package for the Members' Name Information Service operated 
     by the UK parliament. Documentation for the API itself can be found 
     here: <http://data.parliament.uk/membersdataplatform/default.aspx>.
