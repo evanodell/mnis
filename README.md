@@ -13,9 +13,10 @@ tag](https://img.shields.io/github/tag/evanodell/mnis.svg)](https://github.com/e
 [![R build
 status](https://github.com/EvanOdell/mnis/workflows/R-CMD-check/badge.svg)](https://github.com/EvanOdell/mnis/actions)
 [![DOI](https://zenodo.org/badge/76553907.svg)](https://zenodo.org/badge/latestdoi/76553907)
-[![codecov](https://codecov.io/gh/EvanOdell/mnis/branch/master/graph/badge.svg)](https://codecov.io/gh/EvanOdell/mnis)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/EvanOdell/mnis?branch=master&svg=true)](https://ci.appveyor.com/project/EvanOdell/mnis)
+[![Codecov test
+coverage](https://codecov.io/gh/EvanOdell/mnis/branch/master/graph/badge.svg)](https://codecov.io/gh/EvanOdell/mnis?branch=master)
 <!-- badges: end -->
 
 `mnis` is a package for downloading data from the Members’ Names
