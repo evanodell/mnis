@@ -172,30 +172,27 @@ or a given house." />
 or a given house.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mnis_all_members</span>(
-  <span class='kw'>house</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>party</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>mnis_all_members</span><span class='op'>(</span>
+  house <span class='op'>=</span> <span class='st'>"all"</span>,
+  party <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tidy <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>house</th>
-      <td><p>The house to which the member belongs. Accepts one of 'all',
-'lords' and 'commons', defaults to 'all'. This parameter is not case
-sensitive, so using 'commons', 'Commons' or 'cOmMOnS' will result in the
-same data being returned.</p></td>
+      <td><p>The house to which the member belongs. Accepts one of
+<code>'all'</code>, <code>'lords'</code> and <code>'commons'</code>. This parameter
+is not case sensitive, so <code>'commons'</code>, <code>'Commons'</code> and
+<code>'cOmMOnS'</code> will all return the same data. Defaults to <code>'all'</code>.</p></td>
     </tr>
     <tr>
       <th>party</th>
-      <td><p>The party to which a member belongs. Defaults to NULL, in
-which case all members are returned, subject to other parameters. The party
-names are not case sensitive, but must be the complete string of the party
-name, searching and wildcard options are not accepted by the API, e.g.
-'green party'.</p></td>
+      <td><p>The party to which a member belongs. If <code>NULL</code>, all
+members are returned, subject to other parameters. Defaults to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>tidy</th>
@@ -218,10 +215,21 @@ and/or the House of Lords that meet the criteria included in the
 function parameters.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>mnis_all_members</span>(<span class='kw'>house</span> <span class='kw'>=</span> <span class='st'>'all'</span>, <span class='kw'>party</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                       <span class='kw'>tidy_style</span><span class='kw'>=</span><span class='st'>"snake_case"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>mnis_all_members</span><span class='op'>(</span>
+  house <span class='op'>=</span> <span class='st'>"all"</span>, party <span class='op'>=</span> <span class='cn'>NULL</span>, tidy <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>mnis_all_members</span><span class='op'>(</span>
+  house <span class='op'>=</span> <span class='st'>"all"</span>, party <span class='op'>=</span> <span class='cn'>NULL</span>, tidy <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -237,7 +245,7 @@ function parameters.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -113,13 +113,13 @@
 
       
 
-      </header><script src="introduction_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><script src="introduction_files/header-attrs-2.6.4/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to mnis</h1>
                         <h4 class="author">Evan Odell</h4>
             
-            <h4 class="date">2020-04-22</h4>
+            <h4 class="date">2021-02-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/EvanOdell/mnis/blob/master/../docs/vignettes/introduction.Rmd"><code>../docs/vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -146,7 +146,7 @@
 <pre><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("devtools")
 devtools::install_github("EvanOdell/mnis")</a></code></pre>
 <p>###Load <code>mnis</code></p>
-<pre><code><a href="https://rdrr.io/pkg/mnis/man">library(mnis)</a></code></pre>
+<pre><code><a href="https://docs.evanodell.com/mnis">library(mnis)</a></code></pre>
 <p>##Using <code>mnis</code></p>
 <p>All <code>mnis</code> functions contain two parameters, <code>tidy</code> and <code>tidy_style</code>:</p>
 <ul>
@@ -162,48 +162,49 @@ devtools::install_github("EvanOdell/mnis")</a></code></pre>
 <h3 class="hasAnchor">
 <a href="#reference-functions" class="anchor"></a>Reference Functions</h3>
 <p>A series of functions to return reference data. This data is useful for providing parameters for other function calls. These functions do not accept any arguments.</p>
-<p><code><a href="../reference/mnis_reference.html">ref_address_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_answering_bodies()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_areas()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_area_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_biography_categories()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_cabinets()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_committees()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_committee_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_constituencies()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_constituency_areas()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_constituency_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_countries()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_departments()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_disqualification_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_elections()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_election_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_end_reasons()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_experience_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_government_post_departments()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_government_posts()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_government_ranks()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_honourary_prefixes()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_honour_lists()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_honours()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_interest_categories()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_lords_membership_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_lords_ranks()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_opposition_post_departments()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_opposition_posts()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_opposition_ranks()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_other_parliaments()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_parliamentary_posts()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_parliamentary_ranks()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_parliament_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_parties()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_party_sub_types()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_photo_outputs()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_statuses()</a></code></p>
-<p><code><a href="../reference/mnis_reference.html">ref_titles()</a></code></p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">mnis</span>)
-<span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mnis_reference.html">ref_titles</a></span>(<span class="kw">tidy</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="no">x</span></pre></body></html></div>
+<p><code><a href="../reference/ref_address_types.html">ref_address_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_answering_bodies()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_areas()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_area_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_biography_categories()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_cabinets()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_committees()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_committee_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_constituencies()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_constituency_areas()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_constituency_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_countries()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_departments()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_disqualification_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_elections()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_election_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_end_reasons()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_experience_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_government_post_departments()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_government_posts()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_government_ranks()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_honourary_prefixes()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_honour_lists()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_honours()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_interest_categories()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_lords_membership_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_lords_ranks()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_opposition_post_departments()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_opposition_posts()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_opposition_ranks()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_other_parliaments()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_parliamentary_posts()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_parliamentary_ranks()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_parliament_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_parties()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_party_sub_types()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_photo_outputs()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_statuses()</a></code></p>
+<p><code><a href="../reference/ref_address_types.html">ref_titles()</a></code></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.evanodell.com/mnis">mnis</a></span><span class="op">)</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ref_address_types.html">ref_titles</a></span><span class="op">(</span>tidy <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="va">x</span></code></pre></div>
 <pre><code>## # A tibble: 22 x 2
 ##    Title.Title_Id Title.Name
 ##    &lt;chr&gt;          &lt;chr&gt;     
@@ -219,9 +220,10 @@ devtools::install_github("EvanOdell/mnis")</a></code></pre>
 ## 10 8              Mr        
 ## # … with 12 more rows</code></pre>
 <p>With the <code>tidy</code> parameter</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">mnis</span>)
-<span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mnis_reference.html">ref_titles</a></span>(<span class="kw">tidy</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="no">x</span></pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.evanodell.com/mnis">mnis</a></span><span class="op">)</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ref_address_types.html">ref_titles</a></span><span class="op">(</span>tidy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">x</span></code></pre></div>
 <pre><code>## # A tibble: 22 x 2
 ##    title_id name  
 ##    &lt;chr&gt;    &lt;chr&gt; 
@@ -237,33 +239,33 @@ devtools::install_github("EvanOdell/mnis")</a></code></pre>
 ## 10 8        Mr    
 ## # … with 12 more rows</code></pre>
 <p>###Additional Information Functions</p>
-<p><code><a href="../reference/mnis_additional.html">mnis_additional()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_addresses()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_basic_details()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_biography_entries()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_committees()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_constituencies()</a></code></p>
+<p><code>mnis_additional()</code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_addresses()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_basic_details()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_biography_entries()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_committees()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_constituencies()</a></code></p>
 <p><code>mnis_elections_contested</code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_experiences()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_government_posts()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_honours()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_house_memberships()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_interests()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_known_as()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_maiden_speeches()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_experiences()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_government_posts()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_honours()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_house_memberships()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_interests()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_known_as()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_maiden_speeches()</a></code></p>
 <p><code><a href="../reference/mnis_mps_on_date.html">mnis_mps_on_date()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_opposition_posts()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_other_parliaments()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_parliamentary_posts()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_parties()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_preferred_names()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_staff()</a></code></p>
-<p><code><a href="../reference/mnis_additional.html">mnis_statuses()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_opposition_posts()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_other_parliaments()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_parliamentary_posts()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_parties()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_preferred_names()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_staff()</a></code></p>
+<p><code><a href="../reference/mnis_basic_details.html">mnis_statuses()</a></code></p>
 <p><code><a href="../reference/mnis_peers_on_date.html">mnis_peers_on_date()</a></code></p>
 <div id="mnis_extra" class="section level4">
 <h4 class="hasAnchor">
 <a href="#mnis_extra" class="anchor"></a>mnis_extra()</h4>
-<p>The <code><a href="../reference/mnis_extra.html">mnis_extra()</a></code> function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to <code><a href="../reference/mnis_full_biog.html">mnis_full_biog()</a></code>.</p>
+<p>The <code>mnis_extra()</code> function acts as a wrapper to the additional information functions. By default it calls all functions, which is equivalent to <code><a href="../reference/mnis_full_biog.html">mnis_full_biog()</a></code>.</p>
 </div>
 </div>
 <div id="fixed-scope-functions" class="section level3">
@@ -281,31 +283,32 @@ devtools::install_github("EvanOdell/mnis")</a></code></pre>
 <h4 class="hasAnchor">
 <a href="#fixed-scope-example" class="anchor"></a>Fixed Scope Example</h4>
 <p>Fixed scope example, returning the state of all parties in the House of Commons, as reported on 2017-04-04.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">mnis</span>)
-<span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mnis_party_state.html">mnis_party_state</a></span>(<span class="st">"2017-04-04"</span>)
-<span class="no">x</span></pre></body></html></div>
-<pre><code>## # A tibble: 16 x 6
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.evanodell.com/mnis">mnis</a></span><span class="op">)</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mnis_party_state.html">mnis_party_state</a></span><span class="op">(</span><span class="st">"2017-04-04"</span><span class="op">)</span>
+<span class="va">x</span></code></pre></div>
+<pre><code>## # A tibble: 15 x 6
 ##    id    name               male_count female_count non_binary_count total_count
 ##    &lt;chr&gt; &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;      
-##  1 4     Conservative       180        66           0                246        
-##  2 6     Crossbench         138        45           0                183        
-##  3 15    Labour             118        58           0                176        
-##  4 17    Liberal Democrat   58         33           0                91         
-##  5 49    Non-affiliated     41         8            0                49         
+##  1 4     Conservative       195        68           0                263        
+##  2 6     Crossbench         137        47           0                184        
+##  3 15    Labour             118        62           0                180        
+##  4 17    Liberal Democrat   55         32           0                87         
+##  5 49    Non-affiliated     39         9            0                48         
 ##  6 3     Bishops            21         5            0                26         
-##  7 7     Democratic Unioni… 4          0            0                4          
+##  7 7     Democratic Unioni… 5          0            0                5          
 ##  8 44    Green Party        0          2            0                2          
-##  9 10    Independent Labour 2          0            0                2          
-## 10 38    Ulster Unionist P… 2          0            0                2          
-## 11 5     Conservative Inde… 1          0            0                1          
+##  9 38    Ulster Unionist P… 2          0            0                2          
+## 10 5     Conservative Inde… 1          0            0                1          
+## 11 10    Independent Labour 1          0            0                1          
 ## 12 53    Independent Socia… 1          0            0                1          
-## 13 52    Independent Ulste… 1          0            0                1          
-## 14 43    Labour Independent 0          1            0                1          
-## 15 283   Lord Speaker       1          0            0                1          
-## 16 22    Plaid Cymru        1          0            0                1</code></pre>
+## 13 43    Labour Independent 0          1            0                1          
+## 14 283   Lord Speaker       1          0            0                1          
+## 15 22    Plaid Cymru        1          0            0                1</code></pre>
 <p>The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"> <span class="no">y</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/mnis_party_state.html">mnis_party_state</a></span>(<span class="st">"Lords"</span>, <span class="st">"2017-04-04"</span>)
- <span class="no">y</span></pre></body></html></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"> <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mnis_party_state.html">mnis_party_state</a></span><span class="op">(</span><span class="st">"Lords"</span>, <span class="st">"2017-04-04"</span><span class="op">)</span>
+ <span class="va">y</span></code></pre></div>
 <pre><code>## # A tibble: 15 x 6
 ##    id    name               male_count female_count non_binary_count total_count
 ##    &lt;chr&gt; &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;      
@@ -341,7 +344,7 @@ devtools::install_github("EvanOdell/mnis")</a></code></pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

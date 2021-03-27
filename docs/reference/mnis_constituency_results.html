@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see <code><a href='mnis_reference.html'>ref_constituencies</a></code>. — mnis_constituency_results • mnis</title>
+<title>Constituency election results — mnis_constituency_results • mnis</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see <code><a href='mnis_reference.html'>ref_constituencies</a></code>. — mnis_constituency_results" />
-<meta property="og:description" content="Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see ref_constituencies." />
+<meta property="og:title" content="Constituency election results — mnis_constituency_results" />
+<meta property="og:description" content="Returns a list with details of the constituency and a tibble
+with election results." />
 
 
 
@@ -161,56 +162,62 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see <code><a href='mnis_reference.html'>ref_constituencies</a></code>.</h1>
+    <h1>Constituency election results</h1>
     <small class="dont-index">Source: <a href='https://github.com/EvanOdell/mnis/blob/master/R/mnis_constituency_results.R'><code>R/mnis_constituency_results.R</code></a></small>
     <div class="hidden name"><code>mnis_constituency_results.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see <code><a href='mnis_reference.html'>ref_constituencies</a></code>.</p>
+    <p>Returns a list with details of the constituency and a tibble
+with election results.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mnis_constituency_results</span>(
-  <span class='kw'>constituency_id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>election_id</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>mnis_constituency_results</span><span class='op'>(</span>
+  constituency_id <span class='op'>=</span> <span class='cn'>NULL</span>,
+  election_id <span class='op'>=</span> <span class='fl'>0</span>,
+  tidy <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>constituency_id</th>
-      <td><p>The ID of the constituency to return the data for. This parameter cannot be empty.</p></td>
+      <td><p>The ID of the constituency to return the data for.
+If <code>NULL</code>, no data is returned. Defaults to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>election_id</th>
-      <td><p>The ID of the election to return the data for. Defaults to 0, which calls the most recent result, either the result of the last general election, or the result of the last byelection held since that election.</p></td>
+      <td><p>The ID of the election to return the data for. Defaults
+to 0, which returns the result of all elections held in that constituency.</p></td>
     </tr>
     <tr>
       <th>tidy</th>
-      <td><p>If TRUE, fixes the variable names in the tibble to remove non-alphanumeric characters and superfluous text, and convert to a consistent style. Defaults to <code>TRUE</code>.</p></td>
+      <td><p>If <code>TRUE</code>, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>tidy_style</th>
-      <td><p>The style to convert variable names to, if <code>tidy=TRUE</code>. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".</p></td>
+      <td><p>The style to convert variable names to, if
+<code>tidy=TRUE</code>. Accepts one of <code>"snake_case"</code>, <code>"camelCase"</code> and
+<code>"period.case"</code>. Defaults to <code>"snake_case"</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list with details of the constituency, labelled 'details' and a tibble with election results, labelled 'results'. The list and tibble are stored in a single object.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='mnis_reference.html'>mnis_reference</a></code></p></div>
+    <p>A list with details of the constituency, labelled <code>'details'</code>
+and a tibble with election results, labelled <code>'results'</code>. The list and
+tibble are stored in a single object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>mnis_constituency_results</span><span class='op'>(</span>constituency_id <span class='op'>=</span> <span class='fl'>3709</span>, election_id <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>mnis_constituency_results</span>(<span class='kw'>constituency_id</span> <span class='kw'>=</span> <span class='fl'>3709</span>, <span class='kw'>election_id</span> <span class='kw'>=</span> <span class='fl'>0</span>)
-
-}</div></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -226,7 +233,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

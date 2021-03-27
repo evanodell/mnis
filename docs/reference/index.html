@@ -194,40 +194,37 @@
         <td>
           <p><code><a href="mnis_base.html">mnis_base()</a></code> </p>
         </td>
-        <td><p>A generic function for the MNIS API lookup. The function requests data in JSON format, but the type of object, and all URLs, paths and parameters are user-defined. <code>mnis_base</code> does not include the option to tidy variable names and data types, but the <code>mnis_tidy</code> function can be called on the data returned from the API.</p></td>
+        <td><p>A generic function for the MNIS API</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_eligible.html">mnis_eligible()</a></code> </p>
         </td>
-        <td><p>Returns all members who are able to sit in either house, or who are currently
- ineligible to sit. Members ineligible to sit include but are not necessarily
-  limited to former MPs, members of the judiciary, who are recused from
-  House of Lords duties.</p></td>
+        <td><p>mnis_eligible</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_full_biog.html">mnis_full_biog()</a></code> </p>
         </td>
-        <td><p>Requests all available biographical information for a given member, and returns it in the form of a tibble.</p></td>
+        <td><p>Full Biography</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_joined_between.html">mnis_joined_between()</a></code> </p>
         </td>
-        <td><p>Function returns all members who took their seats in the house between two given dates.</p></td>
+        <td><p>Members who joined between two dates.</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_mps_on_date.html">mnis_mps_on_date()</a></code> </p>
         </td>
-        <td><p>A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.</p></td>
+        <td><p>All MPs between two dates</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_peers_on_date.html">mnis_peers_on_date()</a></code> </p>
         </td>
-        <td><p>A tibble with information on all peers who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.</p></td>
+        <td><p>Peers on date</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -248,15 +245,6 @@
         </td>
         <td><p>Returns a list of 39 tibbles, with the name and data returned from each
 respective reference function.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mnis_reference.html">mnis_reference()</a></code> <code><a href="mnis_reference.html">ref_address_types()</a></code> <code><a href="mnis_reference.html">ref_answering_bodies()</a></code> <code><a href="mnis_reference.html">ref_areas()</a></code> <code><a href="mnis_reference.html">ref_area_types()</a></code> <code><a href="mnis_reference.html">ref_biography_categories()</a></code> <code><a href="mnis_reference.html">ref_cabinets()</a></code> <code><a href="mnis_reference.html">ref_committees()</a></code> <code><a href="mnis_reference.html">ref_committee_types()</a></code> <code><a href="mnis_reference.html">ref_constituencies()</a></code> <code><a href="mnis_reference.html">ref_constituency_areas()</a></code> <code><a href="mnis_reference.html">ref_constituency_types()</a></code> <code><a href="mnis_reference.html">ref_countries()</a></code> <code><a href="mnis_reference.html">ref_departments()</a></code> <code><a href="mnis_reference.html">ref_disqualification_types()</a></code> <code><a href="mnis_reference.html">ref_elections()</a></code> <code><a href="mnis_reference.html">ref_election_types()</a></code> <code><a href="mnis_reference.html">ref_end_reasons()</a></code> <code><a href="mnis_reference.html">ref_experience_types()</a></code> <code><a href="mnis_reference.html">ref_government_post_departments()</a></code> <code><a href="mnis_reference.html">ref_government_posts()</a></code> <code><a href="mnis_reference.html">ref_government_ranks()</a></code> <code><a href="mnis_reference.html">ref_honourary_prefixes()</a></code> <code><a href="mnis_reference.html">ref_honour_lists()</a></code> <code><a href="mnis_reference.html">ref_honours()</a></code> <code><a href="mnis_reference.html">ref_interest_categories()</a></code> <code><a href="mnis_reference.html">ref_lords_membership_types()</a></code> <code><a href="mnis_reference.html">ref_lords_ranks()</a></code> <code><a href="mnis_reference.html">ref_opposition_post_departments()</a></code> <code><a href="mnis_reference.html">ref_opposition_posts()</a></code> <code><a href="mnis_reference.html">ref_opposition_ranks()</a></code> <code><a href="mnis_reference.html">ref_other_parliaments()</a></code> <code><a href="mnis_reference.html">ref_parliamentary_posts()</a></code> <code><a href="mnis_reference.html">ref_parliamentary_ranks()</a></code> <code><a href="mnis_reference.html">ref_parliament_types()</a></code> <code><a href="mnis_reference.html">ref_parties()</a></code> <code><a href="mnis_reference.html">ref_party_sub_types()</a></code> <code><a href="mnis_reference.html">ref_photo_outputs()</a></code> <code><a href="mnis_reference.html">ref_statuses()</a></code> <code><a href="mnis_reference.html">ref_titles()</a></code> </p>
-        </td>
-        <td><p>A series of 39 functions that return tibbles of reference data. This data is
-useful for providing parameters for other function calls. The functions do
-not accept any arguments aside from the 'tidy' argument, which Defaults to
-<code>TRUE</code>.</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -270,21 +258,7 @@ not accept any arguments aside from the 'tidy' argument, which Defaults to
     </tbody><tbody>
       
       
-      <tr>
-        
-        <td>
-          <p><code><a href="mnis_additional.html">mnis_additional()</a></code> <code><a href="mnis_additional.html">mnis_basic_details()</a></code> <code><a href="mnis_additional.html">mnis_biography_entries()</a></code> <code><a href="mnis_additional.html">mnis_committees()</a></code> <code><a href="mnis_additional.html">mnis_addresses()</a></code> <code><a href="mnis_additional.html">mnis_constituencies()</a></code> <code><a href="mnis_additional.html">mnis_elections_contested()</a></code> <code><a href="mnis_additional.html">mnis_experiences()</a></code> <code><a href="mnis_additional.html">mnis_government_posts()</a></code> <code><a href="mnis_additional.html">mnis_honours()</a></code> <code><a href="mnis_additional.html">mnis_house_memberships()</a></code> <code><a href="mnis_additional.html">mnis_statuses()</a></code> <code><a href="mnis_additional.html">mnis_staff()</a></code> <code><a href="mnis_additional.html">mnis_interests()</a></code> <code><a href="mnis_additional.html">mnis_known_as()</a></code> <code><a href="mnis_additional.html">mnis_maiden_speeches()</a></code> <code><a href="mnis_additional.html">mnis_opposition_posts()</a></code> <code><a href="mnis_additional.html">mnis_other_parliaments()</a></code> <code><a href="mnis_additional.html">mnis_parliamentary_posts()</a></code> <code><a href="mnis_additional.html">mnis_parties()</a></code> <code><a href="mnis_additional.html">mnis_preferred_names()</a></code> </p>
-        </td>
-        <td><p>A series of basic function for the API lookup. Each function accepts a
-member's ID and returns information; if no ID is given basic information
-on all members of both houses is returned.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="mnis_extra.html">mnis_extra()</a></code> </p>
-        </td>
-        <td><p>A wrapper for <code>mnis_additional</code> functions.</p></td>
-      </tr>
+      
     </tbody><tbody>
       <tr>
         <th colspan="2">
@@ -302,34 +276,31 @@ on all members of both houses is returned.</p></td>
         <td>
           <p><code><a href="mnis_party_state.html">mnis_party_state()</a></code> </p>
         </td>
-        <td><p>A tibble with information on the numbers and gender of MPs, by party, for the given date.</p></td>
+        <td><p>Party standing on a given date</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_constituency_results.html">mnis_constituency_results()</a></code> </p>
         </td>
-        <td><p>Returns a single object containing a list with details of the constituency and a tibble with election results. For constituency IDs, see <code>ref_constituencies</code>.</p></td>
+        <td><p>Constituency election results</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_department.html">mnis_department()</a></code> </p>
         </td>
-        <td><p>Request data on the holders of cabinet/shadow cabinet positions. Request specific departments by department ID (see <code>mnis_reference</code> for the <code>ref_department</code> function to retrieve departmental IDs).</p></td>
+        <td><p>mnis_department</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_general_election_results.html">mnis_general_election_results()</a></code> </p>
         </td>
-        <td><p>Returns an object containing list with details of the search parameter and
-a tibble with election results. Accepts queries on location type and name,
-and the start and end date to return general elections between. The API does
-not contain data for Norther Ireland.</p></td>
+        <td><p>Election results</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="mnis_lords_type.html">mnis_lords_type()</a></code> </p>
         </td>
-        <td><p>Calls the API to return a tibble with details on the number of Lords and their affiliations.</p></td>
+        <td><p>Peers' party affiliations</p></td>
       </tr><tr>
         
         <td>
@@ -355,7 +326,7 @@ not contain data for Norther Ireland.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

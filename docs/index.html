@@ -117,28 +117,20 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<hr>
-<div id="output-github_document" class="section level2">
-<h2 class="hasAnchor">
-<a href="#output-github_document" class="anchor"></a>output: github_document</h2>
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- rmarkdown v1 -->
-<!--to accomodate pandoc bug on windows-->
-</div>
 <div id="mnis" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#mnis" class="anchor"></a>mnis</h1></div>
+<!-- badges: start -->
 
 <p><code>mnis</code> is a package for downloading data from the Members’ Names Information Service API. For information on the API is available here: <a href="http://data.parliament.uk/membersdataplatform/default.aspx" class="uri">http://data.parliament.uk/membersdataplatform/default.aspx</a>.</p>
 <p>The package is available on CRAN. To install from CRAN run:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"mnis"</span>)</pre></div>
-<p>Or, if using the <a href="https://CRAN.R-project.org/package=pacman"><code>pacman</code></a> package:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">pacman</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/pacman/man/p_load.html">p_load</a></span>(<span class="no">mnis</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"mnis"</span><span class="op">)</span></code></pre></div>
 <p>The most recent version on GitHub can be installed by running:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"EvanOdell/mnis"</span>)</pre></div>
-<p>The most up to date documentation for the development version will always be available at <a href="https://docs.evanodell.com/mnis/" class="uri">https://docs.evanodell.com/mnis/</a></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"EvanOdell/mnis"</span><span class="op">)</span></code></pre></div>
+<p>The most up to date documentation for the development version will always be available at <a href="https://docs.evanodell.com/mnis/" class="uri">https://docs.evanodell.com/mnis/</a>.</p>
 <p>For an introduction to <code>mnis</code>, the vignette <code><a href="articles/introduction.html">vignette("introduction", package = "mnis")</a></code> is the best place to start. If you are unfamiliar with APIs <a href="https://zapier.com/learn/apis/" class="uri">https://zapier.com/learn/apis/</a> is a helpful introduction.</p>
 <div id="future-functions" class="section level2">
 <h2 class="hasAnchor">
@@ -146,7 +138,6 @@
 <p>As the Members’ Names Information Service has dozens of different search parameters and hundreds of possible combinations of searches, it is not reasonable to build functions for every possible query to the API. However, I will be rolling out functions for potentially common queries as and when I can. If you have any particular queries you would like functions for please let me know and I’ll create it.</p>
 </div>
 </div>
-
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -164,9 +155,8 @@
 <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
-</li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 <div class="citation">
@@ -179,7 +169,7 @@
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://evanodell.com">Evan Odell</a> <br><small class="roles"> Author, maintainer </small>  </li>
+<a href="https://evanodell.com">Evan Odell</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1845-808X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -190,7 +180,7 @@
 <li><a href="https://cran.r-project.org/package=mnis"><img src="https://www.r-pkg.org/badges/version/mnis" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://github.com/evanodell/mnis"><img src="https://img.shields.io/github/tag/evanodell/mnis.svg" alt="GitHub tag"></a></li>
 <li><a href="https://dgrtwo.shinyapps.io/cranview/"><img src="https://cranlogs.r-pkg.org/badges/grand-total/mnis"></a></li>
-<li><a href="https://travis-ci.org/EvanOdell/mnis"><img src="https://travis-ci.org/EvanOdell/mnis.png?branch=master" alt="Build Status"></a></li>
+<li><a href="https://github.com/EvanOdell/mnis/actions"><img src="https://github.com/EvanOdell/mnis/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://zenodo.org/badge/latestdoi/76553907"><img src="https://zenodo.org/badge/76553907.svg" alt="DOI"></a></li>
 <li><a href="https://codecov.io/gh/EvanOdell/mnis"><img src="https://codecov.io/gh/EvanOdell/mnis/branch/master/graph/badge.svg" alt="codecov"></a></li>
 <li><a href="https://ci.appveyor.com/project/EvanOdell/mnis"><img src="https://ci.appveyor.com/api/projects/status/github/EvanOdell/mnis?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
@@ -205,7 +195,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

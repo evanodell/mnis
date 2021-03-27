@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified. — mnis_mps_on_date • mnis</title>
+<title>All MPs between two dates — mnis_mps_on_date • mnis</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,12 @@
 
 
 
-<meta property="og:title" content="A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified. — mnis_mps_on_date" />
-<meta property="og:description" content="A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified." />
+<meta property="og:title" content="All MPs between two dates — mnis_mps_on_date" />
+<meta property="og:description" content="Requests data on all MPs who were members of the House of Commons on the
+date specified, (if only date1 is included as a parameter), or
+on or between the two dates if both date1 and date2 are
+specified. Either date1 or date2 can be the latter of
+the two dates." />
 
 
 
@@ -161,53 +165,76 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.</h1>
+    <h1>All MPs between two dates</h1>
     <small class="dont-index">Source: <a href='https://github.com/EvanOdell/mnis/blob/master/R/mnis_mps_on_date.R'><code>R/mnis_mps_on_date.R</code></a></small>
     <div class="hidden name"><code>mnis_mps_on_date.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.</p>
+    <p>Requests data on all MPs who were members of the House of Commons on the
+date specified, (if only <code>date1</code> is included as a parameter), or
+on or between the two dates if both <code>date1</code> and <code>date2</code> are
+specified. Either <code>date1</code> or <code>date2</code> can be the latter of
+the two dates.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mnis_mps_on_date</span>(
-  <span class='kw'>date1</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>(),
-  <span class='kw'>date2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>mnis_mps_on_date</span><span class='op'>(</span>
+  date1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span>,
+  date2 <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tidy <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>date1</th>
-      <td><p>The date to return the list of mps from. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>. Defaults to current system date.</p></td>
+      <td><p>The date to return the list of mps from. Accepts character
+values in <code>'YYYY-MM-DD'</code> format, and objects of class <code>Date</code>,
+<code>POSIXt</code>, <code>POSIXct</code>, <code>POSIXlt</code> or anything else than can
+be coerced to a date with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>. Defaults to current system date.</p></td>
     </tr>
     <tr>
       <th>date2</th>
-      <td><p>An optional query parameter. Accepts character values in "YYYY-MM-DD" format, and objects of class Date, POSIXt, POSIXct, POSIXlt or anything else than can be coerced to a date with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>. If not NULL, the function returns a list of all MPs who were members between date2 and date1. Defaults to NULL.</p></td>
+      <td><p>An optional query parameter. Accepts character values in
+<code>'YYYY-MM-DD'</code> format, and objects of class <code>Date</code>, <code>POSIXt</code>,
+<code>POSIXct</code>, <code>POSIXlt</code> or anything else than can be coerced to a date
+with <code><a href='https://rdrr.io/r/base/as.Date.html'>as.Date()</a></code>. If not <code>NULL</code>, the function returns a list of
+all MPs who were members between <code>date1</code> and <code>date2</code>.
+Defaults to <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>tidy</th>
-      <td><p>Fix the variable names in the tibble to remove extra characters, superfluous text and convert variable names to a consistent style. Defaults to <code>TRUE</code>.</p></td>
+      <td><p>If <code>TRUE</code>, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>tidy_style</th>
-      <td><p>The style to convert variable names to, if <code>tidy=TRUE</code>. Accepts one of "snake_case", "camelCase" and "period.case". Defaults to "snake_case".</p></td>
+      <td><p>The style to convert variable names to, if
+<code>tidy=TRUE</code>. Accepts one of <code>"snake_case"</code>, <code>"camelCase"</code> and
+<code>"period.case"</code>. Defaults to <code>"snake_case"</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble with information on all MPs who were members of the House of Commons on the date specificed (if only date1 is included as a parameter), or on or between the two dates if both date1 and date2 are specified.</p>
+    <p>A tibble with information on all MPs who were members of the
+House of Commons on the date specificed (if only <code>date1</code> is included
+as a parameter), or on or between the two dates if both <code>date1</code> and
+<code>date2</code> are specified.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='mnis_party_state.html'>mnis_party_state()</a></code></p>
+<p><code><a href='mnis_peers_on_date.html'>mnis_peers_on_date()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>mnis_mps_on_date</span><span class='op'>(</span>date1 <span class='op'>=</span> <span class='st'>"2017-01-01"</span>, date2 <span class='op'>=</span> <span class='st'>"2014-02-04"</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>mnis_mps_on_date</span>()
-
-}</div></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -223,7 +250,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

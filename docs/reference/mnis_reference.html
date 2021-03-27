@@ -6,10 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A series of 39 functions that return tibbles of reference data. This data is
-useful for providing parameters for other function calls. The functions do
-not accept any arguments aside from the 'tidy' argument, which Defaults to
-<code>TRUE</code>. — mnis_reference • mnis</title>
+<title>Reference data — ref_address_types • mnis</title>
 
 
 <!-- jquery -->
@@ -42,14 +39,13 @@ not accept any arguments aside from the 'tidy' argument, which Defaults to
 
 
 
-<meta property="og:title" content="A series of 39 functions that return tibbles of reference data. This data is
-useful for providing parameters for other function calls. The functions do
-not accept any arguments aside from the 'tidy' argument, which Defaults to
-<code>TRUE</code>. — mnis_reference" />
-<meta property="og:description" content="A series of 39 functions that return tibbles of reference data. This data is
-useful for providing parameters for other function calls. The functions do
-not accept any arguments aside from the 'tidy' argument, which Defaults to
-TRUE." />
+<meta property="og:title" content="Reference data — ref_address_types" />
+<meta property="og:description" content="Reference data on various aspects of parliament. This data is useful for
+providing parameters for other function calls. The functions do not accept
+any arguments aside from the tidy and tidy_style parameters,
+which default to TRUE and 'snake_case', respectively. To
+return all a list with tibbles of all reference data,
+see mnis_all_reference()." />
 
 
 
@@ -170,246 +166,187 @@ TRUE." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A series of 39 functions that return tibbles of reference data. This data is
-useful for providing parameters for other function calls. The functions do
-not accept any arguments aside from the 'tidy' argument, which Defaults to
-<code>TRUE</code>.</h1>
+    <h1>Reference data</h1>
     <small class="dont-index">Source: <a href='https://github.com/EvanOdell/mnis/blob/master/R/mnis_reference.R'><code>R/mnis_reference.R</code></a></small>
     <div class="hidden name"><code>mnis_reference.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A series of 39 functions that return tibbles of reference data. This data is
-useful for providing parameters for other function calls. The functions do
-not accept any arguments aside from the 'tidy' argument, which Defaults to
-<code>TRUE</code>.</p>
+    <p>Reference data on various aspects of parliament. This data is useful for
+providing parameters for other function calls. The functions do not accept
+any arguments aside from the <code>tidy</code> and <code>tidy_style</code> parameters,
+which default to <code>TRUE</code> and <code>'snake_case'</code>, respectively. To
+return all a list with tibbles of all reference data,
+see <code><a href='mnis_all_reference.html'>mnis_all_reference()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mnis_reference</span>()
+    <pre class="usage"><span class='fu'>ref_address_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_address_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_answering_bodies</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_answering_bodies</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_areas</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_areas</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_area_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_area_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_biography_categories</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_biography_categories</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_cabinets</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_cabinets</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_committees</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_committees</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_committee_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_committee_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_constituencies</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_constituencies</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_constituency_areas</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_constituency_areas</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_constituency_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_constituency_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_countries</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_countries</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_departments</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_departments</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_disqualification_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_disqualification_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_elections</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_elections</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_election_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_election_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_end_reasons</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_end_reasons</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_experience_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_experience_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_government_post_departments</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_government_post_departments</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_government_posts</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_government_posts</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_government_ranks</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_government_ranks</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_honourary_prefixes</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_honourary_prefixes</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_honour_lists</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_honour_lists</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_honours</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_honours</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_interest_categories</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_interest_categories</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_lords_membership_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_lords_membership_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_lords_ranks</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_lords_ranks</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_opposition_post_departments</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_opposition_post_departments</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_opposition_posts</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_opposition_posts</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_opposition_ranks</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_opposition_ranks</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_other_parliaments</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_other_parliaments</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_parliamentary_posts</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_parliamentary_posts</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_parliamentary_ranks</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_parliamentary_ranks</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_parliament_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_parliament_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_parties</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_parties</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_party_sub_types</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_party_sub_types</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_photo_outputs</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_photo_outputs</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
+<span class='fu'>ref_statuses</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span>
 
-<span class='fu'>ref_statuses</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)
-
-<span class='fu'>ref_titles</span>(<span class='kw'>tidy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>tidy_style</span> <span class='kw'>=</span> <span class='st'>"snake_case"</span>)</pre>
+<span class='fu'>ref_titles</span><span class='op'>(</span>tidy <span class='op'>=</span> <span class='cn'>TRUE</span>, tidy_style <span class='op'>=</span> <span class='st'>"snake_case"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>tidy</th>
-      <td><p>Fix the variable names in the tibble to remove special
-characters and superfluous text, and converts the variable names to a
-consistent style. Defaults to <code>TRUE</code>.</p></td>
+      <td><p>If <code>TRUE</code>, fixes the variable names in the tibble to
+remove non-alphanumeric characters and superfluous text, and convert to
+a consistent style. Defaults to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>tidy_style</th>
       <td><p>The style to convert variable names to, if
-<code>tidy=TRUE</code>.
-Accepts one of "snake_case", "camelCase" and "period.case".
-Defaults to "snake_case"</p></td>
+<code>tidy=TRUE</code>. Accepts one of <code>"snake_case"</code>, <code>"camelCase"</code> and
+<code>"period.case"</code>. Defaults to <code>"snake_case"</code>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="mnis-reference-functions"><a class="anchor" href="#mnis-reference-functions"></a><code>mnis_reference</code> functions</h2>
+
+    
+
+<ul>
+<li><p><code>ref_address_types</code> The types of addresses available in
+member's contact details. Includes websites and social media, as well
+as physical addresses</p></li>
+<li><p><code>ref_answering_bodies</code> The bodies that members' can address
+questions to</p></li>
+<li><p><code>ref_areas</code> Geographic areas</p></li>
+<li><p><code>ref_area_types</code> Identifiers for grouping areas
+(e.g. borough constituencies)</p></li>
+<li><p><code>ref_biography_categories</code> Member biography categories</p></li>
+<li><p><code>ref_cabinets</code> Connections that a member has to the cabinet or
+shadow cabinet</p></li>
+<li><p><code>ref_committees</code> Identifier for parliamentary committees</p></li>
+<li><p><code>ref_committee_types</code> Types of parliamentary committees</p></li>
+<li><p><code>ref_constituencies()</code> All constituencies</p></li>
+<li><p><code>ref_constituency_areas()</code> The links between constituencies and
+constituency areas</p></li>
+<li><p><code>ref_constituency_types()</code> Constituency categories</p></li>
+<li><p><code>ref_countries()</code> List of countries that could be listed as
+members' birthplace</p></li>
+<li><p><code>ref_departments()</code> Government and opposition departments</p></li>
+<li><p><code>ref_disqualification_types()</code> Types of ways members can be
+disqualified from sitting in the House</p></li>
+<li><p><code>ref_elections()</code> Codes of general and by-elections</p></li>
+<li><p><code>ref_election_types()</code> Election categories</p></li>
+<li><p><code>ref_end_reasons()</code> Reasons a member may leave the House of
+Lords or the House of Commons</p></li>
+<li><p><code>ref_experience_types()</code> Types of non-parliamentary experience
+members can list</p></li>
+<li><p><code>ref_government_post_departments()</code> All deparments that can
+contain government posts</p></li>
+<li><p><code>ref_government_posts()</code> All government posts</p></li>
+<li><p><code>ref_government_ranks()</code> All government post ranks</p></li>
+<li><p><code>ref_honourary_prefixes()</code> The types of honourary prefixes
+for members</p></li>
+<li><p><code>ref_honour_lists()</code> The types of honour lists that a member
+may be honoured in</p></li>
+<li><p><code>ref_honours()</code> The different honours available to members</p></li>
+<li><p><code>ref_interest_categories()</code> The categories available for
+reporting financial interests</p></li>
+<li><p><code>ref_lords_membership_types()</code> Different types of membership
+of the House of Lords</p></li>
+<li><p><code>ref_lords_ranks()</code> Ranks that peers may hold</p></li>
+<li><p><code>ref_opposition_post_departments()</code> The link between opposition
+posts and the government department they shadow</p></li>
+<li><p><code>ref_opposition_posts()</code> Opposition posts</p></li>
+<li><p><code>ref_opposition_ranks()</code> How opposition posts are ranked</p></li>
+<li><p><code>ref_other_parliaments()</code> Other parliaments that a member
+may have sat in</p></li>
+<li><p><code>ref_parliamentary_posts()</code> The different parliamentary posts
+available</p></li>
+<li><p><code>ref_parliamentary_ranks()</code> How those parliamentary posts are
+ranked</p></li>
+<li><p><code>ref_parliament_types()</code> Types of parliaments that
+parliamentary data may link to</p></li>
+<li><p><code>ref_parties()</code> All parties that members can be affiliated with</p></li>
+<li><p><code>ref_party_sub_types()</code> Sub-types of parties</p></li>
+<li><p><code>ref_photo_outputs()</code> Outputs that a photo of a member
+may be linked to</p></li>
+<li><p><code>ref_statuses()</code> A member's possible current status in the
+House</p></li>
+<li><p><code>ref_titles()</code> Salutory titles</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='mnis_all_reference.html'>mnis_all_reference</a></code></p></div>
+    <div class='dont-index'><p><code><a href='mnis_all_reference.html'>mnis_all_reference()</a></code></p></div>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>ref_address_types</span>()
-<span class='co'># The types of addresses available in member's contact details.</span>
-<span class='co'># Includes websites and social media, as well as physical addresses.</span>
-
-<span class='fu'>ref_answering_bodies</span>()
-<span class='co'># The bodies that members' can address questions to.</span>
-
-<span class='fu'>ref_areas</span>()
-<span class='co'># Geographic areas.</span>
-
-<span class='fu'>ref_area_types</span>()
-<span class='co'># Identifiers for grouping areas (e.g. borough constituencies).</span>
-
-<span class='fu'>ref_biography_categories</span>()
-<span class='co'># Member biography categories.</span>
-
-<span class='fu'>ref_cabinets</span>()
-<span class='co'># Connections that a member has to the cabinet or shadow cabinet.</span>
-
-<span class='fu'>ref_committees</span>()
-<span class='co'># Identifier for parliamentary committees.</span>
-
-<span class='fu'>ref_committee_types</span>()
-<span class='co'># Types of parliamentary committees.</span>
-
-<span class='fu'>ref_constituencies</span>()
-<span class='co'># All constituencies.</span>
-
-<span class='fu'>ref_constituency_areas</span>()
-<span class='co'># The links between constituencies and constituency areas.</span>
-
-<span class='fu'>ref_constituency_types</span>()
-<span class='co'># Constituency categories.</span>
-
-<span class='fu'>ref_countries</span>()
-<span class='co'># List of countries that could be listed as members' birthplace.</span>
-
-<span class='fu'>ref_departments</span>()
-<span class='co'># Government and opposition departments.</span>
-
-<span class='fu'>ref_disqualification_types</span>()
-<span class='co'># Types of ways members can be disqualified from sitting in the House.</span>
-
-<span class='fu'>ref_elections</span>()
-<span class='co'># Codes of general and by-elections.</span>
-
-<span class='fu'>ref_election_types</span>()
-<span class='co'># Election categories.</span>
-
-<span class='fu'>ref_end_reasons</span>()
-<span class='co'># Reasons a member may leave the House of Lords or the House of Commons.</span>
-
-<span class='fu'>ref_experience_types</span>()
-<span class='co'># Types of non-parliamentary experience members can list.</span>
-
-<span class='fu'>ref_government_post_departments</span>()
-<span class='co'># All deparments that can contain government posts.</span>
-
-<span class='fu'>ref_government_posts</span>()
-<span class='co'># All government posts.</span>
-
-<span class='fu'>ref_government_ranks</span>()
-<span class='co'># All government post ranks.</span>
-
-<span class='fu'>ref_honourary_prefixes</span>()
-<span class='co'># The types of honourary prefixes for members.</span>
-
-<span class='fu'>ref_honour_lists</span>()
-<span class='co'># The types of honour lists that a member may be honoured in.</span>
-
-<span class='fu'>ref_honours</span>()
-<span class='co'># The different honours available to members.</span>
-
-<span class='fu'>ref_interest_categories</span>()
-<span class='co'># The categories available for reporting financial interests.</span>
-
-<span class='fu'>ref_lords_membership_types</span>()
-<span class='co'># Different types of membership of the House of Lords.</span>
-
-<span class='fu'>ref_lords_ranks</span>()
-<span class='co'># Ranks that peers may hold.</span>
-
-<span class='fu'>ref_opposition_post_departments</span>()
-<span class='co'># The link between opposition posts and the government department they shadow.</span>
-
-<span class='fu'>ref_opposition_posts</span>()
-<span class='co'># Opposition posts.</span>
-
-<span class='fu'>ref_opposition_ranks</span>()
-<span class='co'># How opposition posts are ranked.</span>
-
-<span class='fu'>ref_other_parliaments</span>()
-<span class='co'># Other parliaments that a member may have sat in.</span>
-
-<span class='fu'>ref_parliamentary_posts</span>()
-<span class='co'># The different parliamentary posts available.</span>
-
-<span class='fu'>ref_parliamentary_ranks</span>()
-<span class='co'># How those parliamentary posts are ranked.</span>
-
-<span class='fu'>ref_parliament_types</span>()
-<span class='co'># Types of parliaments that parliamentary data may link to.</span>
-
-<span class='fu'>ref_parties</span>()
-<span class='co'># All parties that members can be affiliated with.</span>
-
-<span class='fu'>ref_party_sub_types</span>()
-<span class='co'># Sub-types of parties.</span>
-
-<span class='fu'>ref_photo_outputs</span>()
-<span class='co'># Outputs that a photo of a member may be linked to.</span>
-
-<span class='fu'>ref_statuses</span>()
-<span class='co'># A member's possible current status in the House.</span>
-
-<span class='fu'>ref_titles</span>()
-<span class='co'># Salutory titles.</span>
-
-<span class='fu'>mnis_reference</span>()
-<span class='co'># Returns a list of all possible reference functions.</span>
-}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -425,7 +362,7 @@ Defaults to "snake_case"</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
