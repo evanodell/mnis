@@ -26,15 +26,7 @@ mnis_base <- function(request) {
 
   query <- paste0(baseurl, request)
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- do.call(rbind, got$Members$Member)
 }

@@ -27,15 +27,7 @@ mnis_constituency_results <- function(constituency_id = NULL, election_id = 0,
                   as.character(constituency_id), "/",
                   as.character(election_id), "/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   details <- got$Constituency$Details
 

@@ -21,44 +21,13 @@
 #' which allow a maximum of three parameters.
 #'
 #'
-#' @section mnis functions:
-#'
-#' [mnis_additional()]
-#'
-#' [mnis_all_members()]
-#'
-#' [mnis_base()]
-#'
-#' [mnis_constituency_results()]
-#'
-#' [mnis_department()]
-#'
-#' [mnis_eligible()]
-#'
-#' [mnis_extra()]
-#'
-#' [mnis_full_biog()]
-#'
-#' [mnis_general_election_results()]
-#'
-#' [mnis_joined_between()]
-#'
-#' [mnis_lords_type()]
-#'
-#' [mnis_member_date()]
-#'
-#' [mnis_party_state()]
-#'
-#' [mnis_reference()]
-#'
 #' @docType package
 #' @name mnis
-#' @import utils
-#' @import httr
-#' @import jsonlite
-#' @import dplyr
-#' @import tibble
-#' @import stringi
+#' @importFrom httr GET http_type accept_json
+#' @importFrom jsonlite fromJSON
+#' @importFrom dplyr inner_join
+#' @importFrom tibble as_tibble tibble
+#' @importFrom stringi stri_trans_general
 #' @importFrom janitor make_clean_names
 #' @importFrom purrr discard
 #' @useDynLib mnis, .registration = TRUE

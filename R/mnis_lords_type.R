@@ -13,7 +13,6 @@
 #' @return A tibble with information on the numbers of different types
 #' of Lords on a given date.
 #' @export
-#' @seealso [mnis_reference()]
 #' @examples
 #' \dontrun{
 #' x <- mnis_lords_type()
@@ -24,15 +23,7 @@ mnis_lords_type <- function(date = Sys.Date(), tidy = TRUE,
 
   query <- paste0(base_url, "LordsByType/", as.Date(date), "/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- tibble::as_tibble(as.data.frame(got$LordsByType))
 

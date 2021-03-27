@@ -348,18 +348,8 @@ ref_parties <- function(tidy = TRUE, tidy_style = "snake_case") {
 #' @export
 #' @rdname mnis_reference
 ref_party_sub_types <- function(tidy = TRUE, tidy_style = "snake_case") {
-  got <- httr::GET(
-    paste0(base_url, "ReferenceData/PartySubTypes/"),
-    httr::accept_json()
-  )
 
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query = paste0(base_url, "ReferenceData/PartySubTypes/"))
 
   x <- as.list(got$PartySubTypes$PartySubType)
 

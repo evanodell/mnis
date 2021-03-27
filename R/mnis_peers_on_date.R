@@ -51,15 +51,7 @@ mnis_peers_on_date <- function(date1 = Sys.Date(), date2 = NULL,
   query <- paste0(base_url, "members/query/House=Lords|Membership=all|",
                   "lordsmemberbetween=", date1, "and", date2, "/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   lords <- got$Members$Member
 

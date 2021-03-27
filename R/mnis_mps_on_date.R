@@ -50,15 +50,7 @@ mnis_mps_on_date <- function(date1 = Sys.Date(), date2 = NULL,
                   "commonsmemberbetween=", min(date_vec), "and",
                   max(date_vec), "/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   mps <- got$Members$Member
 

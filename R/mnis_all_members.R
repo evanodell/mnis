@@ -76,15 +76,7 @@ mnis_all_members <- function(house = "all", party = NULL,
 
   query <- paste0(baseurl, house, party, "/HouseMemberships/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- got$Members$Member
 

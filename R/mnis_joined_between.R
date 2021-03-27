@@ -14,15 +14,15 @@
 #' coerced to a date with `as.Date()`. Defaults to the current system date.
 #' @param house The house to which the member belongs. Accepts one of
 #' `'all'`, `'lords'` and `'commons'`. This parameter is
-#' not case sensititive. Defaults to `'all'`.
+#' not case sensitive. Defaults to `'all'`.
 #' @param party All members from a given party who joined between the two
 #' dates. The party name must be fully spelled out (e.g. `'green party'`),
 #' the API does not accept searches on this parameter. For a tibble of
-#' parties, see `ref_parties` in [mnis_reference()].
-#' This parameter is not case sensititive. Defaults to `NULL`.
+#' parties, see [ref_parties()].
+#' This parameter is not case sensitive. Defaults to `NULL`.
 #' @param eligible If the member is currently eligible to sit. Accepts
 #' one of `'all'`, `'current'`, `'former'`. This parameter
-#' is not case sensititive. Defaults to `'all'`.
+#' is not case sensitive. Defaults to `'all'`.
 #' @inheritParams mnis_basic_details
 #' @return A tibble with data on all members who joined
 #' between the two given dates.
@@ -77,14 +77,7 @@ mnis_joined_between <- function(start_date = "1900-01-01",
                   as.Date(start_date), "and", as.Date(end_date), house_query,
                   party_q, eligible_query)
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- tibble::as_tibble(got$Members$Member)
 

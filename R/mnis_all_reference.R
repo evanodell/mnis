@@ -11,7 +11,6 @@
 #' Defaults to "snake_case".
 #' @export
 #'
-#' @seealso [mnis_reference()]
 #' @rdname mnis_all_reference
 #' @examples
 #' \dontrun{

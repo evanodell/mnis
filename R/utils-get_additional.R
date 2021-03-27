@@ -3,15 +3,7 @@
 # maintenance easier used in: - mnis_additional - mnis_full_biog
 
 get_additional <- function(query, tidy, tidy_style) {
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   df <- got$Members$Member
 

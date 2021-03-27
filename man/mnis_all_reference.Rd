@@ -30,6 +30,3 @@ z <- mnis_all_reference()
 }
 
 }
-\seealso{
-\code{\link[=mnis_reference]{mnis_reference()}}
-}

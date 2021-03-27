@@ -23,7 +23,6 @@
 #' @return Returns a list with details of the search parameter and
 #' a tibble with election results.
 #' @export
-#' @seealso [mnis_reference()]
 #' @examples
 #' \dontrun{
 #' x <- mnis_general_election_results(
@@ -42,15 +41,7 @@ mnis_general_election_results <- function(location_type = "Country",
                   utils::URLencode(location_name), "/", as.Date(start_date),
                   "/", as.Date(end_date), "/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- got$ElectionResults
 

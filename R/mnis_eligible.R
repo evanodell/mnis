@@ -56,15 +56,7 @@ mnis_eligible <- function(eligible = TRUE, house = "all", party = NULL,
   query <- paste0(base_url, "members/query/iseligible=", eligible,
                   house_query, party)
 
-  got <- httr::GET(query, httr::accept_json(), encoding = "UTF-8")
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- tibble::as_tibble(got$Members$Member)
 

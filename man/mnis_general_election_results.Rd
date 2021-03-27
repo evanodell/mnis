@@ -58,6 +58,3 @@ x <- mnis_general_election_results(
 }
 
 }
-\seealso{
-\code{\link[=mnis_reference]{mnis_reference()}}
-}

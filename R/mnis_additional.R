@@ -57,7 +57,6 @@
 #' Members' name (e.g. surname, forename, Honorary prefixes, full
 #' details of House of Lords title and rank if applicable, etc...)
 #' @seealso [mnis_full_biog()]
-#' @seealso [mnis_extra()]
 #' @examples
 #' \dontrun{
 #' x <- mnis_basic_details(172)

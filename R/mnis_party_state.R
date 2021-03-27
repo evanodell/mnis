@@ -27,15 +27,7 @@ mnis_party_state <- function(house = "Commons", date = Sys.Date(),
                              tidy = TRUE, tidy_style = "snake_case") {
   query <- paste0(base_url, "houseOverview/", house, "/", date, "/")
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- mnis::tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   x <- tibble::as_tibble(got$HouseOverview$Party)
 

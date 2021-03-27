@@ -234,6 +234,4 @@ x <- mnis_basic_details(172)
 }
 \seealso{
 \code{\link[=mnis_full_biog]{mnis_full_biog()}}
-
-\code{\link[=mnis_extra]{mnis_extra()}}
 }

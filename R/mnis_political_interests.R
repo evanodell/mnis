@@ -54,21 +54,13 @@ mnis_political_interests <- function(interest, house = NULL, current = TRUE,
 
   query <- paste0(base_url, "members/query/", interest_query, house_query)
 
-  got <- httr::GET(query, httr::accept_json())
-
-  if (httr::http_type(got) != "application/json") {
-    stop("API did not return json", call. = FALSE)
-  }
-
-  got <- tidy_bom(got)
-
-  got <- jsonlite::fromJSON(got, flatten = TRUE)
+  got <- mnis_query(query)
 
   if (length(got$Members$Member$`@Member_Id`) <= 1) { ## fails
 
-    df <- tibble::as.tibble(t(unlist(got$Members$Member)))
+    df <- tibble::as_tibble(t(unlist(got$Members$Member)))
   } else {
-    df <- tibble::as.tibble(got$Members$Member)
+    df <- tibble::as_tibble(got$Members$Member)
   }
 
   df <- mnis_tidy(df, tidy_style)
