@@ -41,8 +41,4 @@ df500 <- mnis_full_biog(500)
 }
 \seealso{
 \code{\link[=mnis_basic_details]{mnis_basic_details()}}
-
-\code{\link[=mnis_additional]{mnis_additional()}}
-
-\code{\link[=mnis_extra]{mnis_extra()}}
 }

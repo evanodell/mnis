@@ -15,8 +15,6 @@
 #'   style. Defaults to `TRUE`. Currently does not work.
 #' @param tidy_style The style to convert variable names to, if `tidy==TRUE`.
 #' @seealso [mnis_basic_details()]
-#' @seealso [mnis_additional()]
-#' @seealso [mnis_extra()]
 #' @export
 #' @examples
 #' \dontrun{
