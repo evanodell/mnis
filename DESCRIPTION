@@ -1,7 +1,7 @@
 Package: mnis
 Type: Package
 Title: Easy Downloading Capabilities for the Members' Name Information Service
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     person(given = "Evan",
            family = "Odell",
@@ -14,7 +14,6 @@ Description: An API package for the Members' Name Information Service operated
 URL: https://docs.evanodell.com/mnis
 BugReports: https://github.com/EvanOdell/mnis/issues
 License: MIT + file LICENSE
-LazyData: TRUE
 LinkingTo: Rcpp
 Imports:
     httr,

@@ -13,6 +13,8 @@ knitr::opts_chunk$set(
 ```
 
 # Resubmission 
+Fixes LazyData problem in previous submission, mnis 0.3.0 on 2021-04-02.
+
 This resubmission deprecates several functions, and some functions now 
 return lists instead of tibbles, to be a closer representation of how the data
 is available through the API.

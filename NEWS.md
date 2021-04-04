@@ -1,4 +1,10 @@
 
+
+# mnis 0.3.1
+
+Fixed issue with lazy data for CRAN.
+
+
 # mnis 0.3.0
 
 ## Breaking changes
