@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mnis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.7.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -93,13 +93,13 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/EvanOdell/mnis">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="http://evanodell.com">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -113,13 +113,13 @@
 
       
 
-      </header><script src="introduction_files/header-attrs-2.6.4/header-attrs.js"></script><div class="row">
+      </header><script src="introduction_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to mnis</h1>
                         <h4 class="author">Evan Odell</h4>
             
-            <h4 class="date">2021-02-01</h4>
+            <h4 class="date">2021-04-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/EvanOdell/mnis/blob/master/../docs/vignettes/introduction.Rmd"><code>../docs/vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -287,24 +287,23 @@ devtools::install_github("EvanOdell/mnis")</a></code></pre>
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.evanodell.com/mnis">mnis</a></span><span class="op">)</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mnis_party_state.html">mnis_party_state</a></span><span class="op">(</span><span class="st">"2017-04-04"</span><span class="op">)</span>
 <span class="va">x</span></code></pre></div>
-<pre><code>## # A tibble: 15 x 6
+<pre><code>## # A tibble: 14 x 6
 ##    id    name               male_count female_count non_binary_count total_count
 ##    &lt;chr&gt; &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;      
 ##  1 4     Conservative       195        68           0                263        
-##  2 6     Crossbench         137        47           0                184        
-##  3 15    Labour             118        62           0                180        
-##  4 17    Liberal Democrat   55         32           0                87         
-##  5 49    Non-affiliated     39         9            0                48         
+##  2 6     Crossbench         136        46           0                182        
+##  3 15    Labour             116        62           0                178        
+##  4 17    Liberal Democrat   54         32           0                86         
+##  5 49    Non-affiliated     39         8            0                47         
 ##  6 3     Bishops            21         5            0                26         
 ##  7 7     Democratic Unioni… 5          0            0                5          
 ##  8 44    Green Party        0          2            0                2          
 ##  9 38    Ulster Unionist P… 2          0            0                2          
 ## 10 5     Conservative Inde… 1          0            0                1          
-## 11 10    Independent Labour 1          0            0                1          
-## 12 53    Independent Socia… 1          0            0                1          
-## 13 43    Labour Independent 0          1            0                1          
-## 14 283   Lord Speaker       1          0            0                1          
-## 15 22    Plaid Cymru        1          0            0                1</code></pre>
+## 11 53    Independent Socia… 1          0            0                1          
+## 12 43    Labour Independent 0          1            0                1          
+## 13 283   Lord Speaker       1          0            0                1          
+## 14 22    Plaid Cymru        1          0            0                1</code></pre>
 <p>The same fixed scope function, returning the state of all parties in the House of Lords, as reported on 2017-04-04.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"> <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mnis_party_state.html">mnis_party_state</a></span><span class="op">(</span><span class="st">"Lords"</span>, <span class="st">"2017-04-04"</span><span class="op">)</span>
